@@ -4,4 +4,8 @@
 	--color-primary: #e31414;
 	--color-secondary: #0087d2;
 	--color-accent: #0fb215;
+
+	--breakpoint-2xs: 20rem;
+	--breakpoint-xs: 30rem;
+	--breakpoint-sm: 36rem;
 }
