@@ -70,6 +70,17 @@ const storyModules = import.meta.glob('./stories/*.json', { import: 'default' })
 	() => Promise<unknown>
 >;
 
+/**
+ * The stories of the content set, in level order. Every section is played on
+ * the same four stories, so the first section that mentions one fixes its
+ * position.
+ */
+export const storyKeys: string[] = [
+	...new Set(
+		categories.flatMap((category) => category.sections.flatMap((section) => section.stories))
+	)
+];
+
 const loaded = new Map<string, Story>();
 
 /** Fetches one story, or returns it straight away once it has been fetched. */
@@ -84,6 +95,12 @@ export async function loadStory(key: string): Promise<Story> {
 	loaded.set(key, story);
 	return story;
 }
+
+/**
+ * Fetches every story. The picture games draw their distractors from the other
+ * stories, so generating their items needs the whole set; nothing else does.
+ */
+export const loadStories = (): Promise<Story[]> => Promise.all(storyKeys.map(loadStory));
 
 /** A story that has already been fetched, for use where awaiting is not an option. */
 export const getLoadedStory = (key: string): Story | undefined => loaded.get(key);

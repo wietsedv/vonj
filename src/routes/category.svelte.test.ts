@@ -23,7 +23,7 @@ const pages = {
 const open = async (id: Category) => (await render((await pages[id]()).default)).container;
 
 const text = (element: Element) => element.textContent!.replace(/\s+/g, ' ').trim();
-const cards = (container: HTMLElement) => [...container.querySelectorAll('.grid > div')];
+const cards = (container: HTMLElement) => [...container.querySelectorAll('.grid > a')];
 const scoreSlot = (element: Element) => element.querySelector('div.flex.justify-center')!;
 
 const CATEGORIES: Category[] = ['luisteren', 'lezen', 'schrijven', 'spreken'];
@@ -67,6 +67,18 @@ describe.each(CATEGORIES)('the %s overview', (id) => {
 		for (const card of cards(container)) {
 			expect(text(card)).toMatch(/^Level [1-4]$/);
 		}
+	});
+
+	it('has a labelled back button in the top left, leading to the global overview', async () => {
+		const container = await open(id);
+		const back = container.querySelector('.bg-primary a')!;
+
+		expect(back.getAttribute('aria-label')).toBe('Terug naar het overzicht');
+		expect(back.getAttribute('href')).toBe('/');
+		// Round, and clear of the title rather than on top of it.
+		const box = back.getBoundingClientRect();
+		expect(box.width).toBe(box.height);
+		expect(box.left).toBeLessThan(container.querySelector('h1')!.getBoundingClientRect().left);
 	});
 
 	it('never names the story behind a level', async () => {

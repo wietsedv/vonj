@@ -46,44 +46,50 @@ decisions taken here are written up in [`docs/rewrite.md`](docs/rewrite.md).
 
 ## Phase 1 - Level infrastructure
 
-Shared by all six games, so worth getting right once.
+**Done.** Every level has a URL and opens on the real shell, and the item loop
+underneath it is complete. What is missing is the games: a level says
+"Onderdeel '<name>' is nog niet geïmplementeerd" where the interaction belongs,
+which is Phase 2. The routing and the two deliberate deviations from the original
+are written up in [`docs/rewrite.md`](docs/rewrite.md).
 
-The level cards on the category overview are plain cards for now; they become
-links once there is a level route to point them at.
+A game plugs in by handing `LevelRun` a `generate()` for its items and rendering
+its interaction inside `LevelShell`; nothing else about the loop is its business.
 
-- [ ] **Level routing.** A route that identifies category, section and level, and
-      resolves to the right game. The section ids are Dutch and match the storage
-      keys, so `/luisteren/woorden/1` is the level `luisteren.woorden.bragel`.
-      Levels are labelled "Level 1" to "Level 4" and must not leak the story
-      name.
-- [ ] **Item generation utilities.** Seeded-free is fine here since items are
-      stored once: shuffle, picture distractors from other stories, sound
-      distractors from the inventory, word extraction with de-duplication by
-      spelling, and the word-length filters the Spreken sections use.
-- [ ] **Level shell.** Header with section name, icon and full description; a
-      slot for the top area; the numbered progress dots with their
-      current/correct/wrong states; the per-item feedback card. See
-      [`docs/original-app/level-shell.md`](docs/original-app/level-shell.md).
-- [ ] **Item loop.** Response recording, completion check, and the adaptive
-      difficulty carry-over (up on first-try correct, down otherwise, applied to
-      the next item only).
-- [ ] **Scoring.** The `6 - (mistakes / (items * tolerance)) * 6` formula with
-      per-game tolerances. The 0-6 to half-star mapping is already in
-      `Score.svelte`. See
-      [`docs/original-app/scoring.md`](docs/original-app/scoring.md).
-- [ ] **Level result screen.** Stars, the animated story illustration, "Terug
+- [x] **Level routing.** `src/routes/[category=category]/[section]/[level]/`, so
+      `/luisteren/woorden/1` is the level `luisteren.woorden.bragel`. A route
+      matcher keeps the category segment to the four real ones, and the load
+      function 404s an unknown section or level number. The level cards on the
+      category overview are links now, labelled "Level 1" to "Level 4" and still
+      never naming the story.
+- [x] **Item generation utilities.** `src/lib/game/generate.ts`: shuffle and
+      pick, fragment and story distractors drawn from all four stories, sound
+      distractors from the inventory minus the ones it never offers, and word
+      selection with de-duplication by spelling and the length filters. Not
+      seeded, because the items are stored once. `src/lib/game/rules.ts` holds
+      the per-section numbers those need: tolerance, difficulty range and start,
+      seconds per hint step, and which words a level draws.
+- [x] **Level shell.** `LevelShell.svelte`: header with the section name, its
+      icon, both description lines and a back button, a snippet for the top area,
+      and the numbered progress dots. `FeedbackCard.svelte` is the white card
+      both the per-item feedback and the result are built from.
+- [x] **Item loop.** `LevelRun` in `src/lib/game/level.svelte.ts`: response
+      recording, the completion check, and the difficulty carry-over, up on a
+      first-try answer and down otherwise, applied to the next item only.
+- [x] **Scoring.** `src/lib/game/score.ts`, with the tolerances in the rules
+      table. The 0-6 to half-star mapping was already in `Score.svelte`.
+- [x] **Level result screen.** Stars, the animated story illustration, "Terug
       naar het overzicht", and "Dit level nog een keer spelen" for a level that
-      was already finished when opened.
-- [ ] **Resume.** On opening a level, jump to the first item not yet answered
-      correctly; open a finished level straight onto its result.
+      was already finished when it was opened.
+- [x] **Resume.** Opening a level jumps to the first item not yet answered
+      correctly, and a finished level opens straight onto its result.
 
 ## Phase 2 - The games
 
 Ordered so each game reuses what the previous one built, rather than
 category by category. Lezen comes first because it needs no audio.
 
-- [ ] **Picture-grid component.** Two-column card grid, 4 to 6 options, red
-      "Helaas!" overlay locking a wrong card.
+- [ ] **Picture-grid component.** Two-column card grid, 4 to 6 options from
+      `fragmentDistractors`, red "Helaas!" overlay locking a wrong card.
 - [ ] **Lezen > Verhaaltjes.** The simplest game: sentence card plus picture
       grid. Proves out the item loop, difficulty and feedback end to end.
 - [ ] **Reorder-list component.** Drag rows into order, submit the whole order,
@@ -127,7 +133,8 @@ category by category. Lezen comes first because it needs no audio.
 - [ ] **Demo mode.** Writes nothing to `localStorage` and resets a category when
       it is opened. Needs a trigger first (see Open questions).
 - [ ] **Staggered entry and exit animations** on the overview screens and the
-      progress dots.
+      progress dots. The dots are static for now; the original faded them in
+      300 ms after the level opened and out again on the way back.
 - [ ] **Responsive check.** The level card grids already have `2xs`/`xs`/`sm`
       breakpoints; verify the sound columns and letter boxes on a narrow phone,
       since long words produce many columns and the original scrolled them

@@ -58,6 +58,44 @@ Demo mode was triggered by typing the name `demo`, so it loses its trigger along
 with the name field. It needs a new one, or it goes; nothing is implemented for
 it yet.
 
+## Routes
+
+The original app had no URLs: it was a navigation stack of screens. The web app
+needs addresses, and they are the ids the app already uses everywhere else.
+
+| URL                    | Screen                                   |
+| ---------------------- | ---------------------------------------- |
+| `/`                    | The global overview                      |
+| `/luisteren`           | A category overview                      |
+| `/luisteren/woorden/1` | A level: category, section, level number |
+
+The last segment is the **level number**, not the story, for the same reason the
+level card says "Level 1": a level never names the story it is played on. The
+number is the position in the section, so `/luisteren/woorden/1` is the level
+stored under `luisteren.woorden.bragel`.
+
+Anything that is not a real category, a section of that category, or a level
+number the section has, is a 404. The category segment is checked by a route
+matcher, so an unknown top-level path can never be mistaken for a level.
+
+## The level shell
+
+Two deliberate differences from
+[`original-app/level-shell.md`](original-app/level-shell.md), both about a native
+detail that does not survive the move to the web:
+
+- **The current progress dot has a white ring.** In the original the dots sat in
+  a coloured footer bar and the current dot was filled with that same colour, so
+  what marked it was its white number rather than a circle. There is no footer
+  bar here, so the ring stands in for it and the four states stay tellable
+  apart.
+- **Reopening a level whose last item was answered lands on that item**, not on
+  the first one. The original scanned for the first item not yet answered
+  correctly and fell back to item 1 when there was none, which put someone who
+  answered the last item and left before "Doorgaan" back at the beginning of the
+  level. Resuming on the last item means the next "Doorgaan" finishes the level,
+  which is what they were about to do.
+
 ## State lives in localStorage
 
 All persistent state is stored in `localStorage`. No cookies, no server session,

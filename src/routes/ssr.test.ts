@@ -5,7 +5,7 @@
  * markup must *not* claim: no scores, no "x van de y levels gespeeld". The
  * browser fills that in after mount, and it must not have to correct anything.
  */
-import { categories, categoryLevels, getCategory } from '$lib/content';
+import { categories, categoryLevels, getCategory, sectionLevels } from '$lib/content';
 import type { Category } from '$lib/types';
 import { render } from 'svelte/server';
 import { describe, expect, it } from 'vitest';
@@ -39,6 +39,10 @@ describe('the global overview', () => {
 			expect(body).toContain(category.name);
 			expect(body).toContain(`href="/${category.id}"`);
 		}
+	});
+
+	it('has no back button, being the top of the stack', async () => {
+		expect(await home()).not.toContain('aria-label="Terug naar het overzicht"');
 	});
 
 	it('claims no progress', async () => {
@@ -81,6 +85,21 @@ describe.each(categories.map((category) => category.id))('the %s overview', (id)
 	it('never names the story behind a level', async () => {
 		const body = (await categoryPages[id]()).toLowerCase();
 		for (const story of STORY_NAMES) expect(body).not.toContain(story);
+	});
+
+	it('offers a way back up to the global overview', async () => {
+		const body = await categoryPages[id]();
+		expect(body).toContain('aria-label="Terug naar het overzicht"');
+		expect(body).toContain('href="/"');
+	});
+
+	it('links every level card to its level, by number', async () => {
+		const body = await categoryPages[id]();
+		for (const section of content.sections) {
+			for (const level of sectionLevels(id, section.id)) {
+				expect(body).toContain(`href="/${id}/${section.id}/${level.number}"`);
+			}
+		}
 	});
 
 	it('claims no progress', async () => {

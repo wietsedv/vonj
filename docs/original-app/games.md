@@ -249,7 +249,9 @@ A white card shows two prompts:
 
 - **Grunnegs**: the Gronings sentence the word comes from, with the word itself
   replaced by a bracketed run of dots, one dot per letter, so the pupil sees both
-  the context and the length: `Over en deur [......] lopen.`
+  the context and the length: `Over en deur [......] lopen.` Two dozen words in
+  the content set are listed under a sentence whose text does not contain them;
+  for those the app shows the dots on their own, with no sentence around them.
 - **Nederlands**: the Dutch translation of the missing word.
 
 Below that, one single-character input box per letter. Typing a letter advances
