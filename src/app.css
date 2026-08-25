@@ -9,3 +9,15 @@
 	--breakpoint-xs: 30rem;
 	--breakpoint-sm: 36rem;
 }
+
+/*
+ * Tailwind's preflight gives buttons the default arrow, which leaves the picture
+ * cards and "Doorgaan" looking unclickable. Every button in this app is
+ * something to tap, so the pointer belongs here rather than on each one. A
+ * disabled button - a card that was already wrong - keeps the arrow.
+ */
+@layer base {
+	button:not(:disabled) {
+		cursor: pointer;
+	}
+}

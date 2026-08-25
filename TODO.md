@@ -88,10 +88,21 @@ its interaction inside `LevelShell`; nothing else about the loop is its business
 Ordered so each game reuses what the previous one built, rather than
 category by category. Lezen comes first because it needs no audio.
 
-- [ ] **Picture-grid component.** Two-column card grid, 4 to 6 options from
-      `fragmentDistractors`, red "Helaas!" overlay locking a wrong card.
-- [ ] **Lezen > Verhaaltjes.** The simplest game: sentence card plus picture
-      grid. Proves out the item loop, difficulty and feedback end to end.
+**In progress.** The first game is playable: the four levels of Lezen >
+Verhaaltjes run end to end, on real items, real difficulty and a real score. A
+game is a component under `src/lib/components/games/`, registered by section in
+`games/index.ts`; the level route picks one and the section without one still
+opens on the bare shell.
+
+- [x] **Picture-grid component.** `PictureGrid.svelte`: two-column card grid, 4 to
+      6 options from `fragmentDistractors`, red "Helaas!" overlay locking a wrong
+      card. `ItemFeedback.svelte` came with it: the per-item feedback card plus
+      "Doorgaan", which every game needs.
+- [x] **Lezen > Verhaaltjes.** Sentence card plus picture grid, and the item loop,
+      the difficulty and the feedback proven end to end. The shared parts of both
+      picture games live in `src/lib/game/pictures.ts`: the items of a story, the
+      option count per difficulty and the fixed option order (see
+      [`docs/rewrite.md`](docs/rewrite.md)).
 - [ ] **Reorder-list component.** Drag rows into order, submit the whole order,
       per-row check mark or direction arrow, locked given rows. Needs a decision
       on implementation and **must be operable without dragging** (see Open
@@ -106,7 +117,8 @@ category by category. Lezen comes first because it needs no audio.
       playing/finished states, and playback restricted to a time range within the
       story recording.
 - [ ] **Luisteren > Verhaaltjes.** Whole-story item, one item per fragment over
-      two seconds, and the reorder recap. Reuses the grid and the reorder list.
+      two seconds, and the reorder recap. Reuses the grid and the reorder list,
+      and the fragment items of `pictures.ts`.
 - [ ] **Sound-column component.** One column per sound, a display field that
       replays the chosen sound, and candidate sounds that play when tapped.
 - [ ] **Spreken > Korte, Normale and Lange woorden.** Dutch prompt, no audio

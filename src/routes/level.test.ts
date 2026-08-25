@@ -120,4 +120,13 @@ describe('the server-rendered level', () => {
 		const body = await page('schrijven', 'woorden', '1');
 		expect(body).toContain("Onderdeel 'Woorden' is nog niet geïmplementeerd");
 	});
+
+	it('renders the shell of a section that has a game, and none of its items', async () => {
+		// The items live in localStorage and the pictures come from a story chunk,
+		// so a game only appears in the browser. See docs/rewrite.md.
+		const body = await page('lezen', 'verhaaltjes', '1');
+		expect(body).not.toContain('nog niet geïmplementeerd');
+		expect(body).not.toMatch(/Helaas|<img/);
+		expect(body).toContain('Verhaaltjes');
+	});
 });

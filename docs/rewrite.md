@@ -96,6 +96,20 @@ detail that does not survive the move to the web:
   level. Resuming on the last item means the next "Doorgaan" finishes the level,
   which is what they were about to do.
 
+## The games
+
+### The order of the options is fixed per item
+
+The original shuffled the options of a picture item every time the item came up,
+which is once per visit: leaving a level halfway and coming back moved the cards
+around. Here the order is derived from the item instead of drawn, so an item
+always shows its options in the same places, in the same spirit as the stored
+distractors. What changes with difficulty is only how many of the stored
+distractors are shown, which is what the original did too.
+
+The pupil never sees the difference within one attempt either way, because
+neither version reshuffles on a wrong answer.
+
 ## State lives in localStorage
 
 All persistent state is stored in `localStorage`. No cookies, no server session,

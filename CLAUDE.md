@@ -9,9 +9,9 @@ it.
 
 The rewrite is a SvelteKit app with **no backend** and **no identity**: content
 is bundled, all progress lives in the browser's `localStorage`, and the app never
-asks who is playing. It is early: the two overview screens run on the real
-content set and real progress, but none of the games are built yet. See
-[`TODO.md`](TODO.md) for where things stand.
+asks who is playing. It is early: the overview screens and the level shell run on
+the real content set and real progress, and one of the seven games (Lezen >
+Verhaaltjes) is playable. See [`TODO.md`](TODO.md) for where things stand.
 
 ## Read the docs before implementing a feature
 

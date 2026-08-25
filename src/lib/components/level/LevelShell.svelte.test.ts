@@ -183,6 +183,13 @@ describe('the level result', () => {
 		expect(text(container)).not.toContain('Dit level nog een keer spelen');
 	});
 
+	it('shows the way on and the replay as clickable', async () => {
+		const container = await shell({ run: finished(3) });
+		for (const control of container.querySelectorAll('main a, main button')) {
+			expect(getComputedStyle(control).cursor).toBe('pointer');
+		}
+	});
+
 	it('starts the level over when the replay is tapped', async () => {
 		const run = finished(2);
 		const container = await shell({ run });

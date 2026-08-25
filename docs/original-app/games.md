@@ -190,10 +190,12 @@ recording plays.
 
 The reading counterpart of Luisteren > Verhaaltjes. No audio at all.
 
-The sentence text of a story fragment is shown in a white card at the top, and
-the pupil picks the matching illustration from the same kind of two-column grid,
-with the same red "Helaas!" overlay on wrong cards and the same animated
-illustration in the feedback ("Het juiste antwoord was:").
+The **first sentence** of a story fragment is shown in a white card at the top,
+and the pupil picks the matching illustration from the same kind of two-column
+grid, with the same red "Helaas!" overlay on wrong cards and the same animated
+illustration in the feedback ("Het juiste antwoord was:"). A fragment usually has
+two or three sentences; the rest are never shown, so the card is one line of
+Gronings rather than the whole scene.
 
 One item per story fragment of at least two seconds. There is no whole-story
 item and no recap item.
