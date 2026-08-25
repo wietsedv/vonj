@@ -6,12 +6,17 @@
 import { loadStories, loadStory } from '$lib/content';
 import {
 	MAX_DISTRACTORS,
+	RECAP_GIVEN,
 	fragmentIndex,
 	fragmentItems,
 	fragmentText,
 	optionCount,
 	pictureFragments,
-	pictureOptions
+	pictureItems,
+	pictureOptions,
+	recapItem,
+	storyIndex,
+	wholeStoryItem
 } from '$lib/game/pictures';
 import type { Story } from '$lib/types';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -141,6 +146,115 @@ describe('looking a fragment up by its key', () => {
 		const byKey = fragmentIndex(stories);
 		for (const story of stories) {
 			for (const fragment of story.fragments) expect(byKey.get(fragment.key)).toBe(fragment);
+		}
+	});
+});
+
+describe('looking a story up by its key', () => {
+	it('finds every story, so a whole-story option resolves too', () => {
+		const byKey = storyIndex(stories);
+		for (const story of stories) expect(byKey.get(story.key)).toBe(story);
+	});
+});
+
+describe('the whole-story item', () => {
+	it('answers with the story it was made from', () => {
+		expect(wholeStoryItem(bragel, stories).target).toEqual(['bragel']);
+	});
+
+	it('offers the other three stories as distractors, and no more', () => {
+		const item = wholeStoryItem(bragel, stories);
+		expect(item.distractors).toEqual([
+			expect.arrayContaining(stories.filter((story) => story.key !== 'bragel').map((s) => s.key))
+		]);
+		expect(item.distractors[0]).toHaveLength(stories.length - 1);
+	});
+
+	it('never offers the target as one of its own distractors', () => {
+		const item = wholeStoryItem(bragel, stories);
+		expect(item.distractors[0]).not.toContain('bragel');
+	});
+
+	it('offers exactly four options at every difficulty, even where optionCount would ask for more', () => {
+		for (const difficulty of [0, 1, 2]) {
+			const item = { ...wholeStoryItem(bragel, stories), difficulty };
+			expect(pictureOptions(item)).toHaveLength(4);
+		}
+		expect(optionCount(2)).toBeGreaterThan(4); // the grid could ask for six; the item cannot supply it
+	});
+
+	it('offers the right answer exactly once among its options', () => {
+		const item = wholeStoryItem(bragel, stories);
+		expect(pictureOptions(item).filter((key) => key === 'bragel')).toHaveLength(1);
+	});
+});
+
+describe('the recap item', () => {
+	it('answers with the fragments of the story, in story order', () => {
+		expect(recapItem(bragel).target).toEqual(bragel.fragments.map((fragment) => fragment.key));
+	});
+
+	it('uses every fragment, not only the ones long enough for their own item', () => {
+		// ../vonj-app/app/pages/LevelListenStory.vue builds the recap from
+		// targetData.data, the unfiltered fragment list, not the filtered one
+		// the per-fragment items use.
+		const short = {
+			...bragel,
+			fragments: [
+				{ ...bragel.fragments[0], time: [0, 1.5] as [number, number] },
+				bragel.fragments[1]
+			]
+		};
+		expect(pictureFragments(short)).toHaveLength(1);
+		expect(recapItem(short).target).toHaveLength(2);
+	});
+
+	it('stores a starting order that is a shuffle of the target', () => {
+		const item = recapItem(bragel);
+		expect(item.distractors).toHaveLength(1);
+		expect([...item.distractors[0]].sort()).toEqual([...item.target].sort());
+	});
+
+	it('keeps the same starting order every time it is asked', () => {
+		const item = recapItem(bragel);
+		const again = { ...item, distractors: [[...item.distractors[0]]] };
+		expect(again.distractors[0]).toEqual(item.distractors[0]);
+	});
+
+	it('gives its first row away for free, whatever the difficulty', () => {
+		// docs/original-app/games.md does not mention this; see the comment on
+		// RECAP_GIVEN for where it comes from.
+		expect(RECAP_GIVEN).toBe(1);
+	});
+});
+
+describe('the items of Luisteren > Verhaaltjes', () => {
+	it('starts with the whole-story item, then one per qualifying fragment, then the recap', () => {
+		const items = pictureItems(bragel, stories);
+		expect(items[0].kind).toBe('story');
+		expect(items[0].item).toEqual(wholeStoryItem(bragel, stories));
+
+		const fragments = fragmentItems(bragel, stories);
+		expect(items.slice(1, 1 + fragments.length).map((entry) => entry.kind)).toEqual(
+			fragments.map(() => 'fragment')
+		);
+		// Distractors are drawn at random (see generate.ts), so compare sources
+		// rather than the whole item.
+		expect(items.slice(1, 1 + fragments.length).map((entry) => entry.item.source)).toEqual(
+			fragments.map((item) => item.source)
+		);
+
+		const last = items[items.length - 1];
+		expect(last.kind).toBe('recap');
+		expect(last.item.target).toEqual(bragel.fragments.map((fragment) => fragment.key));
+	});
+
+	it('tags each of the three kinds correctly, for every story', () => {
+		for (const story of stories) {
+			const items = pictureItems(story, stories);
+			expect(items[0].kind).toBe('story');
+			expect(items[items.length - 1].kind).toBe('recap');
+			for (const entry of items.slice(1, -1)) expect(entry.kind).toBe('fragment');
 		}
 	});
 });

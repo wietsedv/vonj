@@ -114,11 +114,21 @@ export interface StoredItem {
 	source: string;
 	/** The correct answer. */
 	target: Answer;
-	/** The wrong options offered, one list per position in the answer. */
+	/**
+	 * The generated options, one list per position in the answer. What that means
+	 * follows the game: the picture games store one list of wrong illustrations,
+	 * the sound games one list of wrong sounds per column, and the reordering
+	 * games store the shuffled order the rows start in, which is generated once
+	 * for the same reason the distractors are.
+	 */
 	distractors: Answer[];
 	/**
-	 * Every response given, oldest first. Hints handed out by a timer count as
-	 * responses, which is why running the clock down lowers the score.
+	 * Every response given, oldest first.
+	 *
+	 * A timer hint is a response only in Luisteren > Woorden met tijdslimiet,
+	 * which is the one timed section where running the clock down lowers the
+	 * score; the other two hand the answer over for free. See
+	 * `docs/original-app/scoring.md`.
 	 */
 	responses: Answer[];
 	/** The difficulty this item was presented at. */

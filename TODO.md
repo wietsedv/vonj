@@ -47,10 +47,11 @@ decisions taken here are written up in [`docs/rewrite.md`](docs/rewrite.md).
 ## Phase 1 - Level infrastructure
 
 **Done.** Every level has a URL and opens on the real shell, and the item loop
-underneath it is complete. What is missing is the games: a level says
-"Onderdeel '<name>' is nog niet geïmplementeerd" where the interaction belongs,
-which is Phase 2. The routing and the two deliberate deviations from the original
-are written up in [`docs/rewrite.md`](docs/rewrite.md).
+underneath it is complete. While this phase was the newest, a level said
+"Onderdeel '<name>' is nog niet geïmplementeerd" where the interaction belongs;
+Phase 2 filled every one of those in and the placeholder is gone. The routing and
+the two deliberate deviations from the original are written up in
+[`docs/rewrite.md`](docs/rewrite.md).
 
 A game plugs in by handing `LevelRun` a `generate()` for its items and rendering
 its interaction inside `LevelShell`; nothing else about the loop is its business.
@@ -86,13 +87,28 @@ its interaction inside `LevelShell`; nothing else about the loop is its business
 ## Phase 2 - The games
 
 Ordered so each game reuses what the previous one built, rather than
-category by category. Lezen comes first because it needs no audio.
+category by category. Lezen came first because it needs no audio.
 
-**In progress.** The first game is playable: the four levels of Lezen >
-Verhaaltjes run end to end, on real items, real difficulty and a real score. A
-game is a component under `src/lib/components/games/`, registered by section in
-`games/index.ts`; the level route picks one and the section without one still
-opens on the bare shell.
+**Done. All 44 levels are playable.** Every one of the eleven sections has a
+game: a component under `src/lib/components/games/`, registered by section in
+`games/index.ts`, which `games.test.ts` holds to the rules table so a new
+section cannot arrive without an implementation. The three Spreken sections
+share one component, because they differ only in the rules their section id
+already carries.
+
+Four decisions taken here are written up in [`docs/rewrite.md`](docs/rewrite.md):
+reordering is dragged **or** buttoned, autoplay degrades to a play button, the
+volume warning is gone, and the native alert dialogs became inline messages.
+
+Building the games also turned up six places where
+[`docs/original-app/`](docs/original-app/) did not match `../vonj-app`. Per
+[`CLAUDE.md`](CLAUDE.md) the app is the truth, so the code follows the app and
+the docs were corrected in the same change: the free head start in Lezen >
+Zinnen is two chunks at difficulty -1 rather than one, the sentence chunking
+drops a fragment's leftover of fewer than three chunks, the three timed sections
+disagree about whether an expiry costs score, and the Luisteren recap gives its
+first tile away, uses every fragment, plays the whole recording and still shows
+the story's animation.
 
 - [x] **Picture-grid component.** `PictureGrid.svelte`: two-column card grid, 4 to
       6 options from `fragmentDistractors`, red "Helaas!" overlay locking a wrong
@@ -103,39 +119,48 @@ opens on the bare shell.
       picture games live in `src/lib/game/pictures.ts`: the items of a story, the
       option count per difficulty and the fixed option order (see
       [`docs/rewrite.md`](docs/rewrite.md)).
-- [ ] **Reorder-list component.** Drag rows into order, submit the whole order,
-      per-row check mark or direction arrow, locked given rows. Needs a decision
-      on implementation and **must be operable without dragging** (see Open
-      questions).
-- [ ] **Lezen > Zinnen.** Chunked sentences, the "Resultaat" preview line, the
-      free first chunk at low difficulty.
-- [ ] **Timer component.** Countdown with total time left plus "mm:ss tot
-      volgende hint" / "Tijd is om!".
-- [ ] **Lezen > Zinnen met tijdslimiet.** 20 s per row, each expiry locking the
-      next row. **Lezen is now complete and playable.**
-- [ ] **Audio player component.** Play/pause with progress, loading/ready/
-      playing/finished states, and playback restricted to a time range within the
-      story recording.
-- [ ] **Luisteren > Verhaaltjes.** Whole-story item, one item per fragment over
-      two seconds, and the reorder recap. Reuses the grid and the reorder list,
-      and the fragment items of `pictures.ts`.
-- [ ] **Sound-column component.** One column per sound, a display field that
-      replays the chosen sound, and candidate sounds that play when tapped.
-- [ ] **Spreken > Korte, Normale and Lange woorden.** Dutch prompt, no audio
-      prompt, word-length filter and starting difficulty per section, and the
-      answer playback (each chosen sound, then the real recording).
-- [ ] **Luisteren > Woorden.** The sound columns again, now with the word
-      recording as the prompt and the Dutch translation revealed in the feedback.
-- [ ] **Luisteren > Woorden met tijdslimiet.** 15 s per sound, each expiry
-      revealing and playing the next sound, auto-submit when all are given.
-      **Luisteren and Spreken are now complete.**
-- [ ] **Letter-box component.** One single-character input per letter, forward
-      focus on input, backward focus on backspace, locked given letters,
-      autocorrect and autocapitalisation off.
-- [ ] **Schrijven > Woorden.** Masked Gronings sentence and Dutch translation,
+- [x] **Reorder-list component.** `ReorderList.svelte`: a pointer-events drag on
+      the handle plus a visible up/down button per row, so the ordering games are
+      operable without dragging and from the keyboard. Locked rows are held out
+      of the movable subsequence, so a given row cannot be dragged through.
+- [x] **Lezen > Zinnen.** Chunked sentences, the "Resultaat" preview line, and
+      the free head start at low difficulty. `src/lib/game/sentences.ts` holds
+      the chunking, the starting order, the head start and the row markers.
+- [x] **Timer component.** `Countdown` in `src/lib/game/timer.svelte.ts` plus
+      `Timer.svelte`: total time left, "mm:ss tot volgende hint" and "Tijd is
+      om!". The remaining time is derived from a captured deadline rather than a
+      tick count, so a backgrounded tab does not drift.
+- [x] **Lezen > Zinnen met tijdslimiet.** 20 s per row, each expiry locking the
+      next row of the correct order. **Lezen is complete and playable.**
+- [x] **Audio player component.** `AudioPlayer.svelte` over
+      `src/lib/game/audio.ts`: the four states, playback restricted to a time
+      range within the story recording with the progress bar scaled to it, and
+      cancellable sequential playback for the sound games.
+- [x] **Luisteren > Verhaaltjes.** Whole-story item, one item per fragment, and
+      the reorder recap. Reuses the picture grid, the reorder list and the
+      generic reorder helpers of `sentences.ts`.
+- [x] **Sound-column component.** `SoundColumns.svelte` with `SoundField.svelte`:
+      one column per sound, a display field that replays the chosen sound, and
+      candidates that the game plays when they are tapped. Ten columns scroll
+      horizontally without the page scrolling with them.
+- [x] **Spreken > Korte, Normale and Lange woorden.** One component for all
+      three: the Dutch prompt, no audio prompt, the word-length filter and
+      starting difficulty from the section's rules, and the answer playback.
+- [x] **Luisteren > Woorden.** The sound columns again, with the word recording
+      as the prompt and the Dutch translation revealed in the feedback.
+- [x] **Luisteren > Woorden met tijdslimiet.** 15 s per sound, each expiry
+      revealing and playing the next one, and auto-submit when the last is given
+      away. The one timed section where the clock costs score, so it is also the
+      one that can recover its given-away sounds on resume.
+      **Luisteren and Spreken are complete.**
+- [x] **Letter-box component.** `LetterBoxes.svelte`: one single-character input
+      per letter, forward focus on input and backward on backspace, both skipping
+      locked boxes, autocorrect and autocapitalisation off, and a read-only mode
+      for the feedback card.
+- [x] **Schrijven > Woorden.** Masked Gronings sentence and Dutch translation,
       free first letter, one extra letter revealed per wrong attempt, and
       "Jammer!" when a hint completes the word.
-- [ ] **Schrijven > Woorden met tijdslimiet.** 20 s per letter, no hint on wrong
+- [x] **Schrijven > Woorden met tijdslimiet.** 20 s per letter, no hint on wrong
       answers, "Volgende" once time is up. **All 44 levels playable.**
 
 ## Phase 3 - Behaviour and polish
@@ -164,23 +189,10 @@ opens on the bare shell.
 
 Decisions to make before the tasks that depend on them.
 
-- [ ] **Audio autoplay.** The original starts the recording automatically as soon
-      as a level opens. Browsers block audible autoplay without a prior user
-      gesture, so on a fresh page load the first play will be refused. Needs a
-      deliberate answer: rely on the tap that opened the level, show a prominent
-      play state when playback is blocked, or drop autoplay. Blocks the audio
-      player.
-- [ ] **The volume warning.** "Zet je geluid eerst wat luider" cannot be
-      reproduced: the web has no way to read the device volume. Drop it, or
-      replace it with a one-off hint.
 - [ ] **Long press as the reset gesture.** Long press has no established meaning
       on the web and does not exist for mouse users. Options: keep long press for
       touch and add a right-click or a small overflow menu, or move resetting into
       an explicit control. Blocks the reset work.
-- [ ] **Reorder implementation.** Native HTML5 drag and drop is poor on touch,
-      which is the primary platform here. Pointer-events based dragging, or a
-      library, plus a non-drag fallback such as up/down buttons that also serves
-      keyboard users.
 - [ ] **Level unlocking.** The original ships with sequential unlocking written
       but disabled, so everything is always playable. Enable it or drop the code
       path. See [`docs/original-app/navigation.md`](docs/original-app/navigation.md).
@@ -190,6 +202,18 @@ Decisions to make before the tasks that depend on them.
 
 ### Settled
 
+- **Reorder implementation.** Pointer-events dragging on the handle **plus** a
+  visible up/down button per row, and no new dependency. The buttons are not a
+  hidden fallback: they are an equal way to play, and they are what makes the
+  ordering games keyboard-operable.
+- **Audio autoplay.** Attempt it and treat a refusal as a normal outcome, landing
+  in a prominent ready-to-play state. In practice the tap that opened the level
+  counts as the gesture, so it works from the second screen onwards.
+- **The volume warning.** Dropped. The web cannot read device volume, and warning
+  someone whose volume is already up is worse than not warning at all.
+- **Alert dialogs.** The original's wrong-answer dialogs became inline messages,
+  with the Dutch copy kept verbatim. A blocking `window.alert` cannot be styled
+  or tested and interrupts the page.
 - **Animated illustrations.** Animated WebP, not video: it stays an `<img>`, so
   there is no autoplay policy to work around, and it still cuts 28 MB to 6.2 MB.
 - **Multiple pupils per browser.** Accepted as a limitation, as in the original.

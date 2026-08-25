@@ -9,9 +9,11 @@ it.
 
 The rewrite is a SvelteKit app with **no backend** and **no identity**: content
 is bundled, all progress lives in the browser's `localStorage`, and the app never
-asks who is playing. It is early: the overview screens and the level shell run on
-the real content set and real progress, and one of the seven games (Lezen >
-Verhaaltjes) is playable. See [`TODO.md`](TODO.md) for where things stand.
+asks who is playing. All 44 levels are playable: the overview screens, the level
+shell and every one of the seven games run on the real content set and real
+progress. What is left is behaviour and polish - resetting, demo mode,
+animations, accessibility, a service worker and a deployment target. See
+[`TODO.md`](TODO.md) for where things stand.
 
 ## Read the docs before implementing a feature
 
@@ -125,6 +127,12 @@ Two things to know when writing more:
 
 - **Do not invent game mechanics.** The original has specific behaviour for
   hints, timers, adaptive difficulty and scoring. It is documented; follow it.
+  Where the documents were found to disagree with `../vonj-app` they have been
+  corrected against it, so trust them - but if a new disagreement turns up, the
+  app still wins and the doc is fixed in the same change.
+- **A game belongs in the registry.** `src/lib/components/games/index.ts` maps
+  every section to its component, and `games.test.ts` holds that map to the rules
+  table and to the content set. A new section needs an entry or the test fails.
 - **Do not invent Dutch UI copy** where the original had a string for it.
 - **Content is data, not code.** Categories, sections, levels, stories and
   sounds all come from a dataset. Do not hardcode story or word content in

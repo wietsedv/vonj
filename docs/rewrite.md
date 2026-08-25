@@ -110,6 +110,66 @@ distractors are shown, which is what the original did too.
 The pupil never sees the difference within one attempt either way, because
 neither version reshuffles on a wrong answer.
 
+### Reordering is dragged or buttoned, not dragged only
+
+The original dragged rows by a handle and nothing else. Native HTML5 drag and
+drop is poor on touch, which is the primary platform here, and dragging has no
+keyboard equivalent at all.
+
+`ReorderList.svelte` therefore does both: a pointer-events drag on the handle,
+which works the same for touch and mouse, **plus a visible up and down button on
+every movable row**. The buttons are not a hidden accessibility fallback, they
+are an equal way to play the game, and they are what makes the ordering games
+keyboard-operable. No drag-and-drop library was added.
+
+The original's instruction line, "Gebruik de streepjes om de items naar de juiste
+volgorde te verslepen.", still only mentions dragging. It is kept verbatim,
+because it is the original's copy and the handle it names is still there.
+
+### Audio autoplay is attempted, and degrades to a play button
+
+The original starts a recording the moment a level is ready. Browsers refuse
+audible playback without a prior user gesture, and on a fresh page load there
+may not have been one.
+
+`AudioPlayer.svelte` attempts autoplay and treats a refusal as a normal outcome
+rather than an error: it lands in its ready state, showing the play icon, and the
+pupil taps once. In practice the tap that opened the level usually counts as the
+gesture, so autoplay works from the second screen onwards. Nothing about the game
+depends on the recording having started by itself.
+
+### The volume warning is gone
+
+The original warned "Zet je geluid eerst wat luider" when the device volume was
+at zero. The web cannot read device volume, and a warning shown to someone whose
+volume is already up is worse than no warning, so it is dropped rather than
+guessed at.
+
+### Alerts are inline messages, not dialogs
+
+The original reported a wrong submit through a native dialog: "Nog niet alle
+plaatjes staan op de juiste plaats", "Nog niet alle onderdelen staan op de juiste
+plaats", "Selecteer eerst alle klanken". A blocking `window.alert` is the wrong
+web equivalent: it cannot be styled, it interrupts the page, and it cannot be
+tested.
+
+The copy is kept verbatim and shown inline, next to the thing it is about. The
+row and column markings that accompanied it in the original are unchanged.
+
+### The timed games do not remember their clock
+
+A level stores its items and their responses, not the state of a countdown. For
+**Luisteren > Woorden met tijdslimiet** that costs nothing, because an expiry
+there records a response and so is stored like any other.
+
+The other two timed sections hand rows and letters over without recording
+anything, which is the original's behaviour (see
+[`original-app/games.md`](original-app/games.md)). Their given-away count
+therefore lives in component state only, and reopening a level part way through
+an item restarts that item's clock and takes back what the clock had given. The
+original persisted no timer state either, so this is a limitation carried over
+rather than one introduced. It costs the pupil nothing: those hints were free.
+
 ## State lives in localStorage
 
 All persistent state is stored in `localStorage`. No cookies, no server session,

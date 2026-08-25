@@ -35,7 +35,18 @@ export default defineConfig({
 					name: 'server',
 					environment: 'node',
 					include: ['src/**/*.test.ts'],
-					exclude: ['src/**/*.svelte.test.ts']
+					exclude: ['src/**/*.svelte.test.ts'],
+					/*
+					 * The progress store is a module singleton with a one-shot
+					 * `load()`, so the tests around it take a fresh copy per test with
+					 * `vi.resetModules()` and a dynamic import. That re-instantiates the
+					 * module graph inside the test body, which is far slower than the
+					 * assertions themselves, and `npm test` runs this project alongside
+					 * a Chromium that is compiling its own suite. The default 5 s is
+					 * enough for either alone and not for both at once, so it is raised
+					 * here rather than left to trip whenever the machine is busy.
+					 */
+					testTimeout: 20_000
 				}
 			}
 		]

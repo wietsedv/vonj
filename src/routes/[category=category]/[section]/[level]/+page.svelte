@@ -11,14 +11,11 @@
 {#if Game}
 	<Game category={data.category} section={data.section} level={data.level} />
 {:else}
-	<LevelShell category={data.category} section={data.section}>
-		<!--
-			The remaining games are Phase 2 in TODO.md. Until the game of a section
-			exists, a level opens on the shell and says so, the way the original did
-			when a section had no implementation.
-		-->
-		<p class="rounded-2xl bg-white px-6 py-10 text-center">
-			Onderdeel '{data.section.name}' is nog niet geïmplementeerd
-		</p>
-	</LevelShell>
+	<!--
+		Unreachable: every section of the content set has a game, and
+		`games.test.ts` holds the registry to the rules table so it stays that way.
+		The bare shell is here so that a section added ahead of its game still
+		opens, with its header and its way back, rather than on a blank page.
+	-->
+	<LevelShell category={data.category} section={data.section} />
 {/if}

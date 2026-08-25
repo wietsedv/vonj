@@ -7,8 +7,17 @@ item, the number of mistakes is the number of responses minus one, so an item
 answered right first time costs nothing and an item that took four attempts costs
 three.
 
-Hints handed out by a timer count as responses too, which is why running the
-clock down in a timed level lowers the score.
+Hints handed out by a timer count as responses in **Luisteren > Woorden met
+tijdslimiet** only, which is the one timed section where running the clock down
+lowers the score. In Lezen > Zinnen and Schrijven > Woorden an expiry records
+nothing, so the clock hands over part of the answer for free and only the
+"Jammer!" on the feedback card marks it. See
+[Games](games.md#the-three-timed-sections-do-not-agree-on-what-an-expiry-costs).
+
+One quirk of Schrijven > Woorden goes the other way: when a wrong answer's hint
+happens to complete the word, the untimed game records that completing answer as
+a response of its own, so the item costs one mistake for the wrong attempt and a
+second for having been finished by the hint.
 
 ## From mistakes to a score out of six
 

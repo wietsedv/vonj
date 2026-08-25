@@ -116,17 +116,16 @@ describe('the server-rendered level', () => {
 		expect(body).not.toMatch(/Goed gedaan|Dat klopt|Doorgaan/);
 	});
 
-	it('says so for a section whose game does not exist yet', async () => {
-		const body = await page('schrijven', 'woorden', '1');
-		expect(body).toContain("Onderdeel 'Woorden' is nog niet geïmplementeerd");
-	});
-
-	it('renders the shell of a section that has a game, and none of its items', async () => {
-		// The items live in localStorage and the pictures come from a story chunk,
-		// so a game only appears in the browser. See docs/rewrite.md.
-		const body = await page('lezen', 'verhaaltjes', '1');
-		expect(body).not.toContain('nog niet geïmplementeerd');
-		expect(body).not.toMatch(/Helaas|<img/);
-		expect(body).toContain('Verhaaltjes');
+	it('renders the shell of every section, and none of its items', async () => {
+		// Every section has a game now, and a game only appears in the browser: its
+		// items live in localStorage and its media comes from a story chunk. So the
+		// server renders the shell and nothing of the interaction. See
+		// docs/rewrite.md.
+		for (const key of ruledSections()) {
+			const [category, section] = key.split('.');
+			const body = await page(category, section, '1');
+			expect(body).not.toMatch(/Helaas|Versturen|<img/);
+			expect(body).toContain('Terug naar het overzicht');
+		}
 	});
 });

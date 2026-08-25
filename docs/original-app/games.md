@@ -88,24 +88,41 @@ any given rows fixed at the top.
 
 ### Timers
 
-The three timed sections all work the same way. A countdown runs for the current
-step, and expiring never ends the level, it gives away part of the answer:
+A countdown runs for the current step, and expiring never ends the level, it
+gives away part of the answer:
 
-- the next letter or sound is filled in, marked as correct and locked;
+- the next letter, sound or row is filled in, marked as correct and locked;
 - in the listening game that sound is also played out loud;
 - the countdown restarts for the next step.
 
 The timer card shows the total time left for the whole item plus a line
 "mm:ss tot volgende hint", which becomes "Tijd is om!" once every step has been
-given away. Once the whole answer has been handed over, the item is submitted
-automatically and the feedback card says "Jammer!" instead of "Dat klopt!". A
-correct answer stops the clock immediately.
+given away. A correct answer stops the clock immediately, and so does the last
+step being given away.
 
 | Section                             | Seconds per step | Step               |
 | ----------------------------------- | ---------------- | ------------------ |
 | Luisteren > Woorden met tijdslimiet | 15               | one sound          |
 | Lezen > Zinnen met tijdslimiet      | 20               | one sentence chunk |
 | Schrijven > Woorden met tijdslimiet | 20               | one letter         |
+
+### The three timed sections do not agree on what an expiry costs
+
+They look alike on screen but differ in the code, and the difference is worth
+knowing because it decides whether running the clock down lowers the score:
+
+| Section                             | Does an expiry record a response? | What submits the item                                           |
+| ----------------------------------- | --------------------------------- | --------------------------------------------------------------- |
+| Luisteren > Woorden met tijdslimiet | **Yes**, so it costs score        | The item submits itself once the last sound has been given away |
+| Lezen > Zinnen met tijdslimiet      | No                                | The pupil still presses "Versturen"                             |
+| Schrijven > Woorden met tijdslimiet | No                                | The pupil presses the button, which now reads "Volgende"        |
+
+Only in Luisteren > Woorden does the clock cost score directly. In the other two
+an expiry hands over part of the answer for free: a pupil who lets the clock run
+out completely then submits an answer that is already correct, and the item
+costs a single response, that is, no mistakes. The feedback card still says
+"Jammer!" rather than "Dat klopt!", which is the only thing that marks the
+difference to the pupil.
 
 ---
 
@@ -123,8 +140,13 @@ text anywhere on the screen.
 2. **One item per story fragment** that is at least two seconds long. Only that
    fragment of the recording plays. The options are fragment illustrations,
    the correct one plus distractors drawn from the fragments of all stories.
-3. **The recap.** All fragment illustrations of this story, shuffled, to be
-   dragged into the order in which they happen in the story.
+3. **The recap.** The fragment illustrations of this story, shuffled, to be
+   dragged into the order in which they happen in the story. Two details differ
+   from the fragment items above: the recap uses **every** fragment, including
+   the ones under two seconds that never became items of their own, and its
+   **first tile is given and locked**. The app initialises the given count to 1
+   and never changes it; the method that would raise it exists but every call to
+   it is commented out, so the head start is one tile at every difficulty.
 
 **Interaction**
 
@@ -139,7 +161,14 @@ For the recap item, submitting a wrong order alerts:
 
 and marks each tile with a check mark or a direction arrow. The pupil rearranges
 and submits again. The recap item has no "Het juiste antwoord was:" line in its
-feedback.
+feedback, but it does still show the **story's** animated illustration there: the
+player and the feedback card are bound the same way for all three item kinds, and
+the recap's target carries the story's own animation.
+
+The recap plays **the whole story recording, unranged**, as the first item does.
+The player is always given the story's recording and the current item's time
+range, and the recap's target has no time range, which the player reads as "play
+the whole file".
 
 **Difficulty** controls the number of options: 4 at difficulty 0, 5 at 1, 6 at 2.
 
@@ -210,9 +239,17 @@ The pupil reassembles the story from scrambled pieces of text.
 
 **Items**
 
-- Sentences of a fragment are cut into chunks of three words. Chunks accumulate
-  until there are more than three, which then form one item. So one item is
-  roughly one to two sentences cut into four or more pieces.
+- Sentences of a fragment are cut into chunks of three words, the last chunk of a
+  sentence taking whatever is left. Chunks accumulate until there are more than
+  three, which then form one item. So one item is roughly one to two sentences
+  cut into four or more pieces.
+- The "more than three" check happens after a **whole sentence** has been cut up,
+  not after each chunk, which is why an item can hold more than four chunks: a
+  sentence that pushes the count from three to seven yields one seven-row item.
+- At the end of a fragment the leftover chunks become one more item if there are
+  **at least three** of them, and are **dropped entirely** if there are fewer. So
+  a level can hold a three-row item, and a fragment's last one or two chunks may
+  never be played.
 - The final item of the level is the whole story: each fragment's full text as
   one row, to be put in story order.
 
@@ -230,9 +267,9 @@ and marks every row with a check mark or an up or down arrow. The correct
 feedback card shows "Dat klopt!", "Het juiste verhaaltje was:", and the sentences
 in the right order.
 
-**Difficulty** ranges from -1 to 1 and controls the free head start: at
-difficulty 0 or below the first chunk is given and locked, at difficulty 1
-nothing is given.
+**Difficulty** ranges from -1 to 1 and controls the free head start, which is
+`max(0, 1 - difficulty)` rows given and locked: **two** chunks at difficulty -1,
+one at 0, and nothing at 1.
 
 **Timed variant.** 20 seconds per remaining row. Each expiry locks the next row
 of the correct order in place as a hint. There is no free head start in the
