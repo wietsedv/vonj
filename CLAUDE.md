@@ -93,9 +93,33 @@ only inside the build script, which translates them.
 ```sh
 npm run check    # svelte-check
 npm run lint     # prettier --check plus eslint
+npm test         # vitest
 ```
 
-Run `npm run format` to fix formatting. Both must pass.
+Run `npm run format` to fix formatting. All three must pass.
+
+## Tests
+
+`npm test` runs two vitest projects, configured in `vitest.config.ts`:
+
+- **server**, in node: the content set, the `localStorage` wrapper, the progress
+  model and the server-rendered markup (`src/**/*.test.ts`).
+- **client**, in a real Chromium through Playwright: anything that needs layout,
+  rendered SVG or a live `localStorage` (`src/**/*.svelte.test.ts`).
+
+Shared helpers live in `src/tests/`: `fixtures.ts` builds `StoredLevel` values,
+and `icons.ts` recognises the score icons by their geometry, so a suite can
+assert `"full full half"` against the table in `docs/original-app/scoring.md`
+without hardcoding path data.
+
+Two things to know when writing more:
+
+- `progress` is a module singleton with a one-shot `load()`. In node, take a
+  fresh copy per test with `vi.resetModules()`; in the browser project that does
+  not work, so `load()` once and drive the store with `save()` and
+  `resetEverything()`.
+- The browser project needs the Playwright Chromium build
+  (`npx playwright install chromium`).
 
 ## Things to be careful about
 
