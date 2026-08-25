@@ -1,0 +1,178 @@
+[
+	{
+		"id": "luisteren",
+		"name": "Luisteren",
+		"description": "Speel deze levels om erachter te komen hoe goed jij Gronings verstaat!",
+		"sections": [
+			{
+				"id": "verhaaltjes",
+				"name": "Verhaaltjes",
+				"description": [
+					"Welk plaatje hoort bij het voorgelezen verhaal?"
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "woorden",
+				"name": "Woorden",
+				"description": [
+					"Hoe klinken deze woorden?",
+					"Kies de juiste klanken uit iedere kolom."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "woorden-tijdslimiet",
+				"name": "Woorden met tijdslimiet",
+				"description": [
+					"Hoe klinken deze woorden?",
+					"Kies zo snel mogelijk de juiste klanken uit iedere kolom."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			}
+		]
+	},
+	{
+		"id": "lezen",
+		"name": "Lezen",
+		"description": "Speel deze levels om erachter te komen of jij Gronings kan lezen!",
+		"sections": [
+			{
+				"id": "verhaaltjes",
+				"name": "Verhaaltjes",
+				"description": [
+					"Welk plaatje hoort bij het verhaaltje?"
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "zinnen",
+				"name": "Zinnen",
+				"description": [
+					"Sleep de zinnen in de juiste volgorde om het verhaaltje leesbaar te maken."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "zinnen-tijdslimiet",
+				"name": "Zinnen met tijdslimiet",
+				"description": [
+					"Sleep de zinnen in de juiste volgorde om het verhaaltje leesbaar te maken."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			}
+		]
+	},
+	{
+		"id": "schrijven",
+		"name": "Schrijven",
+		"description": "Speel deze levels om erachter te komen of jij Gronings kan schrijven!",
+		"sections": [
+			{
+				"id": "woorden",
+				"name": "Woorden",
+				"description": [
+					"Hoe schrijf je het missende woord in het Gronings?"
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "woorden-tijdslimiet",
+				"name": "Woorden met tijdslimiet",
+				"description": [
+					"Hoe schrijf je het missende woord in het Gronings?"
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			}
+		]
+	},
+	{
+		"id": "spreken",
+		"name": "Spreken",
+		"description": "Speel deze levels om erachter te komen of jij Gronings kan spreken!",
+		"sections": [
+			{
+				"id": "korte-woorden",
+				"name": "Korte woorden",
+				"description": [
+					"Hoe spreek je deze korte woorden uit in het Gronings?",
+					"Tik op de klanken van links naar rechts hoe de woorden in het Gronings klinken."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "normale-woorden",
+				"name": "Normale woorden",
+				"description": [
+					"Hoe spreek je deze woorden uit in het Gronings?",
+					"Tik op de klanken van links naar rechts hoe de woorden in het Gronings klinken."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			},
+			{
+				"id": "lange-woorden",
+				"name": "Lange woorden",
+				"description": [
+					"Hoe spreek je deze lange woorden uit in het Gronings?",
+					"Tik op de klanken van links naar rechts hoe de woorden in het Gronings klinken."
+				],
+				"stories": [
+					"bragel",
+					"kopstubber",
+					"scheuvels",
+					"zoepenbrij"
+				]
+			}
+		]
+	}
+]

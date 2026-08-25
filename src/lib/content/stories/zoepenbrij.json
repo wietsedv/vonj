@@ -1,0 +1,2143 @@
+{
+	"key": "zoepenbrij",
+	"audio": "zoepenbrij",
+	"image": "zoepenbrij",
+	"fragments": [
+		{
+			"key": "zoepenbrij-1",
+			"time": [
+				2.6980713977318618,
+				4.771214451525388
+			],
+			"image": "zoepenbrij-1",
+			"sentences": [
+				{
+					"key": "zoepenbrij-1-1",
+					"text": "Mamme mos even noar winkel om n bosschop.",
+					"time": [
+						2.6980713977318618,
+						4.771214451525388
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-1-1-1",
+							"text": "mamme",
+							"dutch": "mamma",
+							"sounds": [
+								"m",
+								"a",
+								"m",
+								"uh"
+							],
+							"audio": "mamme"
+						},
+						{
+							"key": "zoepenbrij-1-1-2",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "zoepenbrij-1-1-3",
+							"text": "even",
+							"dutch": "even",
+							"sounds": [
+								"ee",
+								"m"
+							],
+							"audio": "even"
+						},
+						{
+							"key": "zoepenbrij-1-1-4",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "zoepenbrij-1-1-5",
+							"text": "winkel",
+							"dutch": null,
+							"sounds": [
+								"w",
+								"ee",
+								"ng",
+								"k",
+								"l"
+							],
+							"audio": "winkel"
+						},
+						{
+							"key": "zoepenbrij-1-1-6",
+							"text": "om",
+							"dutch": "om",
+							"sounds": [
+								"o",
+								"m"
+							],
+							"audio": "om"
+						},
+						{
+							"key": "zoepenbrij-1-1-7",
+							"text": "bosschop",
+							"dutch": "boodschap",
+							"sounds": [
+								"b",
+								"o",
+								"s",
+								"g",
+								"o",
+								"p"
+							],
+							"audio": "bosschop"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-2",
+			"time": [
+				5.49159731207735,
+				11.925808307731865
+			],
+			"image": "zoepenbrij-2",
+			"sentences": [
+				{
+					"key": "zoepenbrij-2-2",
+					"text": "Koos was proekeg, omreden hai mos thoesblieven.",
+					"time": [
+						5.49159731207735,
+						8.615160516883115
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-2-2-8",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						},
+						{
+							"key": "zoepenbrij-2-2-9",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "zoepenbrij-2-2-10",
+							"text": "proekeg",
+							"dutch": "nukkig",
+							"sounds": [
+								"p",
+								"r",
+								"oe",
+								"k",
+								"uh",
+								"g"
+							],
+							"audio": "proekeg"
+						},
+						{
+							"key": "zoepenbrij-2-2-11",
+							"text": "omdat",
+							"dutch": "omdat",
+							"sounds": [
+								"o",
+								"m",
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "omdat"
+						},
+						{
+							"key": "zoepenbrij-2-2-12",
+							"text": "hai",
+							"dutch": "hij",
+							"sounds": [
+								"h",
+								"ai"
+							],
+							"audio": "hai"
+						},
+						{
+							"key": "zoepenbrij-2-2-13",
+							"text": "thoesblieven",
+							"dutch": "thuisblijven",
+							"sounds": [
+								"t",
+								"oe",
+								"s",
+								"b",
+								"l",
+								"ie",
+								"m"
+							],
+							"audio": "thoesblieven"
+						},
+						{
+							"key": "zoepenbrij-2-2-14",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-2-3",
+					"text": "Ze beloofde Koos, dat ze n verrazzen veur hom mitnemen zol.",
+					"time": [
+						9.383341309347479,
+						11.925808307731865
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-2-3-16",
+							"text": "beloofde",
+							"dutch": "beloofde",
+							"sounds": [
+								"b",
+								"uh",
+								"l",
+								"oo",
+								"f",
+								"d",
+								"uh"
+							],
+							"audio": "beloofde"
+						},
+						{
+							"key": "zoepenbrij-2-3-17",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						},
+						{
+							"key": "zoepenbrij-2-3-18",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "zoepenbrij-2-3-20",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "zoepenbrij-2-3-21",
+							"text": "verrazzen",
+							"dutch": "verrassing",
+							"sounds": [
+								"f",
+								"uh",
+								"r",
+								"a",
+								"z",
+								"n"
+							],
+							"audio": "verrazzen"
+						},
+						{
+							"key": "zoepenbrij-2-3-22",
+							"text": "veur",
+							"dutch": "voor",
+							"sounds": [
+								"f",
+								"eu",
+								"r"
+							],
+							"audio": "veur"
+						},
+						{
+							"key": "zoepenbrij-2-3-23",
+							"text": "hom",
+							"dutch": "hem",
+							"sounds": [
+								"h",
+								"o",
+								"m"
+							],
+							"audio": "hom"
+						},
+						{
+							"key": "zoepenbrij-2-3-24",
+							"text": "mitnemen",
+							"dutch": "meenemen",
+							"sounds": [
+								"m",
+								"i",
+								"’",
+								"n",
+								"ee",
+								"m"
+							],
+							"audio": "mitnemen"
+						},
+						{
+							"key": "zoepenbrij-2-3-25",
+							"text": "zol",
+							"dutch": "zou",
+							"sounds": [
+								"z",
+								"o",
+								"l"
+							],
+							"audio": "zol"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-3",
+			"time": [
+				12.835628351954664,
+				18.19277699063584
+			],
+			"image": "zoepenbrij-3",
+			"sentences": [
+				{
+					"key": "zoepenbrij-3-4",
+					"text": "Lutje potje mog wèl mit ien kienderwoagen.",
+					"time": [
+						12.835628351954664,
+						15.140079207588775
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-3-4-26",
+							"text": "lutje",
+							"dutch": "kleine",
+							"sounds": [
+								"l",
+								"u",
+								"d",
+								"j",
+								"uh"
+							],
+							"audio": "lutje"
+						},
+						{
+							"key": "zoepenbrij-3-4-27",
+							"text": "potje",
+							"dutch": "baby",
+							"sounds": [
+								"p",
+								"o",
+								"d",
+								"j",
+								"uh"
+							],
+							"audio": "potje"
+						},
+						{
+							"key": "zoepenbrij-3-4-28",
+							"text": "mog",
+							"dutch": "mocht",
+							"sounds": [
+								"m",
+								"o",
+								"g"
+							],
+							"audio": "mog"
+						},
+						{
+							"key": "zoepenbrij-3-4-30",
+							"text": "mit",
+							"dutch": "mee",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "zoepenbrij-3-4-31",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "zoepenbrij-3-4-32",
+							"text": "kienderwoagen",
+							"dutch": "kinderwagen",
+							"sounds": [
+								"k",
+								"ie",
+								"n",
+								"uh",
+								"w",
+								"o",
+								"ng"
+							],
+							"audio": "kienderwoagen"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-3-5",
+					"text": "Mamme en potje gingen noar winkel.",
+					"time": [
+						16.435406955778927,
+						18.19277699063584
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-3-5-33",
+							"text": "moeke",
+							"dutch": "moeder",
+							"sounds": [
+								"m",
+								"oe",
+								"G!",
+								"uh"
+							],
+							"audio": "moeke"
+						},
+						{
+							"key": "zoepenbrij-3-5-34",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-3-5-35",
+							"text": "potje",
+							"dutch": "potje",
+							"sounds": [
+								"p",
+								"o",
+								"d",
+								"j",
+								"uh"
+							],
+							"audio": "potje"
+						},
+						{
+							"key": "zoepenbrij-3-5-36",
+							"text": "gingen",
+							"dutch": "gingen",
+							"sounds": [
+								"g",
+								"i",
+								"ng"
+							],
+							"audio": "gingen"
+						},
+						{
+							"key": "zoepenbrij-3-5-37",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "zoepenbrij-3-5-38",
+							"text": "winkel",
+							"dutch": "winkel",
+							"sounds": [
+								"w",
+								"ee",
+								"ng",
+								"k",
+								"l"
+							],
+							"audio": "winkel"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-4",
+			"time": [
+				18.773781605298236,
+				24.754105470748183
+			],
+			"image": "zoepenbrij-4",
+			"sentences": [
+				{
+					"key": "zoepenbrij-4-6",
+					"text": "Stoet mos ze hebben en twijbak veur ittjebijen.",
+					"time": [
+						18.773781605298236,
+						21.636211531883117
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-4-6-39",
+							"text": "stoet",
+							"dutch": "brood",
+							"sounds": [
+								"s",
+								"t",
+								"oe",
+								"t"
+							],
+							"audio": "stoet"
+						},
+						{
+							"key": "zoepenbrij-4-6-40",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "zoepenbrij-4-6-42",
+							"text": "hebben",
+							"dutch": "hebben",
+							"sounds": [
+								"h",
+								"e",
+								"m"
+							],
+							"audio": "hebben"
+						},
+						{
+							"key": "zoepenbrij-4-6-43",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-4-6-44",
+							"text": "beschuut",
+							"dutch": "beschuit",
+							"sounds": [
+								"b",
+								"uh",
+								"s",
+								"g",
+								"uu",
+								"t"
+							],
+							"audio": "beschuut"
+						},
+						{
+							"key": "zoepenbrij-4-6-45",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "zoepenbrij-4-6-46",
+							"text": "eerbijen",
+							"dutch": "aardbijen",
+							"sounds": [
+								"i",
+								"b",
+								"ei",
+								"n"
+							],
+							"audio": "eerbijen"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-4-7",
+					"text": "En n krìntstoetje, dat von Koos aaltied lekker.",
+					"time": [
+						22.18045770218997,
+						24.754105470748183
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-4-7-47",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-4-7-48",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "zoepenbrij-4-7-50",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "zoepenbrij-4-7-51",
+							"text": "von",
+							"dutch": "vond",
+							"sounds": [
+								"v",
+								"o",
+								"n"
+							],
+							"audio": "von"
+						},
+						{
+							"key": "zoepenbrij-4-7-52",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						},
+						{
+							"key": "zoepenbrij-4-7-53",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						},
+						{
+							"key": "zoepenbrij-4-7-54",
+							"text": "aaltied",
+							"dutch": "altijd",
+							"sounds": [
+								"aa",
+								"l",
+								"t",
+								"ie",
+								"t"
+							],
+							"audio": "aaltied"
+						},
+						{
+							"key": "zoepenbrij-4-7-55",
+							"text": "zo",
+							"dutch": "zo",
+							"sounds": [
+								"s",
+								"oo"
+							],
+							"audio": "zo"
+						},
+						{
+							"key": "zoepenbrij-4-7-56",
+							"text": "lekker",
+							"dutch": "lekker",
+							"sounds": [
+								"l",
+								"e",
+								"G!",
+								"uh",
+								"r"
+							],
+							"audio": "lekker"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-5",
+			"time": [
+				25.9530562929465,
+				32.98244498061516
+			],
+			"image": "zoepenbrij-5",
+			"sentences": [
+				{
+					"key": "zoepenbrij-5-8",
+					"text": "Wiederop kwam ze bie t melkvak, mor aigenlieks zöchte ze noar zoepenbrij.",
+					"time": [
+						25.9530562929465,
+						30.227381821954665
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-5-8-57",
+							"text": "wiederop",
+							"dutch": "verderop",
+							"sounds": [
+								"w",
+								"ie",
+								"d",
+								"uh",
+								"r",
+								"o",
+								"p"
+							],
+							"audio": "wiederop"
+						},
+						{
+							"key": "zoepenbrij-5-8-58",
+							"text": "kwam",
+							"dutch": "kwam",
+							"sounds": [
+								"k",
+								"w",
+								"a",
+								"m"
+							],
+							"audio": "kwam"
+						},
+						{
+							"key": "zoepenbrij-5-8-59",
+							"text": "bie",
+							"dutch": "bij",
+							"sounds": [
+								"b",
+								"ie"
+							],
+							"audio": "bie"
+						},
+						{
+							"key": "zoepenbrij-5-8-60",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "zoepenbrij-5-8-61",
+							"text": "melkvak",
+							"dutch": "melkvak",
+							"sounds": [
+								"m",
+								"e",
+								"l",
+								"k",
+								"f",
+								"a",
+								"k"
+							],
+							"audio": "melkvak"
+						},
+						{
+							"key": "zoepenbrij-5-8-62",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "zoepenbrij-5-8-63",
+							"text": "aigenlieks",
+							"dutch": "eigenlijk",
+							"sounds": [
+								"ai",
+								"ng",
+								"l",
+								"ie",
+								"k",
+								"s"
+							],
+							"audio": "aigenlieks"
+						},
+						{
+							"key": "zoepenbrij-5-8-66",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "zoepenbrij-5-8-67",
+							"text": "zoepenbrij",
+							"dutch": "karnemelkse pap",
+							"sounds": [
+								"z",
+								"oe",
+								"’",
+								"m",
+								"b",
+								"r",
+								"ei"
+							],
+							"audio": "zoepenbrij"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-5-9",
+					"text": "Dizze raais kocht ze gain slik.",
+					"time": [
+						31.018239538181813,
+						32.98244498061516
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-5-9-68",
+							"text": "dizze",
+							"dutch": "deze",
+							"sounds": [
+								"d",
+								"i",
+								"z",
+								"uh"
+							],
+							"audio": "dizze"
+						},
+						{
+							"key": "zoepenbrij-5-9-69",
+							"text": "raais",
+							"dutch": "keer",
+							"sounds": [
+								"r",
+								"aai",
+								"s"
+							],
+							"audio": "raais"
+						},
+						{
+							"key": "zoepenbrij-5-9-70",
+							"text": "kocht",
+							"dutch": "kocht",
+							"sounds": [
+								"k",
+								"o",
+								"g"
+							],
+							"audio": "kocht"
+						},
+						{
+							"key": "zoepenbrij-5-9-72",
+							"text": "gain",
+							"dutch": "geen",
+							"sounds": [
+								"g",
+								"ai",
+								"n"
+							],
+							"audio": "gain"
+						},
+						{
+							"key": "zoepenbrij-5-9-73",
+							"text": "slik",
+							"dutch": "snoep",
+							"sounds": [
+								"s",
+								"l",
+								"i",
+								"k"
+							],
+							"audio": "slik"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-6",
+			"time": [
+				34.345895021852655,
+				43.999954591545794
+			],
+			"image": "zoepenbrij-6",
+			"sentences": [
+				{
+					"key": "zoepenbrij-6-10",
+					"text": "Ainmoal thoes en dou t potje op bèr lag, zee Mamme, dat ze wat lekkers veur Koos mitnomen haar.",
+					"time": [
+						34.345895021852655,
+						38.90359054113665
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-6-10-74",
+							"text": "ainmoal",
+							"dutch": "eenmaal weer",
+							"sounds": [
+								"oi",
+								"n",
+								"m",
+								"o",
+								"l"
+							],
+							"audio": "ainmoal"
+						},
+						{
+							"key": "zoepenbrij-6-10-75",
+							"text": "thoes",
+							"dutch": "thuis",
+							"sounds": [
+								"t",
+								"oe",
+								"s"
+							],
+							"audio": "thoes"
+						},
+						{
+							"key": "zoepenbrij-6-10-76",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-6-10-77",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "zoepenbrij-6-10-78",
+							"text": "potje",
+							"dutch": "baby",
+							"sounds": [
+								"p",
+								"o",
+								"d",
+								"j",
+								"uh"
+							],
+							"audio": "potje"
+						},
+						{
+							"key": "zoepenbrij-6-10-79",
+							"text": "op",
+							"dutch": "in",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "zoepenbrij-6-10-81",
+							"text": "lag",
+							"dutch": "lag",
+							"sounds": [
+								"l",
+								"a",
+								"g"
+							],
+							"audio": "lag"
+						},
+						{
+							"key": "zoepenbrij-6-10-82",
+							"text": "zee",
+							"dutch": "zei",
+							"sounds": [
+								"z",
+								"ee"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "zoepenbrij-6-10-83",
+							"text": "mamme",
+							"dutch": "mamma",
+							"sounds": [
+								"m",
+								"a",
+								"m",
+								"uh"
+							],
+							"audio": "mamme"
+						},
+						{
+							"key": "zoepenbrij-6-10-84",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "zoepenbrij-6-10-86",
+							"text": "wat",
+							"dutch": "wat",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						},
+						{
+							"key": "zoepenbrij-6-10-87",
+							"text": "lekkers",
+							"dutch": "lekkers",
+							"sounds": [
+								"l",
+								"e",
+								"G!",
+								"uh",
+								"s"
+							],
+							"audio": "lekkers"
+						},
+						{
+							"key": "zoepenbrij-6-10-88",
+							"text": "veur",
+							"dutch": "voor",
+							"sounds": [
+								"f",
+								"eu",
+								"r"
+							],
+							"audio": "veur"
+						},
+						{
+							"key": "zoepenbrij-6-10-89",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						},
+						{
+							"key": "zoepenbrij-6-10-90",
+							"text": "mitnomen",
+							"dutch": "meegenomen",
+							"sounds": [
+								"m",
+								"i",
+								"’",
+								"n",
+								"oo",
+								"m"
+							],
+							"audio": "mitnomen"
+						},
+						{
+							"key": "zoepenbrij-6-10-91",
+							"text": "haar",
+							"dutch": "had",
+							"sounds": [
+								"h",
+								"aa",
+								"r"
+							],
+							"audio": "haar"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-6-11",
+					"text": "'Gain slik?' vroug Koos.",
+					"time": [
+						39.49602517443943,
+						41.40929909516549
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-6-11-92",
+							"text": "gain",
+							"dutch": "geen",
+							"sounds": [
+								"g",
+								"ai",
+								"n"
+							],
+							"audio": "gain"
+						},
+						{
+							"key": "zoepenbrij-6-11-93",
+							"text": "slik",
+							"dutch": "snoep",
+							"sounds": [
+								"s",
+								"l",
+								"i",
+								"k"
+							],
+							"audio": "slik"
+						},
+						{
+							"key": "zoepenbrij-6-11-94",
+							"text": "vroug",
+							"dutch": "vroeg",
+							"sounds": [
+								"f",
+								"r",
+								"ou",
+								"g"
+							],
+							"audio": "vroug"
+						},
+						{
+							"key": "zoepenbrij-6-11-95",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-6-12",
+					"text": "'Nee dit is veul lekkerder en ook nog gezond.'",
+					"time": [
+						41.757865276259345,
+						43.999954591545794
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-6-12-96",
+							"text": "nee",
+							"dutch": "nee",
+							"sounds": [
+								"n",
+								"ee"
+							],
+							"audio": "nee"
+						},
+						{
+							"key": "zoepenbrij-6-12-97",
+							"text": "dit",
+							"dutch": "dit",
+							"sounds": [
+								"d",
+								"i",
+								"t"
+							],
+							"audio": "dit"
+						},
+						{
+							"key": "zoepenbrij-6-12-98",
+							"text": "is",
+							"dutch": "is",
+							"sounds": [
+								"i",
+								"s"
+							],
+							"audio": "is"
+						},
+						{
+							"key": "zoepenbrij-6-12-99",
+							"text": "veul",
+							"dutch": "veel",
+							"sounds": [
+								"f",
+								"eu",
+								"l"
+							],
+							"audio": "veul"
+						},
+						{
+							"key": "zoepenbrij-6-12-100",
+							"text": "lekkerder",
+							"dutch": "lekkerder",
+							"sounds": [
+								"l",
+								"e",
+								"G!",
+								"uh",
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "lekkerder"
+						},
+						{
+							"key": "zoepenbrij-6-12-101",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-6-12-102",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						},
+						{
+							"key": "zoepenbrij-6-12-103",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "zoepenbrij-6-12-104",
+							"text": "gezond",
+							"dutch": "gezond",
+							"sounds": [
+								"g",
+								"uh",
+								"z",
+								"o",
+								"n",
+								"t"
+							],
+							"audio": "gezond"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-7",
+			"time": [
+				45.079851563989486,
+				57.31964032989943
+			],
+			"image": "zoepenbrij-7",
+			"sentences": [
+				{
+					"key": "zoepenbrij-7-13",
+					"text": "Dou t waarmeten doan was, zette Mamme n paan mit zoepenbrij op toavel.",
+					"time": [
+						45.079851563989486,
+						48.739157092691066
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-7-13-105",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "zoepenbrij-7-13-106",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "zoepenbrij-7-13-107",
+							"text": "waarmeten",
+							"dutch": "avondeten",
+							"sounds": [
+								"w",
+								"aa",
+								"m",
+								"ee",
+								"’",
+								"n"
+							],
+							"audio": "waarmeten"
+						},
+						{
+							"key": "zoepenbrij-7-13-108",
+							"text": "doan",
+							"dutch": "klaar",
+							"sounds": [
+								"d",
+								"o",
+								"n"
+							],
+							"audio": "doan"
+						},
+						{
+							"key": "zoepenbrij-7-13-109",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "zoepenbrij-7-13-110",
+							"text": "zette",
+							"dutch": "zette",
+							"sounds": [
+								"s",
+								"e",
+								"t",
+								"uh"
+							],
+							"audio": "zette"
+						},
+						{
+							"key": "zoepenbrij-7-13-111",
+							"text": "moeke",
+							"dutch": "moeder",
+							"sounds": [
+								"m",
+								"oe",
+								"G!",
+								"uh"
+							],
+							"audio": "moeke"
+						},
+						{
+							"key": "zoepenbrij-7-13-112",
+							"text": "paan",
+							"dutch": "pan",
+							"sounds": [
+								"p",
+								"aa",
+								"n"
+							],
+							"audio": "paan"
+						},
+						{
+							"key": "zoepenbrij-7-13-113",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "zoepenbrij-7-13-114",
+							"text": "zoepenbrij",
+							"dutch": "karnemelkse pap",
+							"sounds": [
+								"z",
+								"oe",
+								"’",
+								"m",
+								"b",
+								"r",
+								"ei"
+							],
+							"audio": "zoepenbrij"
+						},
+						{
+							"key": "zoepenbrij-7-13-115",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "zoepenbrij-7-13-116",
+							"text": "toavel",
+							"dutch": "tavel",
+							"sounds": [
+								"t",
+								"o",
+								"v",
+								"l"
+							],
+							"audio": "toavel"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-7-14",
+					"text": "Ze ruierde der mit n slaif nog even goud deur en schepte Koos zien bord vol.",
+					"time": [
+						49.280477125768584,
+						52.85474415535972
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-7-14-118",
+							"text": "ruierde",
+							"dutch": "roerde",
+							"sounds": [
+								"r",
+								"ui",
+								"d",
+								"uh"
+							],
+							"audio": "ruierde"
+						},
+						{
+							"key": "zoepenbrij-7-14-119",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "zoepenbrij-7-14-120",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "zoepenbrij-7-14-121",
+							"text": "slaif",
+							"dutch": "soeplepel",
+							"sounds": [
+								"s",
+								"l",
+								"ai",
+								"f"
+							],
+							"audio": "slaif"
+						},
+						{
+							"key": "zoepenbrij-7-14-122",
+							"text": "even",
+							"dutch": "even",
+							"sounds": [
+								"ee",
+								"m"
+							],
+							"audio": "even"
+						},
+						{
+							"key": "zoepenbrij-7-14-123",
+							"text": "goud",
+							"dutch": "goed",
+							"sounds": [
+								"g",
+								"ou",
+								"t"
+							],
+							"audio": "goud"
+						},
+						{
+							"key": "zoepenbrij-7-14-125",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-7-14-126",
+							"text": "schepte",
+							"dutch": "schepte",
+							"sounds": [
+								"s",
+								"k",
+								"e",
+								"p",
+								"t",
+								"uh"
+							],
+							"audio": "schepte"
+						},
+						{
+							"key": "zoepenbrij-7-14-127",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						},
+						{
+							"key": "zoepenbrij-7-14-128",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"ie",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "zoepenbrij-7-14-129",
+							"text": "bord",
+							"dutch": "bord",
+							"sounds": [
+								"b",
+								"o",
+								"t"
+							],
+							"audio": "bord"
+						},
+						{
+							"key": "zoepenbrij-7-14-130",
+							"text": "vol",
+							"dutch": "vol",
+							"sounds": [
+								"f",
+								"o",
+								"l"
+							],
+							"audio": "vol"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-7-15",
+					"text": "Dou dee ze der nog n dikke lepel stroop bie deur en vroug:",
+					"time": [
+						54.00267189909178,
+						57.31964032989943
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-7-15-131",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "zoepenbrij-7-15-132",
+							"text": "dee",
+							"dutch": "deed",
+							"sounds": [
+								"d",
+								"ee"
+							],
+							"audio": "dee"
+						},
+						{
+							"key": "zoepenbrij-7-15-134",
+							"text": "nog",
+							"dutch": " nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "zoepenbrij-7-15-135",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "zoepenbrij-7-15-136",
+							"text": "dikke",
+							"dutch": "grote",
+							"sounds": [
+								"d",
+								"i",
+								"G!",
+								"uh"
+							],
+							"audio": "dikke"
+						},
+						{
+							"key": "zoepenbrij-7-15-138",
+							"text": "stroop",
+							"dutch": "stroop",
+							"sounds": [
+								"s",
+								"t",
+								"r",
+								"oo",
+								"p"
+							],
+							"audio": "stroop"
+						},
+						{
+							"key": "zoepenbrij-7-15-139",
+							"text": "der",
+							"dutch": "der",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "zoepenbrij-7-15-140",
+							"text": "bie",
+							"dutch": null,
+							"sounds": [
+								"b",
+								"ie"
+							],
+							"audio": "bie"
+						},
+						{
+							"key": "zoepenbrij-7-15-141",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-7-15-142",
+							"text": "vroug",
+							"dutch": "vroeg",
+							"sounds": [
+								"f",
+								"r",
+								"ou",
+								"g"
+							],
+							"audio": "vroug"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-7-16",
+					"text": "'Nou wat vinstoe der van?'",
+					"time": [
+						57.696644187455746,
+						59.32362194567664
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-7-16-143",
+							"text": "nou",
+							"dutch": "nou",
+							"sounds": [
+								"n",
+								"ou"
+							],
+							"audio": "nou"
+						},
+						{
+							"key": "zoepenbrij-7-16-144",
+							"text": "wat",
+							"dutch": "wat",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						},
+						{
+							"key": "zoepenbrij-7-16-145",
+							"text": "vinst",
+							"dutch": "vind je",
+							"sounds": [
+								"f",
+								"i",
+								"s",
+								"t"
+							],
+							"audio": "vinst"
+						},
+						{
+							"key": "zoepenbrij-7-16-146",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "zoepenbrij-7-16-147",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-7-17",
+					"text": "Mor Koos von t gain verrazzen en zee din ook:",
+					"time": [
+						60.057695830737856,
+						62.384823610134745
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-7-17-148",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "zoepenbrij-7-17-149",
+							"text": "Koos",
+							"dutch": "Koos",
+							"sounds": [
+								"k",
+								"oo",
+								"s"
+							],
+							"audio": "koos"
+						},
+						{
+							"key": "zoepenbrij-7-17-150",
+							"text": "von",
+							"dutch": "vond",
+							"sounds": [
+								"v",
+								"o",
+								"n"
+							],
+							"audio": "von"
+						},
+						{
+							"key": "zoepenbrij-7-17-151",
+							"text": "gain",
+							"dutch": "geen",
+							"sounds": [
+								"g",
+								"ai",
+								"n"
+							],
+							"audio": "gain"
+						},
+						{
+							"key": "zoepenbrij-7-17-152",
+							"text": "verrazzen",
+							"dutch": "verrassing",
+							"sounds": [
+								"f",
+								"uh",
+								"r",
+								"a",
+								"z",
+								"n"
+							],
+							"audio": "verrazzen"
+						},
+						{
+							"key": "zoepenbrij-7-17-153",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-7-17-154",
+							"text": "zee",
+							"dutch": "zei",
+							"sounds": [
+								"z",
+								"ee"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "zoepenbrij-7-17-155",
+							"text": "din",
+							"dutch": "dan",
+							"sounds": [
+								"d",
+								"i",
+								"n"
+							],
+							"audio": "din"
+						},
+						{
+							"key": "zoepenbrij-7-17-156",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "zoepenbrij-8",
+			"time": [
+				62.943242857793344,
+				69.37856013697187
+			],
+			"image": "zoepenbrij-8",
+			"sentences": [
+				{
+					"key": "zoepenbrij-8-18",
+					"text": "'Dit lus k nait, der zitten apmoal kloeten ien.'",
+					"time": [
+						62.943242857793344,
+						64.8139059897052
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-8-18-157",
+							"text": "dit",
+							"dutch": "dit",
+							"sounds": [
+								"d",
+								"i",
+								"t"
+							],
+							"audio": "dit"
+						},
+						{
+							"key": "zoepenbrij-8-18-158",
+							"text": "lus",
+							"dutch": "lust",
+							"sounds": [
+								"l",
+								"u",
+								"s"
+							],
+							"audio": "lus"
+						},
+						{
+							"key": "zoepenbrij-8-18-159",
+							"text": "k",
+							"dutch": "ik",
+							"sounds": [
+								"i",
+								"k"
+							],
+							"audio": "k"
+						},
+						{
+							"key": "zoepenbrij-8-18-160",
+							"text": "nait",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"ai",
+								"t"
+							],
+							"audio": "nait"
+						},
+						{
+							"key": "zoepenbrij-8-18-161",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "zoepenbrij-8-18-162",
+							"text": "zitten",
+							"dutch": "zitten",
+							"sounds": [
+								"s",
+								"i",
+								"’",
+								"n"
+							],
+							"audio": "zitten"
+						},
+						{
+							"key": "zoepenbrij-8-18-163",
+							"text": "apmoal",
+							"dutch": "allemaal",
+							"sounds": [
+								"a",
+								"p",
+								"m",
+								"o",
+								"l"
+							],
+							"audio": "apmoal"
+						},
+						{
+							"key": "zoepenbrij-8-18-164",
+							"text": "kloeten",
+							"dutch": "stukjes",
+							"sounds": [
+								"k",
+								"l",
+								"oe",
+								"’",
+								"n"
+							],
+							"audio": "kloeten"
+						},
+						{
+							"key": "zoepenbrij-8-18-165",
+							"text": "ien",
+							"dutch": "ien",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						}
+					]
+				},
+				{
+					"key": "zoepenbrij-8-19",
+					"text": "En keek, weer proekeg, nou noar zien bord .",
+					"time": [
+						65.40067139206728,
+						69.37856013697187
+					],
+					"words": [
+						{
+							"key": "zoepenbrij-8-19-166",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "zoepenbrij-8-19-167",
+							"text": "weer",
+							"dutch": "weer",
+							"sounds": [
+								"w",
+								"i",
+								"r"
+							],
+							"audio": "weer"
+						},
+						{
+							"key": "zoepenbrij-8-19-168",
+							"text": "keek",
+							"dutch": "keek",
+							"sounds": [
+								"k",
+								"ee",
+								"k"
+							],
+							"audio": "keek"
+						},
+						{
+							"key": "zoepenbrij-8-19-169",
+							"text": "e",
+							"dutch": "hij",
+							"sounds": [
+								"uh"
+							],
+							"audio": "e"
+						},
+						{
+							"key": "zoepenbrij-8-19-170",
+							"text": "proekeg",
+							"dutch": "nukkig",
+							"sounds": [
+								"p",
+								"r",
+								"oe",
+								"k",
+								"uh",
+								"g"
+							],
+							"audio": "proekeg"
+						},
+						{
+							"key": "zoepenbrij-8-19-171",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "zoepenbrij-8-19-172",
+							"text": "nou",
+							"dutch": "nu",
+							"sounds": [
+								"n",
+								"ou"
+							],
+							"audio": "nou"
+						},
+						{
+							"key": "zoepenbrij-8-19-173",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "zoepenbrij-8-19-174",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"ie",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "zoepenbrij-8-19-175",
+							"text": "bord",
+							"dutch": "bord",
+							"sounds": [
+								"b",
+								"o",
+								"t"
+							],
+							"audio": "bord"
+						},
+						{
+							"key": "zoepenbrij-8-19-176",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "zoepenbrij-8-19-177",
+							"text": "zoepenbrij",
+							"dutch": "karnemelkse pap",
+							"sounds": [
+								"z",
+								"oe",
+								"’",
+								"m",
+								"b",
+								"r",
+								"ei"
+							],
+							"audio": "zoepenbrij"
+						}
+					]
+				}
+			]
+		}
+	]
+}

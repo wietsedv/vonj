@@ -1,8 +1,8 @@
 # Games
 
-There are seven distinct game types. Three of them appear twice, once relaxed
-and once against the clock, and one appears three times at three word lengths,
-which gives the eleven sections of the app.
+There are six distinct game types, one per level screen in the original. Three of
+them appear twice, once relaxed and once against the clock, and one appears three
+times at three word lengths, which gives the eleven sections of the app.
 
 | Category  | Section                 | Game                                                                | Timed |
 | --------- | ----------------------- | ------------------------------------------------------------------- | ----- |

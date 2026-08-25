@@ -1,0 +1,2154 @@
+{
+	"key": "kopstubber",
+	"audio": "kopstubber",
+	"image": "kopstubber",
+	"fragments": [
+		{
+			"key": "kopstubber-1",
+			"time": [
+				3.186159622475076,
+				10.545668839417175
+			],
+			"image": "kopstubber-1",
+			"sentences": [
+				{
+					"key": "kopstubber-1-1",
+					"text": "t Laip tegen t veujoar en Grootmoe von dat ze t hoes schonen mos.",
+					"time": [
+						3.186159622475076,
+						7.147846461768785
+					],
+					"words": [
+						{
+							"key": "kopstubber-1-1-1",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-1-1-2",
+							"text": "laip",
+							"dutch": "liep",
+							"sounds": [
+								"l",
+								"ai",
+								"p"
+							],
+							"audio": "laip"
+						},
+						{
+							"key": "kopstubber-1-1-3",
+							"text": "tegen",
+							"dutch": "tegen",
+							"sounds": [
+								"t",
+								"ee",
+								"ng"
+							],
+							"audio": "tegen"
+						},
+						{
+							"key": "kopstubber-1-1-4",
+							"text": "veujoar",
+							"dutch": "voorjaar",
+							"sounds": [
+								"f",
+								"eu",
+								"j",
+								"o",
+								"r"
+							],
+							"audio": "veujoar"
+						},
+						{
+							"key": "kopstubber-1-1-5",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kopstubber-1-1-6",
+							"text": "grootmoe",
+							"dutch": "grootmoeder",
+							"sounds": [
+								"g",
+								"r",
+								"oo",
+								"’",
+								"m",
+								"oe"
+							],
+							"audio": "grootmoe"
+						},
+						{
+							"key": "kopstubber-1-1-7",
+							"text": "von",
+							"dutch": "vond",
+							"sounds": [
+								"v",
+								"o",
+								"n"
+							],
+							"audio": "von"
+						},
+						{
+							"key": "kopstubber-1-1-8",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "kopstubber-1-1-10",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-1-1-11",
+							"text": "hoes",
+							"dutch": "huis",
+							"sounds": [
+								"h",
+								"oe",
+								"s"
+							],
+							"audio": "hoes"
+						},
+						{
+							"key": "kopstubber-1-1-12",
+							"text": "schonen",
+							"dutch": "schoonmaken",
+							"sounds": [
+								"s",
+								"g",
+								"oo",
+								"n"
+							],
+							"audio": "schonen"
+						},
+						{
+							"key": "kopstubber-1-1-13",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-1-2",
+					"text": "Op bozzem stonden twij stainen hondjes.",
+					"time": [
+						7.831866011349798,
+						10.545668839417175
+					],
+					"words": [
+						{
+							"key": "kopstubber-1-2-14",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "kopstubber-1-2-15",
+							"text": "bozzem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"o",
+								"s",
+								"uh",
+								"m"
+							],
+							"audio": "bozzem"
+						},
+						{
+							"key": "kopstubber-1-2-16",
+							"text": "stonden",
+							"dutch": "stonden",
+							"sounds": [
+								"s",
+								"t",
+								"o",
+								"n"
+							],
+							"audio": "stonden"
+						},
+						{
+							"key": "kopstubber-1-2-17",
+							"text": "twij",
+							"dutch": "twee",
+							"sounds": [
+								"t",
+								"w",
+								"ei"
+							],
+							"audio": "twij"
+						},
+						{
+							"key": "kopstubber-1-2-18",
+							"text": "stainen",
+							"dutch": "stenen",
+							"sounds": [
+								"s",
+								"t",
+								"oi",
+								"n"
+							],
+							"audio": "stainen"
+						},
+						{
+							"key": "kopstubber-1-2-19",
+							"text": "hondjes",
+							"dutch": "hondjes",
+							"sounds": [
+								"h",
+								"oi",
+								"n",
+								"tj",
+								"uh",
+								"s"
+							],
+							"audio": "hondjes"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-2",
+			"time": [
+				11.131675052924539,
+				22.06922941770531
+			],
+			"image": "kopstubber-2",
+			"sentences": [
+				{
+					"key": "kopstubber-2-3",
+					"text": "Dij haar ze ooit nog van Opa kregen, mor dij was oet tied kommen.",
+					"time": [
+						11.131675052924539,
+						14.693453669325827
+					],
+					"words": [
+						{
+							"key": "kopstubber-2-3-20",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "kopstubber-2-3-21",
+							"text": "haar",
+							"dutch": "had",
+							"sounds": [
+								"h",
+								"aa",
+								"r"
+							],
+							"audio": "haar"
+						},
+						{
+							"key": "kopstubber-2-3-23",
+							"text": "ooit",
+							"dutch": "ooit",
+							"sounds": [
+								"ooi",
+								"t"
+							],
+							"audio": "ooit"
+						},
+						{
+							"key": "kopstubber-2-3-24",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "kopstubber-2-3-25",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "kopstubber-2-3-26",
+							"text": "opa",
+							"dutch": "opa",
+							"sounds": [
+								"oo",
+								"p",
+								"a"
+							],
+							"audio": "opa"
+						},
+						{
+							"key": "kopstubber-2-3-27",
+							"text": "kregen",
+							"dutch": "gekregen",
+							"sounds": [
+								"k",
+								"r",
+								"ee",
+								"ng"
+							],
+							"audio": "kregen"
+						},
+						{
+							"key": "kopstubber-2-3-28",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "kopstubber-2-3-29",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "kopstubber-2-3-30",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "kopstubber-2-3-31",
+							"text": "oet",
+							"dutch": "uit",
+							"sounds": [
+								"oe",
+								"t"
+							],
+							"audio": "oet"
+						},
+						{
+							"key": "kopstubber-2-3-32",
+							"text": "tied",
+							"dutch": "tijd",
+							"sounds": [
+								"t",
+								"ie",
+								"t"
+							],
+							"audio": "tied"
+						},
+						{
+							"key": "kopstubber-2-3-33",
+							"text": "kommen",
+							"dutch": "gekomen",
+							"sounds": [
+								"k",
+								"o",
+								"m"
+							],
+							"audio": "kommen"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-2-4",
+					"text": "Beeldjes waren n laive herinnern aan hom.",
+					"time": [
+						15.694550156687763,
+						17.927915340639814
+					],
+					"words": [
+						{
+							"key": "kopstubber-2-4-34",
+							"text": "beeldjes",
+							"dutch": "beeldjes",
+							"sounds": [
+								"b",
+								"ee",
+								"l",
+								"tj",
+								"uh",
+								"s"
+							],
+							"audio": "beeldjes"
+						},
+						{
+							"key": "kopstubber-2-4-35",
+							"text": "waren",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"aa",
+								"n"
+							],
+							"audio": "waren"
+						},
+						{
+							"key": "kopstubber-2-4-36",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-2-4-37",
+							"text": "laive",
+							"dutch": "lieve",
+							"sounds": [
+								"l",
+								"ai",
+								"v",
+								"uh"
+							],
+							"audio": "laive"
+						},
+						{
+							"key": "kopstubber-2-4-38",
+							"text": "herinnering",
+							"dutch": "herinnering",
+							"sounds": [
+								"h",
+								"e",
+								"r",
+								"i",
+								"n",
+								"uh",
+								"r",
+								"i",
+								"ng"
+							],
+							"audio": "herinnering"
+						},
+						{
+							"key": "kopstubber-2-4-39",
+							"text": "aan",
+							"dutch": "aan",
+							"sounds": [
+								"aa",
+								"n"
+							],
+							"audio": "aan"
+						},
+						{
+							"key": "kopstubber-2-4-40",
+							"text": "hom",
+							"dutch": "hem",
+							"sounds": [
+								"h",
+								"o",
+								"m"
+							],
+							"audio": "hom"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-2-5",
+					"text": "Schonen was nait t mooiste waark, mor t heurde der bie.",
+					"time": [
+						19.2109730291066,
+						22.06922941770531
+					],
+					"words": [
+						{
+							"key": "kopstubber-2-5-41",
+							"text": "schonen",
+							"dutch": "schoonmaken",
+							"sounds": [
+								"s",
+								"g",
+								"oo",
+								"n"
+							],
+							"audio": "schonen"
+						},
+						{
+							"key": "kopstubber-2-5-42",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "kopstubber-2-5-43",
+							"text": "nait",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"ai",
+								"t"
+							],
+							"audio": "nait"
+						},
+						{
+							"key": "kopstubber-2-5-44",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-2-5-45",
+							"text": "mooiste",
+							"dutch": "mooiste",
+							"sounds": [
+								"m",
+								"ooi",
+								"s",
+								"t",
+								"uh"
+							],
+							"audio": "mooiste"
+						},
+						{
+							"key": "kopstubber-2-5-46",
+							"text": "waark",
+							"dutch": "werk",
+							"sounds": [
+								"w",
+								"aa",
+								"k"
+							],
+							"audio": "waark"
+						},
+						{
+							"key": "kopstubber-2-5-47",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "kopstubber-2-5-48",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-2-5-49",
+							"text": "heurde",
+							"dutch": "hoorde",
+							"sounds": [
+								"h",
+								"eu",
+								"d",
+								"uh"
+							],
+							"audio": "heurde"
+						},
+						{
+							"key": "kopstubber-2-5-50",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "kopstubber-2-5-51",
+							"text": "bie",
+							"dutch": "bij",
+							"sounds": [
+								"b",
+								"ie"
+							],
+							"audio": "bie"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-2-6",
+					"text": "Ze pakte kopstubber om n spinneweb oet houk te vegen.",
+					"time": [
+						22.882126014335135,
+						26.279956943762667
+					],
+					"words": [
+						{
+							"key": "kopstubber-2-6-53",
+							"text": "pakte",
+							"dutch": "pakte",
+							"sounds": [
+								"p",
+								"a",
+								"k",
+								"t",
+								"uh"
+							],
+							"audio": "pakte"
+						},
+						{
+							"key": "kopstubber-2-6-54",
+							"text": "kopstubber",
+							"dutch": "ragebol",
+							"sounds": [
+								"k",
+								"o",
+								"p",
+								"s",
+								"t",
+								"u",
+								"b",
+								"uh",
+								"r"
+							],
+							"audio": "kopstubber"
+						},
+						{
+							"key": "kopstubber-2-6-55",
+							"text": "om",
+							"dutch": "om",
+							"sounds": [
+								"o",
+								"m"
+							],
+							"audio": "om"
+						},
+						{
+							"key": "kopstubber-2-6-56",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-2-6-57",
+							"text": "spinneweb",
+							"dutch": "spinneweb",
+							"sounds": [
+								"s",
+								"p",
+								"i",
+								"n",
+								"uh",
+								"w",
+								"e",
+								"p"
+							],
+							"audio": "spinneweb"
+						},
+						{
+							"key": "kopstubber-2-6-58",
+							"text": "oet",
+							"dutch": "uit",
+							"sounds": [
+								"oe",
+								"t"
+							],
+							"audio": "oet"
+						},
+						{
+							"key": "kopstubber-2-6-59",
+							"text": "houk",
+							"dutch": "hoek",
+							"sounds": [
+								"h",
+								"ou",
+								"k"
+							],
+							"audio": "houk"
+						},
+						{
+							"key": "kopstubber-2-6-60",
+							"text": "te",
+							"dutch": "te",
+							"sounds": [
+								"t",
+								"uh"
+							],
+							"audio": "te"
+						},
+						{
+							"key": "kopstubber-2-6-61",
+							"text": "vegen",
+							"dutch": "vegen",
+							"sounds": [
+								"f",
+								"ee",
+								"G!",
+								"ng"
+							],
+							"audio": "vegen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-3",
+			"time": [
+				27.17903926485068,
+				37.023130346740004
+			],
+			"image": "kopstubber-3",
+			"sentences": [
+				{
+					"key": "kopstubber-3-7",
+					"text": "Spaigel hing boven bozzem en din was t net of der vaaier hondjes waren.",
+					"time": [
+						27.17903926485068,
+						31.565851741191956
+					],
+					"words": [
+						{
+							"key": "kopstubber-3-7-62",
+							"text": "spaigel",
+							"dutch": "spiegel",
+							"sounds": [
+								"s",
+								"p",
+								"ai",
+								"g",
+								"l"
+							],
+							"audio": "spaigel"
+						},
+						{
+							"key": "kopstubber-3-7-63",
+							"text": "hing",
+							"dutch": "hing",
+							"sounds": [
+								"h",
+								"i",
+								"ng"
+							],
+							"audio": "hing"
+						},
+						{
+							"key": "kopstubber-3-7-64",
+							"text": "boven",
+							"dutch": "boven",
+							"sounds": [
+								"b",
+								"oo",
+								"m"
+							],
+							"audio": "boven"
+						},
+						{
+							"key": "kopstubber-3-7-65",
+							"text": "bozzem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"o",
+								"s",
+								"uh",
+								"m"
+							],
+							"audio": "bozzem"
+						},
+						{
+							"key": "kopstubber-3-7-66",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kopstubber-3-7-67",
+							"text": "din",
+							"dutch": "dan",
+							"sounds": [
+								"d",
+								"i",
+								"n"
+							],
+							"audio": "din"
+						},
+						{
+							"key": "kopstubber-3-7-68",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "kopstubber-3-7-69",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-3-7-70",
+							"text": "net",
+							"dutch": "net",
+							"sounds": [
+								"n",
+								"e",
+								"t"
+							],
+							"audio": "net"
+						},
+						{
+							"key": "kopstubber-3-7-71",
+							"text": "of",
+							"dutch": "alsof",
+							"sounds": [
+								"o",
+								"f"
+							],
+							"audio": "of"
+						},
+						{
+							"key": "kopstubber-3-7-72",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "kopstubber-3-7-73",
+							"text": "vaaier",
+							"dutch": "vier",
+							"sounds": [
+								"f",
+								"aai",
+								"uh",
+								"r"
+							],
+							"audio": "vaaier"
+						},
+						{
+							"key": "kopstubber-3-7-74",
+							"text": "hondjes",
+							"dutch": "hondjes",
+							"sounds": [
+								"h",
+								"oi",
+								"n",
+								"tj",
+								"uh",
+								"s"
+							],
+							"audio": "hondjes"
+						},
+						{
+							"key": "kopstubber-3-7-75",
+							"text": "waren",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"aa",
+								"n"
+							],
+							"audio": "waren"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-3-8",
+					"text": "Ze poetste zo ieverg deur, dat ze vergat dat beeldjes op bozzem stonden.",
+					"time": [
+						32.742020585533986,
+						37.023130346740004
+					],
+					"words": [
+						{
+							"key": "kopstubber-3-8-77",
+							"text": "had",
+							"dutch": "had",
+							"sounds": [
+								"h",
+								"a",
+								"t"
+							],
+							"audio": "had"
+						},
+						{
+							"key": "kopstubber-3-8-78",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-3-8-79",
+							"text": "ter",
+							"dutch": "er",
+							"sounds": [
+								"t",
+								"uh",
+								"r"
+							],
+							"audio": "ter"
+						},
+						{
+							"key": "kopstubber-3-8-80",
+							"text": "zo",
+							"dutch": "zo",
+							"sounds": [
+								"s",
+								"oo"
+							],
+							"audio": "zo"
+						},
+						{
+							"key": "kopstubber-3-8-81",
+							"text": "drok",
+							"dutch": "druk",
+							"sounds": [
+								"d",
+								"r",
+								"o",
+								"k"
+							],
+							"audio": "drok"
+						},
+						{
+							"key": "kopstubber-3-8-82",
+							"text": "mit",
+							"dutch": "mee",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "kopstubber-3-8-83",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "kopstubber-3-8-85",
+							"text": "vergat",
+							"dutch": "vergat",
+							"sounds": [
+								"f",
+								"uh",
+								"g",
+								"a",
+								"t"
+							],
+							"audio": "vergat"
+						},
+						{
+							"key": "kopstubber-3-8-86",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "kopstubber-3-8-87",
+							"text": "beeldjes",
+							"dutch": "beeldjes",
+							"sounds": [
+								"b",
+								"ee",
+								"l",
+								"tj",
+								"uh",
+								"s"
+							],
+							"audio": "beeldjes"
+						},
+						{
+							"key": "kopstubber-3-8-88",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "kopstubber-3-8-89",
+							"text": "bozzem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"o",
+								"s",
+								"uh",
+								"m"
+							],
+							"audio": "bozzem"
+						},
+						{
+							"key": "kopstubber-3-8-90",
+							"text": "stonden",
+							"dutch": "stonden",
+							"sounds": [
+								"s",
+								"t",
+								"o",
+								"n"
+							],
+							"audio": "stonden"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-4",
+			"time": [
+				37.91467702032297,
+				42.76131837655705
+			],
+			"image": "kopstubber-4",
+			"sentences": [
+				{
+					"key": "kopstubber-4-9",
+					"text": "Grootmoe stötte der mit n swaaiende kopstubber tegenaan en beeldjes villen ien braiten op grond.",
+					"time": [
+						37.91467702032297,
+						42.76131837655705
+					],
+					"words": [
+						{
+							"key": "kopstubber-4-9-91",
+							"text": "grootmoe",
+							"dutch": "grootmoeder",
+							"sounds": [
+								"g",
+								"r",
+								"oo",
+								"’",
+								"m",
+								"oe"
+							],
+							"audio": "grootmoe"
+						},
+						{
+							"key": "kopstubber-4-9-93",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "kopstubber-4-9-94",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "kopstubber-4-9-95",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-4-9-96",
+							"text": "swaaiende",
+							"dutch": "zwaaiende",
+							"sounds": [
+								"s",
+								"w",
+								"aai",
+								"n",
+								"d",
+								"uh"
+							],
+							"audio": "swaaiende"
+						},
+						{
+							"key": "kopstubber-4-9-97",
+							"text": "kopstubber",
+							"dutch": "ragebol",
+							"sounds": [
+								"k",
+								"o",
+								"p",
+								"s",
+								"t",
+								"u",
+								"b",
+								"uh",
+								"r"
+							],
+							"audio": "kopstubber"
+						},
+						{
+							"key": "kopstubber-4-9-98",
+							"text": "tegenaan",
+							"dutch": "tegenaan",
+							"sounds": [
+								"t",
+								"ee",
+								"ng",
+								"aa",
+								"n"
+							],
+							"audio": "tegenaan"
+						},
+						{
+							"key": "kopstubber-4-9-99",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kopstubber-4-9-100",
+							"text": "beeldjes",
+							"dutch": "beeldjes",
+							"sounds": [
+								"b",
+								"ee",
+								"l",
+								"tj",
+								"uh",
+								"s"
+							],
+							"audio": "beeldjes"
+						},
+						{
+							"key": "kopstubber-4-9-101",
+							"text": "villen",
+							"dutch": "vielen",
+							"sounds": [
+								"f",
+								"ie",
+								"l",
+								"n"
+							],
+							"audio": "villen"
+						},
+						{
+							"key": "kopstubber-4-9-102",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "kopstubber-4-9-103",
+							"text": "grond",
+							"dutch": "grond",
+							"sounds": [
+								"g",
+								"r",
+								"o",
+								"n",
+								"t"
+							],
+							"audio": "grond"
+						},
+						{
+							"key": "kopstubber-4-9-104",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "kopstubber-4-9-105",
+							"text": "braiten",
+							"dutch": "stukken",
+							"sounds": [
+								"b",
+								"r",
+								"ai",
+								"’",
+								"n"
+							],
+							"audio": "braiten"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-5",
+			"time": [
+				43.93987279383259,
+				49.45581980950778
+			],
+			"image": "kopstubber-5",
+			"sentences": [
+				{
+					"key": "kopstubber-5-10",
+					"text": "Ze kreeg troanen ien ogen en zöchte noar buusdouk.",
+					"time": [
+						43.93987279383259,
+						46.76933965137986
+					],
+					"words": [
+						{
+							"key": "kopstubber-5-10-107",
+							"text": "kreeg",
+							"dutch": "kreeg",
+							"sounds": [
+								"k",
+								"r",
+								"ee",
+								"g"
+							],
+							"audio": "kreeg"
+						},
+						{
+							"key": "kopstubber-5-10-108",
+							"text": "troanen",
+							"dutch": "tranen",
+							"sounds": [
+								"t",
+								"r",
+								"o",
+								"n"
+							],
+							"audio": "troanen"
+						},
+						{
+							"key": "kopstubber-5-10-109",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "kopstubber-5-10-110",
+							"text": "ogen",
+							"dutch": "ogen",
+							"sounds": [
+								"oo",
+								"G!",
+								"ng"
+							],
+							"audio": "ogen"
+						},
+						{
+							"key": "kopstubber-5-10-111",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kopstubber-5-10-113",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "kopstubber-5-10-114",
+							"text": "buusdouk",
+							"dutch": "zakdoek",
+							"sounds": [
+								"b",
+								"uu",
+								"s",
+								"d",
+								"ou",
+								"k"
+							],
+							"audio": "buusdouk"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-5-11",
+					"text": "Haile boudel lag aan diggels.",
+					"time": [
+						47.46674340660114,
+						49.45581980950778
+					],
+					"words": [
+						{
+							"key": "kopstubber-5-11-115",
+							"text": "haile",
+							"dutch": "hele",
+							"sounds": [
+								"h",
+								"ai",
+								"l",
+								"uh"
+							],
+							"audio": "haile"
+						},
+						{
+							"key": "kopstubber-5-11-116",
+							"text": "boudel",
+							"dutch": "boel",
+							"sounds": [
+								"b",
+								"ou",
+								"d",
+								"l"
+							],
+							"audio": "boudel"
+						},
+						{
+							"key": "kopstubber-5-11-117",
+							"text": "lag",
+							"dutch": "lag",
+							"sounds": [
+								"l",
+								"a",
+								"g"
+							],
+							"audio": "lag"
+						},
+						{
+							"key": "kopstubber-5-11-118",
+							"text": "aan",
+							"dutch": "aan",
+							"sounds": [
+								"aa",
+								"n"
+							],
+							"audio": "aan"
+						},
+						{
+							"key": "kopstubber-5-11-119",
+							"text": "diggels",
+							"dutch": "diggelen",
+							"sounds": [
+								"d",
+								"i",
+								"g",
+								"l",
+								"s"
+							],
+							"audio": "diggels"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-6",
+			"time": [
+				50.50041547027409,
+				61.68496123225246
+			],
+			"image": "kopstubber-6",
+			"sentences": [
+				{
+					"key": "kopstubber-6-12",
+					"text": "n Kopstubber is gain veger, dus mos motblik en stubber der heer.",
+					"time": [
+						50.50041547027409,
+						54.589345405414825
+					],
+					"words": [
+						{
+							"key": "kopstubber-6-12-120",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-6-12-121",
+							"text": "kopstubber",
+							"dutch": "ragebol",
+							"sounds": [
+								"k",
+								"o",
+								"p",
+								"s",
+								"t",
+								"u",
+								"b",
+								"uh",
+								"r"
+							],
+							"audio": "kopstubber"
+						},
+						{
+							"key": "kopstubber-6-12-122",
+							"text": "is",
+							"dutch": "is",
+							"sounds": [
+								"i",
+								"s"
+							],
+							"audio": "is"
+						},
+						{
+							"key": "kopstubber-6-12-123",
+							"text": "gain",
+							"dutch": "geen",
+							"sounds": [
+								"g",
+								"ai",
+								"n"
+							],
+							"audio": "gain"
+						},
+						{
+							"key": "kopstubber-6-12-124",
+							"text": "veger",
+							"dutch": "vegre",
+							"sounds": [
+								"f",
+								"ee",
+								"g",
+								"uh",
+								"r"
+							],
+							"audio": "veger"
+						},
+						{
+							"key": "kopstubber-6-12-125",
+							"text": "dus",
+							"dutch": "dus",
+							"sounds": [
+								"d",
+								"u",
+								"s"
+							],
+							"audio": "dus"
+						},
+						{
+							"key": "kopstubber-6-12-126",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "kopstubber-6-12-127",
+							"text": "motblik",
+							"dutch": "blik",
+							"sounds": [
+								"m",
+								"o",
+								"t",
+								"b",
+								"l",
+								"i",
+								"k"
+							],
+							"audio": "motblik"
+						},
+						{
+							"key": "kopstubber-6-12-128",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kopstubber-6-12-129",
+							"text": "veger",
+							"dutch": "stoffer",
+							"sounds": [
+								"f",
+								"ee",
+								"g",
+								"uh",
+								"r"
+							],
+							"audio": "veger"
+						},
+						{
+							"key": "kopstubber-6-12-130",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "kopstubber-6-12-131",
+							"text": "heer",
+							"dutch": "heen",
+							"sounds": [
+								"h",
+								"ee",
+								"r"
+							],
+							"audio": "heer"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-6-13",
+					"text": "Ook pakte ze n nadde schuddeldouk van t aanrecht.",
+					"time": [
+						55.576282275670344,
+						58.13521558238859
+					],
+					"words": [
+						{
+							"key": "kopstubber-6-13-132",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						},
+						{
+							"key": "kopstubber-6-13-133",
+							"text": "pakte",
+							"dutch": "pakte",
+							"sounds": [
+								"p",
+								"a",
+								"k",
+								"t",
+								"uh"
+							],
+							"audio": "pakte"
+						},
+						{
+							"key": "kopstubber-6-13-135",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-6-13-136",
+							"text": "nadde",
+							"dutch": "natte",
+							"sounds": [
+								"n",
+								"a",
+								"d",
+								"uh"
+							],
+							"audio": "nadde"
+						},
+						{
+							"key": "kopstubber-6-13-137",
+							"text": "schuddeldouk",
+							"dutch": "vaatdoek",
+							"sounds": [
+								"s",
+								"g",
+								"u",
+								"l",
+								"n",
+								"d",
+								"ou",
+								"k"
+							],
+							"audio": "schuddeldouk"
+						},
+						{
+							"key": "kopstubber-6-13-138",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "kopstubber-6-13-139",
+							"text": "t",
+							"dutch": "t",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-6-13-140",
+							"text": "aanrecht",
+							"dutch": "aanrecht",
+							"sounds": [
+								"aa",
+								"n",
+								"r",
+								"e",
+								"g"
+							],
+							"audio": "aanrecht"
+						}
+					]
+				},
+				{
+					"key": "kopstubber-6-14",
+					"text": "Mit n swienhondje kon ze nog t beste ale splinters oproemen.",
+					"time": [
+						58.450989824869865,
+						61.68496123225246
+					],
+					"words": [
+						{
+							"key": "kopstubber-6-14-141",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "kopstubber-6-14-142",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-6-14-143",
+							"text": "swienhondje",
+							"dutch": "vaatdoek",
+							"sounds": [
+								"s",
+								"w",
+								"ie",
+								"n",
+								"oi",
+								"n",
+								"tj",
+								"ee"
+							],
+							"audio": "swienhondje"
+						},
+						{
+							"key": "kopstubber-6-14-144",
+							"text": "kon",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "kon"
+						},
+						{
+							"key": "kopstubber-6-14-146",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "kopstubber-6-14-147",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "kopstubber-6-14-148",
+							"text": "beste",
+							"dutch": "beste",
+							"sounds": [
+								"b",
+								"e",
+								"s",
+								"t",
+								"uh"
+							],
+							"audio": "beste"
+						},
+						{
+							"key": "kopstubber-6-14-149",
+							"text": "ale",
+							"dutch": "alle",
+							"sounds": [
+								"a",
+								"l",
+								"uh"
+							],
+							"audio": "ale"
+						},
+						{
+							"key": "kopstubber-6-14-150",
+							"text": "splinters",
+							"dutch": "splinters",
+							"sounds": [
+								"s",
+								"p",
+								"l",
+								"i",
+								"n",
+								"t",
+								"uh",
+								"s"
+							],
+							"audio": "splinters"
+						},
+						{
+							"key": "kopstubber-6-14-151",
+							"text": "oproemen",
+							"dutch": "opruimen",
+							"sounds": [
+								"o",
+								"b",
+								"r",
+								"oe",
+								"m"
+							],
+							"audio": "oproemen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-7",
+			"time": [
+				62.9641256160707,
+				66.84823735135049
+			],
+			"image": "kopstubber-7",
+			"sentences": [
+				{
+					"key": "kopstubber-7-15",
+					"text": "Klaainkiender hebben Grootmoe veur heur verjoardag n stainen swien geven.",
+					"time": [
+						62.9641256160707,
+						66.84823735135049
+					],
+					"words": [
+						{
+							"key": "kopstubber-7-15-152",
+							"text": "klaainkinder",
+							"dutch": "kleinkinderen",
+							"sounds": [
+								"k",
+								"l",
+								"aai",
+								"n",
+								"k",
+								"ie",
+								"n",
+								"uh",
+								"r"
+							],
+							"audio": "klaainkinder"
+						},
+						{
+							"key": "kopstubber-7-15-153",
+							"text": "hebben",
+							"dutch": "hebben",
+							"sounds": [
+								"h",
+								"e",
+								"m"
+							],
+							"audio": "hebben"
+						},
+						{
+							"key": "kopstubber-7-15-154",
+							"text": "grootmoe",
+							"dutch": "grootmoeder",
+							"sounds": [
+								"g",
+								"r",
+								"oo",
+								"’",
+								"m",
+								"oe"
+							],
+							"audio": "grootmoe"
+						},
+						{
+							"key": "kopstubber-7-15-155",
+							"text": "veur",
+							"dutch": "voor",
+							"sounds": [
+								"f",
+								"eu",
+								"r"
+							],
+							"audio": "veur"
+						},
+						{
+							"key": "kopstubber-7-15-156",
+							"text": "heur",
+							"dutch": "haar",
+							"sounds": [
+								"h",
+								"eu",
+								"r"
+							],
+							"audio": "heur"
+						},
+						{
+							"key": "kopstubber-7-15-157",
+							"text": "verjoardag",
+							"dutch": "verjaardag",
+							"sounds": [
+								"v",
+								"uh",
+								"j",
+								"o",
+								"d",
+								"a",
+								"g"
+							],
+							"audio": "verjoardag"
+						},
+						{
+							"key": "kopstubber-7-15-158",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "kopstubber-7-15-159",
+							"text": "stainen",
+							"dutch": "stenen",
+							"sounds": [
+								"s",
+								"t",
+								"oi",
+								"n"
+							],
+							"audio": "stainen"
+						},
+						{
+							"key": "kopstubber-7-15-160",
+							"text": "swien",
+							"dutch": "varken",
+							"sounds": [
+								"s",
+								"w",
+								"ie",
+								"n"
+							],
+							"audio": "swien"
+						},
+						{
+							"key": "kopstubber-7-15-161",
+							"text": "geven",
+							"dutch": "gegeven",
+							"sounds": [
+								"g",
+								"ee",
+								"b",
+								"m"
+							],
+							"audio": "geven"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kopstubber-8",
+			"time": [
+				67.51485737065755,
+				71.45610021227975
+			],
+			"image": "kopstubber-8",
+			"sentences": [
+				{
+					"key": "kopstubber-8-16",
+					"text": "En nou spoart ze veur twij nije hondjes om dij weer op bozzem te zetten.",
+					"time": [
+						67.51485737065755,
+						71.45610021227975
+					],
+					"words": [
+						{
+							"key": "kopstubber-8-16-162",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kopstubber-8-16-163",
+							"text": "nou",
+							"dutch": "nou",
+							"sounds": [
+								"n",
+								"ou"
+							],
+							"audio": "nou"
+						},
+						{
+							"key": "kopstubber-8-16-164",
+							"text": "spoart",
+							"dutch": "spaart",
+							"sounds": [
+								"s",
+								"p",
+								"o",
+								"t"
+							],
+							"audio": "spoart"
+						},
+						{
+							"key": "kopstubber-8-16-166",
+							"text": "veur",
+							"dutch": "voor",
+							"sounds": [
+								"f",
+								"eu",
+								"r"
+							],
+							"audio": "veur"
+						},
+						{
+							"key": "kopstubber-8-16-167",
+							"text": "twij",
+							"dutch": "twee",
+							"sounds": [
+								"t",
+								"w",
+								"ei"
+							],
+							"audio": "twij"
+						},
+						{
+							"key": "kopstubber-8-16-168",
+							"text": "nije",
+							"dutch": "nieuwe",
+							"sounds": [
+								"n",
+								"ei",
+								"j",
+								"uh"
+							],
+							"audio": "nije"
+						},
+						{
+							"key": "kopstubber-8-16-169",
+							"text": "hondjes",
+							"dutch": "hondjes",
+							"sounds": [
+								"h",
+								"oi",
+								"n",
+								"tj",
+								"uh",
+								"s"
+							],
+							"audio": "hondjes"
+						},
+						{
+							"key": "kopstubber-8-16-170",
+							"text": "om",
+							"dutch": "om",
+							"sounds": [
+								"o",
+								"m"
+							],
+							"audio": "om"
+						},
+						{
+							"key": "kopstubber-8-16-171",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "kopstubber-8-16-172",
+							"text": "weer",
+							"dutch": "weer",
+							"sounds": [
+								"w",
+								"i",
+								"r"
+							],
+							"audio": "weer"
+						},
+						{
+							"key": "kopstubber-8-16-173",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "kopstubber-8-16-174",
+							"text": "bozzem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"o",
+								"s",
+								"uh",
+								"m"
+							],
+							"audio": "bozzem"
+						},
+						{
+							"key": "kopstubber-8-16-175",
+							"text": "te",
+							"dutch": "te",
+							"sounds": [
+								"t",
+								"uh"
+							],
+							"audio": "te"
+						},
+						{
+							"key": "kopstubber-8-16-176",
+							"text": "zetten",
+							"dutch": "zetten",
+							"sounds": [
+								"z",
+								"e",
+								"’",
+								"n"
+							],
+							"audio": "zetten"
+						}
+					]
+				}
+			]
+		}
+	]
+}

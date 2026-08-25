@@ -18,16 +18,16 @@ It is written as a functional specification, not as a description of the old
 codebase: it is the source of truth for what the web version has to reproduce,
 except where [rewrite.md](rewrite.md) overrides it.
 
-| Document                                              | Contents                                                                                 |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| [Overview](original-app/overview.md)                  | What the app is, who it is for, the four categories, the whole flow at a glance          |
-| [Onboarding](original-app/onboarding.md)              | School and name entry, the school picker, demo mode                                      |
-| [Navigation and progress](original-app/navigation.md) | Global overview, category overview, level unlocking, reset gestures                      |
-| [Level shell](original-app/level-shell.md)            | The chrome shared by all games: header, progress dots, feedback card, replay             |
-| [Games](original-app/games.md)                        | All seven playable game types in detail, including hints, timers and adaptive difficulty |
-| [Scoring](original-app/scoring.md)                    | How mistakes turn into a 0-6 score and into stars                                        |
-| [Content](original-app/content.md)                    | The Gronings content set: stories, fragments, words, sounds, images, audio               |
-| [Data and persistence](original-app/data.md)          | API endpoints, offline dataset, local progress storage, answer submission                |
+| Document                                              | Contents                                                                               |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [Overview](original-app/overview.md)                  | What the app is, who it is for, the four categories, the whole flow at a glance        |
+| [Onboarding](original-app/onboarding.md)              | School and name entry, the school picker, demo mode                                    |
+| [Navigation and progress](original-app/navigation.md) | Global overview, category overview, level unlocking, reset gestures                    |
+| [Level shell](original-app/level-shell.md)            | The chrome shared by all games: header, progress dots, feedback card, replay           |
+| [Games](original-app/games.md)                        | All six playable game types in detail, including hints, timers and adaptive difficulty |
+| [Scoring](original-app/scoring.md)                    | How mistakes turn into a 0-6 score and into stars                                      |
+| [Content](original-app/content.md)                    | The Gronings content set: stories, fragments, words, sounds, images, audio             |
+| [Data and persistence](original-app/data.md)          | API endpoints, offline dataset, local progress storage, answer submission              |
 
 ## Conventions used in these documents
 

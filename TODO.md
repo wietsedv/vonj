@@ -10,54 +10,52 @@ category at a time.
 
 ## Phase 0 - Content and state foundations
 
-Nothing else can be real until the app has real data. Everything currently on
-screen is hardcoded.
+**Done.** The app runs on the real content set and remembers real progress. The
+decisions taken here are written up in [`docs/rewrite.md`](docs/rewrite.md).
 
-- [ ] **Bring the content set into this repo.** Copy the Gronings dataset out of
-      `../vonj-app/app/assets/static/gronings/` and the structure out of
-      `../vonj-app/app/lib/offline.ts`, and turn `offline.ts` into plain JSON
-      (categories, and one file per story).
-- [ ] **Trim and convert the assets.** The raw set is 66 MB; the runtime set is
-      about 42 MB and can be much smaller:
-  - drop the `.wav` masters (24 MB) and the Praat `.TextGrid` files (1.3 MB),
-    which the app never loads;
-  - the 36 animated GIFs are 28 MB, roughly 780 KB each. Convert them to
-    `mp4`/`webm` and play them muted, looping and inline, or to animated WebP.
-    This is the single biggest win available;
-  - re-encode the 36 PNGs (8.9 MB) as WebP with PNG fallback if needed;
-  - keep the 392 MP3s (5.3 MB) as they are.
-- [ ] **Decide how assets are served.** Bundled through Vite (hashed, imported)
-      versus placed in `static/` and referenced by path. Story media is large and
-      per-story, so lazy loading per story matters either way.
-- [ ] **Content types and loader.** Model `Category`, `Section`, `Level`, `Story`,
-      `Fragment`, `Sentence`, `Word` and the sound inventory in `src/lib`, and
-      expose a typed accessor. Extend `src/lib/types.ts`, which currently only
-      holds the `Category` union.
-- [ ] **`localStorage` wrapper.** Safe read/write that never throws (private
-      mode, full quota), JSON encode/decode, and discards malformed values. See
-      [`docs/rewrite.md`](docs/rewrite.md).
-- [ ] **Progress model.** One key per level (`listen.words.bragel`) holding the
-      generated items with their response history and the score, plus `name` and
-      `dataVersion`. Include content-version invalidation from the start: it is
-      cheap now and painful to retrofit.
-- [ ] **Progress store.** A Svelte 5 rune-based store over the above, with
-      derived per-section, per-category and global progress. Must be safe to read
-      during SSR: guard with `browser` from `$app/environment` and hydrate after
-      mount, so server-rendered markup does not flash wrong stars.
-- [ ] **Wire the existing pages to real data.** Replace the hardcoded arrays in
-      `src/routes/+page.svelte` and `src/lib/components/SubcategorySection.svelte`
-      with content plus progress. First point where the app does something true.
-- [ ] **Onboarding.** Name-only screen (no school picker, see
-      [`docs/rewrite.md`](docs/rewrite.md)), storing the name, greeting the pupil
-      on the overview, and redirecting there when no name is stored.
+- [x] **Bring the content set into this repo.** `scripts/build-content.mjs` reads
+      `../vonj-app` and writes `src/lib/content/`: `categories.json`,
+      `sounds.json`, and one file per story. The original's English ids became the
+      Dutch ones used in the routes and in the storage keys.
+- [x] **Trim and convert the assets.** 42 MB of runtime media became 12 MB. The
+      `.wav` masters and `.TextGrid` files are gone, the 36 GIFs are animated WebP
+      (28 MB to 6.2 MB), the 36 PNGs are WebP (8.9 MB to 0.9 MB), and the 360 MP3s
+      are untouched.
+- [x] **Decide how assets are served.** Imported through Vite, so every file is
+      fingerprinted and cacheable. `src/lib/content/assets.ts` holds URLs only,
+      so media is fetched when it is rendered; stories are one dynamic import
+      each, so a level pulls in only its own story.
+- [x] **Content types and loader.** `src/lib/types.ts` models `Category`,
+      `Section`, `Level`, `Story`, `Fragment`, `Sentence`, `Word` and `Sound`;
+      `src/lib/content/index.ts` is the typed accessor.
+- [x] **`localStorage` wrapper.** `src/lib/storage.ts`. Never throws, validates
+      on read, and treats unreadable, unparseable and malformed values alike as
+      "nothing stored".
+- [x] **Progress model.** One key per level (`luisteren.woorden.bragel`) holding
+      the generated items with their response history and the score, plus
+      `dataVersion` for content invalidation. No `name` key: the app is anonymous.
+- [x] **Progress store.** `src/lib/progress.svelte.ts`, rune-based, with derived
+      per-section, per-category and global progress. Empty until `load()` runs on
+      mount, so the server-rendered markup never flashes a wrong value.
+- [x] **Wire the existing pages to real data.** Both overview screens read
+      content and progress. `Score.svelte` gained the half stars the 0-6 scale
+      needs, pulled forward from Phase 1 because the overviews show real scores
+      now.
+- [x] ~~**Onboarding.**~~ Dropped: the app is anonymous and has no name screen.
+      See [`docs/rewrite.md`](docs/rewrite.md).
 
 ## Phase 1 - Level infrastructure
 
-Shared by all seven games, so worth getting right once.
+Shared by all six games, so worth getting right once.
+
+The level cards on the category overview are plain cards for now; they become
+links once there is a level route to point them at.
 
 - [ ] **Level routing.** A route that identifies category, section and level, and
-      resolves to the right game. Levels are labelled "Level 1" to "Level 4" and
-      must not leak the story name.
+      resolves to the right game. The section ids are Dutch and match the storage
+      keys, so `/luisteren/woorden/1` is the level `luisteren.woorden.bragel`.
+      Levels are labelled "Level 1" to "Level 4" and must not leak the story
+      name.
 - [ ] **Item generation utilities.** Seeded-free is fine here since items are
       stored once: shuffle, picture distractors from other stories, sound
       distractors from the inventory, word extraction with de-duplication by
@@ -70,8 +68,8 @@ Shared by all seven games, so worth getting right once.
       difficulty carry-over (up on first-try correct, down otherwise, applied to
       the next item only).
 - [ ] **Scoring.** The `6 - (mistakes / (items * tolerance)) * 6` formula with
-      per-game tolerances, and the 0-6 to half-star mapping. The existing
-      `Score.svelte` renders three states only and needs half stars added. See
+      per-game tolerances. The 0-6 to half-star mapping is already in
+      `Score.svelte`. See
       [`docs/original-app/scoring.md`](docs/original-app/scoring.md).
 - [ ] **Level result screen.** Stars, the animated story illustration, "Terug
       naar het overzicht", and "Dit level nog een keer spelen" for a level that
@@ -126,8 +124,8 @@ category by category. Lezen comes first because it needs no audio.
 
 - [ ] **Reset at all four scopes.** Everything, category, section and level, each
       behind a confirmation. Needs a web gesture (see Open questions).
-- [ ] **Demo mode.** The name `demo` writes nothing to `localStorage`, greets
-      without a name, and resets a category when it is opened.
+- [ ] **Demo mode.** Writes nothing to `localStorage` and resets a category when
+      it is opened. Needs a trigger first (see Open questions).
 - [ ] **Staggered entry and exit animations** on the overview screens and the
       progress dots.
 - [ ] **Responsive check.** The level card grids already have `2xs`/`xs`/`sm`
@@ -164,11 +162,18 @@ Decisions to make before the tasks that depend on them.
       which is the primary platform here. Pointer-events based dragging, or a
       library, plus a non-drag fallback such as up/down buttons that also serves
       keyboard users.
-- [ ] **Animated illustrations.** Keep GIF, or convert to muted looping video and
-      accept the extra complexity for roughly a 90% size cut.
 - [ ] **Level unlocking.** The original ships with sequential unlocking written
       but disabled, so everything is always playable. Enable it or drop the code
       path. See [`docs/original-app/navigation.md`](docs/original-app/navigation.md).
-- [ ] **Multiple pupils per browser.** `localStorage` is per browser profile, so
-      a shared classroom device shares one set of progress. The original had the
-      same limitation. Accept it, or add name-scoped keys.
+- [ ] **A demo mode trigger.** Demo mode was entered by typing the name `demo`,
+      and there is no name field any more. A query parameter, a build flag, or
+      drop the feature.
+
+### Settled
+
+- **Animated illustrations.** Animated WebP, not video: it stays an `<img>`, so
+  there is no autoplay policy to work around, and it still cuts 28 MB to 6.2 MB.
+- **Multiple pupils per browser.** Accepted as a limitation, as in the original.
+  A shared classroom device shares one set of progress, and there are no
+  name-scoped keys.
+- **Identity.** There is none. No name screen, no greeting by name.

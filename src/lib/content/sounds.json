@@ -1,0 +1,175 @@
+[
+	{
+		"sound": "G!",
+		"audio": "g-hard",
+		"distractor": false
+	},
+	{
+		"sound": "a",
+		"audio": "a"
+	},
+	{
+		"sound": "aa",
+		"audio": "aa"
+	},
+	{
+		"sound": "aai",
+		"audio": "aai"
+	},
+	{
+		"sound": "aau",
+		"audio": "aau"
+	},
+	{
+		"sound": "ai",
+		"audio": "ai"
+	},
+	{
+		"sound": "b",
+		"audio": "b"
+	},
+	{
+		"sound": "d",
+		"audio": "d"
+	},
+	{
+		"sound": "e",
+		"audio": "e"
+	},
+	{
+		"sound": "ee",
+		"audio": "ee"
+	},
+	{
+		"sound": "ei",
+		"audio": "ei"
+	},
+	{
+		"sound": "eu",
+		"audio": "eu"
+	},
+	{
+		"sound": "f",
+		"audio": "f"
+	},
+	{
+		"sound": "g",
+		"audio": "g"
+	},
+	{
+		"sound": "h",
+		"audio": "h"
+	},
+	{
+		"sound": "i",
+		"audio": "i"
+	},
+	{
+		"sound": "ie",
+		"audio": "ie"
+	},
+	{
+		"sound": "j",
+		"audio": "j"
+	},
+	{
+		"sound": "k",
+		"audio": "k"
+	},
+	{
+		"sound": "l",
+		"audio": "l"
+	},
+	{
+		"sound": "m",
+		"audio": "m"
+	},
+	{
+		"sound": "n",
+		"audio": "n"
+	},
+	{
+		"sound": "ng",
+		"audio": "ng"
+	},
+	{
+		"sound": "nj",
+		"audio": "nj"
+	},
+	{
+		"sound": "o",
+		"audio": "o"
+	},
+	{
+		"sound": "oe",
+		"audio": "oe"
+	},
+	{
+		"sound": "oi",
+		"audio": "oi"
+	},
+	{
+		"sound": "oo",
+		"audio": "oo"
+	},
+	{
+		"sound": "ooi",
+		"audio": "ooi"
+	},
+	{
+		"sound": "ou",
+		"audio": "ou"
+	},
+	{
+		"sound": "p",
+		"audio": "p"
+	},
+	{
+		"sound": "r",
+		"audio": "r"
+	},
+	{
+		"sound": "s",
+		"audio": "s"
+	},
+	{
+		"sound": "t",
+		"audio": "t"
+	},
+	{
+		"sound": "tj",
+		"audio": "tj"
+	},
+	{
+		"sound": "u",
+		"audio": "u"
+	},
+	{
+		"sound": "uh",
+		"audio": "uh"
+	},
+	{
+		"sound": "ui",
+		"audio": "ui"
+	},
+	{
+		"sound": "uu",
+		"audio": "uu"
+	},
+	{
+		"sound": "v",
+		"audio": "v"
+	},
+	{
+		"sound": "w",
+		"audio": "w"
+	},
+	{
+		"sound": "z",
+		"audio": "z"
+	},
+	{
+		"sound": "’",
+		"audio": "glottal"
+	}
+]

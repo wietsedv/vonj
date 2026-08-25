@@ -1,0 +1,2226 @@
+{
+	"key": "bragel",
+	"audio": "bragel",
+	"image": "bragel",
+	"fragments": [
+		{
+			"key": "bragel-1",
+			"time": [
+				2.3142993472201145,
+				5.970476912844405
+			],
+			"image": "bragel-1",
+			"sentences": [
+				{
+					"key": "bragel-1-1",
+					"text": "Ze gingen mit klas noar Waddendiek.",
+					"time": [
+						2.3142993472201145,
+						4.006144323685241
+					],
+					"words": [
+						{
+							"key": "bragel-1-1-2",
+							"text": "gingen",
+							"dutch": "gingen",
+							"sounds": [
+								"g",
+								"i",
+								"ng"
+							],
+							"audio": "gingen"
+						},
+						{
+							"key": "bragel-1-1-3",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "bragel-1-1-4",
+							"text": "klas",
+							"dutch": "klas",
+							"sounds": [
+								"k",
+								"l",
+								"a",
+								"s"
+							],
+							"audio": "klas"
+						},
+						{
+							"key": "bragel-1-1-5",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "bragel-1-1-6",
+							"text": "Waddendiek",
+							"dutch": "Waddendijk",
+							"sounds": [
+								"w",
+								"a",
+								"d",
+								"n",
+								"d",
+								"ie",
+								"k"
+							],
+							"audio": "waddendiek"
+						}
+					]
+				},
+				{
+					"key": "bragel-1-2",
+					"text": "Over en deur bragel lopen.",
+					"time": [
+						4.373315704166415,
+						5.970476912844405
+					],
+					"words": [
+						{
+							"key": "bragel-1-2-7",
+							"text": "over",
+							"dutch": "over",
+							"sounds": [
+								"o",
+								"v",
+								"uh",
+								"r"
+							],
+							"audio": "over"
+						},
+						{
+							"key": "bragel-1-2-8",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "bragel-1-2-9",
+							"text": "deur",
+							"dutch": "door",
+							"sounds": [
+								"d",
+								"eu",
+								"r"
+							],
+							"audio": "deur"
+						},
+						{
+							"key": "bragel-1-2-10",
+							"text": "bragel",
+							"dutch": "modder",
+							"sounds": [
+								"b",
+								"r",
+								"aa",
+								"g",
+								"l"
+							],
+							"audio": "bragel"
+						},
+						{
+							"key": "bragel-1-2-11",
+							"text": "lopen",
+							"dutch": "lopen",
+							"sounds": [
+								"l",
+								"oo",
+								"’",
+								"m"
+							],
+							"audio": "lopen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-2",
+			"time": [
+				6.935747003321712,
+				14.92984732509163
+			],
+			"image": "bragel-2",
+			"sentences": [
+				{
+					"key": "bragel-2-3",
+					"text": "Ien korde boksem en op blode vouten vlogen ze over diek.",
+					"time": [
+						6.935747003321712,
+						9.732967586694421
+					],
+					"words": [
+						{
+							"key": "bragel-2-3-12",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "bragel-2-3-13",
+							"text": "korde",
+							"dutch": "korte",
+							"sounds": [
+								"k",
+								"eu",
+								"d",
+								"uh"
+							],
+							"audio": "korde"
+						},
+						{
+							"key": "bragel-2-3-14",
+							"text": "boksem",
+							"dutch": "broek",
+							"sounds": [
+								"b",
+								"o",
+								"k",
+								"s",
+								"uh",
+								"m"
+							],
+							"audio": "boksem"
+						},
+						{
+							"key": "bragel-2-3-15",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "bragel-2-3-16",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "bragel-2-3-17",
+							"text": "blode",
+							"dutch": "blote",
+							"sounds": [
+								"b",
+								"l",
+								"oo",
+								"d",
+								"uh"
+							],
+							"audio": "blode"
+						},
+						{
+							"key": "bragel-2-3-18",
+							"text": "vouten",
+							"dutch": "voeten",
+							"sounds": [
+								"v",
+								"ou",
+								"’",
+								"n"
+							],
+							"audio": "vouten"
+						},
+						{
+							"key": "bragel-2-3-19",
+							"text": "vlogen",
+							"dutch": "vlogen",
+							"sounds": [
+								"f",
+								"l",
+								"oo",
+								"ng"
+							],
+							"audio": "vlogen"
+						},
+						{
+							"key": "bragel-2-3-21",
+							"text": "over",
+							"dutch": "over",
+							"sounds": [
+								"o",
+								"v",
+								"uh",
+								"r"
+							],
+							"audio": "over"
+						},
+						{
+							"key": "bragel-2-3-22",
+							"text": "diek",
+							"dutch": "dijk",
+							"sounds": [
+								"d",
+								"ie",
+								"k"
+							],
+							"audio": "diek"
+						}
+					]
+				},
+				{
+					"key": "bragel-2-4",
+					"text": "Stevels bleven onder aan diek liggen.",
+					"time": [
+						10.98837565254961,
+						12.628746617628815
+					],
+					"words": [
+						{
+							"key": "bragel-2-4-23",
+							"text": "stevels",
+							"dutch": "laarzen",
+							"sounds": [
+								"s",
+								"t",
+								"ee",
+								"v",
+								"l",
+								"s"
+							],
+							"audio": "stevels"
+						},
+						{
+							"key": "bragel-2-4-24",
+							"text": "bleven",
+							"dutch": "bleven",
+							"sounds": [
+								"b",
+								"l",
+								"ee",
+								"m"
+							],
+							"audio": "bleven"
+						},
+						{
+							"key": "bragel-2-4-25",
+							"text": "onder",
+							"dutch": "onder",
+							"sounds": [
+								"o",
+								"n",
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "onder"
+						},
+						{
+							"key": "bragel-2-4-26",
+							"text": "aan",
+							"dutch": "aan",
+							"sounds": [
+								"aa",
+								"n"
+							],
+							"audio": "aan"
+						},
+						{
+							"key": "bragel-2-4-27",
+							"text": "diek",
+							"dutch": "dijk",
+							"sounds": [
+								"d",
+								"ie",
+								"k"
+							],
+							"audio": "diek"
+						},
+						{
+							"key": "bragel-2-4-28",
+							"text": "liggen",
+							"dutch": "liggen",
+							"sounds": [
+								"l",
+								"i",
+								"ng"
+							],
+							"audio": "liggen"
+						}
+					]
+				},
+				{
+					"key": "bragel-2-5",
+					"text": "Dij bleven toch ien bragel vaast zitten.",
+					"time": [
+						13.1754922091625,
+						14.92984732509163
+					],
+					"words": [
+						{
+							"key": "bragel-2-5-29",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "bragel-2-5-30",
+							"text": "bleven",
+							"dutch": "bleven",
+							"sounds": [
+								"b",
+								"l",
+								"ee",
+								"m"
+							],
+							"audio": "bleven"
+						},
+						{
+							"key": "bragel-2-5-31",
+							"text": "toch",
+							"dutch": "toch",
+							"sounds": [
+								"t",
+								"o",
+								"g"
+							],
+							"audio": "toch"
+						},
+						{
+							"key": "bragel-2-5-32",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "bragel-2-5-33",
+							"text": "bragel",
+							"dutch": "modder",
+							"sounds": [
+								"b",
+								"r",
+								"aa",
+								"g",
+								"l"
+							],
+							"audio": "bragel"
+						},
+						{
+							"key": "bragel-2-5-34",
+							"text": "vaast",
+							"dutch": "vast",
+							"sounds": [
+								"v",
+								"a",
+								"s",
+								"t"
+							],
+							"audio": "vaast"
+						},
+						{
+							"key": "bragel-2-5-35",
+							"text": "zitten",
+							"dutch": "zitten",
+							"sounds": [
+								"s",
+								"i",
+								"’",
+								"n"
+							],
+							"audio": "zitten"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-3",
+			"time": [
+				15.992667936847857,
+				25.368622010743348
+			],
+			"image": "bragel-3",
+			"sentences": [
+				{
+					"key": "bragel-3-6",
+					"text": "Eerst was t nog gruin, mor bie riesdam laans wer t al gaauw bragelg.",
+					"time": [
+						15.992667936847857,
+						19.781724003984856
+					],
+					"words": [
+						{
+							"key": "bragel-3-6-36",
+							"text": "eerst",
+							"dutch": "eerst",
+							"sounds": [
+								"i",
+								"s",
+								"t"
+							],
+							"audio": "eerst"
+						},
+						{
+							"key": "bragel-3-6-37",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "bragel-3-6-38",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "bragel-3-6-39",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "bragel-3-6-40",
+							"text": "gruin",
+							"dutch": "groen",
+							"sounds": [
+								"g",
+								"r",
+								"eu",
+								"n"
+							],
+							"audio": "gruin"
+						},
+						{
+							"key": "bragel-3-6-41",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "bragel-3-6-42",
+							"text": "bie",
+							"dutch": "bij",
+							"sounds": [
+								"b",
+								"ie"
+							],
+							"audio": "bie"
+						},
+						{
+							"key": "bragel-3-6-43",
+							"text": "riesdam",
+							"dutch": "rijshout",
+							"sounds": [
+								"r",
+								"ie",
+								"s",
+								"d",
+								"a",
+								"m"
+							],
+							"audio": "riesdam"
+						},
+						{
+							"key": "bragel-3-6-44",
+							"text": "laans",
+							"dutch": "langs",
+							"sounds": [
+								"l",
+								"aa",
+								"n",
+								"s"
+							],
+							"audio": "laans"
+						},
+						{
+							"key": "bragel-3-6-45",
+							"text": "wer",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"e",
+								"r"
+							],
+							"audio": "wer"
+						},
+						{
+							"key": "bragel-3-6-46",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "bragel-3-6-47",
+							"text": "al",
+							"dutch": "al",
+							"sounds": [
+								"a",
+								"l"
+							],
+							"audio": "al"
+						},
+						{
+							"key": "bragel-3-6-48",
+							"text": "gaauw",
+							"dutch": "snel",
+							"sounds": [
+								"g",
+								"aau"
+							],
+							"audio": "gaauw"
+						},
+						{
+							"key": "bragel-3-6-49",
+							"text": "bragelg",
+							"dutch": "modderig",
+							"sounds": [
+								"b",
+								"r",
+								"a",
+								"g",
+								"l",
+								"uh",
+								"g"
+							],
+							"audio": "bragelg"
+						}
+					]
+				},
+				{
+					"key": "bragel-3-7",
+					"text": "Nou stonden ze veur ain grode, grieze vlakte, mit apmoal klaai en sliek.",
+					"time": [
+						21.31522499650411,
+						25.368622010743348
+					],
+					"words": [
+						{
+							"key": "bragel-3-7-50",
+							"text": "dou",
+							"dutch": "nu",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "bragel-3-7-51",
+							"text": "stonden",
+							"dutch": "stonden",
+							"sounds": [
+								"s",
+								"t",
+								"o",
+								"n"
+							],
+							"audio": "stonden"
+						},
+						{
+							"key": "bragel-3-7-53",
+							"text": "veur",
+							"dutch": "voor",
+							"sounds": [
+								"f",
+								"eu",
+								"r"
+							],
+							"audio": "veur"
+						},
+						{
+							"key": "bragel-3-7-54",
+							"text": "ain",
+							"dutch": "een",
+							"sounds": [
+								"oi",
+								"n"
+							],
+							"audio": "ain"
+						},
+						{
+							"key": "bragel-3-7-55",
+							"text": "grode",
+							"dutch": "grote",
+							"sounds": [
+								"g",
+								"r",
+								"oo",
+								"d",
+								"uh"
+							],
+							"audio": "grode"
+						},
+						{
+							"key": "bragel-3-7-56",
+							"text": "grieze",
+							"dutch": "grijze",
+							"sounds": [
+								"g",
+								"r",
+								"ie",
+								"z",
+								"uh"
+							],
+							"audio": "grieze"
+						},
+						{
+							"key": "bragel-3-7-57",
+							"text": "vlakte",
+							"dutch": "vlakte",
+							"sounds": [
+								"v",
+								"l",
+								"a",
+								"k",
+								"t",
+								"uh"
+							],
+							"audio": "vlakte"
+						},
+						{
+							"key": "bragel-3-7-58",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "bragel-3-7-59",
+							"text": "apmoal",
+							"dutch": "allemaal",
+							"sounds": [
+								"a",
+								"p",
+								"m",
+								"o",
+								"l"
+							],
+							"audio": "apmoal"
+						},
+						{
+							"key": "bragel-3-7-60",
+							"text": "klaai",
+							"dutch": "klei",
+							"sounds": [
+								"k",
+								"l",
+								"aai"
+							],
+							"audio": "klaai"
+						},
+						{
+							"key": "bragel-3-7-61",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "bragel-3-7-62",
+							"text": "sliek",
+							"dutch": "slijk",
+							"sounds": [
+								"s",
+								"l",
+								"ie",
+								"k"
+							],
+							"audio": "sliek"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-4",
+			"time": [
+				26.61902035100714,
+				39.40701220515635
+			],
+			"image": "bragel-4",
+			"sentences": [
+				{
+					"key": "bragel-4-8",
+					"text": "\"Doar goan wie overhin lopen\", zee meester.",
+					"time": [
+						26.61902035100714,
+						28.492599474407168
+					],
+					"words": [
+						{
+							"key": "bragel-4-8-63",
+							"text": "doar",
+							"dutch": "daar",
+							"sounds": [
+								"d",
+								"o",
+								"r"
+							],
+							"audio": "doar"
+						},
+						{
+							"key": "bragel-4-8-64",
+							"text": "goan",
+							"dutch": "gaan",
+							"sounds": [
+								"g",
+								"o",
+								"n"
+							],
+							"audio": "goan"
+						},
+						{
+							"key": "bragel-4-8-65",
+							"text": "wie",
+							"dutch": "we",
+							"sounds": [
+								"w",
+								"ie"
+							],
+							"audio": "wie"
+						},
+						{
+							"key": "bragel-4-8-66",
+							"text": "overhin",
+							"dutch": "overheen",
+							"sounds": [
+								"o",
+								"v",
+								"uh",
+								"r",
+								"i",
+								"n"
+							],
+							"audio": "overhin"
+						},
+						{
+							"key": "bragel-4-8-67",
+							"text": "lopen",
+							"dutch": "lopen",
+							"sounds": [
+								"l",
+								"oo",
+								"’",
+								"m"
+							],
+							"audio": "lopen"
+						},
+						{
+							"key": "bragel-4-8-68",
+							"text": "zee",
+							"dutch": "zei",
+							"sounds": [
+								"z",
+								"ee"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "bragel-4-8-69",
+							"text": "meester",
+							"dutch": "meester",
+							"sounds": [
+								"m",
+								"ee",
+								"s",
+								"t",
+								"uh",
+								"r"
+							],
+							"audio": "meester"
+						}
+					]
+				},
+				{
+					"key": "bragel-4-9",
+					"text": "Gainain haar der veul zin aan, mor hai laip al veurop.",
+					"time": [
+						30.0785008798883,
+						33.515110767554276
+					],
+					"words": [
+						{
+							"key": "bragel-4-9-70",
+							"text": "gainain",
+							"dutch": "niemand",
+							"sounds": [
+								"g",
+								"ai",
+								"n",
+								"ai",
+								"n"
+							],
+							"audio": "gainain"
+						},
+						{
+							"key": "bragel-4-9-71",
+							"text": "had",
+							"dutch": "had",
+							"sounds": [
+								"h",
+								"a",
+								"t"
+							],
+							"audio": "had"
+						},
+						{
+							"key": "bragel-4-9-72",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "bragel-4-9-73",
+							"text": "belang",
+							"dutch": "zin",
+							"sounds": [
+								"b",
+								"uh",
+								"l",
+								"a",
+								"ng"
+							],
+							"audio": "belang"
+						},
+						{
+							"key": "bragel-4-9-74",
+							"text": "bie",
+							"dutch": "in",
+							"sounds": [
+								"b",
+								"ie"
+							],
+							"audio": "bie"
+						},
+						{
+							"key": "bragel-4-9-75",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "bragel-4-9-76",
+							"text": "meester",
+							"dutch": "meester",
+							"sounds": [
+								"m",
+								"ee",
+								"s",
+								"t",
+								"uh",
+								"r"
+							],
+							"audio": "meester"
+						},
+						{
+							"key": "bragel-4-9-77",
+							"text": "laip",
+							"dutch": "liep",
+							"sounds": [
+								"l",
+								"ai",
+								"p"
+							],
+							"audio": "laip"
+						},
+						{
+							"key": "bragel-4-9-78",
+							"text": "al",
+							"dutch": "al",
+							"sounds": [
+								"a",
+								"l"
+							],
+							"audio": "al"
+						},
+						{
+							"key": "bragel-4-9-79",
+							"text": "veurop",
+							"dutch": "voorop",
+							"sounds": [
+								"v",
+								"eu",
+								"r",
+								"o",
+								"p"
+							],
+							"audio": "veurop"
+						}
+					]
+				},
+				{
+					"key": "bragel-4-10",
+					"text": "Hai woarschaauwde ook nog, dat ze deurlopen mozzen aans din zoog bragel heur vaast.",
+					"time": [
+						34.363331007533546,
+						39.40701220515635
+					],
+					"words": [
+						{
+							"key": "bragel-4-10-80",
+							"text": "hai",
+							"dutch": "hij",
+							"sounds": [
+								"h",
+								"ai"
+							],
+							"audio": "hai"
+						},
+						{
+							"key": "bragel-4-10-81",
+							"text": "woarschaauwde",
+							"dutch": "waarschuwde",
+							"sounds": [
+								"w",
+								"o",
+								"s",
+								"g",
+								"aau",
+								"d",
+								"uh"
+							],
+							"audio": "woarschaauwde"
+						},
+						{
+							"key": "bragel-4-10-82",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						},
+						{
+							"key": "bragel-4-10-83",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "bragel-4-10-84",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "bragel-4-10-86",
+							"text": "deurlopen",
+							"dutch": "doorlopen",
+							"sounds": [
+								"d",
+								"eu",
+								"l",
+								"oo",
+								"’",
+								"m"
+							],
+							"audio": "deurlopen"
+						},
+						{
+							"key": "bragel-4-10-87",
+							"text": "mozzen",
+							"dutch": "moesten",
+							"sounds": [
+								"m",
+								"o",
+								"z",
+								"n"
+							],
+							"audio": "mozzen"
+						},
+						{
+							"key": "bragel-4-10-88",
+							"text": "aans",
+							"dutch": "anders",
+							"sounds": [
+								"aa",
+								"n",
+								"s"
+							],
+							"audio": "aans"
+						},
+						{
+							"key": "bragel-4-10-89",
+							"text": "din",
+							"dutch": "dan",
+							"sounds": [
+								"d",
+								"i",
+								"n"
+							],
+							"audio": "din"
+						},
+						{
+							"key": "bragel-4-10-90",
+							"text": "zoog",
+							"dutch": "zoog",
+							"sounds": [
+								"z",
+								"oo",
+								"g"
+							],
+							"audio": "zoog"
+						},
+						{
+							"key": "bragel-4-10-91",
+							"text": "bragel",
+							"dutch": "modder",
+							"sounds": [
+								"b",
+								"r",
+								"aa",
+								"g",
+								"l"
+							],
+							"audio": "bragel"
+						},
+						{
+							"key": "bragel-4-10-93",
+							"text": "vaast",
+							"dutch": "vast",
+							"sounds": [
+								"v",
+								"a",
+								"s",
+								"t"
+							],
+							"audio": "vaast"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-5",
+			"time": [
+				40.31344828341519,
+				45.605858763479596
+			],
+			"image": "bragel-5",
+			"sentences": [
+				{
+					"key": "bragel-5-11",
+					"text": "Eerst pebaaierden kiender nog schoon te blieven, n voele plek veegden ze mit buusdouk vot.",
+					"time": [
+						40.31344828341519,
+						45.605858763479596
+					],
+					"words": [
+						{
+							"key": "bragel-5-11-94",
+							"text": "eerst",
+							"dutch": "eerst",
+							"sounds": [
+								"i",
+								"s",
+								"t"
+							],
+							"audio": "eerst"
+						},
+						{
+							"key": "bragel-5-11-95",
+							"text": "pebaaierden",
+							"dutch": "probeerden",
+							"sounds": [
+								"p",
+								"uh",
+								"b",
+								"aai",
+								"d",
+								"n"
+							],
+							"audio": "pebaaierden"
+						},
+						{
+							"key": "bragel-5-11-96",
+							"text": "kiender",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"ie",
+								"n",
+								"d",
+								"uh"
+							],
+							"audio": "kiender"
+						},
+						{
+							"key": "bragel-5-11-97",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "bragel-5-11-98",
+							"text": "schoon",
+							"dutch": "schoon",
+							"sounds": [
+								"s",
+								"g",
+								"oo",
+								"n"
+							],
+							"audio": "schoon"
+						},
+						{
+							"key": "bragel-5-11-99",
+							"text": "te",
+							"dutch": "te",
+							"sounds": [
+								"t",
+								"uh"
+							],
+							"audio": "te"
+						},
+						{
+							"key": "bragel-5-11-100",
+							"text": "blieven",
+							"dutch": "blijven",
+							"sounds": [
+								"b",
+								"l",
+								"ie",
+								"b",
+								"m"
+							],
+							"audio": "blieven"
+						},
+						{
+							"key": "bragel-5-11-101",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "bragel-5-11-102",
+							"text": "voele",
+							"dutch": "vuile",
+							"sounds": [
+								"v",
+								"oe",
+								"l",
+								"uh"
+							],
+							"audio": "voele"
+						},
+						{
+							"key": "bragel-5-11-103",
+							"text": "plek",
+							"dutch": "plek",
+							"sounds": [
+								"p",
+								"l",
+								"e",
+								"k"
+							],
+							"audio": "plek"
+						},
+						{
+							"key": "bragel-5-11-106",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "bragel-5-11-107",
+							"text": "buusdouk",
+							"dutch": "zakdoek",
+							"sounds": [
+								"b",
+								"uu",
+								"s",
+								"d",
+								"ou",
+								"k"
+							],
+							"audio": "buusdouk"
+						},
+						{
+							"key": "bragel-5-11-108",
+							"text": "vot",
+							"dutch": "weg",
+							"sounds": [
+								"f",
+								"o",
+								"t"
+							],
+							"audio": "vot"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-6",
+			"time": [
+				46.91350089301303,
+				53.3553589611948
+			],
+			"image": "bragel-6",
+			"sentences": [
+				{
+					"key": "bragel-6-12",
+					"text": "Dou t aal slimmer wer, laiten ze heur laankoet ien bragel valen.",
+					"time": [
+						46.91350089301303,
+						50.037410171229126
+					],
+					"words": [
+						{
+							"key": "bragel-6-12-109",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "bragel-6-12-110",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "bragel-6-12-111",
+							"text": "aal",
+							"dutch": "nog",
+							"sounds": [
+								"aa",
+								"l"
+							],
+							"audio": "aal"
+						},
+						{
+							"key": "bragel-6-12-112",
+							"text": "slimmer",
+							"dutch": "erger",
+							"sounds": [
+								"s",
+								"l",
+								"i",
+								"m",
+								"uh",
+								"r"
+							],
+							"audio": "slimmer"
+						},
+						{
+							"key": "bragel-6-12-113",
+							"text": "wer",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"e",
+								"r"
+							],
+							"audio": "wer"
+						},
+						{
+							"key": "bragel-6-12-114",
+							"text": "laiten",
+							"dutch": "lieten",
+							"sounds": [
+								"l",
+								"ai",
+								"’",
+								"n"
+							],
+							"audio": "laiten"
+						},
+						{
+							"key": "bragel-6-12-116",
+							"text": "heur",
+							"dutch": "zich",
+							"sounds": [
+								"h",
+								"eu",
+								"r"
+							],
+							"audio": "heur"
+						},
+						{
+							"key": "bragel-6-12-117",
+							"text": "laankoet",
+							"dutch": "languit",
+							"sounds": [
+								"l",
+								"aa",
+								"ng",
+								"G!",
+								"oe",
+								"t"
+							],
+							"audio": "laankoet"
+						},
+						{
+							"key": "bragel-6-12-118",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "bragel-6-12-119",
+							"text": "bragel",
+							"dutch": "modder",
+							"sounds": [
+								"b",
+								"r",
+								"aa",
+								"g",
+								"l"
+							],
+							"audio": "bragel"
+						},
+						{
+							"key": "bragel-6-12-120",
+							"text": "valen",
+							"dutch": "vallen",
+							"sounds": [
+								"v",
+								"a",
+								"l",
+								"n"
+							],
+							"audio": "valen"
+						}
+					]
+				},
+				{
+					"key": "bragel-6-13",
+					"text": "Ze mozzen nkander der oet trekken en zagen der oet as swienhonden.",
+					"time": [
+						50.61569522503537,
+						53.3553589611948
+					],
+					"words": [
+						{
+							"key": "bragel-6-13-122",
+							"text": "mozzen",
+							"dutch": "moesten",
+							"sounds": [
+								"m",
+								"o",
+								"z",
+								"n"
+							],
+							"audio": "mozzen"
+						},
+						{
+							"key": "bragel-6-13-123",
+							"text": "nkander",
+							"dutch": "elkaar",
+							"sounds": [
+								"n",
+								"k",
+								"a",
+								"n",
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "nkander"
+						},
+						{
+							"key": "bragel-6-13-124",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "bragel-6-13-125",
+							"text": "oet",
+							"dutch": "uit",
+							"sounds": [
+								"oe",
+								"t"
+							],
+							"audio": "oet"
+						},
+						{
+							"key": "bragel-6-13-126",
+							"text": "trekken",
+							"dutch": "trekken",
+							"sounds": [
+								"t",
+								"r",
+								"e",
+								"’",
+								"ng"
+							],
+							"audio": "trekken"
+						},
+						{
+							"key": "bragel-6-13-127",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "bragel-6-13-128",
+							"text": "zagen",
+							"dutch": "zagen",
+							"sounds": [
+								"z",
+								"aa",
+								"ng"
+							],
+							"audio": "zagen"
+						},
+						{
+							"key": "bragel-6-13-129",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "bragel-6-13-130",
+							"text": "oet",
+							"dutch": "uit",
+							"sounds": [
+								"oe",
+								"t"
+							],
+							"audio": "oet"
+						},
+						{
+							"key": "bragel-6-13-131",
+							"text": "as",
+							"dutch": "als",
+							"sounds": [
+								"a",
+								"s"
+							],
+							"audio": "as"
+						},
+						{
+							"key": "bragel-6-13-132",
+							"text": "swienen",
+							"dutch": "vuillakken",
+							"sounds": [
+								"s",
+								"w",
+								"ie",
+								"n"
+							],
+							"audio": "swienen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-7",
+			"time": [
+				54.67962584444415,
+				64.14094641055945
+			],
+			"image": "bragel-7",
+			"sentences": [
+				{
+					"key": "bragel-7-14",
+					"text": "t Wotter spitterde heur om kop en op n duur zat bragel tot ien oren.",
+					"time": [
+						54.67962584444415,
+						58.32469438919649
+					],
+					"words": [
+						{
+							"key": "bragel-7-14-133",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "bragel-7-14-134",
+							"text": "wotter",
+							"dutch": "water",
+							"sounds": [
+								"w",
+								"o",
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "wotter"
+						},
+						{
+							"key": "bragel-7-14-135",
+							"text": "spitterde",
+							"dutch": "spatte",
+							"sounds": [
+								"s",
+								"p",
+								"i",
+								"d",
+								"uh",
+								"d",
+								"uh"
+							],
+							"audio": "spitterde"
+						},
+						{
+							"key": "bragel-7-14-137",
+							"text": "om",
+							"dutch": "om",
+							"sounds": [
+								"o",
+								"m"
+							],
+							"audio": "om"
+						},
+						{
+							"key": "bragel-7-14-138",
+							"text": "kop",
+							"dutch": "hoofd",
+							"sounds": [
+								"k",
+								"o",
+								"p"
+							],
+							"audio": "kop"
+						},
+						{
+							"key": "bragel-7-14-139",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "bragel-7-14-140",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "bragel-7-14-141",
+							"text": "n",
+							"dutch": "den",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "bragel-7-14-142",
+							"text": "duur",
+							"dutch": "duur",
+							"sounds": [
+								"d",
+								"uu",
+								"r"
+							],
+							"audio": "duur"
+						},
+						{
+							"key": "bragel-7-14-143",
+							"text": "zat",
+							"dutch": "zat",
+							"sounds": [
+								"z",
+								"a",
+								"t"
+							],
+							"audio": "zat"
+						},
+						{
+							"key": "bragel-7-14-144",
+							"text": "bragel",
+							"dutch": "modder",
+							"sounds": [
+								"b",
+								"r",
+								"aa",
+								"g",
+								"l"
+							],
+							"audio": "bragel"
+						},
+						{
+							"key": "bragel-7-14-146",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "bragel-7-14-147",
+							"text": "oren",
+							"dutch": "oren",
+							"sounds": [
+								"o",
+								"r",
+								"n"
+							],
+							"audio": "oren"
+						}
+					]
+				},
+				{
+					"key": "bragel-7-15",
+					"text": "Je konden der hoast gain kiender meer van moaken.",
+					"time": [
+						59.27837202608357,
+						61.15211764660682
+					],
+					"words": [
+						{
+							"key": "bragel-7-15-148",
+							"text": "je",
+							"dutch": "je",
+							"sounds": [
+								"j",
+								"uh"
+							],
+							"audio": "je"
+						},
+						{
+							"key": "bragel-7-15-149",
+							"text": "konden",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "konden"
+						},
+						{
+							"key": "bragel-7-15-150",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "bragel-7-15-151",
+							"text": "hoast",
+							"dutch": "bijna",
+							"sounds": [
+								"h",
+								"o",
+								"s",
+								"t"
+							],
+							"audio": "hoast"
+						},
+						{
+							"key": "bragel-7-15-152",
+							"text": "gain",
+							"dutch": "geen",
+							"sounds": [
+								"g",
+								"ai",
+								"n"
+							],
+							"audio": "gain"
+						},
+						{
+							"key": "bragel-7-15-153",
+							"text": "kiender",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"ie",
+								"n",
+								"d",
+								"uh"
+							],
+							"audio": "kiender"
+						},
+						{
+							"key": "bragel-7-15-154",
+							"text": "meer",
+							"dutch": "meer",
+							"sounds": [
+								"m",
+								"i",
+								"r"
+							],
+							"audio": "meer"
+						},
+						{
+							"key": "bragel-7-15-155",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "bragel-7-15-156",
+							"text": "moaken",
+							"dutch": "maken",
+							"sounds": [
+								"m",
+								"o",
+								"’",
+								"ng"
+							],
+							"audio": "moaken"
+						}
+					]
+				},
+				{
+					"key": "bragel-7-16",
+					"text": "Allain oogjes glommen van plezaaier.",
+					"time": [
+						62.06687026791134,
+						64.14094641055945
+					],
+					"words": [
+						{
+							"key": "bragel-7-16-157",
+							"text": "allain",
+							"dutch": "alleen",
+							"sounds": [
+								"a",
+								"l",
+								"ai",
+								"n"
+							],
+							"audio": "allain"
+						},
+						{
+							"key": "bragel-7-16-158",
+							"text": "oogjes",
+							"dutch": "oogjes",
+							"sounds": [
+								"oo",
+								"g",
+								"j",
+								"uh",
+								"s"
+							],
+							"audio": "oogjes"
+						},
+						{
+							"key": "bragel-7-16-159",
+							"text": "glommen",
+							"dutch": "glommen",
+							"sounds": [
+								"g",
+								"l",
+								"o",
+								"m"
+							],
+							"audio": "glommen"
+						},
+						{
+							"key": "bragel-7-16-160",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "bragel-7-16-161",
+							"text": "plezaaier",
+							"dutch": "plezier",
+							"sounds": [
+								"p",
+								"l",
+								"uh",
+								"z",
+								"aai",
+								"uh",
+								"r"
+							],
+							"audio": "plezaaier"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "bragel-8",
+			"time": [
+				65.14510186960491,
+				73.13755746176207
+			],
+			"image": "bragel-8",
+			"sentences": [
+				{
+					"key": "bragel-8-17",
+					"text": "Weerom bie diek spoulden ze vouten òf ien wotterbak van schoapen en gingen dizze swienhonden mit schone vouten, op stevels noar hoes.",
+					"time": [
+						65.14510186960491,
+						73.13755746176207
+					],
+					"words": [
+						{
+							"key": "bragel-8-17-162",
+							"text": "weerom",
+							"dutch": "terug",
+							"sounds": [
+								"w",
+								"i",
+								"r",
+								"o",
+								"m"
+							],
+							"audio": "weerom"
+						},
+						{
+							"key": "bragel-8-17-163",
+							"text": "bie",
+							"dutch": "bij",
+							"sounds": [
+								"b",
+								"ie"
+							],
+							"audio": "bie"
+						},
+						{
+							"key": "bragel-8-17-164",
+							"text": "diek",
+							"dutch": "dijk",
+							"sounds": [
+								"d",
+								"ie",
+								"k"
+							],
+							"audio": "diek"
+						},
+						{
+							"key": "bragel-8-17-165",
+							"text": "spoulden",
+							"dutch": "spoelden",
+							"sounds": [
+								"s",
+								"p",
+								"ou",
+								"l",
+								"d",
+								"n"
+							],
+							"audio": "spoulden"
+						},
+						{
+							"key": "bragel-8-17-167",
+							"text": "vouten",
+							"dutch": "voeten",
+							"sounds": [
+								"v",
+								"ou",
+								"’",
+								"n"
+							],
+							"audio": "vouten"
+						},
+						{
+							"key": "bragel-8-17-169",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "bragel-8-17-170",
+							"text": "wotterbak",
+							"dutch": "waterbak",
+							"sounds": [
+								"w",
+								"o",
+								"d",
+								"uh",
+								"b",
+								"a",
+								"k"
+							],
+							"audio": "wotterbak"
+						},
+						{
+							"key": "bragel-8-17-171",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "bragel-8-17-172",
+							"text": "schoapen",
+							"dutch": "schapen",
+							"sounds": [
+								"s",
+								"g",
+								"o",
+								"’",
+								"m"
+							],
+							"audio": "schoapen"
+						},
+						{
+							"key": "bragel-8-17-173",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "bragel-8-17-174",
+							"text": "gingen",
+							"dutch": "gingen",
+							"sounds": [
+								"g",
+								"i",
+								"ng"
+							],
+							"audio": "gingen"
+						},
+						{
+							"key": "bragel-8-17-175",
+							"text": "dizze",
+							"dutch": "deze",
+							"sounds": [
+								"d",
+								"i",
+								"z",
+								"uh"
+							],
+							"audio": "dizze"
+						},
+						{
+							"key": "bragel-8-17-176",
+							"text": "swienen",
+							"dutch": "vuilakken",
+							"sounds": [
+								"s",
+								"w",
+								"ie",
+								"n"
+							],
+							"audio": "swienen"
+						},
+						{
+							"key": "bragel-8-17-177",
+							"text": "mit",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						},
+						{
+							"key": "bragel-8-17-178",
+							"text": "schone",
+							"dutch": "schone",
+							"sounds": [
+								"s",
+								"g",
+								"oo",
+								"n",
+								"uh"
+							],
+							"audio": "schone"
+						},
+						{
+							"key": "bragel-8-17-179",
+							"text": "vouten",
+							"dutch": "voeten",
+							"sounds": [
+								"v",
+								"ou",
+								"’",
+								"n"
+							],
+							"audio": "vouten"
+						},
+						{
+							"key": "bragel-8-17-180",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "bragel-8-17-181",
+							"text": "stevels",
+							"dutch": "laarzen",
+							"sounds": [
+								"s",
+								"t",
+								"ee",
+								"v",
+								"l",
+								"s"
+							],
+							"audio": "stevels"
+						},
+						{
+							"key": "bragel-8-17-182",
+							"text": "noar",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "noar"
+						},
+						{
+							"key": "bragel-8-17-183",
+							"text": "hoes",
+							"dutch": "huis",
+							"sounds": [
+								"h",
+								"oe",
+								"s"
+							],
+							"audio": "hoes"
+						}
+					]
+				}
+			]
+		}
+	]
+}

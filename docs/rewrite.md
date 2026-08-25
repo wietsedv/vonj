@@ -31,12 +31,32 @@ from local content and the backend was effectively dead. See
 
 **What it simplifies:**
 
-- **Onboarding is just a name.** With a single bundled school there is nothing to
-  pick, and the original already hid the school field in that case. No school
-  picker, no modal, no language list.
+- **There is no onboarding at all.** See below.
 - **No loading or error states for content.** No "Er is iets mis gegaan", no
   "Geen verbinding", no spinner while categories load.
 - **Offline is not a feature any more, it is the only mode.**
+
+## No identity
+
+The web app never asks who is playing. The original's authenticate screen exists
+to pick a school and to tag submitted answers with a pupil's name; with the
+backend gone, neither has anything left to do, and a name screen standing between
+a child and the first level buys nothing.
+
+**What that removes, compared to
+[`original-app/onboarding.md`](original-app/onboarding.md):**
+
+- the school picker and the "Vul een naam in om te beginnen!" screen;
+- the stored `auth` value, and with it the `name` key;
+- the greeting by name. The global overview keeps the header it already has,
+  "Hoe goed is jouw Gronings?", instead of "Moi Anne! Hoe goed is jouw
+  Grunnegs?";
+- "Alles resetten?" no longer returns to a name screen, it simply clears
+  progress.
+
+Demo mode was triggered by typing the name `demo`, so it loses its trigger along
+with the name field. It needs a new one, or it goes; nothing is implemented for
+it yet.
 
 ## State lives in localStorage
 
@@ -51,14 +71,20 @@ unchanged.
 
 ### Keys
 
-| Key                            | Contents                                                                                                                           |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                         | The pupil's first name                                                                                                             |
-| `<category>.<section>.<story>` | One level as JSON: its generated items with every response so far, and its score once finished. For example `listen.words.bragel`. |
-| `dataVersion`                  | The content version the stored levels were generated against                                                                       |
+| Key                            | Contents                                                                                                                                |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `<category>.<section>.<story>` | One level as JSON: its generated items with every response so far, and its score once finished. For example `luisteren.woorden.bragel`. |
+| `dataVersion`                  | The content version the stored levels were generated against                                                                            |
 
-The original's `auth` key held a school id, a name and an offline flag. Only the
-name survives, since there is one school and offline is unconditional.
+Nothing else is stored: the app is anonymous, so the original's `auth` key has no
+successor.
+
+The ids in a level key are the Dutch ones this app uses throughout, not the
+English ids of the original data (`luisteren.woorden.bragel`, where the original
+would have written `listen.words.bragel`). They are the same ids as the route
+segments, so a level key can be read straight off the URL. The full set of 44
+level keys is known from the content, which is how a reset or a version bump
+finds them all without having to prefix or enumerate `localStorage`.
 
 ### Why the items themselves are stored
 
@@ -79,10 +105,12 @@ item lists need, so there is no reason to compress or to store a seed instead.
 ### Practical constraints
 
 - **Not available during SSR or prerendering.** Anything that renders progress -
-  the star ratings, the "x van de y levels gespeeld" lines, the greeting by name
-  - is client-only. Guard access with `browser` from `$app/environment` and read
-    it after mount, and make sure the server-rendered markup is valid without it
-    rather than something that flashes wrong values.
+  the star ratings, the "x van de y levels gespeeld" lines - is client-only.
+  Guard access with `browser` from `$app/environment` and read it after mount,
+  and make sure the server-rendered markup is valid without it rather than
+  something that flashes wrong values. In practice this means the progress line
+  and the stars are simply absent until the store has been read, rather than
+  claiming zero.
 - **It can throw.** Private browsing modes and a full quota make reads and writes
   fail. Wrap access and treat failure as "no progress stored" rather than
   breaking the app.
@@ -99,22 +127,89 @@ the stored `dataVersion` does not match it, all stored levels are discarded and
 regenerated. Without it, a content update can leave a pupil with stored items
 pointing at sentences, words or images that no longer exist.
 
+The number is maintained by hand, in `src/lib/content/version.ts`. Regenerating
+the content set does not bump it: whoever changes content decides whether the
+change can invalidate stored items, and bumps it if so.
+
 ### Resetting
 
 The reset scopes from [`original-app/navigation.md`](original-app/navigation.md)
 map onto the keys directly: resetting a level removes its key, a section or
-category removes the keys of its levels, and "Alles resetten?" clears everything
-including the name and returns to the name screen.
+category removes the keys of its levels, and "Alles resetten?" removes all 44.
 
 ### Demo mode
 
-Kept, and simpler than before: the name `demo` means nothing is written to
-`localStorage` at all. Progress lives in memory for as long as the tab is open
-and disappears on reload. As in the original, opening a category in demo mode
-resets it.
+Open question. The original triggered it by typing the name `demo`, and this app
+has no name field, so the trigger is gone. If it comes back, the behaviour is the
+same as before and simpler to implement: nothing is written to `localStorage` at
+all, progress lives in memory for as long as the tab is open, and opening a
+category resets it.
 
 ### It is not a security boundary
 
 A pupil can edit their own scores with the devtools. That was equally true of the
 original's device storage, and nothing here depends on the scores being
 trustworthy.
+
+## The content set is generated
+
+The original app's dataset lives in one 5600-line TypeScript module,
+`app/lib/offline.ts`, holding the payloads its API would have returned, and its
+media sits in `app/assets/static/gronings/`. Neither is used directly.
+`scripts/build-content.mjs` reads both out of `../vonj-app` and writes
+`src/lib/content/`:
+
+- `categories.json`, `sounds.json` and one file per story under `stories/`, with
+  the English ids translated to the Dutch ones and the API envelope dropped;
+- `assets/`, holding only what the app actually loads.
+
+The script is the only thing that reads the original app, and it only reads. Run
+it again after a content change; do not hand-edit the generated files.
+
+### One correction to the Dutch copy
+
+The original's copy is reused verbatim, with one exception: the Lezen > Zinnen
+sections were described as "Sleep **te** zinnen in de juiste volgorde om het
+verhaaltje leesbaar te maken." and read "Sleep **de** zinnen" here. The
+`original-app/` documents still quote the typo, because they describe the
+original.
+
+The correction lives in `COPY_FIXES` in `scripts/build-content.mjs`, keyed by the
+whole original line, and the script reports an entry that no longer matches
+anything. That is the place for any further copy fix; do not edit the generated
+JSON, and do not correct Gronings content this way.
+
+### What happens to the media
+
+The raw set is 66 MB and the original's runtime set is 42 MB. The web set is
+12 MB.
+
+| Media                  | Original           | Web                        |
+| ---------------------- | ------------------ | -------------------------- |
+| Animated illustrations | 36 GIF, 28 MB      | 36 animated WebP, 6.2 MB   |
+| Still illustrations    | 36 PNG, 8.9 MB     | 36 WebP, 0.9 MB            |
+| Recordings             | 392 MP3, 5.3 MB    | 360 MP3, 5.1 MB, unchanged |
+| Uncompressed masters   | 4 WAV, 24 MB       | dropped                    |
+| Praat annotations      | 4 TextGrid, 1.3 MB | dropped                    |
+
+Both image formats are re-encoded to 512x512, which is larger than the biggest
+card the app ever renders. The quality settings were chosen as the lowest that
+stays visually indistinguishable from the source on this line art.
+
+Animated WebP was picked over muted looping video because it stays an `<img>`:
+no autoplay policy to work around, no poster image, and one file instead of two.
+
+### How the content reaches the app
+
+- The structure (`categories.json`, `sounds.json`) is small and always needed, so
+  it is imported eagerly.
+- A story is about 37 KB of JSON and only one is ever in play, so the stories are
+  behind a dynamic `import()` and Vite gives each its own chunk.
+- Media is imported through Vite rather than served from `static/`, so every file
+  is fingerprinted and can be cached forever. The maps in
+  `src/lib/content/assets.ts` hold URLs, not media, so nothing is fetched until
+  something renders it.
+
+The one wrinkle is that Vite inlines assets below a size threshold as base64,
+which would have shipped the short sound recordings inside the module that holds
+every URL. `vite.config.ts` turns inlining off for content assets.

@@ -7,10 +7,11 @@ primary school children. The original native app (NativeScript-Vue, iOS and
 Android) is at `../vonj-app` and is read-only reference material: never modify
 it.
 
-The rewrite is a SvelteKit app with **no backend**: content is bundled and all
-progress lives in the browser's `localStorage`. It is early: the two overview
-screens exist as static mock-ups with hardcoded data, and none of the games are
-built yet.
+The rewrite is a SvelteKit app with **no backend** and **no identity**: content
+is bundled, all progress lives in the browser's `localStorage`, and the app never
+asks who is playing. It is early: the two overview screens run on the real
+content set and real progress, but none of the games are built yet. See
+[`TODO.md`](TODO.md) for where things stand.
 
 ## Read the docs before implementing a feature
 
@@ -29,11 +30,35 @@ engineering the Vue source:
 - `data.md` - API, offline data, local persistence
 
 [`docs/rewrite.md`](docs/rewrite.md) records where this version deliberately
-departs from the original: no backend, and all state in `localStorage`. It wins
-wherever it contradicts the `original-app/` documents.
+departs from the original: no backend, no identity, all state in `localStorage`,
+and how the content set is generated. It wins wherever it contradicts the
+`original-app/` documents.
 
 If the `original-app/` docs and `../vonj-app` disagree, the app is the truth. Fix
 the docs in the same change.
+
+## The content set is generated
+
+`src/lib/content/` is **generated output**, not source. `scripts/build-content.mjs`
+reads the original app's dataset and media out of `../vonj-app`, converts them,
+and writes `categories.json`, `sounds.json`, `stories/*.json` and `assets/`.
+
+- Do not hand-edit anything under `src/lib/content/`, `assets/` included. Change
+  the script and run `node scripts/build-content.mjs`.
+- The script only ever reads from `../vonj-app`.
+- Content is reached through `src/lib/content/index.ts` and
+  `src/lib/content/assets.ts`, never by importing the JSON or the media directly.
+  Stories are loaded with `loadStory()`, which is async because each story is its
+  own chunk.
+- Bump `dataVersion` in `src/lib/content/version.ts` when a content change can
+  invalidate stored items. Regenerating alone does not bump it.
+
+## Ids
+
+One vocabulary, Dutch, everywhere: in the content data, in the routes and in the
+`localStorage` keys. `luisteren.woorden.bragel` is the level reached at
+`/luisteren/woorden/...`. The original app's English ids (`listen`, `words`) exist
+only inside the build script, which translates them.
 
 ## Stack and conventions
 
@@ -86,7 +111,9 @@ Run `npm run format` to fix formatting. Both must pass.
   teacher reporting is deliberately gone.
 - **Progress persistence stores generated items, not just scores**, so a level
   replays identically and can be resumed mid-item. Keyed per level in
-  `localStorage`. See `docs/rewrite.md`.
+  `localStorage`. Go through `src/lib/progress.svelte.ts` and
+  `src/lib/storage.ts` rather than touching `localStorage` directly. See
+  `docs/rewrite.md`.
 - **`localStorage` is not available during SSR or prerendering.** Anything that
   renders progress is client-only: guard with `browser` from `$app/environment`,
   read after mount, and make sure server-rendered markup is valid without it

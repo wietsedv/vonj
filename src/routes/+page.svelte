@@ -1,56 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import Score from '$lib/components/Score.svelte';
-	import Listen from '$lib/icons/listen.svelte';
-	import Read from '$lib/icons/read.svelte';
-	import Speak from '$lib/icons/speak.svelte';
-	import Write from '$lib/icons/write.svelte';
-	import type { Category } from '$lib/types';
-	import type { Component } from 'svelte';
-
-	interface CategoryState {
-		id: Category;
-		name: string;
-		icon: Component;
-		levels: number;
-		completedLevels: number;
-		score: number | null;
-	}
-
-	const categories: CategoryState[] = [
-		{
-			id: 'luisteren',
-			name: 'Luisteren',
-			icon: Listen,
-			levels: 12,
-			completedLevels: 12,
-			score: 2
-		},
-		{
-			id: 'lezen',
-			name: 'Lezen',
-			icon: Read,
-			levels: 12,
-			completedLevels: 0,
-			score: null
-		},
-		{
-			id: 'schrijven',
-			name: 'Schrijven',
-			icon: Write,
-			levels: 8,
-			completedLevels: 0,
-			score: null
-		},
-		{
-			id: 'spreken',
-			name: 'Spreken',
-			icon: Speak,
-			levels: 12,
-			completedLevels: 0,
-			score: null
-		}
-	];
+	import { categories } from '$lib/content';
+	import { categoryIcons } from '$lib/icons';
+	import { progress } from '$lib/progress.svelte';
 </script>
 
 <div class="bg-primary px-4 pt-18 pb-24 shadow-lg">
@@ -64,25 +17,30 @@
 <div class="mx-auto -mt-20 max-w-md px-4 py-10">
 	<div class="flex w-full flex-col items-center gap-3">
 		{#each categories as category (category.id)}
+			{@const scope = progress.category(category.id)}
+			{@const Icon = categoryIcons[category.id]}
 			<a
 				href={resolve(`/${category.id}`)}
 				class="flex w-full items-center gap-4 rounded-lg bg-white px-4 py-3 transition hover:bg-gray-100 hover:shadow-xl focus:bg-gray-100 focus:shadow-xl"
 			>
 				<div class="[&>svg]:fill-primary w-10 text-center [&>svg]:inline-block">
-					<category.icon />
+					<Icon />
 				</div>
 
 				<div class="flex-1">
 					<h2 class="text-xl font-medium">{category.name}</h2>
-					<p class="text-sm">
-						{#if category.completedLevels < category.levels}{category.completedLevels} van de {category.levels}
-							levels gespeeld
-						{:else}Alle levels gespeeld!
+					<!-- Empty until localStorage has been read, rather than claiming zero. -->
+					<p class="min-h-5 text-sm">
+						{#if progress.loaded}
+							{#if scope.completed < scope.levels}{scope.completed} van de {scope.levels}
+								levels gespeeld
+							{:else}Alle levels gespeeld!
+							{/if}
 						{/if}
 					</p>
 				</div>
 
-				<Score score={category.score} />
+				<Score score={progress.loaded ? scope.score : undefined} />
 			</a>
 		{/each}
 	</div>

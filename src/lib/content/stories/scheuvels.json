@@ -1,0 +1,2047 @@
+{
+	"key": "scheuvels",
+	"audio": "scheuvels",
+	"image": "scheuvels",
+	"fragments": [
+		{
+			"key": "scheuvels-1",
+			"time": [
+				3.6579564031832765,
+				10.48440400921567
+			],
+			"image": "scheuvels-1",
+			"sentences": [
+				{
+					"key": "scheuvels-1-2",
+					"text": "Vanmirreg werden der scheuvelwedstrieden holden op Botterdaip.",
+					"time": [
+						3.6579564031832765,
+						6.341064212991122
+					],
+					"words": [
+						{
+							"key": "scheuvels-1-2-7",
+							"text": "vanmirreg",
+							"dutch": "vanmiddag",
+							"sounds": [
+								"f",
+								"uh",
+								"m",
+								"i",
+								"r",
+								"uh",
+								"g"
+							],
+							"audio": "vanmirreg"
+						},
+						{
+							"key": "scheuvels-1-2-8",
+							"text": "werden",
+							"dutch": "werden",
+							"sounds": [
+								"w",
+								"e",
+								"n"
+							],
+							"audio": "werden"
+						},
+						{
+							"key": "scheuvels-1-2-9",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "scheuvels-1-2-10",
+							"text": "scheuvelwedstrieden",
+							"dutch": "schaatswedstrijden",
+							"sounds": [
+								"s",
+								"g",
+								"eu",
+								"v",
+								"l",
+								"w",
+								"e",
+								"s",
+								"t",
+								"r",
+								"ie",
+								"d",
+								"n"
+							],
+							"audio": "scheuvelwedstrieden"
+						},
+						{
+							"key": "scheuvels-1-2-11",
+							"text": "holden",
+							"dutch": "gehouden",
+							"sounds": [
+								"h",
+								"o",
+								"l",
+								"d",
+								"n"
+							],
+							"audio": "holden"
+						},
+						{
+							"key": "scheuvels-1-2-12",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "scheuvels-1-2-13",
+							"text": "Botterdaip",
+							"dutch": "Boterdiep",
+							"sounds": [
+								"b",
+								"o",
+								"d",
+								"uh",
+								"d",
+								"ai",
+								"p"
+							],
+							"audio": "botterdaip"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-1-3",
+					"text": "Om 2 uur zol t begunnen en elk mos zien scheuvels mitnemen.",
+					"time": [
+						7.26781015440768,
+						10.48440400921567
+					],
+					"words": [
+						{
+							"key": "scheuvels-1-3-14",
+							"text": "om",
+							"dutch": "om",
+							"sounds": [
+								"o",
+								"m"
+							],
+							"audio": "om"
+						},
+						{
+							"key": "scheuvels-1-3-16",
+							"text": "uur",
+							"dutch": "uur",
+							"sounds": [
+								"uu",
+								"r"
+							],
+							"audio": "uur"
+						},
+						{
+							"key": "scheuvels-1-3-17",
+							"text": "zol",
+							"dutch": "zou",
+							"sounds": [
+								"z",
+								"o",
+								"l"
+							],
+							"audio": "zol"
+						},
+						{
+							"key": "scheuvels-1-3-18",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "scheuvels-1-3-19",
+							"text": "begunnen",
+							"dutch": "beginnen",
+							"sounds": [
+								"b",
+								"uh",
+								"g",
+								"u",
+								"n"
+							],
+							"audio": "begunnen"
+						},
+						{
+							"key": "scheuvels-1-3-20",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-1-3-21",
+							"text": "elk",
+							"dutch": "iedereen",
+							"sounds": [
+								"e",
+								"l",
+								"k"
+							],
+							"audio": "elk"
+						},
+						{
+							"key": "scheuvels-1-3-22",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "scheuvels-1-3-23",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"ie",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "scheuvels-1-3-24",
+							"text": "scheuvels",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"g",
+								"eu",
+								"v",
+								"l",
+								"s"
+							],
+							"audio": "scheuvels"
+						},
+						{
+							"key": "scheuvels-1-3-25",
+							"text": "mitnemen",
+							"dutch": "meenemen",
+							"sounds": [
+								"m",
+								"i",
+								"’",
+								"n",
+								"ee",
+								"m"
+							],
+							"audio": "mitnemen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-2",
+			"time": [
+				11.842838924202164,
+				20.224069394877095
+			],
+			"image": "scheuvels-2",
+			"sentences": [
+				{
+					"key": "scheuvels-2-4",
+					"text": "Op t ies haar kroug van t dörp n kouk en zopie tìntje opbaauwd, doar je kwast, snert en waarme worst kopen konden.",
+					"time": [
+						11.842838924202164,
+						18.224198406523772
+					],
+					"words": [
+						{
+							"key": "scheuvels-2-4-26",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "scheuvels-2-4-27",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "scheuvels-2-4-28",
+							"text": "ies",
+							"dutch": "ijs",
+							"sounds": [
+								"ie",
+								"s"
+							],
+							"audio": "ies"
+						},
+						{
+							"key": "scheuvels-2-4-29",
+							"text": "haar",
+							"dutch": "had",
+							"sounds": [
+								"h",
+								"aa",
+								"r"
+							],
+							"audio": "haar"
+						},
+						{
+							"key": "scheuvels-2-4-30",
+							"text": "kroug",
+							"dutch": "café",
+							"sounds": [
+								"k",
+								"r",
+								"ou",
+								"g"
+							],
+							"audio": "kroug"
+						},
+						{
+							"key": "scheuvels-2-4-31",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "scheuvels-2-4-33",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "scheuvels-2-4-34",
+							"text": "kouk",
+							"dutch": "koek",
+							"sounds": [
+								"k",
+								"ou",
+								"k"
+							],
+							"audio": "kouk"
+						},
+						{
+							"key": "scheuvels-2-4-35",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-2-4-36",
+							"text": "zopie",
+							"dutch": "zopie",
+							"sounds": [
+								"z",
+								"oo",
+								"p",
+								"ie"
+							],
+							"audio": "zopie"
+						},
+						{
+							"key": "scheuvels-2-4-38",
+							"text": "opbaauwd",
+							"dutch": "opgebouwd",
+							"sounds": [
+								"o",
+								"p",
+								"b",
+								"aau",
+								"t"
+							],
+							"audio": "opbaauwd"
+						},
+						{
+							"key": "scheuvels-2-4-39",
+							"text": "woar",
+							"dutch": "waar",
+							"sounds": [
+								"w",
+								"o",
+								"r"
+							],
+							"audio": "woar"
+						},
+						{
+							"key": "scheuvels-2-4-40",
+							"text": "je",
+							"dutch": "je",
+							"sounds": [
+								"j",
+								"uh"
+							],
+							"audio": "je"
+						},
+						{
+							"key": "scheuvels-2-4-41",
+							"text": "kwast",
+							"dutch": "citroenkwast",
+							"sounds": [
+								"k",
+								"w",
+								"a",
+								"s",
+								"t"
+							],
+							"audio": "kwast"
+						},
+						{
+							"key": "scheuvels-2-4-42",
+							"text": "snert",
+							"dutch": "erwtensoep",
+							"sounds": [
+								"s",
+								"n",
+								"i",
+								"t"
+							],
+							"audio": "snert"
+						},
+						{
+							"key": "scheuvels-2-4-43",
+							"text": "waarme",
+							"dutch": "warme",
+							"sounds": [
+								"w",
+								"aa",
+								"m",
+								"ee"
+							],
+							"audio": "waarme"
+						},
+						{
+							"key": "scheuvels-2-4-44",
+							"text": "worst",
+							"dutch": "worst",
+							"sounds": [
+								"w",
+								"o",
+								"r",
+								"s",
+								"t"
+							],
+							"audio": "worst"
+						},
+						{
+							"key": "scheuvels-2-4-46",
+							"text": "konden",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "konden"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-2-5",
+					"text": "En kovvie veur ollers vanzulf.",
+					"time": [
+						18.224198406523772,
+						20.224069394877095
+					],
+					"words": [
+						{
+							"key": "scheuvels-2-5-47",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-2-5-48",
+							"text": "kovvie",
+							"dutch": "koffie",
+							"sounds": [
+								"k",
+								"o",
+								"v",
+								"ie"
+							],
+							"audio": "kovvie"
+						},
+						{
+							"key": "scheuvels-2-5-49",
+							"text": "veur",
+							"dutch": "voor",
+							"sounds": [
+								"f",
+								"eu",
+								"r"
+							],
+							"audio": "veur"
+						},
+						{
+							"key": "scheuvels-2-5-50",
+							"text": "ollers",
+							"dutch": "ouders",
+							"sounds": [
+								"o",
+								"l",
+								"uh",
+								"r",
+								"s"
+							],
+							"audio": "ollers"
+						},
+						{
+							"key": "scheuvels-2-5-51",
+							"text": "vanzulf",
+							"dutch": "natuurlijk",
+							"sounds": [
+								"f",
+								"uh",
+								"z",
+								"u",
+								"l",
+								"f"
+							],
+							"audio": "vanzulf"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-3",
+			"time": [
+				21.33813162566397,
+				26.40673314657737
+			],
+			"image": "scheuvels-3",
+			"sentences": [
+				{
+					"key": "scheuvels-3-6",
+					"text": "Dou elk scheuvels onderbonden haar, kon wedstried begunnen.",
+					"time": [
+						21.33813162566397,
+						23.980764327966494
+					],
+					"words": [
+						{
+							"key": "scheuvels-3-6-52",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "scheuvels-3-6-53",
+							"text": "elk",
+							"dutch": "iedereen",
+							"sounds": [
+								"e",
+								"l",
+								"k"
+							],
+							"audio": "elk"
+						},
+						{
+							"key": "scheuvels-3-6-54",
+							"text": "scheuvels",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"g",
+								"eu",
+								"v",
+								"l",
+								"s"
+							],
+							"audio": "scheuvels"
+						},
+						{
+							"key": "scheuvels-3-6-55",
+							"text": "onderbonden",
+							"dutch": "ondergebonden",
+							"sounds": [
+								"o",
+								"n",
+								"d",
+								"uh",
+								"b",
+								"o",
+								"n"
+							],
+							"audio": "onderbonden"
+						},
+						{
+							"key": "scheuvels-3-6-56",
+							"text": "haar",
+							"dutch": "had",
+							"sounds": [
+								"h",
+								"aa",
+								"r"
+							],
+							"audio": "haar"
+						},
+						{
+							"key": "scheuvels-3-6-57",
+							"text": "kon",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "kon"
+						},
+						{
+							"key": "scheuvels-3-6-58",
+							"text": "wedstried",
+							"dutch": "wedstrijd",
+							"sounds": [
+								"w",
+								"e",
+								"s",
+								"t",
+								"r",
+								"ie",
+								"t"
+							],
+							"audio": "wedstried"
+						},
+						{
+							"key": "scheuvels-3-6-59",
+							"text": "begunnen",
+							"dutch": "beginnen",
+							"sounds": [
+								"b",
+								"uh",
+								"g",
+								"u",
+								"n"
+							],
+							"audio": "begunnen"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-3-7",
+					"text": "Mor der waren ook òfvalers.",
+					"time": [
+						25.076796319091414,
+						26.40673314657737
+					],
+					"words": [
+						{
+							"key": "scheuvels-3-7-60",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "scheuvels-3-7-61",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "scheuvels-3-7-62",
+							"text": "waren",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"aa",
+								"n"
+							],
+							"audio": "waren"
+						},
+						{
+							"key": "scheuvels-3-7-63",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-4",
+			"time": [
+				27.467821257042587,
+				32.3541612128057
+			],
+			"image": "scheuvels-4",
+			"sentences": [
+				{
+					"key": "scheuvels-4-8",
+					"text": "Ain van kiender kon nait vroug genog remmen en vloog op kop tegen brug aan.",
+					"time": [
+						27.467821257042587,
+						30.95279761415502
+					],
+					"words": [
+						{
+							"key": "scheuvels-4-8-65",
+							"text": "ain",
+							"dutch": "een",
+							"sounds": [
+								"oi",
+								"n"
+							],
+							"audio": "ain"
+						},
+						{
+							"key": "scheuvels-4-8-66",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "scheuvels-4-8-67",
+							"text": "kiender",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"ie",
+								"n",
+								"d",
+								"uh"
+							],
+							"audio": "kiender"
+						},
+						{
+							"key": "scheuvels-4-8-68",
+							"text": "kon",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "kon"
+						},
+						{
+							"key": "scheuvels-4-8-69",
+							"text": "nait",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"ai",
+								"t"
+							],
+							"audio": "nait"
+						},
+						{
+							"key": "scheuvels-4-8-70",
+							"text": "vroug",
+							"dutch": "vroeg",
+							"sounds": [
+								"f",
+								"r",
+								"ou",
+								"g"
+							],
+							"audio": "vroug"
+						},
+						{
+							"key": "scheuvels-4-8-71",
+							"text": "genog",
+							"dutch": "genoeg",
+							"sounds": [
+								"g",
+								"uh",
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "genog"
+						},
+						{
+							"key": "scheuvels-4-8-72",
+							"text": "remmen",
+							"dutch": "remmen",
+							"sounds": [
+								"r",
+								"e",
+								"m"
+							],
+							"audio": "remmen"
+						},
+						{
+							"key": "scheuvels-4-8-73",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-4-8-74",
+							"text": "vloog",
+							"dutch": "vloog",
+							"sounds": [
+								"v",
+								"l",
+								"oo",
+								"g"
+							],
+							"audio": "vloog"
+						},
+						{
+							"key": "scheuvels-4-8-75",
+							"text": "op",
+							"dutch": null,
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "scheuvels-4-8-76",
+							"text": "kop",
+							"dutch": null,
+							"sounds": [
+								"k",
+								"o",
+								"p"
+							],
+							"audio": "kop"
+						},
+						{
+							"key": "scheuvels-4-8-77",
+							"text": "tegen",
+							"dutch": "tegen",
+							"sounds": [
+								"t",
+								"ee",
+								"ng"
+							],
+							"audio": "tegen"
+						},
+						{
+							"key": "scheuvels-4-8-78",
+							"text": "brug",
+							"dutch": "brug",
+							"sounds": [
+								"b",
+								"r",
+								"u",
+								"g"
+							],
+							"audio": "brug"
+						},
+						{
+							"key": "scheuvels-4-8-79",
+							"text": "aan",
+							"dutch": "aan",
+							"sounds": [
+								"aa",
+								"n"
+							],
+							"audio": "aan"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-4-9",
+					"text": "Dij kounavvel!",
+					"time": [
+						31.425612761897625,
+						32.3541612128057
+					],
+					"words": [
+						{
+							"key": "scheuvels-4-9-80",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "scheuvels-4-9-81",
+							"text": "kounavvel",
+							"dutch": "stommeling",
+							"sounds": [
+								"k",
+								"ou",
+								"n",
+								"a",
+								"v",
+								"l"
+							],
+							"audio": "kounavvel"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-5",
+			"time": [
+				33.031404799342404,
+				39.4741975047396
+			],
+			"image": "scheuvels-5",
+			"sentences": [
+				{
+					"key": "scheuvels-5-10",
+					"text": "Der was ook ain dij aibels kwoad wer dou zien veter knapte.",
+					"time": [
+						33.031404799342404,
+						35.91294784577778
+					],
+					"words": [
+						{
+							"key": "scheuvels-5-10-82",
+							"text": "der",
+							"dutch": "er",
+							"sounds": [
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "der"
+						},
+						{
+							"key": "scheuvels-5-10-83",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "scheuvels-5-10-84",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						},
+						{
+							"key": "scheuvels-5-10-85",
+							"text": "ain",
+							"dutch": "iemand",
+							"sounds": [
+								"oi",
+								"n"
+							],
+							"audio": "ain"
+						},
+						{
+							"key": "scheuvels-5-10-86",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "scheuvels-5-10-87",
+							"text": "kwoad",
+							"dutch": "boos",
+							"sounds": [
+								"k",
+								"w",
+								"o",
+								"t"
+							],
+							"audio": "kwoad"
+						},
+						{
+							"key": "scheuvels-5-10-88",
+							"text": "wer",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"e",
+								"r"
+							],
+							"audio": "wer"
+						},
+						{
+							"key": "scheuvels-5-10-89",
+							"text": "dou",
+							"dutch": "omdat",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "scheuvels-5-10-90",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"ie",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "scheuvels-5-10-91",
+							"text": "veter",
+							"dutch": "veter",
+							"sounds": [
+								"f",
+								"ee",
+								"t",
+								"uh",
+								"r"
+							],
+							"audio": "veter"
+						},
+						{
+							"key": "scheuvels-5-10-92",
+							"text": "knapte",
+							"dutch": "knapte",
+							"sounds": [
+								"k",
+								"n",
+								"a",
+								"p",
+								"t",
+								"uh"
+							],
+							"audio": "knapte"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-5-11",
+					"text": "Dou smeet hai scheuvels op waal en dee nait meer mit.",
+					"time": [
+						36.97441841026909,
+						39.4741975047396
+					],
+					"words": [
+						{
+							"key": "scheuvels-5-11-93",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "scheuvels-5-11-94",
+							"text": "smeet",
+							"dutch": "smeet",
+							"sounds": [
+								"s",
+								"m",
+								"ee",
+								"t"
+							],
+							"audio": "smeet"
+						},
+						{
+							"key": "scheuvels-5-11-95",
+							"text": "hai",
+							"dutch": "hij",
+							"sounds": [
+								"h",
+								"ai"
+							],
+							"audio": "hai"
+						},
+						{
+							"key": "scheuvels-5-11-96",
+							"text": "scheuvels",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"g",
+								"eu",
+								"v",
+								"l",
+								"s"
+							],
+							"audio": "scheuvels"
+						},
+						{
+							"key": "scheuvels-5-11-97",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "scheuvels-5-11-98",
+							"text": "waal",
+							"dutch": "wal",
+							"sounds": [
+								"w",
+								"aa",
+								"l"
+							],
+							"audio": "waal"
+						},
+						{
+							"key": "scheuvels-5-11-99",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-5-11-100",
+							"text": "dee",
+							"dutch": "deed",
+							"sounds": [
+								"d",
+								"ee"
+							],
+							"audio": "dee"
+						},
+						{
+							"key": "scheuvels-5-11-101",
+							"text": "nait",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"ai",
+								"t"
+							],
+							"audio": "nait"
+						},
+						{
+							"key": "scheuvels-5-11-102",
+							"text": "meer",
+							"dutch": "meer",
+							"sounds": [
+								"m",
+								"i",
+								"r"
+							],
+							"audio": "meer"
+						},
+						{
+							"key": "scheuvels-5-11-103",
+							"text": "mit",
+							"dutch": "mee",
+							"sounds": [
+								"m",
+								"i",
+								"t"
+							],
+							"audio": "mit"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-6",
+			"time": [
+				40.38049949520649,
+				44.80872274136304
+			],
+			"image": "scheuvels-6",
+			"sentences": [
+				{
+					"key": "scheuvels-6-12",
+					"text": "Summege kiender haren kraanten onder trui om pokkel waarm te holden.",
+					"time": [
+						40.38049949520649,
+						43.355636251952944
+					],
+					"words": [
+						{
+							"key": "scheuvels-6-12-104",
+							"text": "summege",
+							"dutch": "sommige",
+							"sounds": [
+								"s",
+								"u",
+								"m",
+								"uh",
+								"g",
+								"uh"
+							],
+							"audio": "summege"
+						},
+						{
+							"key": "scheuvels-6-12-105",
+							"text": "kiender",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"ie",
+								"n",
+								"d",
+								"uh"
+							],
+							"audio": "kiender"
+						},
+						{
+							"key": "scheuvels-6-12-106",
+							"text": "haren",
+							"dutch": "hadden",
+							"sounds": [
+								"h",
+								"aa",
+								"r",
+								"n"
+							],
+							"audio": "haren"
+						},
+						{
+							"key": "scheuvels-6-12-107",
+							"text": "kraanten",
+							"dutch": "kranten",
+							"sounds": [
+								"k",
+								"r",
+								"aa",
+								"n",
+								"’",
+								"n"
+							],
+							"audio": "kraanten"
+						},
+						{
+							"key": "scheuvels-6-12-108",
+							"text": "onder",
+							"dutch": "onder",
+							"sounds": [
+								"o",
+								"n",
+								"d",
+								"uh",
+								"r"
+							],
+							"audio": "onder"
+						},
+						{
+							"key": "scheuvels-6-12-109",
+							"text": "trui",
+							"dutch": "trui",
+							"sounds": [
+								"t",
+								"r",
+								"ui"
+							],
+							"audio": "trui"
+						},
+						{
+							"key": "scheuvels-6-12-110",
+							"text": "om",
+							"dutch": "om",
+							"sounds": [
+								"o",
+								"m"
+							],
+							"audio": "om"
+						},
+						{
+							"key": "scheuvels-6-12-111",
+							"text": "pokkel",
+							"dutch": "lichaam",
+							"sounds": [
+								"p",
+								"o",
+								"G!",
+								"l"
+							],
+							"audio": "pokkel"
+						},
+						{
+							"key": "scheuvels-6-12-112",
+							"text": "waarm",
+							"dutch": "warm",
+							"sounds": [
+								"w",
+								"aa",
+								"m"
+							],
+							"audio": "waarm"
+						},
+						{
+							"key": "scheuvels-6-12-113",
+							"text": "te",
+							"dutch": "te",
+							"sounds": [
+								"t",
+								"uh"
+							],
+							"audio": "te"
+						},
+						{
+							"key": "scheuvels-6-12-114",
+							"text": "holden",
+							"dutch": "houden",
+							"sounds": [
+								"h",
+								"o",
+								"l",
+								"d",
+								"n"
+							],
+							"audio": "holden"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-6-13",
+					"text": "t Was n kòlle wiend.",
+					"time": [
+						43.757104149825665,
+						44.80872274136304
+					],
+					"words": [
+						{
+							"key": "scheuvels-6-13-115",
+							"text": "t",
+							"dutch": "het",
+							"sounds": [
+								"t"
+							],
+							"audio": "t"
+						},
+						{
+							"key": "scheuvels-6-13-116",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "scheuvels-6-13-117",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "scheuvels-6-13-119",
+							"text": "wiend",
+							"dutch": "wind",
+							"sounds": [
+								"w",
+								"ie",
+								"n",
+								"t"
+							],
+							"audio": "wiend"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-7",
+			"time": [
+				45.62389398200607,
+				52.54766271147104
+			],
+			"image": "scheuvels-7",
+			"sentences": [
+				{
+					"key": "scheuvels-7-14",
+					"text": "Ze deden apmoal heur uterste best, mor Joap wer de schoulkampioen.",
+					"time": [
+						45.62389398200607,
+						49.35422133338452
+					],
+					"words": [
+						{
+							"key": "scheuvels-7-14-121",
+							"text": "deden",
+							"dutch": "deden",
+							"sounds": [
+								"d",
+								"ee",
+								"n"
+							],
+							"audio": "deden"
+						},
+						{
+							"key": "scheuvels-7-14-122",
+							"text": "apmoal",
+							"dutch": "allemaal",
+							"sounds": [
+								"a",
+								"p",
+								"m",
+								"o",
+								"l"
+							],
+							"audio": "apmoal"
+						},
+						{
+							"key": "scheuvels-7-14-123",
+							"text": "heur",
+							"dutch": "hun",
+							"sounds": [
+								"h",
+								"eu",
+								"r"
+							],
+							"audio": "heur"
+						},
+						{
+							"key": "scheuvels-7-14-124",
+							"text": "uterste",
+							"dutch": "uiterste",
+							"sounds": [
+								"uu",
+								"t",
+								"uh",
+								"s",
+								"t",
+								"uh"
+							],
+							"audio": "uterste"
+						},
+						{
+							"key": "scheuvels-7-14-125",
+							"text": "best",
+							"dutch": "best",
+							"sounds": [
+								"b",
+								"e",
+								"s",
+								"t"
+							],
+							"audio": "best"
+						},
+						{
+							"key": "scheuvels-7-14-126",
+							"text": "mor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "mor"
+						},
+						{
+							"key": "scheuvels-7-14-127",
+							"text": "Joap",
+							"dutch": "Jaap",
+							"sounds": [
+								"j",
+								"o",
+								"p"
+							],
+							"audio": "joap"
+						},
+						{
+							"key": "scheuvels-7-14-128",
+							"text": "wer",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"e",
+								"r"
+							],
+							"audio": "wer"
+						},
+						{
+							"key": "scheuvels-7-14-129",
+							"text": "schoulkampioen",
+							"dutch": "schoolkampioen",
+							"sounds": [
+								"s",
+								"g",
+								"ou",
+								"l",
+								"k",
+								"a",
+								"m",
+								"p",
+								"ie",
+								"oe",
+								"n"
+							],
+							"audio": "schoulkampioen"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-7-15",
+					"text": "Priesoetlangen was ien kroug midden ien t dörp.",
+					"time": [
+						50.391061965491005,
+						52.54766271147104
+					],
+					"words": [
+						{
+							"key": "scheuvels-7-15-130",
+							"text": "priesoetlangen",
+							"dutch": "prijsuitreiking",
+							"sounds": [
+								"p",
+								"r",
+								"ie",
+								"z",
+								"oe",
+								"t",
+								"l",
+								"a",
+								"ng"
+							],
+							"audio": "priesoetlangen"
+						},
+						{
+							"key": "scheuvels-7-15-131",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "scheuvels-7-15-132",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						},
+						{
+							"key": "scheuvels-7-15-133",
+							"text": "kroug",
+							"dutch": "café",
+							"sounds": [
+								"k",
+								"r",
+								"ou",
+								"g"
+							],
+							"audio": "kroug"
+						},
+						{
+							"key": "scheuvels-7-15-134",
+							"text": "midden",
+							"dutch": "midden",
+							"sounds": [
+								"m",
+								"i",
+								"d",
+								"n"
+							],
+							"audio": "midden"
+						},
+						{
+							"key": "scheuvels-7-15-135",
+							"text": "ien",
+							"dutch": "in",
+							"sounds": [
+								"ie",
+								"n"
+							],
+							"audio": "ien"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "scheuvels-8",
+			"time": [
+				53.474885737622024,
+				64.7231361838294
+			],
+			"image": "scheuvels-8",
+			"sentences": [
+				{
+					"key": "scheuvels-8-16",
+					"text": "Wat was jong tröts en blied, veuraal dou e zien opa zaag.",
+					"time": [
+						53.474885737622024,
+						56.9764801115075
+					],
+					"words": [
+						{
+							"key": "scheuvels-8-16-137",
+							"text": "wat",
+							"dutch": "wat",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						},
+						{
+							"key": "scheuvels-8-16-138",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "scheuvels-8-16-141",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-8-16-142",
+							"text": "blied",
+							"dutch": "blij",
+							"sounds": [
+								"b",
+								"l",
+								"ie",
+								"t"
+							],
+							"audio": "blied"
+						},
+						{
+							"key": "scheuvels-8-16-143",
+							"text": "veuraal",
+							"dutch": "vooral",
+							"sounds": [
+								"v",
+								"eu",
+								"r",
+								"aa",
+								"l"
+							],
+							"audio": "veuraal"
+						},
+						{
+							"key": "scheuvels-8-16-144",
+							"text": "dou",
+							"dutch": "toen",
+							"sounds": [
+								"d",
+								"ou"
+							],
+							"audio": "dou"
+						},
+						{
+							"key": "scheuvels-8-16-145",
+							"text": "e",
+							"dutch": "hij",
+							"sounds": [
+								"uh"
+							],
+							"audio": "e"
+						},
+						{
+							"key": "scheuvels-8-16-146",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"ie",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "scheuvels-8-16-147",
+							"text": "opa",
+							"dutch": "opa",
+							"sounds": [
+								"oo",
+								"p",
+								"a"
+							],
+							"audio": "opa"
+						},
+						{
+							"key": "scheuvels-8-16-148",
+							"text": "zaag",
+							"dutch": "zag",
+							"sounds": [
+								"z",
+								"aa",
+								"g"
+							],
+							"audio": "zaag"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-8-17",
+					"text": "Dij was haildaal op plof oet Stad kommen, dwaars deur ale snijproeksel hìn.",
+					"time": [
+						57.83105924396624,
+						61.65933163774627
+					],
+					"words": [
+						{
+							"key": "scheuvels-8-17-149",
+							"text": "dij",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"ei"
+							],
+							"audio": "dij"
+						},
+						{
+							"key": "scheuvels-8-17-150",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "scheuvels-8-17-151",
+							"text": "haildaal",
+							"dutch": "helemaal",
+							"sounds": [
+								"h",
+								"ai",
+								"l",
+								"d",
+								"a",
+								"l"
+							],
+							"audio": "haildaal"
+						},
+						{
+							"key": "scheuvels-8-17-152",
+							"text": "op",
+							"dutch": "op",
+							"sounds": [
+								"o",
+								"p"
+							],
+							"audio": "op"
+						},
+						{
+							"key": "scheuvels-8-17-153",
+							"text": "plof",
+							"dutch": "bromfiets",
+							"sounds": [
+								"p",
+								"l",
+								"o",
+								"f"
+							],
+							"audio": "plof"
+						},
+						{
+							"key": "scheuvels-8-17-154",
+							"text": "oet",
+							"dutch": "uit",
+							"sounds": [
+								"oe",
+								"t"
+							],
+							"audio": "oet"
+						},
+						{
+							"key": "scheuvels-8-17-155",
+							"text": "Stad",
+							"dutch": "Groningen",
+							"sounds": [
+								"s",
+								"t",
+								"a",
+								"t"
+							],
+							"audio": "stad"
+						},
+						{
+							"key": "scheuvels-8-17-156",
+							"text": "kommen",
+							"dutch": "gekomen",
+							"sounds": [
+								"k",
+								"o",
+								"m"
+							],
+							"audio": "kommen"
+						},
+						{
+							"key": "scheuvels-8-17-157",
+							"text": "dwaars",
+							"dutch": "dwars",
+							"sounds": [
+								"d",
+								"w",
+								"aa",
+								"s"
+							],
+							"audio": "dwaars"
+						},
+						{
+							"key": "scheuvels-8-17-158",
+							"text": "deur",
+							"dutch": "door",
+							"sounds": [
+								"d",
+								"eu",
+								"r"
+							],
+							"audio": "deur"
+						},
+						{
+							"key": "scheuvels-8-17-159",
+							"text": "ale",
+							"dutch": "alle",
+							"sounds": [
+								"a",
+								"l",
+								"uh"
+							],
+							"audio": "ale"
+						},
+						{
+							"key": "scheuvels-8-17-160",
+							"text": "snijproeksel",
+							"dutch": "sneeuwprut",
+							"sounds": [
+								"s",
+								"n",
+								"ei",
+								"p",
+								"r",
+								"oe",
+								"k",
+								"s",
+								"uh",
+								"l"
+							],
+							"audio": "snijproeksel"
+						}
+					]
+				},
+				{
+					"key": "scheuvels-8-18",
+					"text": "En van hom kreeg Joap ook nog n poar nije scheuvels.",
+					"time": [
+						62.33411226379577,
+						64.7231361838294
+					],
+					"words": [
+						{
+							"key": "scheuvels-8-18-162",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "scheuvels-8-18-163",
+							"text": "van",
+							"dutch": "van",
+							"sounds": [
+								"v",
+								"a",
+								"n"
+							],
+							"audio": "van"
+						},
+						{
+							"key": "scheuvels-8-18-164",
+							"text": "hom",
+							"dutch": "hem",
+							"sounds": [
+								"h",
+								"o",
+								"m"
+							],
+							"audio": "hom"
+						},
+						{
+							"key": "scheuvels-8-18-165",
+							"text": "kreeg",
+							"dutch": "kreeg",
+							"sounds": [
+								"k",
+								"r",
+								"ee",
+								"g"
+							],
+							"audio": "kreeg"
+						},
+						{
+							"key": "scheuvels-8-18-166",
+							"text": "Joap",
+							"dutch": "Jaap",
+							"sounds": [
+								"j",
+								"o",
+								"p"
+							],
+							"audio": "joap"
+						},
+						{
+							"key": "scheuvels-8-18-167",
+							"text": "ook",
+							"dutch": "ook",
+							"sounds": [
+								"oo",
+								"k"
+							],
+							"audio": "ook"
+						},
+						{
+							"key": "scheuvels-8-18-168",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"g"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "scheuvels-8-18-169",
+							"text": "n",
+							"dutch": "een",
+							"sounds": [
+								"n"
+							],
+							"audio": "n"
+						},
+						{
+							"key": "scheuvels-8-18-170",
+							"text": "poar",
+							"dutch": "poar",
+							"sounds": [
+								"p",
+								"o",
+								"r"
+							],
+							"audio": "poar"
+						},
+						{
+							"key": "scheuvels-8-18-171",
+							"text": "nije",
+							"dutch": "nieuwe",
+							"sounds": [
+								"n",
+								"ei",
+								"j",
+								"uh"
+							],
+							"audio": "nije"
+						},
+						{
+							"key": "scheuvels-8-18-172",
+							"text": "scheuvels",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"g",
+								"eu",
+								"v",
+								"l",
+								"s"
+							],
+							"audio": "scheuvels"
+						}
+					]
+				}
+			]
+		}
+	]
+}
