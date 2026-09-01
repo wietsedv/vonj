@@ -39,7 +39,7 @@
 </script>
 
 {#if wrong}
-	<p class="bg-primary/10 text-primary mb-3 rounded-xl px-4 py-3 text-sm font-medium" role="alert">
+	<p class="text-primary mb-3 rounded-xl bg-white px-4 py-3 text-sm font-medium" role="alert">
 		Nog niet alle onderdelen staan op de juiste plaats
 	</p>
 {/if}

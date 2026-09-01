@@ -26,8 +26,13 @@
 	const urgent = $derived(!timeUp && secondsUntilHint <= 5);
 </script>
 
-<div class="rounded-2xl bg-white px-6 py-4 text-center shadow-lg">
-	<p class="text-3xl font-bold tabular-nums">{formatSeconds(totalSecondsLeft)}</p>
+<!--
+  The whole card is tabular so a ticking clock keeps every digit in the same
+  column: without it the proportional digits change width each second and the
+  numbers, and the words after them, jitter.
+-->
+<div class="rounded-2xl bg-white px-6 py-4 text-center tabular-nums shadow-lg">
+	<p class="text-3xl font-bold">{formatSeconds(totalSecondsLeft)}</p>
 	{#if timeUp}
 		<!-- Inserted the moment the clock runs out, so it is announced once. -->
 		<p class="mt-1 font-medium" role="status">Tijd is om!</p>

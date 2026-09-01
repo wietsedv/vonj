@@ -323,13 +323,13 @@
 					{/if}
 				</div>
 
-				<div class="flex w-6 shrink-0 items-center justify-center" aria-hidden="true">
+				<div class="flex w-8 shrink-0 items-center justify-center" aria-hidden="true">
 					{#if marker === 'correct'}
-						<span class="[&>svg]:fill-accent"><Check /></span>
+						<span class="[&>svg]:fill-accent [&>svg]:size-8"><Check /></span>
 					{:else if marker === 'up'}
-						<span class="[&>svg]:fill-primary"><Arrow /></span>
+						<span class="[&>svg]:fill-primary [&>svg]:size-8"><Arrow /></span>
 					{:else if marker === 'down'}
-						<span class="[&>svg]:fill-primary block rotate-180"><Arrow /></span>
+						<span class="[&>svg]:fill-primary block rotate-180 [&>svg]:size-8"><Arrow /></span>
 					{/if}
 				</div>
 
