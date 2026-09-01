@@ -22,9 +22,25 @@
 			? []
 			: [0, 1, 2].map((index) => Math.min(2, Math.max(0, score - index * 2)))
 	);
+
+	/** How many stars the icons add up to, counting a half star as a half. */
+	const filled = $derived(
+		stars.reduce((total, star) => total + (star >= 1.5 ? 1 : star >= 0.5 ? 0.5 : 0), 0)
+	);
+
+	// Three inline SVGs say nothing on their own, so the row carries the same
+	// thing in words. Dutch writes the half with a comma.
+	const label = $derived(
+		score === null ? 'Nog niet gespeeld' : `${filled.toString().replace('.', ',')} van de 3 sterren`
+	);
 </script>
 
-<div class="[&>svg]:fill-accent flex justify-center gap-1">
+<div
+	class="[&>svg]:fill-accent flex justify-center gap-1"
+	role={score === undefined ? undefined : 'img'}
+	aria-label={score === undefined ? undefined : label}
+	aria-hidden={score === undefined ? 'true' : undefined}
+>
 	{#if score === undefined}
 		<!-- Hold the space until localStorage has been read, without claiming a score. -->
 		<div class="invisible"><Play /></div>

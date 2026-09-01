@@ -35,6 +35,13 @@ const page = async (category: string, section: string, level: string) => {
 	return render(Page, { props }).body;
 };
 
+/** The `<head>` the same route renders, for the `<title>` it must carry. */
+const pageHead = async (category: string, section: string, level: string) => {
+	const props = { data: open(category, section, level), params: { category, section, level } };
+	const { default: Page } = await import('./[category=category]/[section]/[level]/+page.svelte');
+	return render(Page, { props }).head;
+};
+
 describe('the category segment', () => {
 	it('matches the four categories', () => {
 		for (const category of ['luisteren', 'lezen', 'schrijven', 'spreken']) {
@@ -114,6 +121,21 @@ describe('the server-rendered level', () => {
 	it('claims no progress and shows no score', async () => {
 		const body = await page('spreken', 'korte-woorden', '4');
 		expect(body).not.toMatch(/Goed gedaan|Dat klopt|Doorgaan/);
+	});
+
+	it('titles the tab with the level, the section and the category', async () => {
+		expect(await pageHead('luisteren', 'woorden', '1')).toContain(
+			'<title>Level 1 - Woorden - Luisteren - Van Old noar Jong: Grunnegs</title>'
+		);
+	});
+
+	it('never names the story in the title either', async () => {
+		for (const key of ruledSections()) {
+			const [category, section] = key.split('.');
+			const head = (await pageHead(category, section, '3')).toLowerCase();
+			expect(head).toContain('<title>level 3 - ');
+			for (const story of STORY_NAMES) expect(head).not.toContain(story);
+		}
 	});
 
 	it('renders the shell of every section, and none of its items', async () => {

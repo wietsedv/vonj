@@ -117,6 +117,25 @@ describe('the columns', () => {
 	});
 });
 
+describe('the accessible grouping', () => {
+	// Ten columns are otherwise one flat run of one-letter buttons, with nothing
+	// tying a candidate to the position it fills. See TODO.md, "Accessibility".
+	it('names every column, so a candidate has a column to belong to', async () => {
+		const defs = Array.from({ length: 3 }, (_, i) => column(spellings.slice(i, i + 3)));
+		const { items } = await columns(defs);
+		expect(
+			items.map((item) => item.querySelector('[role="group"]')!.getAttribute('aria-label'))
+		).toEqual(['Klank 1 van 3', 'Klank 2 van 3', 'Klank 3 van 3']);
+	});
+
+	it('keeps the whole column inside its group, field and candidates alike', async () => {
+		const { items } = await columns([column(spellings.slice(0, 3), { chosen: spellings[0] })]);
+		const group = items[0].querySelector('[role="group"]')!;
+		expect(group.contains(field(items[0]))).toBe(true);
+		for (const candidate of candidates(items[0])) expect(group.contains(candidate)).toBe(true);
+	});
+});
+
 describe('a locked column', () => {
 	it('cannot have its candidates tapped', async () => {
 		const candidateSpellings = spellings.slice(0, 3);

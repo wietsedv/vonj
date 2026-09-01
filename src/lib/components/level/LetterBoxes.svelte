@@ -100,6 +100,32 @@
 	function selectAll(event: FocusEvent) {
 		(event.currentTarget as HTMLInputElement).select();
 	}
+
+	/**
+	 * Typing a letter always replaces whatever the box holds, wherever the caret
+	 * happens to sit.
+	 *
+	 * Selecting the box's content on focus is not enough on its own: clicking a
+	 * box that already has focus fires no focus event, so nothing gets selected
+	 * and the keystroke lands after the character that is already there, where
+	 * `maxlength` swallows it without firing `input` at all. Typing a word
+	 * straight through leaves focus on the last box, so that used to be exactly
+	 * the letter that could not be retyped. Taking the insertion over here
+	 * settles it before either rule can apply.
+	 */
+	function handleBeforeInput(index: number, event: InputEvent) {
+		if (!isEditable(index)) return;
+		// Only a plain typed character: a paste carries its text in
+		// `dataTransfer` and a composition is still being edited, and both are
+		// handled by `handleInput` once the browser is done with them.
+		if (event.inputType !== 'insertText' || !event.data) return;
+		event.preventDefault();
+		const target = event.currentTarget as HTMLInputElement;
+		const letter = event.data.slice(0, 1);
+		target.value = letter;
+		onletter(index, letter);
+		focusBox(nextEditable(index));
+	}
 </script>
 
 <!--
@@ -112,12 +138,18 @@
   Boxes wrap onto extra rows rather than shrink or scroll the page, since a
   word can run to fifteen letters on a 320px phone.
 -->
-<div class="flex flex-wrap justify-center gap-1.5">
+<div lang="gos" class="flex flex-wrap justify-center gap-1.5">
 	{#each letters as letter, index (index)}
 		{@const result = resultOf(index)}
 		{@const editable = isEditable(index)}
+		<!--
+		  The ring sits on the box, not on the input inside it, so the whole
+		  bordered square lights up: `outline-none` on the input alone left a
+		  keyboard user with no way to tell which letter they were typing.
+		-->
 		<span
-			class="relative flex size-9 items-center justify-center rounded-lg border-2 {result
+			class="focus-within:ring-secondary relative flex size-9 items-center justify-center
+				rounded-lg border-2 focus-within:ring-2 focus-within:ring-offset-1 {result
 				? tone[result]
 				: 'border-gray-300 bg-white'}"
 		>
@@ -136,6 +168,7 @@
 				aria-readonly={!editable}
 				aria-invalid={result === 'wrong'}
 				value={letter}
+				onbeforeinput={(event) => handleBeforeInput(index, event)}
 				oninput={(event) => handleInput(index, event)}
 				onkeydown={(event) => handleKeydown(index, event)}
 				onfocus={selectAll}

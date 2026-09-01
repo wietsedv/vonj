@@ -6,7 +6,7 @@
 import LetterBoxes, { type LetterResult } from '$lib/components/level/LetterBoxes.svelte';
 import { flushSync } from 'svelte';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { page } from 'vitest/browser';
+import { page, userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-svelte';
 
 interface Options {
@@ -101,6 +101,54 @@ describe('typing', () => {
 		expect(inputs[0].value).toBe('a');
 		// A whole word landing in one box still only advances by a single box.
 		expect(document.activeElement).toBe(inputs[1]);
+	});
+});
+
+// Driven with real events rather than a synthesised `input`, because the bug
+// this covers was in what the browser does before `input` is ever dispatched.
+describe('retyping a letter', () => {
+	it('replaces the letter in a box that already has focus', async () => {
+		const { inputs, onletter } = await boxes({ letters: ['a', 'b'] });
+		await userEvent.click(inputs[1]);
+		expect(document.activeElement).toBe(inputs[1]);
+
+		// Clicking a box that already has focus fires no focus event, so nothing
+		// selects the letter that is there; the keystroke used to land after it
+		// and be swallowed without an `input` event at all.
+		await userEvent.click(inputs[1]);
+		await userEvent.keyboard('c');
+
+		expect(onletter).toHaveBeenLastCalledWith(1, 'c');
+		expect(inputs[1].value).toBe('c');
+	});
+
+	it('replaces the letter in the last box, where typing a word leaves focus', async () => {
+		const { inputs, onletter } = await boxes({ letters: ['', ''] });
+		await userEvent.click(inputs[0]);
+		await userEvent.keyboard('ab');
+		expect(document.activeElement).toBe(inputs[1]);
+
+		await userEvent.keyboard('c');
+		expect(onletter).toHaveBeenLastCalledWith(1, 'c');
+		expect(inputs[1].value).toBe('c');
+	});
+
+	it('still advances to the next box when a letter is typed', async () => {
+		const { inputs } = await boxes({ letters: ['a', ''] });
+		await userEvent.click(inputs[0]);
+		await userEvent.keyboard('z');
+		expect(inputs[0].value).toBe('z');
+		expect(document.activeElement).toBe(inputs[1]);
+	});
+});
+
+describe('the focus indicator', () => {
+	it('rings the box that has focus, not just the input inside it', async () => {
+		const { container, inputs } = await boxes({ letters: ['a', 'b'] });
+		const wrappers = [...container.querySelectorAll('span.relative')];
+		inputs[1].focus();
+		expect(getComputedStyle(wrappers[1]).boxShadow).not.toBe('none');
+		expect(getComputedStyle(wrappers[0]).boxShadow).toBe('none');
 	});
 });
 

@@ -2,7 +2,7 @@
 	import Score from '$lib/components/Score.svelte';
 	import Check from '$lib/icons/check.svelte';
 	import Cross from '$lib/icons/cross.svelte';
-	import type { Snippet } from 'svelte';
+	import { onMount, type Snippet } from 'svelte';
 
 	interface Props {
 		/** "Dat klopt!", "Jammer!" or, on the level result, "Goed gedaan!". */
@@ -30,10 +30,19 @@
 		children,
 		actions
 	}: Props = $props();
+
+	let heading = $state<HTMLHeadingElement | undefined>();
+
+	// This card replaces the whole interaction, so it is a new screen in
+	// everything but the URL. Nothing announced it before: focus stayed on a
+	// button that had just been removed and dropped to the document. Focusing the
+	// heading reads "Dat klopt!" or "Jammer!" out, and leaves "Doorgaan" one Tab
+	// away. See the "Accessibility" item in TODO.md.
+	onMount(() => heading?.focus());
 </script>
 
 <div class="mx-auto max-w-md rounded-2xl bg-white px-6 py-10 text-center shadow-lg">
-	<h2 class="text-3xl font-bold">
+	<h2 bind:this={heading} tabindex="-1" class="text-3xl font-bold outline-none">
 		<span class="inline-flex items-center gap-2">
 			{title}
 			{#if tone === 'correct'}

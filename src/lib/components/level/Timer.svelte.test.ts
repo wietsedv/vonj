@@ -57,6 +57,41 @@ describe('the timer card', () => {
 	});
 });
 
+describe('what a screen reader hears', () => {
+	// Reading every tick out would be unusable, so only the two moments that
+	// matter are announced. See TODO.md, "Accessibility".
+	it('announces nothing while there is still time', async () => {
+		const { container } = await render(Timer, { totalSecondsLeft: 90, secondsUntilHint: 8 });
+		const status = container.querySelector('[role="status"]')!;
+		expect(status.textContent!.trim()).toBe('');
+	});
+
+	it('announces the last seconds before a hint, once', async () => {
+		const { container } = await render(Timer, { totalSecondsLeft: 20, secondsUntilHint: 5 });
+		expect(container.querySelector('[role="status"]')!.textContent).toContain('vijf seconden');
+	});
+
+	it('announces "Tijd is om!"', async () => {
+		const { container } = await render(Timer, {
+			totalSecondsLeft: 0,
+			secondsUntilHint: 0,
+			timeUp: true
+		});
+		expect(container.querySelector('[role="status"]')!.textContent).toContain('Tijd is om!');
+	});
+});
+
+describe('reduced motion', () => {
+	it('pulses only when motion is welcome', async () => {
+		const { container } = await render(Timer, { totalSecondsLeft: 20, secondsUntilHint: 3 });
+		const line = [...container.querySelectorAll('p')].find((p) =>
+			p.textContent!.includes('tot volgende hint')
+		)!;
+		expect(line.className).toContain('motion-safe:animate-pulse');
+		expect(line.className).not.toMatch(/(^|\s)animate-pulse/);
+	});
+});
+
 describe('on a 320px phone', () => {
 	it('stays inside the viewport, on its own', async () => {
 		await page.viewport(320, 700);

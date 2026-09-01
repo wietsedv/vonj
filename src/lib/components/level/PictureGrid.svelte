@@ -25,13 +25,14 @@
 
 <!-- Two columns, so four options are two rows and six are three, as in the original. -->
 <ul class="grid grid-cols-2 gap-3">
-	{#each options as option (option.key)}
+	{#each options as option, index (option.key)}
 		{@const locked = wrong.includes(option.key)}
 		<li>
 			<button
 				type="button"
 				disabled={locked}
 				onclick={() => onselect(option.key)}
+				aria-label={`Plaatje ${index + 1} van ${options.length}${locked ? ', helaas, fout' : ''}`}
 				class="relative block w-full overflow-hidden rounded-2xl bg-white shadow-lg transition
 					enabled:hover:brightness-95 enabled:focus:brightness-95"
 			>
@@ -39,6 +40,7 @@
 				{#if locked}
 					<!-- Translucent, so the picture that was picked stays visible underneath. -->
 					<span
+						aria-hidden="true"
 						class="bg-primary/50 absolute inset-0 flex items-center justify-center text-xl text-white"
 					>
 						Helaas!

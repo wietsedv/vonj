@@ -123,8 +123,12 @@ are an equal way to play the game, and they are what makes the ordering games
 keyboard-operable. No drag-and-drop library was added.
 
 The original's instruction line, "Gebruik de streepjes om de items naar de juiste
-volgorde te verslepen.", still only mentions dragging. It is kept verbatim,
-because it is the original's copy and the handle it names is still there.
+volgorde te verslepen.", only mentions dragging. It is kept verbatim, because it
+is the original's copy and the handle it names is still there, and `ReorderList`
+adds a second sentence after it for the half the original could not know about:
+"Of gebruik de pijltjes om een item omhoog of omlaag te zetten." Leaving it out
+left the only line above the list describing the one way of playing that a
+keyboard cannot use.
 
 ### Audio autoplay is attempted, and degrades to a play button
 

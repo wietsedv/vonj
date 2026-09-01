@@ -46,7 +46,7 @@
 		</div>
 	</header>
 
-	<main class="mx-auto -mt-4 w-full max-w-xl flex-1 px-4 py-8">
+	<main id="inhoud" class="mx-auto -mt-4 w-full max-w-xl flex-1 px-4 py-8">
 		{#if run?.finished}
 			<LevelResult
 				score={run.score ?? 0}

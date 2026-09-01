@@ -95,6 +95,34 @@ describe('a score outside 0-6', () => {
 	});
 });
 
+// Three inline SVGs announce as nothing at all, so a level card would be read
+// out as "Level 1" and no more. See TODO.md, "Accessibility".
+describe('the text alternative', () => {
+	it('names a whole number of stars', async () => {
+		const { container } = await render(Score, { score: 4 });
+		const row = container.firstElementChild!;
+		expect(row.getAttribute('role')).toBe('img');
+		expect(row.getAttribute('aria-label')).toBe('2 van de 3 sterren');
+	});
+
+	it('names a half star with a Dutch comma', async () => {
+		const { container } = await render(Score, { score: 5 });
+		expect(container.firstElementChild!.getAttribute('aria-label')).toBe('2,5 van de 3 sterren');
+	});
+
+	it('says a scope that is not finished has not been played', async () => {
+		const { container } = await render(Score, { score: null });
+		expect(container.firstElementChild!.getAttribute('aria-label')).toBe('Nog niet gespeeld');
+	});
+
+	it('claims nothing at all while progress is still unknown', async () => {
+		const { container } = await render(Score, { score: undefined });
+		const row = container.firstElementChild!;
+		expect(row.getAttribute('aria-label')).toBeNull();
+		expect(row.getAttribute('aria-hidden')).toBe('true');
+	});
+});
+
 it('gives each half star its own clip, so several can share a page', async () => {
 	const { container } = await render(Score, { score: 3 });
 	const { container: second } = await render(Score, { score: 5 });

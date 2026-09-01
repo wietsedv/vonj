@@ -27,6 +27,6 @@
 
 <ItemFeedback {title} {tone} description="Het juiste verhaaltje was:" {onproceed}>
 	{#each targetText(item, index) as line, position (position)}
-		<p>{line}</p>
+		<p lang="gos">{line}</p>
 	{/each}
 </ItemFeedback>

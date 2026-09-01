@@ -18,7 +18,7 @@
 <div class="space-y-4 rounded-2xl bg-white px-6 py-5 shadow-lg">
 	<div>
 		<p class="text-sm font-medium text-gray-500">Grunnegs</p>
-		<p class="mt-1 text-lg">{prompt}</p>
+		<p lang="gos" class="mt-1 text-lg">{prompt}</p>
 	</div>
 	<div>
 		<p class="text-sm font-medium text-gray-500">Nederlands</p>

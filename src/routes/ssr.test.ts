@@ -14,6 +14,17 @@ const PROGRESS_COPY = /van de \d+ levels gespeeld|Alle levels gespeeld/;
 const STORY_NAMES = ['bragel', 'kopstubber', 'scheuvels', 'zoepenbrij'];
 
 const home = async () => render((await import('./+page.svelte')).default).body;
+const homeHead = async () => render((await import('./+page.svelte')).default).head;
+
+/** The `<head>` a category page renders, for the `<title>` it must carry. */
+const categoryHeads: Record<Category, () => Promise<string>> = {
+	luisteren: async () =>
+		render((await import('./(categories)/luisteren/+page.svelte')).default).head,
+	lezen: async () => render((await import('./(categories)/lezen/+page.svelte')).default).head,
+	schrijven: async () =>
+		render((await import('./(categories)/schrijven/+page.svelte')).default).head,
+	spreken: async () => render((await import('./(categories)/spreken/+page.svelte')).default).head
+};
 
 const categoryPages: Record<Category, () => Promise<string>> = {
 	luisteren: async () =>
@@ -47,6 +58,14 @@ describe('the global overview', () => {
 
 	it('claims no progress', async () => {
 		expect(await home()).not.toMatch(PROGRESS_COPY);
+	});
+
+	it('titles the tab with the app, rather than leaving it empty', async () => {
+		expect(await homeHead()).toContain('<title>Van Old noar Jong: Grunnegs</title>');
+	});
+
+	it('puts its content in a landmark the skip link can reach', async () => {
+		expect(await home()).toContain('<main id="inhoud"');
 	});
 
 	it('holds the space a score will take without showing one', async () => {
@@ -104,6 +123,16 @@ describe.each(categories.map((category) => category.id))('the %s overview', (id)
 
 	it('claims no progress', async () => {
 		expect(await categoryPages[id]()).not.toMatch(PROGRESS_COPY);
+	});
+
+	it('titles the tab with the category and then the app', async () => {
+		expect(await categoryHeads[id]()).toContain(
+			`<title>${content.name} - Van Old noar Jong: Grunnegs</title>`
+		);
+	});
+
+	it('puts its content in a landmark the skip link can reach', async () => {
+		expect(await categoryPages[id]()).toContain('<main id="inhoud"');
 	});
 
 	it('holds the space every score will take without showing one', async () => {

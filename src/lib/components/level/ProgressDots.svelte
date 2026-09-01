@@ -18,16 +18,26 @@
 		wrong: 'bg-primary text-white',
 		neutral: 'bg-gray-300 text-black'
 	};
+
+	// Green against red is the only visible difference between a finished item
+	// and a wrong one, so every dot also spells its state out for a screen
+	// reader. See the "Accessibility" item in TODO.md.
+	const spoken: Record<DotState, string> = {
+		current: 'nu bezig',
+		correct: 'goed',
+		wrong: 'fout',
+		neutral: 'nog niet gedaan'
+	};
 </script>
 
 <!-- The dot count tells the pupil up front how long the level is. -->
-<ol class="flex flex-wrap justify-center gap-2.5 px-4 py-3">
+<ol class="flex flex-wrap justify-center gap-2.5 px-4 py-3" aria-label="Voortgang in dit level">
 	{#each states as state, index (index)}
 		<li
 			class="flex size-6 items-center justify-center rounded-full text-sm {colours[state]}"
 			aria-current={state === 'current' ? 'step' : undefined}
 		>
-			{index + 1}
+			{index + 1}<span class="sr-only">: {spoken[state]}</span>
 		</li>
 	{/each}
 </ol>

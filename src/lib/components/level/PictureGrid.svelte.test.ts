@@ -40,6 +40,27 @@ beforeAll(async () => {
 	await page.viewport(400, 800);
 });
 
+describe('the accessible name of a card', () => {
+	// The cards hold nothing but a decorative illustration, so without this all
+	// four to six of them announce as "button". See TODO.md, "Accessibility".
+	it('numbers every card without saying what is on it', async () => {
+		const { cards } = await grid(4);
+		expect(cards.map((card) => card.getAttribute('aria-label'))).toEqual([
+			'Plaatje 1 van 4',
+			'Plaatje 2 van 4',
+			'Plaatje 3 van 4',
+			'Plaatje 4 van 4'
+		]);
+	});
+
+	it('says a locked card was the wrong one', async () => {
+		const picked = options(4)[1].key;
+		const { cards } = await grid(4, [picked]);
+		expect(cards[1].getAttribute('aria-label')).toBe('Plaatje 2 van 4, helaas, fout');
+		expect(cards[0].getAttribute('aria-label')).toBe('Plaatje 1 van 4');
+	});
+});
+
 describe('the grid', () => {
 	it('shows one card per option', async () => {
 		for (const count of [4, 5, 6]) expect((await grid(count)).cards).toHaveLength(count);

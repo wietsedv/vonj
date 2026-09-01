@@ -108,6 +108,47 @@ describe('the "Resultaat" line', () => {
 	});
 });
 
+// A move used to drop focus to the document whenever it disabled the button
+// that was pressed, which sent a keyboard user back to the top of the page for
+// every single move. See TODO.md, "Accessibility".
+describe('focus after a move', () => {
+	const arrow = (row: Element, label: string) =>
+		row.querySelector<HTMLButtonElement>(`[aria-label="${label}"]`)!;
+
+	it('stays on the row that moved, even when the move disables the button pressed', async () => {
+		const container = await open();
+		const movable = rows(container).filter((row) => !isLocked(row));
+		const moved = rowText(movable[1]);
+
+		const up = arrow(movable[1], 'Naar boven');
+		up.focus();
+		click(up);
+
+		await vi.waitFor(() => expect(document.activeElement).not.toBe(document.body));
+		const row = rows(container).find((candidate) => rowText(candidate) === moved)!;
+		expect(row.contains(document.activeElement)).toBe(true);
+		// It is the first movable row now, so "Naar boven" is disabled and the
+		// other button of the same row has taken the focus over.
+		expect(document.activeElement!.getAttribute('aria-label')).toBe('Naar beneden');
+	});
+
+	it('stays on the button that was pressed when it is still enabled', async () => {
+		const container = await open();
+		const movable = rows(container).filter((row) => !isLocked(row));
+		expect(movable.length).toBeGreaterThanOrEqual(3);
+		const moved = rowText(movable[0]);
+
+		const down = arrow(movable[0], 'Naar beneden');
+		down.focus();
+		click(down);
+
+		await vi.waitFor(() => expect(document.activeElement).not.toBe(document.body));
+		const row = rows(container).find((candidate) => rowText(candidate) === moved)!;
+		expect(row.contains(document.activeElement)).toBe(true);
+		expect(document.activeElement!.getAttribute('aria-label')).toBe('Naar beneden');
+	});
+});
+
 it('shows the original instruction above the list, verbatim', async () => {
 	const container = await open();
 	expect(text(container)).toContain(

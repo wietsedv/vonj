@@ -163,6 +163,22 @@ the story's animation.
 - [x] **Schrijven > Woorden met tijdslimiet.** 20 s per letter, no hint on wrong
       answers, "Volgende" once time is up. **All 44 levels playable.**
 
+**Verified by playing them.** Every section was played from its first item to
+its star screen in Chromium, driven through the UI (clicks, typing and the
+up/down buttons only, with the correct answer read out of the stored items):
+all 44 levels finish and score, with no console errors. The three timed
+sections were also left to run their clocks out, which confirmed the table in
+`docs/original-app/games.md`: an expiry in Luisteren > Woorden records a
+response and costs score, the other two hand rows and letters over for free,
+Lezen keeps "Versturen" while Schrijven switches to "Volgende", and the
+feedback still reads "Jammer!". A level resumed part way through came back with
+the same items on the same dot, and a finished level reopened on its result and
+regenerated fresh items on "Dit level nog een keer spelen". The writing games'
+hint chain was checked separately: one letter per wrong attempt, and a hint that
+completes the word records the completed answer as an extra response and says
+"Jammer!". That playthrough turned up one real bug and a list of accessibility
+problems, both below.
+
 ## Phase 3 - Behaviour and polish
 
 - [ ] **Reset at all four scopes.** Everything, category, section and level, each
@@ -172,18 +188,100 @@ the story's animation.
 - [ ] **Staggered entry and exit animations** on the overview screens and the
       progress dots. The dots are static for now; the original faded them in
       300 ms after the level opened and out again on the way back.
-- [ ] **Responsive check.** The level card grids already have `2xs`/`xs`/`sm`
-      breakpoints; verify the sound columns and letter boxes on a narrow phone,
-      since long words produce many columns and the original scrolled them
-      horizontally.
-- [ ] **Accessibility.** Keyboard operation for the reorder lists and sound
-      columns, focus management in the letter boxes, labels on icon-only buttons,
-      and a check that feedback is not conveyed by colour alone.
+- [ ] **Responsive check.** Largely done and measured at 320 px: no screen
+      scrolls the page horizontally, a ten-sound word scrolls inside its own
+      column strip (524 px of columns in a 288 px strip) and the letter boxes
+      wrap onto extra rows. What is left is a look at the level card grids and
+      the overview screens on a real narrow phone, and at the sound columns in
+      landscape.
+- [x] **Accessibility.** Audited in a browser at 320 px, keyboard-only and with
+      `prefers-reduced-motion`, and the problems that audit found are fixed.
+      What already worked: the reordering games have real up/down buttons beside
+      the drag handle, the letter boxes are labelled per box and set
+      `aria-invalid` on a wrong letter, a wrong picture card says "Helaas!"
+      instead of only turning red, the inline messages are `role="alert"`, the
+      sound candidates expose `aria-pressed`, and every touch target is at least
+      24 px. What was fixed:
+
+      - **Page titles.** `src/lib/title.ts` builds them and every route sets one:
+        the app on the global overview, "Luisteren - ..." on a category, and
+        "Level 2 - Woorden - Luisteren - ..." on a level, which still never names
+        the story behind it.
+      - **`<html lang="nl">`** in `src/app.html`, and the Gronings text carries
+        `lang="gos"`: the sentence card, the sentence rows, the "Grunnegs" half
+        of the writing prompt and the letter boxes.
+      - **The picture cards have a name.** "Plaatje 2 van 4", and ", helaas,
+        fout" once a card has been tapped and locked, so the overlay is not the
+        only sign.
+      - **The score reads as a score.** `Score.svelte` is one `role="img"` with
+        "2,5 van de 3 sterren", or "Nog niet gespeeld". It claims nothing at all
+        while progress is still unknown.
+      - **The progress dots spell their state out**, as "1: goed", "2: fout",
+        "3: nu bezig" and "4: nog niet gedaan", and the strip is labelled
+        "Voortgang in dit level".
+      - **A marked sound field says which it is.** Its name gains ", goed" or
+        ", fout", the way the letter boxes already did it.
+      - **The letter boxes show focus.** The ring is on the box rather than on
+        the input inside it, so the whole bordered square lights up.
+      - **Focus survives a reorder.** The moved row keeps it: the button that was
+        pressed, or the other button of the same row when the move disabled it.
+      - **The drag handle is out of the tab order** and out of the accessibility
+        tree, since it only ever listened for a pointer and the up/down buttons
+        are the keyboard path.
+      - **The feedback card takes focus** on its heading, so "Dat klopt!" or
+        "Jammer!" is read out and "Doorgaan" is one Tab away. The timer announces
+        the two moments that matter, the last five seconds and "Tijd is om!", and
+        stays silent for every tick in between.
+      - **The sound columns are grouped.** One `role="group"` per column, named
+        "Klank 3 van 6", so a candidate has a column to belong to and the
+        position is announced even while the display field is still empty.
+      - **The timer's pulse respects `prefers-reduced-motion`**, through
+        `motion-safe:animate-pulse`.
+      - **`<main id="inhoud">` on every screen**, and a "Naar de inhoud" skip
+        link in the layout as the first thing in the tab order.
+      - **The reorder instruction mentions the buttons.** The original's line,
+        verbatim, and then "Of gebruik de pijltjes om een item omhoog of omlaag
+        te zetten."
+
+      Two things the audit turned up are decisions rather than fixes, and are
+      still open:
+
+      - [ ] **Contrast below AA.** White on `--color-secondary` is 3.89:1 and
+            white on `--color-accent` 2.84:1, so "Versturen", "Doorgaan", the
+            current progress dot and a chosen sound candidate all miss the 4.5:1
+            body-text minimum; `text-primary` on `bg-primary/10` in the inline
+            alerts is 4.07:1. The palette comes from the original app, so this is
+            a decision to take rather than a typo: darken those two where they
+            carry text, or use dark text on them.
+      - [ ] **A finished dot still differs from a wrong one by colour alone**
+            when it is looked at rather than listened to. Both carry their
+            number, and now their state in words, but green against red is the
+            only thing an eye has to go on. Waiting on the palette decision
+            above.
+
 - [ ] **Offline.** Offline is the only mode, so a service worker is in scope:
       precache the app shell, and cache story media per story on demand rather
       than pushing tens of megabytes on first load.
 - [ ] **Deployment.** Replace `adapter-auto` with a concrete adapter, most likely
       static, and set up a build and deploy.
+
+## Known problems
+
+**None open.** The two that playing the games turned up are fixed.
+
+- [x] **A letter box that has focus cannot be retyped.** The boxes are
+      `maxlength="1"` and relied on `onfocus` selecting the box's content, so
+      clicking a box that already had focus fired no focus event, nothing was
+      selected, and `maxlength` swallowed the keystroke without firing `input`
+      at all: the last box of a word, where typing leaves focus, was exactly the
+      one that could not be overwritten. `LetterBoxes.svelte` now takes the
+      insertion over in `onbeforeinput` for a plain typed character, before
+      either rule can apply. Covered by two tests driven with real key events,
+      which fail without the fix.
+- [x] **The favicon was Svelte's logo.** It is the original app's own icon now
+      (`src/lib/assets/favicon.png`, copied from
+      `../vonj-app/App_Resources/Android/.../drawable-xxxhdpi/icon.png`), and
+      with a `<title>` on every route a bookmarked tab says what it is.
 
 ## Open questions
 

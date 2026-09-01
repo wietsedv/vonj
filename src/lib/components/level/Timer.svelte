@@ -29,10 +29,17 @@
 <div class="rounded-2xl bg-white px-6 py-4 text-center shadow-lg">
 	<p class="text-3xl font-bold tabular-nums">{formatSeconds(totalSecondsLeft)}</p>
 	{#if timeUp}
-		<p class="mt-1 font-medium">Tijd is om!</p>
+		<!-- Inserted the moment the clock runs out, so it is announced once. -->
+		<p class="mt-1 font-medium" role="status">Tijd is om!</p>
 	{:else}
-		<p class="mt-1" class:font-bold={urgent} class:animate-pulse={urgent}>
+		<p class="mt-1 {urgent ? 'font-bold motion-safe:animate-pulse' : ''}">
 			{formatSeconds(secondsUntilHint)} tot volgende hint
 		</p>
+		<!--
+		  Reading every tick out would be unusable, so only the moment the last
+		  seconds start is spoken. The text does not change again inside the
+		  window, so a screen reader says it once.
+		-->
+		<p class="sr-only" role="status">{urgent ? 'Nog vijf seconden tot de hint.' : ''}</p>
 	{/if}
 </div>

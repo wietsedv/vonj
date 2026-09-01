@@ -31,11 +31,22 @@
 	// rules in the stylesheet at equal specificity, and whichever Tailwind
 	// happened to emit last silently won, regardless of which was on the
 	// element. Keeping exactly one pair present per render avoids that.
+	// Filled solid, as in the original app: an off-white field that reads as a
+	// field against the white page, and a wholly green or red one once marked.
+	// See the `.phoneme` rules in ../vonj-app/app/pages/LevelListenWords.vue.
 	const tone: Record<'neutral' | 'correct' | 'wrong', string> = {
-		neutral: 'border-gray-300 bg-white',
-		correct: 'border-accent bg-accent/10',
-		wrong: 'border-primary bg-primary/10'
+		neutral: 'border-gray-300 bg-gray-50 text-gray-800',
+		correct: 'border-accent bg-accent text-white',
+		wrong: 'border-primary bg-primary text-white'
 	};
+
+	// The colour and the icon are silent, so the result goes into the name as
+	// well, the way the letter boxes already do it.
+	const spokenResult: Record<'correct' | 'wrong', string> = {
+		correct: 'goed',
+		wrong: 'fout'
+	};
+	const spokenLabel = $derived(result ? `${label}, ${spokenResult[result]}` : label);
 </script>
 
 <!--
@@ -48,7 +59,7 @@
 <button
 	type="button"
 	disabled={sound === null}
-	aria-label={label}
+	aria-label={spokenLabel}
 	onclick={() => onclick()}
 	class="flex h-12 w-full items-center justify-center gap-1 rounded-lg border-2 text-lg font-semibold
 		transition-all duration-150 enabled:hover:brightness-95 enabled:focus:brightness-95
@@ -56,8 +67,8 @@
 >
 	{sound ?? ''}
 	{#if result === 'correct'}
-		<span class="[&>svg]:fill-accent [&>svg]:size-4"><Check /></span>
+		<span class="[&>svg]:size-4 [&>svg]:fill-white"><Check /></span>
 	{:else if result === 'wrong'}
-		<span class="[&>svg]:fill-primary [&>svg]:size-4"><Cross /></span>
+		<span class="[&>svg]:size-4 [&>svg]:fill-white"><Cross /></span>
 	{/if}
 </button>

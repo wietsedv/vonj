@@ -63,7 +63,7 @@
 <!-- The story text card of docs/original-app/level-shell.md, this game's top area. -->
 {#snippet sentenceCard()}
 	{#if fragment}
-		<p class="rounded-2xl bg-white px-6 py-5 text-center text-lg shadow-lg">
+		<p lang="gos" class="rounded-2xl bg-white px-6 py-5 text-center text-lg shadow-lg">
 			{fragmentText(fragment)}
 		</p>
 	{/if}

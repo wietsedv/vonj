@@ -49,6 +49,9 @@ const shell = async (props: Record<string, unknown>) =>
 
 const dots = (container: HTMLElement) => [...container.querySelectorAll('ol > li')];
 
+/** A dot's number, without the state it also spells out for a screen reader. */
+const number = (dot: Element) => text(dot).split(':')[0];
+
 beforeAll(async () => {
 	localStorage.clear();
 	await learnIcons();
@@ -82,7 +85,7 @@ describe('the header', () => {
 describe('the progress dots', () => {
 	it('shows one numbered dot per item, so the length of the level is clear', async () => {
 		const container = await shell({ run: runOf(9) });
-		expect(dots(container).map(text)).toEqual(['1', '2', '3', '4', '5', '6', '7', '8', '9']);
+		expect(dots(container).map(number)).toEqual(['1', '2', '3', '4', '5', '6', '7', '8', '9']);
 	});
 
 	it('shows none at all until there is a run', async () => {
@@ -96,7 +99,7 @@ describe('the progress dots', () => {
 
 		const container = await shell({ run });
 		const current = dots(container).filter((dot) => dot.getAttribute('aria-current') === 'step');
-		expect(current.map(text)).toEqual(['2']);
+		expect(current.map(number)).toEqual(['2']);
 	});
 
 	// docs/original-app/level-shell.md, "Progress dots".
@@ -110,7 +113,19 @@ describe('the progress dots', () => {
 
 	it('tells right from wrong with more than colour, by keeping the number', async () => {
 		const { container } = await render(ProgressDots, { states: STATES });
-		expect(dots(container).map(text)).toEqual(['1', '2', '3', '4']);
+		expect(dots(container).map(number)).toEqual(['1', '2', '3', '4']);
+	});
+
+	// The four colours are the only visible difference between the states, so
+	// each dot also carries its state in words. See TODO.md, "Accessibility".
+	it('spells its state out for a screen reader', async () => {
+		const { container } = await render(ProgressDots, { states: STATES });
+		expect(dots(container).map(text)).toEqual([
+			'1: goed',
+			'2: fout',
+			'3: nu bezig',
+			'4: nog niet gedaan'
+		]);
 	});
 });
 
@@ -138,6 +153,16 @@ describe('the feedback card', () => {
 	it('shows no score, so an item is never mistaken for a result', async () => {
 		const { container } = await render(FeedbackCard, { title: 'Dat klopt!', tone: 'correct' });
 		expect(container.querySelectorAll('svg')).toHaveLength(1);
+	});
+
+	// The card replaces the whole interaction, and nothing announced it: focus
+	// stayed on a button that had just been removed. See TODO.md,
+	// "Accessibility".
+	it('takes focus on its heading, so the verdict is read out', async () => {
+		const { container } = await render(FeedbackCard, { title: 'Jammer!', tone: 'wrong' });
+		const heading = container.querySelector('h2')!;
+		expect(document.activeElement).toBe(heading);
+		expect(heading.tabIndex).toBe(-1);
 	});
 });
 

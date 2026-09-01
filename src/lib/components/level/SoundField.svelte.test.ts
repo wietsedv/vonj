@@ -50,6 +50,23 @@ it('carries the given accessible label', async () => {
 	);
 });
 
+describe('the accessible name', () => {
+	it('says a marked field is right or wrong, so the colour is not the only sign', async () => {
+		for (const [result, expected] of [
+			['correct', 'Klank "aa" opnieuw afspelen, goed'],
+			['wrong', 'Klank "aa" opnieuw afspelen, fout']
+		] as const) {
+			const { container } = await render(SoundField, {
+				sound,
+				result,
+				label: 'Klank "aa" opnieuw afspelen',
+				onclick: vi.fn()
+			});
+			expect(container.querySelector('button')!.getAttribute('aria-label')).toBe(expected);
+		}
+	});
+});
+
 describe('without a result', () => {
 	it('is uncoloured and shows no icon', async () => {
 		const { container } = await render(SoundField, { sound, label: 'test', onclick: vi.fn() });

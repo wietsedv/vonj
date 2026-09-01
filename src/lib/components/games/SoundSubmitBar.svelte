@@ -36,7 +36,7 @@
 	<button
 		type="button"
 		onclick={onsubmit}
-		class="bg-secondary rounded-full px-8 py-3 font-medium text-white transition hover:brightness-95 focus:brightness-95"
+		class="bg-accent rounded-full px-8 py-3 font-medium text-white transition hover:brightness-95 focus:brightness-95"
 	>
 		Versturen
 	</button>
