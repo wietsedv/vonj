@@ -70,7 +70,7 @@ runs. Regenerating it needs `../vonj-app` checked out next to this repository.
 | `npm run check`                  | Type-check with `svelte-check`                   |
 | `npm run lint`                   | Prettier check plus ESLint                       |
 | `npm run format`                 | Format with Prettier                             |
-| `npm test`                       | Vitest, both projects (node and real Chromium)   |
+| `npm test`                       | Vitest, both projects (node and real browsers)   |
 | `node scripts/build-content.mjs` | Regenerate `src/lib/content/` from `../vonj-app` |
 
 ## Tests
@@ -80,12 +80,15 @@ runs. Regenerating it needs `../vonj-app` checked out next to this repository.
 - **server**, in node (`src/**/*.test.ts`): the content set, the `localStorage`
   wrapper, the progress model, the item generation and scoring, and the
   server-rendered markup.
-- **client**, in a real Chromium through Playwright
-  (`src/**/*.svelte.test.ts`): anything that needs layout, rendered SVG or a
-  live `localStorage`, which is every game component.
+- **client**, in real browsers through Playwright (`src/**/*.svelte.test.ts`):
+  anything that needs layout, rendered SVG or a live `localStorage`, which is
+  every game component. The whole suite runs three times over, once in each
+  engine: Chromium, Firefox and WebKit, the last standing in for Safari on an
+  iPad.
 
-The client project needs the Playwright Chromium build once:
-`npx playwright install chromium`. Shared helpers live in `src/tests/`.
+The client project needs the Playwright browser builds once:
+`npx playwright install chromium firefox webkit`. Shared helpers live in
+`src/tests/`.
 
 ## Content
 

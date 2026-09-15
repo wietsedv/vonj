@@ -30,8 +30,8 @@ jobs:
 
       - run: npm ci
 
-      # The browser test project drives a real Chromium.
-      - run: npx playwright install --with-deps chromium
+      # The browser test project runs the suite in all three engines.
+      - run: npx playwright install --with-deps chromium firefox webkit
 
       - run: npm run check
       - run: npm run lint

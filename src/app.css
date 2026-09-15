@@ -15,8 +15,14 @@
  * cards and "Doorgaan" looking unclickable. Every button in this app is
  * something to tap, so the pointer belongs here rather than on each one. A
  * disabled button - a card that was already wrong - keeps the arrow.
+ *
+ * Links are named too. Chromium and Firefox give them the pointer from their
+ * own stylesheet, but WebKit leaves the computed `cursor` at `auto` and draws
+ * the hand from inside the engine instead, so saying it here is what makes the
+ * three agree.
  */
 @layer base {
+	a[href],
 	button:not(:disabled) {
 		cursor: pointer;
 	}

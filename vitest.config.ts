@@ -4,8 +4,14 @@ import { defineConfig } from 'vitest/config';
 /**
  * Two projects, because the app has two kinds of thing to test.
  *
- * `client` runs in a real Chromium through Playwright, which is what the star
- * rendering, the layout at 320px and anything touching `localStorage` need.
+ * `client` runs in real browsers through Playwright, which is what the star
+ * rendering, the layout at 320px and anything touching `localStorage` need. The
+ * whole suite runs three times over, once per engine: Chromium, Firefox and
+ * WebKit, the last standing in for Safari, which is what an iPad in a classroom
+ * runs. The engines disagree often enough to be worth it - where focus goes when
+ * a button is disabled, what `beforeinput` carries, how quickly a seeked
+ * recording starts - so a test may not assume any one of them.
+ *
  * `server` runs in node and covers the content set, the storage wrapper, the
  * progress model and the server-rendered markup.
  *
@@ -25,7 +31,7 @@ export default defineConfig({
 						enabled: true,
 						provider: playwright(),
 						headless: true,
-						instances: [{ browser: 'chromium' }]
+						instances: [{ browser: 'chromium' }, { browser: 'firefox' }, { browser: 'webkit' }]
 					}
 				}
 			},
@@ -42,7 +48,7 @@ export default defineConfig({
 					 * `vi.resetModules()` and a dynamic import. That re-instantiates the
 					 * module graph inside the test body, which is far slower than the
 					 * assertions themselves, and `npm test` runs this project alongside
-					 * a Chromium that is compiling its own suite. The default 5 s is
+					 * three browsers compiling their own suite. The default 5 s is
 					 * enough for either alone and not for both at once, so it is raised
 					 * here rather than left to trip whenever the machine is busy.
 					 */

@@ -115,6 +115,20 @@ describe('focus after a move', () => {
 	const arrow = (row: Element, label: string) =>
 		row.querySelector<HTMLButtonElement>(`[aria-label="${label}"]`)!;
 
+	/**
+	 * Waits for the component to have put focus back, which it does a tick after
+	 * the move. Where focus sits in the meantime is not the same everywhere:
+	 * Chromium blurs a focused button the moment a move disables it, Firefox and
+	 * WebKit leave focus sitting on the disabled button. Waiting for focus to
+	 * come to rest on an enabled button is true in all three.
+	 */
+	const refocused = () =>
+		vi.waitFor(() => {
+			const active = document.activeElement as HTMLButtonElement | null;
+			expect(active?.tagName).toBe('BUTTON');
+			expect(active!.disabled).toBe(false);
+		});
+
 	it('stays on the row that moved, even when the move disables the button pressed', async () => {
 		const container = await open();
 		const movable = rows(container).filter((row) => !isLocked(row));
@@ -124,7 +138,7 @@ describe('focus after a move', () => {
 		up.focus();
 		click(up);
 
-		await vi.waitFor(() => expect(document.activeElement).not.toBe(document.body));
+		await refocused();
 		const row = rows(container).find((candidate) => rowText(candidate) === moved)!;
 		expect(row.contains(document.activeElement)).toBe(true);
 		// It is the first movable row now, so "Naar boven" is disabled and the
@@ -142,7 +156,7 @@ describe('focus after a move', () => {
 		down.focus();
 		click(down);
 
-		await vi.waitFor(() => expect(document.activeElement).not.toBe(document.body));
+		await refocused();
 		const row = rows(container).find((candidate) => rowText(candidate) === moved)!;
 		expect(row.contains(document.activeElement)).toBe(true);
 		expect(document.activeElement!.getAttribute('aria-label')).toBe('Naar beneden');

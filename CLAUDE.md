@@ -111,8 +111,10 @@ Run `npm run format` to fix formatting. All three must pass.
 
 - **server**, in node: the content set, the `localStorage` wrapper, the progress
   model and the server-rendered markup (`src/**/*.test.ts`).
-- **client**, in a real Chromium through Playwright: anything that needs layout,
-  rendered SVG or a live `localStorage` (`src/**/*.svelte.test.ts`).
+- **client**, in real browsers through Playwright: anything that needs layout,
+  rendered SVG or a live `localStorage` (`src/**/*.svelte.test.ts`). It runs
+  three times over, once each in Chromium, Firefox and WebKit, so a test may not
+  assume one engine's behaviour.
 
 Shared helpers live in `src/tests/`: `fixtures.ts` builds `StoredLevel` values,
 and `icons.ts` recognises the score icons by their geometry, so a suite can
@@ -125,8 +127,8 @@ Two things to know when writing more:
   fresh copy per test with `vi.resetModules()`; in the browser project that does
   not work, so `load()` once and drive the store with `save()` and
   `resetEverything()`.
-- The browser project needs the Playwright Chromium build
-  (`npx playwright install chromium`).
+- The browser project needs the Playwright browser builds
+  (`npx playwright install chromium firefox webkit`).
 
 ## Things to be careful about
 

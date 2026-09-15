@@ -74,6 +74,10 @@
 		const target = event.currentTarget as HTMLInputElement;
 		// A mobile IME can report a multi-character composed value, and a paste can
 		// land several characters in one box. Either way only the first one counts.
+		// This, and not a `maxlength="1"` on the input, is what keeps a box to one
+		// letter: a full box with `maxlength` set makes WebKit fire `beforeinput`
+		// with empty `data`, which leaves `handleBeforeInput` below nothing to
+		// insert and makes a typed letter impossible to overwrite there.
 		const letter = target.value.slice(0, 1);
 		target.value = letter;
 		onletter(index, letter);
@@ -107,11 +111,10 @@
 	 *
 	 * Selecting the box's content on focus is not enough on its own: clicking a
 	 * box that already has focus fires no focus event, so nothing gets selected
-	 * and the keystroke lands after the character that is already there, where
-	 * `maxlength` swallows it without firing `input` at all. Typing a word
-	 * straight through leaves focus on the last box, so that used to be exactly
-	 * the letter that could not be retyped. Taking the insertion over here
-	 * settles it before either rule can apply.
+	 * and the keystroke lands after the character that is already there. Typing
+	 * a word straight through leaves focus on the last box, so that used to be
+	 * exactly the letter that could not be retyped. Taking the insertion over
+	 * here settles it before either rule can apply.
 	 */
 	function handleBeforeInput(index: number, event: InputEvent) {
 		if (!isEditable(index)) return;
@@ -161,7 +164,6 @@
 				autocorrect="off"
 				autocapitalize="off"
 				spellcheck="false"
-				maxlength="1"
 				readonly={!editable}
 				tabindex={editable ? 0 : -1}
 				aria-label={`Letter ${index + 1} van ${letters.length}`}

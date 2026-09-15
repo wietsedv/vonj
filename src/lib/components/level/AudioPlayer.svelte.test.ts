@@ -153,7 +153,10 @@ describe('the progress bar', () => {
 		});
 		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
 		await click(container.querySelector('button')!);
-		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'));
+		// A tap loads the clip afresh and seeks it to the start of the range
+		// before anything sounds, which WebKit can take well over the default
+		// second to do for a forty-second recording.
+		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'), { timeout: 10000 });
 
 		// Half the fragment's own length in, well past what the equivalent point
 		// in the whole ~40s recording would fill (a few percent). Scaled to the
