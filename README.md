@@ -27,7 +27,8 @@ What is left is behaviour and polish, not game building.
 | Progress persistence in `localStorage`    | done, items and scores per level                 |
 | Resetting, demo mode, animations          | not started                                      |
 | Accessibility                             | audited and fixed, bar the palette decision      |
-| Service worker, deployment target         | not started                                      |
+| Deployment                                | done, static build on GitHub Pages               |
+| Service worker                            | not started                                      |
 
 Each of the eleven sections was played from the first item to the star screen in
 Chromium, driven through the UI: 44 levels out of 44 finish and score. The three
@@ -118,14 +119,35 @@ One thing is left, and it is a decision rather than a fix: white text on
 AA minimum, and the palette comes from the original app. See "Accessibility" in
 [`TODO.md`](TODO.md).
 
+## Deployment
+
+The app is prerendered to static files and published to GitHub Pages at
+https://wietsedv.github.io/vonj/ by
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), on every push to
+`main`. The workflow runs `check`, `lint` and `test` before it builds, so a
+failing check never reaches the site.
+
+Pages needs one manual setting the first time: **Settings → Pages → Source →
+GitHub Actions**.
+
+`export const prerender = true` on the root layout turns the whole app into
+files: the 44 level pages are found by crawling the links on the category
+pages, and `404.html` is the fallback GitHub Pages serves for anything else, so
+an unknown URL gets the app's own error page rather than GitHub's.
+
+A project site lives under `/<repo>`, so the workflow builds with `BASE_PATH`
+set to the base path Pages reports. Locally it is empty and the app sits at the
+root. This is why internal links go through `resolve()` from `$app/paths` and
+media through `src/lib/content/assets.ts`: both come out right under either
+prefix.
+
 ## Stack
 
 - [SvelteKit](https://svelte.dev/docs/kit) 2 with Svelte 5 runes
 - [Tailwind CSS](https://tailwindcss.com) 4, configured in `src/app.css`
 - TypeScript, ESLint and Prettier
 - Vitest with `@vitest/browser` and Playwright
-- `@sveltejs/adapter-auto`, so a deployment target still has to be chosen. With
-  no backend, a static adapter is the likely end state.
+- `@sveltejs/adapter-static`, deployed to GitHub Pages
 
 ## Layout
 

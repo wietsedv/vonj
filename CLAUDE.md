@@ -79,6 +79,11 @@ only inside the build script, which translates them.
   pulling in an icon library.
 - **Package manager**: npm (`package-lock.json`). The original app used bun; do
   not reintroduce bun here.
+- **Static output.** `@sveltejs/adapter-static` with `prerender = true` on the
+  root layout; GitHub Actions publishes the build to GitHub Pages under
+  `/vonj`, which the build takes from `BASE_PATH`. Nothing may depend on a
+  server at runtime, and every internal URL has to go through `resolve()` or
+  `$lib/content/assets.ts` so the base path is applied.
 
 ## Language
 

@@ -262,8 +262,13 @@ problems, both below.
 - [ ] **Offline.** Offline is the only mode, so a service worker is in scope:
       precache the app shell, and cache story media per story on demand rather
       than pushing tens of megabytes on first load.
-- [ ] **Deployment.** Replace `adapter-auto` with a concrete adapter, most likely
-      static, and set up a build and deploy.
+- [x] **Deployment.** `@sveltejs/adapter-static` with `prerender = true` on the
+      root layout, so the build is the 44 level pages, the five overview pages
+      and a `404.html` fallback for anything else. A GitHub Actions workflow
+      (`.github/workflows/deploy.yml`) runs `check`, `lint` and `test`, builds
+      with `BASE_PATH` set to the Pages base path, and publishes to GitHub
+      Pages. Pages has to be switched to "GitHub Actions" as its source once,
+      in the repository settings.
 
 ## Known problems
 
