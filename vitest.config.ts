@@ -27,6 +27,16 @@ export default defineConfig({
 					name: 'client',
 					include: ['src/**/*.svelte.test.ts'],
 					setupFiles: ['./vitest-setup-client.ts'],
+					/*
+					 * The audio tests drive real recordings over HTTP - the stories run
+					 * to 580 kB - and three browsers fetch, decode and seek their own
+					 * copy of each at once. A test that waits for a player to load,
+					 * play and finish can sit through several seconds of that, and the
+					 * default 5 s would cut it off long before its own waits give up.
+					 * Raised so that a test fails for what it asserts, not for how busy
+					 * the machine was.
+					 */
+					testTimeout: 30_000,
 					browser: {
 						enabled: true,
 						provider: playwright(),

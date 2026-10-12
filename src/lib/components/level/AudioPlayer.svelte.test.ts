@@ -61,6 +61,26 @@ function iconOf(container: HTMLElement): string {
 /** A trusted, Playwright-driven click, the only kind Chromium's autoplay policy accepts. */
 const click = (element: Element) => page.elementLocator(element).click();
 
+/**
+ * Waits for the player to reach a state. Every test here drives a real
+ * recording over HTTP - the story is 580 kB - and three browsers are fetching,
+ * decoding and seeking their own copy of it at once, so loading, starting and
+ * seeking all take far longer than `waitFor`'s default second. The wait is
+ * generous rather than tuned: a player that never arrives still fails, it just
+ * does not fail because the machine was busy.
+ */
+const reaches = (container: HTMLElement, state: PlayerState) =>
+	vi.waitFor(() => expect(iconOf(container)).toBe(state), { timeout: 8000 });
+
+/**
+ * Props for a clip that lasts long enough to be caught mid-playback. The sound
+ * recordings are around half a second, which is shorter than a Playwright click
+ * takes to come back, so a test that has to see the playing state - its icon,
+ * its label, its disabled button - would be racing the clip to it. A story
+ * fragment is a few seconds of the same real audio and settles that.
+ */
+const lasting = () => ({ src: storyUrl(story), range: fragmentRange, autoplay: false });
+
 /** The bar's fill, read off its inline `width` style rather than any test-only hook. */
 function fillPercent(container: HTMLElement): number {
 	const bar = container.querySelector<HTMLElement>('[style*="width"]')!;
@@ -85,7 +105,7 @@ describe('the four states', () => {
 		const play = vi.spyOn(HTMLMediaElement.prototype, 'play');
 		const { container } = await render(AudioPlayer, { src: soundSrc, autoplay: false });
 
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
+		await reaches(container, 'ready');
 		expect(container.querySelector('button')!.getAttribute('aria-label')).toMatch(/speel/i);
 		expect(play).not.toHaveBeenCalled();
 		play.mockRestore();
@@ -100,45 +120,45 @@ describe('the four states', () => {
 			.spyOn(HTMLMediaElement.prototype, 'play')
 			.mockRejectedValue(new DOMException('', 'NotAllowedError'));
 		const { container } = await render(AudioPlayer, { src: soundSrc, autoplay: true });
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'), { timeout: 5000 });
+		await reaches(container, 'ready');
 		play.mockRestore();
 	});
 
 	it('plays once tapped, showing the pause icon, given a real gesture', async () => {
-		const { container } = await render(AudioPlayer, { src: soundSrc, autoplay: false });
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
+		const { container } = await render(AudioPlayer, lasting());
+		await reaches(container, 'ready');
 
 		await click(container.querySelector('button')!);
-		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'), { timeout: 5000 });
+		await reaches(container, 'playing');
 		expect(container.querySelector('button')!.getAttribute('aria-label')).toMatch(/speelt af/i);
 	});
 
 	it('finishes with the replay icon, and can be replayed', async () => {
-		const { container } = await render(AudioPlayer, { src: soundSrc, autoplay: false });
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
+		const { container } = await render(AudioPlayer, lasting());
+		await reaches(container, 'ready');
 
 		await click(container.querySelector('button')!);
-		await vi.waitFor(() => expect(iconOf(container)).toBe('finished'), { timeout: 5000 });
+		await reaches(container, 'finished');
 		expect(container.querySelector('button')!.getAttribute('aria-label')).toMatch(/opnieuw/i);
 
 		await click(container.querySelector('button')!);
-		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'), { timeout: 5000 });
-		await vi.waitFor(() => expect(iconOf(container)).toBe('finished'), { timeout: 5000 });
+		await reaches(container, 'playing');
+		await reaches(container, 'finished');
 	});
 
 	it('disables the button while loading or playing, not while ready or finished', async () => {
-		const { container } = await render(AudioPlayer, { src: soundSrc, autoplay: false });
+		const { container } = await render(AudioPlayer, lasting());
 		const button = () => container.querySelector('button')!;
 
 		expect(button().disabled).toBe(true); // loading
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
+		await reaches(container, 'ready');
 		expect(button().disabled).toBe(false);
 
 		await click(button());
-		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'));
+		await reaches(container, 'playing');
 		expect(button().disabled).toBe(true);
 
-		await vi.waitFor(() => expect(iconOf(container)).toBe('finished'), { timeout: 5000 });
+		await reaches(container, 'finished');
 		expect(button().disabled).toBe(false);
 	});
 });
@@ -146,17 +166,10 @@ describe('the four states', () => {
 describe('the progress bar', () => {
 	it('is scaled to the given range, not to the whole recording', async () => {
 		const [start, end] = fragmentRange;
-		const { container } = await render(AudioPlayer, {
-			src: storyUrl(story),
-			range: fragmentRange,
-			autoplay: false
-		});
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
+		const { container } = await render(AudioPlayer, lasting());
+		await reaches(container, 'ready');
 		await click(container.querySelector('button')!);
-		// A tap loads the clip afresh and seeks it to the start of the range
-		// before anything sounds, which WebKit can take well over the default
-		// second to do for a forty-second recording.
-		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'), { timeout: 10000 });
+		await reaches(container, 'playing');
 
 		// Half the fragment's own length in, well past what the equivalent point
 		// in the whole ~40s recording would fill (a few percent). Scaled to the
@@ -166,7 +179,7 @@ describe('the progress bar', () => {
 		expect(midway).toBeGreaterThan(15);
 		expect(midway).toBeLessThan(90);
 
-		await vi.waitFor(() => expect(iconOf(container)).toBe('finished'), { timeout: 10000 });
+		await reaches(container, 'finished');
 		expect(fillPercent(container)).toBe(100);
 	});
 });
@@ -174,11 +187,11 @@ describe('the progress bar', () => {
 describe('cleanup', () => {
 	it('leaves nothing playing once destroyed', async () => {
 		const pause = vi.spyOn(HTMLMediaElement.prototype, 'pause');
-		const { container, unmount } = await render(AudioPlayer, { src: soundSrc, autoplay: false });
-		await vi.waitFor(() => expect(iconOf(container)).toBe('ready'));
+		const { container, unmount } = await render(AudioPlayer, lasting());
+		await reaches(container, 'ready');
 
 		await click(container.querySelector('button')!);
-		await vi.waitFor(() => expect(iconOf(container)).toBe('playing'));
+		await reaches(container, 'playing');
 
 		pause.mockClear();
 		await unmount();
@@ -195,7 +208,7 @@ describe('reporting state', () => {
 			autoplay: false,
 			onstatechange: (state: PlayerState) => seen.push(state)
 		});
-		await vi.waitFor(() => expect(seen).toContain('ready'));
+		await vi.waitFor(() => expect(seen).toContain('ready'), { timeout: 8000 });
 		expect(seen[0]).toBe('loading');
 	});
 });

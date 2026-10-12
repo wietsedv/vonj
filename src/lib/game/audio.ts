@@ -99,12 +99,25 @@ export function playClip(url: string, options: PlayOptions = {}): PlaybackHandle
 	const { range, autoplay = true, onReady, onStart, onProgress } = options;
 
 	const audio = new Audio(url);
-	// Best-effort seek before metadata exists; harmless if the browser ignores
-	// it, since `onLoadedMetadata` below seeks again once it can.
+	// Best-effort seek before metadata exists, so playback that starts before
+	// `loadedmetadata` starts inside the range rather than at the top of the
+	// file. It is not authoritative - `onLoadedMetadata` below seeks again once
+	// it can, and nothing reads the position until that seek lands.
 	if (range) audio.currentTime = range[0];
 
 	let settled = false;
 	let started = false;
+	/**
+	 * Whether the seek to the start of `range` has landed. Until it has, the
+	 * element's position is not a playback position and must not be read as one:
+	 * the best-effort assignment below is made while `duration` is still NaN, and
+	 * an engine is free to report it back, reset it, or clamp it somewhere else
+	 * entirely before the real seek happens. A position from that window that
+	 * happens to sit past `range[1]` would end the clip before a note of it
+	 * played. A clip with no range plays from wherever it starts, so there is
+	 * nothing to wait for.
+	 */
+	let positioned = !range;
 	let resolveDone!: (outcome: PlaybackOutcome) => void;
 	const done = new Promise<PlaybackOutcome>((resolve) => {
 		resolveDone = resolve;
@@ -112,6 +125,7 @@ export function playClip(url: string, options: PlayOptions = {}): PlaybackHandle
 
 	const removeListeners = () => {
 		audio.removeEventListener('loadedmetadata', onLoadedMetadata);
+		audio.removeEventListener('seeked', onSeeked);
 		audio.removeEventListener('timeupdate', onTimeUpdate);
 		audio.removeEventListener('ended', onEnded);
 	};
@@ -145,8 +159,12 @@ export function playClip(url: string, options: PlayOptions = {}): PlaybackHandle
 		onReady?.();
 	}
 
+	function onSeeked() {
+		positioned = true;
+	}
+
 	function onTimeUpdate() {
-		if (settled) return;
+		if (settled || !positioned) return;
 		if (range && audio.currentTime >= range[1]) {
 			onProgress?.(1);
 			finish('finished');
@@ -161,6 +179,7 @@ export function playClip(url: string, options: PlayOptions = {}): PlaybackHandle
 	}
 
 	audio.addEventListener('loadedmetadata', onLoadedMetadata);
+	audio.addEventListener('seeked', onSeeked);
 	audio.addEventListener('timeupdate', onTimeUpdate);
 	audio.addEventListener('ended', onEnded);
 

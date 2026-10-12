@@ -109,20 +109,77 @@ describe('playClip', () => {
 	it('stops at the end of a range instead of running to the end of the file', async () => {
 		const [start, end] = fragmentRange;
 		let outcome: PlaybackOutcome | undefined;
-		const startedAt = performance.now();
+		// Timed from when playback actually started, not from the tap: fetching
+		// and seeking a 580 kB recording takes a while, and how long says nothing
+		// about where playback stopped.
+		let playingSince = 0;
 		await clickToRun(() => {
-			playClip(storyUrl(story), { range: fragmentRange }).done.then((result) => {
+			playClip(storyUrl(story), {
+				range: fragmentRange,
+				onStart: () => (playingSince = performance.now())
+			}).done.then((result) => {
 				outcome = result;
 			});
 		});
-		await vi.waitFor(() => expect(outcome).toBe('finished'), { timeout: 10000 });
-		const elapsedSeconds = (performance.now() - startedAt) / 1000;
+		await vi.waitFor(() => expect(outcome).toBe('finished'), { timeout: 20000 });
+		const elapsedSeconds = (performance.now() - playingSince) / 1000;
 
-		// The range is a few seconds; the whole recording is closer to a minute.
-		// Finishing near the range length instead of running far longer than it
-		// is what proves playback stopped at `end`, not just anywhere past it.
+		// The range is a few seconds; the whole recording runs to about 74. The
+		// lower bound is what proves playback was not cut short, the upper that it
+		// stopped at `end` rather than playing on to the end of the file. The
+		// upper one is deliberately nowhere near tight: a browser that stalls
+		// mid-download takes longer than the range without having played past it,
+		// and anything under half a minute is still unmistakably not 74 seconds.
 		expect(elapsedSeconds).toBeGreaterThan(end - start - 1);
-		expect(elapsedSeconds).toBeLessThan(end - start + 4);
+		expect(elapsedSeconds).toBeLessThan(30);
+	});
+
+	// A ranged clip once reported "finished" 0.27 s in, on WebKit under CI load.
+	// `currentTime` is assigned before metadata exists, when `duration` is still
+	// NaN, and the position an engine reports back in that window is not a
+	// playback position: a reading past the end of the range there used to end
+	// the clip before it had played. Nothing is read until the seek lands now.
+	it('ignores the position reported before the seek to the range has landed', async () => {
+		const [start, end] = fragmentRange;
+		const seen: number[] = [];
+		let outcome: PlaybackOutcome | undefined;
+
+		// Stands in for that window: until the seek lands, every read of
+		// `currentTime` answers past the end of the range. The stand-in lifts on
+		// the element's own `seeked`, which is the point the real position starts
+		// meaning something again.
+		const real = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'currentTime')!;
+		let landed = false;
+		let watched = false;
+		Object.defineProperty(HTMLMediaElement.prototype, 'currentTime', {
+			...real,
+			get(this: HTMLMediaElement) {
+				return landed ? real.get!.call(this) : end + 60;
+			},
+			set(this: HTMLMediaElement, seconds: number) {
+				real.set!.call(this, seconds);
+				if (watched) return;
+				watched = true;
+				this.addEventListener('seeked', () => (landed = true), { once: true });
+			}
+		});
+
+		try {
+			await clickToRun(() => {
+				playClip(storyUrl(story), {
+					range: fragmentRange,
+					onProgress: (fraction) => seen.push(fraction)
+				}).done.then((result) => (outcome = result));
+			});
+			await vi.waitFor(() => expect(outcome).toBe('finished'), { timeout: 10000 });
+		} finally {
+			Object.defineProperty(HTMLMediaElement.prototype, 'currentTime', real);
+		}
+
+		// It played the range rather than being finished off by that first reading.
+		expect(landed).toBe(true);
+		expect(seen.some((fraction) => fraction > 0 && fraction < 1)).toBe(true);
+		expect(end).toBeGreaterThan(start);
 	});
 
 	it('never leaves the element playing once it settles, whatever the outcome', async () => {
