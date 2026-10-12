@@ -61,14 +61,26 @@
 	disabled={sound === null}
 	aria-label={spokenLabel}
 	onclick={() => onclick()}
-	class="flex h-12 w-full items-center justify-center gap-1 rounded-lg border-2 text-lg font-semibold
+	class="relative flex h-12 w-full items-center justify-center rounded-lg border-2 text-lg font-semibold
 		transition-all duration-150 enabled:hover:brightness-95 enabled:focus:brightness-95
 		{tone[result ?? 'neutral']} {sounding ? 'scale-125' : ''}"
 >
 	{sound ?? ''}
+	<!--
+	  A badge on the corner rather than beside the spelling, so a three-letter
+	  sound and its mark still fit a narrow column.
+	-->
 	{#if result === 'correct'}
-		<span class="[&>svg]:size-4 [&>svg]:fill-white"><Check /></span>
+		<span
+			class="[&>svg]:fill-accent absolute -top-2 -right-1 rounded-full bg-white p-0.5 shadow [&>svg]:size-4"
+		>
+			<Check />
+		</span>
 	{:else if result === 'wrong'}
-		<span class="[&>svg]:size-4 [&>svg]:fill-white"><Cross /></span>
+		<span
+			class="[&>svg]:fill-primary absolute -top-2 -right-1 rounded-full bg-white p-0.5 shadow [&>svg]:size-4"
+		>
+			<Cross />
+		</span>
 	{/if}
 </button>

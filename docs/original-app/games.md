@@ -304,6 +304,11 @@ and locked, and the pupil tries again. If revealing that letter happens to
 complete the word, the item counts as complete but the feedback card says
 "Jammer!" instead of "Dat klopt!".
 
+The word is spelled in lower case, whatever its capitalisation in the sentence:
+the app lowercases the word when it generates the items and lowercases what was
+typed before comparing, so "Stad" is written `stad` and a capital typed by the
+pupil still counts.
+
 The feedback card shows "Het juist geschreven woord is:" with the word spelled
 out in the same letter boxes.
 

@@ -192,7 +192,15 @@
 	{/if}
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={run?.item ? audioTop : undefined}>
+<!-- Hidden, not removed, behind the feedback card, as in the original. -->
+<LevelShell
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={run?.item ? audioTop : undefined}
+	hideTop={run?.answered ?? false}
+>
 	{#if run?.answered && isRecap}
 		<!-- No "Het juiste antwoord was:" line for the recap; see the module doc comment. -->
 		<ItemFeedback image={animation} onproceed={() => run?.proceed()} />
@@ -203,19 +211,12 @@
 			onproceed={() => run?.proceed()}
 		/>
 	{:else if isRecap}
-		{#if recapWrong}
-			<p
-				class="bg-primary/10 text-primary mb-3 rounded-xl px-4 py-3 text-sm font-medium"
-				role="alert"
-			>
-				Nog niet alle plaatjes staan op de juiste plaats
-			</p>
-		{/if}
 		<ReorderList
 			rows={recapRows}
 			{locked}
 			{markers}
 			instruction="Gebruik de streepjes om de items naar de juiste volgorde te verslepen."
+			alert={recapWrong ? recapAlert : undefined}
 			onreorder={reorderRecap}
 			onsubmit={submitRecap}
 		/>
@@ -223,3 +224,10 @@
 		<PictureGrid {options} {wrong} onselect={select} />
 	{/if}
 </LevelShell>
+
+<!-- White like the other inline messages: red on a red tint over the blue page was unreadable. -->
+{#snippet recapAlert()}
+	<p class="text-primary rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
+		Nog niet alle plaatjes staan op de juiste plaats
+	</p>
+{/snippet}

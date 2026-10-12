@@ -17,7 +17,12 @@
 	let { order, index }: Props = $props();
 </script>
 
+<!--
+  At most a few lines high, scrolling inside the card beyond that: the item that
+  orders a whole story read it all back here a second time, a screen and more
+  of text above a list that already shows it.
+-->
 <div class="rounded-2xl bg-white px-6 py-5 shadow-lg">
 	<p class="text-sm font-semibold tracking-wide text-slate-500 uppercase">Resultaat</p>
-	<p class="mt-2 text-lg">{resultText(order, index)}</p>
+	<p lang="gos" class="mt-2 max-h-36 overflow-y-auto text-lg">{resultText(order, index)}</p>
 </div>

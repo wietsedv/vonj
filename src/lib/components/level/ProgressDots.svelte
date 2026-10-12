@@ -31,7 +31,11 @@
 </script>
 
 <!-- The dot count tells the pupil up front how long the level is. -->
-<ol class="flex flex-wrap justify-center gap-2.5 px-4 py-3" aria-label="Voortgang in dit level">
+<!-- Tighter on the narrowest phones, so ten dots stay on one line at 320px. -->
+<ol
+	class="xs:gap-2.5 xs:px-4 flex flex-wrap justify-center gap-1.5 px-2 py-3"
+	aria-label="Voortgang in dit level"
+>
 	{#each states as state, index (index)}
 		<li
 			class="flex size-6 items-center justify-center rounded-full text-sm {colours[state]}"

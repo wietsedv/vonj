@@ -6,7 +6,7 @@
  * The original app is read-only reference material: this script only reads from
  * it. It rewrites src/lib/content/*.json and src/lib/content/assets/** in place.
  *
- * Media conversion needs ffmpeg with libwebp and libwebp_anim.
+ * Media conversion needs ffmpeg with libwebp, libwebp_anim and libmp3lame.
  */
 import { execFile } from 'node:child_process';
 import { existsSync } from 'node:fs';
@@ -273,6 +273,28 @@ const toAnimatedWebp = (input, output) =>
 		'drawing'
 	]);
 
+/**
+ * The sound and word recordings end right on the sound: in most of them less
+ * than 0.05 s of quiet follows it, and `b` is still at full volume on its last
+ * sample. Some audio outputs lose the last fraction of a second of a clip when
+ * it stops - Bluetooth headphones are the usual case - which made `t` silent and
+ * cut `b` short. So each clip gets a 15 ms fade-out, which also takes the click
+ * off an abrupt end, and 0.25 s of silence after it. They are re-encoded at a
+ * higher bit rate than the 64 kbps source, so the extra generation costs
+ * nothing audible.
+ */
+const TAIL_SECONDS = 0.25;
+
+const padRecording = (input, output) =>
+	ffmpeg(input, output, [
+		'-af',
+		`areverse,afade=t=in:d=0.015,areverse,apad=pad_dur=${TAIL_SECONDS}`,
+		'-c:a',
+		'libmp3lame',
+		'-b:a',
+		'96k'
+	]);
+
 async function copyInto(input, output) {
 	await mkdir(dirname(output), { recursive: true });
 	await copyFile(input, output);
@@ -309,13 +331,14 @@ async function buildMedia(root, storyKeys, sounds, wordSlugs) {
 	for (const { sound, audio } of sounds) {
 		const input = sourcePath(phonemes[sound]);
 		if (need(input))
-			tasks.push(() => copyInto(input, join(assets, 'audio/sounds', `${audio}.mp3`)));
+			tasks.push(() => padRecording(input, join(assets, 'audio/sounds', `${audio}.mp3`)));
 	}
 
 	// Single-word recordings, one per distinct spelling.
 	for (const [text, slug] of wordSlugs) {
 		const input = join(gronings, 'losse_woorden/audio', `${text}.mp3`);
-		if (need(input)) tasks.push(() => copyInto(input, join(assets, 'audio/words', `${slug}.mp3`)));
+		if (need(input))
+			tasks.push(() => padRecording(input, join(assets, 'audio/words', `${slug}.mp3`)));
 	}
 
 	// Story recordings and illustrations.

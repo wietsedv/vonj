@@ -39,10 +39,9 @@ const isLocked = (row: Element) => row.querySelector('[aria-label="Sleephandvat"
 
 /** "correct", "up", "down" or "none", read off the marker icon's classes rather than its path data. */
 function marker(row: Element): 'correct' | 'up' | 'down' | 'none' {
-	const span = row.querySelector('div[aria-hidden="true"] > span');
-	if (!span) return 'none';
-	if (span.classList.contains('[&>svg]:fill-accent')) return 'correct';
-	return span.classList.contains('rotate-180') ? 'down' : 'up';
+	const badge = row.querySelector('div[aria-hidden="true"] > [data-marker]');
+	if (!badge) return 'none';
+	return badge.getAttribute('data-marker') as 'correct' | 'up' | 'down';
 }
 
 /** The "Resultaat" card's line: the label "Resultaat" followed by the joined order. */

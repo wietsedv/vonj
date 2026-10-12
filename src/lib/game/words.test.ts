@@ -15,7 +15,8 @@ import {
 	soundCandidates,
 	soundItems,
 	wordIndex,
-	writingItems
+	writingItems,
+	writtenForm
 } from '$lib/game/words';
 import type { Sentence, Story, Word } from '$lib/types';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -178,11 +179,22 @@ describe('the items of the writing games', () => {
 		expect(items.map((item) => item.source)).toEqual(drawn.map((entry) => entry.word.key));
 	});
 
-	it('answers an item with the letters of the Gronings spelling', () => {
+	it('answers an item with the letters of the Gronings spelling, in lower case', () => {
 		for (const entry of words()) {
 			const [item] = writingItems([entry]);
-			expect(item.target).toEqual([...entry.word.text]);
-			expect(item.target.join('')).toBe(entry.word.text);
+			expect(item.target).toEqual([...entry.word.text.toLowerCase()]);
+		}
+	});
+
+	it('spells a capitalised word in lower case, as the original did', () => {
+		const capitalised = stories
+			.flatMap(storyWords)
+			.filter(({ word }) => /^\p{Lu}/u.test(word.text));
+		expect(capitalised.length).toBeGreaterThan(0);
+		for (const entry of capitalised) {
+			const [item] = writingItems([entry]);
+			expect(item.target.join('')).toBe(entry.word.text.toLowerCase());
+			expect(writtenForm(entry.word)).toBe(entry.word.text.toLowerCase());
 		}
 	});
 

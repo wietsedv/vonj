@@ -79,7 +79,15 @@
 	{/if}
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={entry ? player : undefined}>
+<!-- Hidden, not removed, behind the feedback card, as in the original. -->
+<LevelShell
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={entry ? player : undefined}
+	hideTop={run?.answered ?? false}
+>
 	{#if run?.answered && item && answer}
 		<SoundFeedback
 			sounds={item.target}

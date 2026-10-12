@@ -13,8 +13,10 @@ export function rowsFor(order: string[], index: Map<string, string>): ReorderRow
 
 /**
  * The current order as one line, chunks joined by " • ", for the "Resultaat"
- * card. See `docs/original-app/games.md`, "Lezen > Zinnen".
+ * card. See `docs/original-app/games.md`, "Lezen > Zinnen". The space before
+ * the bullet does not break, so a bullet ends the line it follows instead of
+ * starting the next one.
  */
 export function resultText(order: string[], index: Map<string, string>): string {
-	return order.map((key) => index.get(key) ?? '').join(' • ');
+	return order.map((key) => index.get(key) ?? '').join('\u00a0• ');
 }

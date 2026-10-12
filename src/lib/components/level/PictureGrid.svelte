@@ -23,11 +23,17 @@
 	let { options, wrong = [], onselect }: Props = $props();
 </script>
 
-<!-- Two columns, so four options are two rows and six are three, as in the original. -->
-<ul class="grid grid-cols-2 gap-3">
+<!--
+  Two columns, so four options are two rows and six are three, as in the
+  original. Narrower than the column on a wide screen, so the bottom row is not
+  below the fold. An odd last card sits centred under the others rather than
+  alone in the left column.
+-->
+<ul class="mx-auto grid max-w-md grid-cols-2 gap-3">
 	{#each options as option, index (option.key)}
 		{@const locked = wrong.includes(option.key)}
-		<li>
+		{@const alone = index === options.length - 1 && options.length % 2 === 1}
+		<li class={alone ? 'col-span-2 mx-auto w-[calc(50%-0.375rem)]' : undefined}>
 			<button
 				type="button"
 				disabled={locked}

@@ -126,7 +126,11 @@
 	}
 </script>
 
-<div class="flex flex-col items-center gap-2 rounded-2xl bg-white p-4 shadow-lg">
+<!--
+  The button is inert while the clip plays, but only loading looks it: the pause
+  icon on a faded button read as a player that was switched off.
+-->
+<div class="flex flex-col items-center justify-center gap-2 rounded-2xl bg-white p-4 shadow-lg">
 	<!-- Decorative: the button's label already carries the state for a screen reader. -->
 	<div class="h-1.5 w-28 overflow-hidden rounded-full bg-gray-200" aria-hidden="true">
 		<div
@@ -140,7 +144,8 @@
 		aria-label={labels[current]}
 		{onclick}
 		class="bg-secondary flex size-14 shrink-0 items-center justify-center rounded-full text-white transition
-			enabled:hover:brightness-95 enabled:focus:brightness-95 disabled:opacity-70 [&>svg]:fill-white"
+			enabled:hover:brightness-95 enabled:focus:brightness-95 [&>svg]:fill-white
+			{current === 'loading' ? 'opacity-70' : ''}"
 	>
 		{#if current === 'loading'}
 			<Ellipsis />

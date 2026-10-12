@@ -35,7 +35,7 @@
 	 */
 	import Check from '$lib/icons/check.svelte';
 	import Arrow from '$lib/icons/arrow.svelte';
-	import { tick } from 'svelte';
+	import { onDestroy, tick, type Snippet } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { cubicOut } from 'svelte/easing';
 	import { MediaQuery } from 'svelte/reactivity';
@@ -53,6 +53,12 @@
 		submitLabel?: string;
 		/** Whether "Versturen" is enabled. */
 		canSubmit?: boolean;
+		/**
+		 * The "Nog niet alle ... staan op de juiste plaats" message after a wrong
+		 * submit. Shown right above "Versturen", where the pupil's eyes and
+		 * finger are: above the list it was off the screen on a phone.
+		 */
+		alert?: Snippet;
 		/** The requested new order, as keys, top to bottom. */
 		onreorder: (keys: string[]) => void;
 		onsubmit: () => void;
@@ -65,6 +71,7 @@
 		instruction = null,
 		submitLabel = 'Versturen',
 		canSubmit = true,
+		alert,
 		onreorder,
 		onsubmit
 	}: Props = $props();
@@ -103,8 +110,8 @@
 	}
 
 	/** The up and down buttons per row key, to put focus back after a move. */
-	const upButtons: Record<string, HTMLButtonElement | undefined> = {};
-	const downButtons: Record<string, HTMLButtonElement | undefined> = {};
+	const upButtons: Record<string, HTMLButtonElement | undefined> = $state({});
+	const downButtons: Record<string, HTMLButtonElement | undefined> = $state({});
 
 	/**
 	 * Puts focus back on the row that was just moved. A move disables the button
@@ -135,25 +142,38 @@
 	interface DragState {
 		key: string;
 		pointerId: number;
-		/** `event.clientY` at the start of the gesture. */
-		startClientY: number;
-		/** Vertical centre of the dragged row before the gesture started. */
+		/** The pointer's position on the page at the start of the gesture. */
+		startPageY: number;
+		/** Vertical centre of the dragged row on the page before the gesture started. */
 		originalCenter: number;
 		/**
-		 * Where every movable row sat when the gesture started: its top, and its
-		 * vertical centre. These are the slots the movable rows are shuffled
-		 * between, so a locked row in the middle of the list is simply part of the
-		 * distance between two of them. Captured once, because the rows are moved
-		 * with `transform` during the drag and so keep reporting the same layout.
+		 * Where every row, locked ones included, sat on the page when the gesture
+		 * started, top to bottom. Captured once, because the rows are moved with
+		 * `transform` during the drag and so keep reporting the same layout. Page
+		 * coordinates rather than viewport ones, so the list can scroll under the
+		 * finger while it drags.
 		 */
-		slots: { key: string; top: number; mid: number }[];
-		/** Index of the dragged row in `slots`. */
-		fromIndex: number;
+		layout: { key: string; top: number; height: number }[];
+		/** The vertical centres of the movable rows, the slots a drop chooses between. */
+		slots: { key: string; mid: number }[];
+		/**
+		 * How far the dragged row may go up and down: its centre stays within the
+		 * list, so it can pass the first and the last row but not wander off over
+		 * the button below.
+		 */
+		minOffset: number;
+		maxOffset: number;
 	}
+
+	/** The space between two rows, `gap-2` on the list, in pixels. */
+	const ROW_GAP = 8;
 
 	let dragging = $state<DragState | null>(null);
 	/** How far the dragged row has moved from its resting position, in pixels. */
 	let dragOffset = $state(0);
+	/** The pointer's last position in the viewport, for scrolling near the edges. */
+	let pointerY = 0;
+	let scrollFrame = 0;
 
 	/** The slot the dragged row would drop into: the number of other rows whose
 	 * centre it has passed. -1 when nothing is being dragged. */
@@ -165,20 +185,28 @@
 	});
 
 	/**
-	 * How far a row that is not being dragged has to move to make room, given
-	 * where the drop would currently land. Taking the dragged row out of the list
-	 * and putting it back one slot along shifts exactly the rows in between, each
-	 * by the distance between the slot it holds and the one it would hold.
+	 * How far each row that is not being dragged has to move to make room,
+	 * given where the drop would currently land. Worked out by laying the list
+	 * out again in that order, row heights and all, so a tall row and a short
+	 * one make room by what they really need and a locked row stays put.
 	 */
-	function previewOffset(key: string): number {
-		if (!dragging || dropIndex < 0) return 0;
-		const { slots, fromIndex } = dragging;
-		const index = slots.findIndex((slot) => slot.key === key);
-		if (index < 0 || index === fromIndex) return 0;
-		const removed = index > fromIndex ? index - 1 : index;
-		const target = removed >= dropIndex ? removed + 1 : removed;
-		return slots[target].top - slots[index].top;
-	}
+	let previewOffsets = $derived.by(() => {
+		const offsets: Record<string, number> = {};
+		if (!dragging || dropIndex < 0) return offsets;
+		const { key, layout } = dragging;
+		const order = movable.filter((row) => row.key !== key).map((row) => row.key);
+		order.splice(dropIndex, 0, key);
+		let next = 0;
+		let y = layout[0]?.top ?? 0;
+		for (const slot of layout) {
+			const placed = locked.includes(slot.key) ? slot.key : order[next++];
+			const height = layout.find((entry) => entry.key === placed)?.height ?? 0;
+			const original = layout.find((entry) => entry.key === placed)?.top ?? y;
+			offsets[placed] = y - original;
+			y += height + ROW_GAP;
+		}
+		return offsets;
+	});
 
 	/**
 	 * Where a row sits during a drag. The dragged row follows the pointer; the
@@ -192,7 +220,7 @@
 		if (!dragging) return undefined;
 		if (dragging.key === key) return `transform: translateY(${dragOffset}px)`;
 		if (locked.includes(key)) return undefined;
-		return `transform: translateY(${previewOffset(key)}px);
+		return `transform: translateY(${previewOffsets[key] ?? 0}px);
 			transition: transform ${slideMs}ms cubic-bezier(0.33, 1, 0.68, 1)`;
 	}
 
@@ -207,33 +235,73 @@
 			// Not every pointer (or test harness) supports capture; the window
 			// listeners below still receive the move and up events regardless.
 		}
-		const rect = el.getBoundingClientRect();
-		const slots = movable.map((row) => {
-			const rowRect = rowEls[row.key]?.getBoundingClientRect();
-			return {
-				key: row.key,
-				top: rowRect?.top ?? 0,
-				mid: (rowRect?.top ?? 0) + (rowRect?.height ?? 0) / 2
-			};
+		const scrollY = window.scrollY;
+		const layout = rows.map((row) => {
+			const rect = rowEls[row.key]?.getBoundingClientRect();
+			return { key: row.key, top: (rect?.top ?? 0) + scrollY, height: rect?.height ?? 0 };
 		});
+		const own = layout.find((entry) => entry.key === key)!;
+		const first = layout[0];
+		const last = layout[layout.length - 1];
 		dragging = {
 			key,
 			pointerId: event.pointerId,
-			startClientY: event.clientY,
-			originalCenter: rect.top + rect.height / 2,
-			slots,
-			fromIndex: slots.findIndex((slot) => slot.key === key)
+			startPageY: event.clientY + scrollY,
+			originalCenter: own.top + own.height / 2,
+			layout,
+			slots: layout
+				.filter((entry) => !locked.includes(entry.key))
+				.map((entry) => ({ key: entry.key, mid: entry.top + entry.height / 2 })),
+			minOffset: first.top - (own.top + own.height / 2),
+			maxOffset: last.top + last.height - (own.top + own.height / 2)
 		};
 		dragOffset = 0;
+		pointerY = event.clientY;
+		scrollFrame = requestAnimationFrame(autoScroll);
+	}
+
+	/** Follows the pointer, held within the list. */
+	function follow() {
+		if (!dragging) return;
+		const offset = pointerY + window.scrollY - dragging.startPageY;
+		dragOffset = Math.min(dragging.maxOffset, Math.max(dragging.minOffset, offset));
+	}
+
+	/**
+	 * Scrolls the page while the pointer is held near the top or the bottom of
+	 * the screen, faster the closer it gets, so a row can be dragged to a place
+	 * that was not on the screen when the drag started. A whole story is longer
+	 * than a phone screen.
+	 */
+	function autoScroll() {
+		if (!dragging) return;
+		const edge = 80;
+		const height = window.innerHeight;
+		let speed = 0;
+		if (pointerY < edge) speed = -Math.ceil(((edge - pointerY) / edge) * 14);
+		else if (pointerY > height - edge)
+			speed = Math.ceil(((pointerY - (height - edge)) / edge) * 14);
+		if (speed !== 0) {
+			window.scrollBy(0, speed);
+			follow();
+		}
+		scrollFrame = requestAnimationFrame(autoScroll);
+	}
+
+	function stopScrolling() {
+		cancelAnimationFrame(scrollFrame);
+		scrollFrame = 0;
 	}
 
 	function handlePointerMove(event: PointerEvent) {
 		if (!dragging || event.pointerId !== dragging.pointerId) return;
-		dragOffset = event.clientY - dragging.startClientY;
+		pointerY = event.clientY;
+		follow();
 	}
 
 	function endDrag(event: PointerEvent) {
 		if (!dragging || event.pointerId !== dragging.pointerId) return;
+		stopScrolling();
 		const { key } = dragging;
 		const targetIndex = dropIndex;
 		const draggedRow = movable.find((row) => row.key === key)!;
@@ -248,9 +316,12 @@
 
 	function cancelDrag(event: PointerEvent) {
 		if (!dragging || event.pointerId !== dragging.pointerId) return;
+		stopScrolling();
 		dragging = null;
 		dragOffset = 0;
 	}
+
+	onDestroy(stopScrolling);
 </script>
 
 <svelte:window
@@ -282,16 +353,44 @@
 			  changed; during a drag the rows are moved by `transform` instead, see
 			  `dragStyle`. Only the shadow transitions from the class list: a
 			  transform must not, or a dragged row would lag behind the pointer.
+
+			  Every row is at least as tall as its buttons, locked or not, so a
+			  locked row is not a thin strip between taller ones. The buttons sit
+			  side by side rather than stacked, which keeps a one-line row one line
+			  high.
 			-->
 			<li
 				bind:this={rowEls[row.key]}
 				animate:flip={slide}
-				class="relative flex items-center gap-2 rounded-xl bg-white p-2 shadow transition-shadow
+				class="relative flex min-h-14 items-center gap-2 rounded-xl bg-white p-2 shadow transition-shadow
 					{dragging ? 'select-none' : ''} {isDragging ? 'z-10 shadow-xl' : ''}"
 				style={dragStyle(row.key)}
 			>
+				<!--
+				  The result of a submit, as a badge on the row's left edge: a filled
+				  circle, so a red "move up" reads as a verdict and not as a third
+				  arrow button beside the two grey ones.
+				-->
+				<div class="absolute top-1/2 -left-2.5 -translate-y-1/2" aria-hidden="true">
+					{#if marker}
+						<span
+							data-marker={marker}
+							class="flex size-7 items-center justify-center rounded-full shadow-md [&_svg]:size-5
+								[&_svg]:fill-white {marker === 'correct' ? 'bg-accent' : 'bg-primary'}"
+						>
+							{#if marker === 'correct'}
+								<Check />
+							{:else if marker === 'up'}
+								<Arrow />
+							{:else}
+								<span class="block rotate-180"><Arrow /></span>
+							{/if}
+						</span>
+					{/if}
+				</div>
+
 				{#if isLocked}
-					<span class="w-9 shrink-0"></span>
+					<span class="w-10 shrink-0"></span>
 				{:else}
 					<!--
 					  Out of the tab order and out of the accessibility tree: the handle
@@ -305,7 +404,8 @@
 						tabindex="-1"
 						aria-hidden="true"
 						aria-label="Sleephandvat"
-						class="flex shrink-0 cursor-grab touch-none flex-col gap-1 p-2 active:cursor-grabbing"
+						class="flex size-10 shrink-0 cursor-grab touch-none flex-col items-center justify-center gap-1
+							active:cursor-grabbing"
 						onpointerdown={(event) => startDrag(event, row.key)}
 					>
 						<span class="block h-0.5 w-5 bg-slate-400"></span>
@@ -314,34 +414,29 @@
 					</button>
 				{/if}
 
-				<div class="flex-1">
+				<div class="min-w-0 flex-1">
 					{#if row.image}
-						<img src={row.image} alt="" class="h-16 w-16 rounded-lg object-cover" />
+						<img
+							src={row.image}
+							alt=""
+							class="aspect-[4/3] w-full max-w-40 rounded-lg object-cover"
+						/>
 					{:else}
 						<!-- A text row is always a Gronings sentence chunk; an image row is a fragment. -->
 						<p lang="gos">{row.text}</p>
 					{/if}
 				</div>
 
-				<div class="flex w-8 shrink-0 items-center justify-center" aria-hidden="true">
-					{#if marker === 'correct'}
-						<span class="[&>svg]:fill-accent [&>svg]:size-8"><Check /></span>
-					{:else if marker === 'up'}
-						<span class="[&>svg]:fill-primary [&>svg]:size-8"><Arrow /></span>
-					{:else if marker === 'down'}
-						<span class="[&>svg]:fill-primary block rotate-180 [&>svg]:size-8"><Arrow /></span>
-					{/if}
-				</div>
-
 				{#if !isLocked}
-					<div class="flex shrink-0 flex-col gap-1">
+					<div class="flex shrink-0 gap-1">
 						<button
 							type="button"
 							bind:this={upButtons[row.key]}
 							aria-label="Naar boven"
 							disabled={index === 0}
 							onclick={() => move(row.key, -1)}
-							class="rounded p-1 transition enabled:hover:bg-slate-100 disabled:opacity-30 [&>svg]:fill-slate-500"
+							class="flex size-10 items-center justify-center rounded-lg bg-slate-100 transition
+								enabled:hover:bg-slate-200 disabled:opacity-30 [&_svg]:size-7 [&_svg]:fill-slate-600"
 						>
 							<Arrow />
 						</button>
@@ -351,7 +446,8 @@
 							aria-label="Naar beneden"
 							disabled={index === movable.length - 1}
 							onclick={() => move(row.key, 1)}
-							class="rounded p-1 transition enabled:hover:bg-slate-100 disabled:opacity-30 [&>svg]:fill-slate-500"
+							class="flex size-10 items-center justify-center rounded-lg bg-slate-100 transition
+								enabled:hover:bg-slate-200 disabled:opacity-30 [&_svg]:size-7 [&_svg]:fill-slate-600"
 						>
 							<span class="block rotate-180"><Arrow /></span>
 						</button>
@@ -360,6 +456,10 @@
 			</li>
 		{/each}
 	</ul>
+
+	{#if alert}
+		<div class="mt-4">{@render alert()}</div>
+	{/if}
 
 	<!--
 	  Green, like every other "Versturen" in the app: the page behind this button

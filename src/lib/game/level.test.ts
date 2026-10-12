@@ -6,6 +6,7 @@
  * a fresh copy of the module and of the run that uses it.
  */
 import { sectionLevels } from '$lib/content';
+import { dataVersion } from '$lib/content/version';
 import type { GameRules } from '$lib/game/rules';
 import type { Level, StoredItem } from '$lib/types';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -64,7 +65,7 @@ async function run(overrides: Partial<GameRules> = {}) {
 
 /** Puts a part-played level straight into localStorage, as an earlier visit did. */
 function stored(items: StoredItem[], score: number | null = null) {
-	fake.values.set('dataVersion', JSON.stringify(1));
+	fake.values.set('dataVersion', JSON.stringify(dataVersion));
 	fake.values.set(level.id, JSON.stringify({ items, score }));
 }
 

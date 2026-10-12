@@ -113,15 +113,25 @@ export function soundCandidates(item: StoredItem, column: number): string[] {
 /* -------------------------------------------------------------------------- */
 
 /**
+ * How a word is spelled in the writing games: in lower case, whatever its
+ * capitalisation in the sentence. The original lowercased the target when it
+ * generated the items and lowercased what was typed before comparing (see
+ * `LevelWriteWords.vue`), so "Stad" is written as "stad". Without that a
+ * capitalised word could only be typed with a capital, on boxes that turn
+ * autocapitalisation off.
+ */
+export const writtenForm = (word: Word): string => word.text.toLowerCase();
+
+/**
  * One item per selected word, to be typed letter by letter. `target` is the
- * word's letters, one per position. There are no distractors: `rules.ts` has
+ * word's letters in their `writtenForm`, one per position. There are no distractors: `rules.ts` has
  * `difficulty: null` for both Schrijven sections, because their hints come
  * from a wrong answer or from the clock, not from a candidate list.
  */
 export function writingItems(words: readonly WordInSentence[]): StoredItem[] {
 	return words.map(({ word }) => ({
 		source: word.key,
-		target: [...word.text],
+		target: [...writtenForm(word)],
 		distractors: [],
 		responses: [],
 		difficulty: 0

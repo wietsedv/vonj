@@ -55,7 +55,7 @@ const button = (container: HTMLElement, label: string) =>
 
 /** One rendered sound column, in DOM order. */
 const columns = (container: HTMLElement) => [
-	...container.querySelectorAll('main ol.flex.gap-3 > li')
+	...container.querySelectorAll('main li:has(> [role="group"])')
 ];
 
 /** The display field of one rendered column. */

@@ -10,7 +10,7 @@
 	 * That is a deliberate web deviation here (see `docs/rewrite.md`, "Alerts
 	 * are inline messages, not dialogs"): `window.alert` cannot be styled,
 	 * freezes the page, and cannot be driven from a test, so the same copy is
-	 * shown as a plain inline banner above the list instead.
+	 * shown as a plain inline banner right above "Versturen" instead.
 	 *
 	 * This component owns none of the state: the order, the locked rows and the
 	 * markers are all decided by the caller, exactly like `ReorderList` itself.
@@ -38,17 +38,18 @@
 	const wrong = $derived(Object.keys(markers).length > 0);
 </script>
 
-{#if wrong}
-	<p class="text-primary mb-3 rounded-xl bg-white px-4 py-3 text-sm font-medium" role="alert">
-		Nog niet alle onderdelen staan op de juiste plaats
-	</p>
-{/if}
-
 <ReorderList
 	rows={rowsFor(order, index)}
 	{locked}
 	{markers}
 	instruction="Gebruik de streepjes om de items naar de juiste volgorde te verslepen."
+	alert={wrong ? wrongAlert : undefined}
 	{onreorder}
 	{onsubmit}
 />
+
+{#snippet wrongAlert()}
+	<p class="text-primary rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
+		Nog niet alle onderdelen staan op de juiste plaats
+	</p>
+{/snippet}

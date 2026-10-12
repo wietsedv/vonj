@@ -18,12 +18,25 @@ interface Options {
 
 const boxes = async (options: Options) => {
 	const onletter = vi.fn();
-	const { container } = await render(LetterBoxes, { ...options, onletter });
+	const onsubmit = vi.fn();
+	const { container, rerender } = await render(LetterBoxes, { ...options, onletter, onsubmit });
 	return {
 		container,
+		rerender,
 		onletter,
+		onsubmit,
 		inputs: [...container.querySelectorAll('input')]
 	};
+};
+
+/** How many boxes sit on each line, top to bottom. */
+const lines = (inputs: HTMLInputElement[]): number[] => {
+	const counts = new Map<number, number>();
+	for (const input of inputs) {
+		const top = Math.round(input.getBoundingClientRect().top);
+		counts.set(top, (counts.get(top) ?? 0) + 1);
+	}
+	return [...counts.entries()].sort(([a], [b]) => a - b).map(([, count]) => count);
 };
 
 /** Sets a box's value as typing (or an IME/paste) would, and fires the input event. */
@@ -267,5 +280,37 @@ describe('on a 320px phone', () => {
 			expect(input.getBoundingClientRect().right).toBeLessThanOrEqual(320);
 		}
 		expect(document.documentElement.scrollWidth).toBeLessThanOrEqual(320);
+	});
+});
+
+describe('submitting from the keyboard', () => {
+	it('submits on Enter, so the on-screen keyboard need not be closed first', async () => {
+		const { inputs, onsubmit } = await boxes({ letters: ['w', 'o', 'r', 'd'] });
+		press(inputs[2], 'Enter');
+		expect(onsubmit).toHaveBeenCalledOnce();
+	});
+
+	it('moves focus to the first wrong letter once a submit is marked', async () => {
+		const letters = ['w', 'x', 'r', 'x'];
+		const { inputs, rerender } = await boxes({ letters });
+		inputs[3].focus();
+		await rerender({ letters, results: ['correct', 'wrong', 'correct', 'wrong'] });
+		expect(document.activeElement).toBe(inputs[1]);
+	});
+});
+
+describe('wrapping a long word', () => {
+	it('keeps an eight-letter word on one line on a phone', async () => {
+		await page.viewport(390, 800);
+		const { inputs } = await boxes({ letters: [...'langguit'] });
+		expect(lines(inputs)).toEqual([8]);
+	});
+
+	it('wraps into lines of equal length rather than leaving one letter alone', async () => {
+		await page.viewport(390, 800);
+		const { inputs } = await boxes({ letters: [...'scheuvelwedstrieden'] });
+		const counts = lines(inputs);
+		expect(counts.length).toBeGreaterThan(1);
+		expect(Math.max(...counts) - Math.min(...counts)).toBeLessThanOrEqual(1);
 	});
 });

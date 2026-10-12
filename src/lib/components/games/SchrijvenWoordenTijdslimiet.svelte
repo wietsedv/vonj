@@ -34,8 +34,8 @@
 	import { LevelRun } from '$lib/game/level.svelte';
 	import { gameRules } from '$lib/game/rules';
 	import { Countdown } from '$lib/game/timer.svelte';
-	import { maskedPrompt, revealedPositions, wordIndex } from '$lib/game/words';
-	import { onMount } from 'svelte';
+	import { maskedPrompt, revealedPositions, wordIndex, writtenForm } from '$lib/game/words';
+	import { onMount, untrack } from 'svelte';
 	import {
 		boxLetters,
 		isFilled,
@@ -76,8 +76,11 @@
 	 * component state - see the file comment above.
 	 */
 	let given = $state(0);
+	/** The word as it is typed: see `writtenForm()`. */
+	const spelling = $derived(entry ? writtenForm(entry.word) : '');
+
 	const locked = $derived(
-		entry ? revealedPositions(entry.word.text.length, FREE_FIRST_LETTER, given) : []
+		entry ? revealedPositions(spelling.length, FREE_FIRST_LETTER, given) : []
 	);
 
 	/** The pupil's own typed guesses; blank at a position that is locked. */
@@ -88,6 +91,17 @@
 	let timedOut = $state(false);
 
 	/**
+	 * The item the boxes and the clock below belong to. A key rather than the
+	 * item itself, because only a change of item may reset them: the effect
+	 * used to read `run.answered`, which reads the item's responses, so every
+	 * wrong submit re-ran it, wiped the typed letters and the marking, took
+	 * back the letters the clock had given and restarted the clock.
+	 */
+	const itemKey = $derived(
+		run && entry && secondsPerStep ? `${run.items.length}:${run.index}:${entry.word.key}` : null
+	);
+
+	/**
 	 * A fresh item: reset the boxes, clear the "Jammer!" flag and start a new
 	 * clock for it. The countdown is destroyed whenever the item changes and
 	 * when the component is torn down, so no interval is ever left running. It
@@ -95,43 +109,49 @@
 	 * what a level resumed on its last, unproceeded item looks like.
 	 */
 	$effect(() => {
-		if (!entry || !secondsPerStep || run?.answered) {
+		if (!itemKey) {
 			countdown = null;
 			return;
 		}
-		const wordLength = entry.word.text.length;
-
-		draft = new Array(wordLength).fill('');
-		results = [];
-		given = 0;
-		timedOut = false;
-
-		const clock = new Countdown({
-			secondsPerStep,
-			steps: wordLength,
-			onexpire: () => {
-				// Only reveals and locks the next letter; never records a response
-				// (see the file comment above), so this never costs score.
-				given += 1;
+		return untrack(() => {
+			if (!entry || run?.answered) {
+				countdown = null;
+				return;
 			}
-		});
-		countdown = clock;
-		clock.start();
+			const wordLength = spelling.length;
 
-		return () => clock.destroy();
+			draft = new Array(wordLength).fill('');
+			results = [];
+			given = 0;
+			timedOut = false;
+
+			const clock = new Countdown({
+				secondsPerStep,
+				steps: wordLength,
+				onexpire: () => {
+					// Only reveals and locks the next letter; never records a response
+					// (see the file comment above), so this never costs score.
+					given += 1;
+				}
+			});
+			countdown = clock;
+			clock.start();
+
+			return () => clock.destroy();
+		});
 	});
 
-	const letters = $derived(entry ? boxLetters(entry.word.text, locked, draft) : []);
+	const letters = $derived(entry ? boxLetters(spelling, locked, draft) : []);
 	const filled = $derived(isFilled(letters));
 
 	function onletter(index: number, letter: string) {
-		draft[index] = letter;
+		draft[index] = letter.toLowerCase();
 		results = [];
 	}
 
 	function submit() {
 		if (!run || !entry || !filled) return;
-		const target = entry.word.text;
+		const target = spelling;
 		const attempt = [...letters];
 		results = markLetters(attempt, target);
 		run.respond(attempt);
@@ -152,7 +172,7 @@
 
 <!-- The prompt card sits next to the timer here, since there is no play button to share it with (docs/original-app/level-shell.md). -->
 {#snippet top()}
-	<div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+	<div class="flex flex-col gap-3 sm:flex-row sm:items-stretch">
 		{#if entry}
 			<div class="flex-1">
 				<WritingPrompt
@@ -179,11 +199,11 @@
 			description="Het juist geschreven woord is:"
 			onproceed={() => run?.proceed()}
 		>
-			<WrittenWord letters={[...entry.word.text]} />
+			<WrittenWord letters={[...spelling]} />
 		</ItemFeedback>
 	{:else if entry}
 		<div class="flex flex-col items-center gap-6">
-			<LetterBoxes {letters} {locked} {results} {onletter} />
+			<LetterBoxes {letters} {locked} {results} {onletter} onsubmit={submit} />
 			{#if filled}
 				<button
 					type="button"

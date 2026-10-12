@@ -6,4 +6,4 @@
  * this number: every stored level is then discarded and regenerated. See
  * `docs/rewrite.md`.
  */
-export const dataVersion = 1;
+export const dataVersion = 2;

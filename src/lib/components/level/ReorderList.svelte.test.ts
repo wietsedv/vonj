@@ -397,6 +397,23 @@ describe('while a row is being dragged', () => {
 		expect(onreorder).not.toHaveBeenCalled();
 	});
 
+	it("makes room by the dragged row's own height when the rows differ in height", async () => {
+		const rows: ReorderRow[] = [
+			{ key: 'short', text: 'Een' },
+			{ key: 'tall', text: 'Twee '.repeat(40) },
+			{ key: 'last', text: 'Drie' }
+		];
+		const { items } = await list({ rows });
+		const [short, tall] = items.map((item) => item.getBoundingClientRect());
+		expect(tall.height).toBeGreaterThan(short.height * 2);
+
+		// The short row dragged just past the tall one's centre: the tall row moves
+		// up by the short row's height and the gap, not by its own height.
+		dragTo(items[0], tall.top + tall.height / 2 + 5);
+		expect(offsetOf(items[1])).toBeCloseTo(-(tall.top - short.top), 0);
+		expect(offsetOf(items[2])).toBe(0);
+	});
+
 	it('leaves a locked row where it is, and jumps over it', async () => {
 		const rows = textRows(3);
 		const { items, onreorder } = await list({ rows, locked: [rows[1].key] });

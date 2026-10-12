@@ -27,7 +27,7 @@
 </script>
 
 {#if incomplete}
-	<p class="bg-primary/10 text-primary rounded-xl px-4 py-3 text-sm font-medium" role="alert">
+	<p class="text-primary rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
 		Selecteer eerst alle klanken
 	</p>
 {/if}

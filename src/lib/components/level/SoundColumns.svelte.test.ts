@@ -28,7 +28,7 @@ const columns = async (defs: SoundColumn[], extra: Record<string, unknown> = {})
 		onreplay,
 		...extra
 	});
-	const items = [...container.querySelectorAll('ol.flex.gap-3 > li')];
+	const items = [...container.querySelectorAll('li:has(> [role="group"])')];
 	return { container, items, onselect, onreplay };
 };
 

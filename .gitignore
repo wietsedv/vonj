@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 # Vitest
 .vitest-attachments
 __screenshots__
+
+# QA screenshots (before/after) and the script that takes them
+/qa

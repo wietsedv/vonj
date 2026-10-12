@@ -188,12 +188,15 @@ problems, both below.
 - [ ] **Staggered entry and exit animations** on the overview screens and the
       progress dots. The dots are static for now; the original faded them in
       300 ms after the level opened and out again on the way back.
-- [ ] **Responsive check.** Largely done and measured at 320 px: no screen
-      scrolls the page horizontally, a ten-sound word scrolls inside its own
-      column strip (524 px of columns in a 288 px strip) and the letter boxes
-      wrap onto extra rows. What is left is a look at the level card grids and
-      the overview screens on a real narrow phone, and at the sound columns in
-      landscape.
+- [ ] **Responsive check.** Largely done. All 44 levels were played in
+      Playwright at 320x640, 390x844, 844x390 and 1280x800, and what that turned
+      up is fixed: the feedback card's sound row ran off the card and widened
+      the page, sound columns hid past the edge with no sign of them, letter
+      boxes wrapped unevenly, a dragged row could not reach a place off screen,
+      the landscape header took half the height, and two timed games reset an
+      item on a wrong submit. See "Layout that the original did not need" in
+      `docs/rewrite.md`. What is left is a look at the level card grids and the
+      overview screens on a real narrow phone.
 - [x] **Accessibility.** Audited in a browser at 320 px, keyboard-only and with
       `prefers-reduced-motion`, and the problems that audit found are fixed.
       What already worked: the reordering games have real up/down buttons beside

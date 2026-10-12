@@ -24,7 +24,13 @@
 	import { animationUrl } from '$lib/content/assets';
 	import { LevelRun } from '$lib/game/level.svelte';
 	import { gameRules } from '$lib/game/rules';
-	import { completedByHint, maskedPrompt, revealedPositions, wordIndex } from '$lib/game/words';
+	import {
+		completedByHint,
+		maskedPrompt,
+		revealedPositions,
+		wordIndex,
+		writtenForm
+	} from '$lib/game/words';
 	import { onMount } from 'svelte';
 	import {
 		boxLetters,
@@ -65,8 +71,11 @@
 	 */
 	const events = $derived(run?.item ? run.item.responses.length : 0);
 
+	/** The word as it is typed: see `writtenForm()`. */
+	const spelling = $derived(entry ? writtenForm(entry.word) : '');
+
 	const locked = $derived(
-		entry ? revealedPositions(entry.word.text.length, FREE_FIRST_LETTER, events) : []
+		entry ? revealedPositions(spelling.length, FREE_FIRST_LETTER, events) : []
 	);
 
 	/** The pupil's own typed guesses; blank at a position that is locked. */
@@ -84,11 +93,11 @@
 		const source = entry?.word.key ?? null;
 		if (source === trackedSource) return;
 		trackedSource = source;
-		draft = entry ? new Array(entry.word.text.length).fill('') : [];
+		draft = entry ? new Array(spelling.length).fill('') : [];
 		results = [];
 	});
 
-	const letters = $derived(entry ? boxLetters(entry.word.text, locked, draft) : []);
+	const letters = $derived(entry ? boxLetters(spelling, locked, draft) : []);
 	const filled = $derived(isFilled(letters));
 
 	/**
@@ -101,18 +110,18 @@
 	 */
 	const hintCompleted = $derived(
 		entry && run?.answered
-			? completedByHint(entry.word.text.length, FREE_FIRST_LETTER, run.item.responses.length - 1)
+			? completedByHint(spelling.length, FREE_FIRST_LETTER, run.item.responses.length - 1)
 			: false
 	);
 
 	function onletter(index: number, letter: string) {
-		draft[index] = letter;
+		draft[index] = letter.toLowerCase();
 		results = [];
 	}
 
 	function submit() {
 		if (!run || !entry || !filled) return;
-		const target = entry.word.text;
+		const target = spelling;
 		const attempt = [...letters];
 		results = markLetters(attempt, target);
 		run.respond(attempt);
@@ -140,7 +149,14 @@
 	{/if}
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={entry ? prompt : undefined}>
+<!-- The prompt makes way for the feedback card, as in the original. -->
+<LevelShell
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={entry && !run?.answered ? prompt : undefined}
+>
 	{#if run?.answered && entry}
 		<ItemFeedback
 			title={hintCompleted ? 'Jammer!' : 'Dat klopt!'}
@@ -148,11 +164,11 @@
 			description="Het juist geschreven woord is:"
 			onproceed={() => run?.proceed()}
 		>
-			<WrittenWord letters={[...entry.word.text]} />
+			<WrittenWord letters={[...spelling]} />
 		</ItemFeedback>
 	{:else if entry}
 		<div class="flex flex-col items-center gap-6">
-			<LetterBoxes {letters} {locked} {results} {onletter} />
+			<LetterBoxes {letters} {locked} {results} {onletter} onsubmit={submit} />
 			{#if filled}
 				<button
 					type="button"

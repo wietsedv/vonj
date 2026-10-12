@@ -39,6 +39,12 @@ level is finished:
 - **Story text card** for Lezen > Verhaaltjes.
 - **Dutch prompt card** for Spreken.
 
+On the per-item feedback card the top area makes way in most games: the audio
+player of the listening games is hidden (with a `v-show`, so a recording still
+playing carries on), and the writing games' prompt card and the "Resultaat" and
+timer cards of Lezen > Zinnen are removed. Only the story text card of Lezen >
+Verhaaltjes and the Dutch prompt card of Spreken stay above the feedback card.
+
 ## Progress dots
 
 A centred row of small numbered dots at the bottom of the screen, one per item

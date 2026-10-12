@@ -157,8 +157,42 @@ plaats", "Selecteer eerst alle klanken". A blocking `window.alert` is the wrong
 web equivalent: it cannot be styled, it interrupts the page, and it cannot be
 tested.
 
-The copy is kept verbatim and shown inline, next to the thing it is about. The
-row and column markings that accompanied it in the original are unchanged.
+The copy is kept verbatim and shown inline, as a white card right above the
+"Versturen" button that triggered it, where it is on screen on a phone even when
+the list above is long. The row and column markings that accompanied it in the
+original are unchanged.
+
+### Layout that the original did not need
+
+The original ran on phones only, in portrait, at one size. A few things are laid
+out differently so that they hold from a 320 px phone to a desktop, and on a
+phone on its side:
+
+- **The sound columns share the width they have**, between 3.25 and 5 rem each,
+  and their strip may be wider than the rest of the level, up to the width of
+  the screen. Six sounds fit a phone and ten fit a desktop. Past that the strip
+  scrolls on its own, fades out towards the side that has more columns, and
+  shows an arrow there to scroll it, since columns flush against the edge gave
+  no sign that a word had more sounds.
+- **The sounds on the feedback card wrap** onto a second line instead of
+  running off the card.
+- **The letter boxes are sized to the width**: a word stays on one line as long
+  as its boxes can stay 34 px wide, and a longer one wraps into lines that
+  differ by one box at most. Enter in a box submits, so the on-screen keyboard
+  that covers "Versturen" need not be closed first, and after a wrong submit
+  focus moves to the first wrong letter.
+- **The timer** shows its two lines side by side where there is room, and a
+  small copy of the seconds to the next hint stays in the top corner while the
+  card itself is scrolled out of view, as it is below a long list of sentences.
+- **The "Resultaat" card** is a few lines high at most and scrolls inside
+  beyond that, rather than repeating a whole story above the list that already
+  shows it.
+- **A reorder row's result** is a filled badge on its left edge, so a red "move
+  up" does not look like a third arrow button next to the two grey ones, and
+  every row is as tall as its buttons, locked or not.
+- **The level header** shrinks on a screen that is short rather than narrow, and
+  its icon is part of the title, so a long title wraps with the icon in front of
+  it.
 
 ### The timed games do not remember their clock
 
@@ -300,17 +334,25 @@ JSON, and do not correct Gronings content this way.
 The raw set is 66 MB and the original's runtime set is 42 MB. The web set is
 12 MB.
 
-| Media                  | Original           | Web                        |
-| ---------------------- | ------------------ | -------------------------- |
-| Animated illustrations | 36 GIF, 28 MB      | 36 animated WebP, 6.2 MB   |
-| Still illustrations    | 36 PNG, 8.9 MB     | 36 WebP, 0.9 MB            |
-| Recordings             | 392 MP3, 5.3 MB    | 360 MP3, 5.1 MB, unchanged |
-| Uncompressed masters   | 4 WAV, 24 MB       | dropped                    |
-| Praat annotations      | 4 TextGrid, 1.3 MB | dropped                    |
+| Media                  | Original           | Web                      |
+| ---------------------- | ------------------ | ------------------------ |
+| Animated illustrations | 36 GIF, 28 MB      | 36 animated WebP, 6.2 MB |
+| Still illustrations    | 36 PNG, 8.9 MB     | 36 WebP, 0.9 MB          |
+| Recordings             | 392 MP3, 5.3 MB    | 360 MP3, 7.4 MB          |
+| Uncompressed masters   | 4 WAV, 24 MB       | dropped                  |
+| Praat annotations      | 4 TextGrid, 1.3 MB | dropped                  |
 
 Both image formats are re-encoded to 512x512, which is larger than the biggest
 card the app ever renders. The quality settings were chosen as the lowest that
 stays visually indistinguishable from the source on this line art.
+
+The story recordings are copied unchanged. The 43 sound and 313 word recordings
+are not: they end right on the sound, and some audio outputs, Bluetooth
+headphones above all, lose the last fraction of a second of a clip when it
+stops. That made `t`, whose whole burst sits in its last 0.15 s, silent, and cut
+`b` short, which is still at full volume on its last sample. Each of them gets a
+15 ms fade-out and 0.25 s of silence and is re-encoded at 96 kbps, against the
+source's 64, so the extra generation is not audible.
 
 Animated WebP was picked over muted looping video because it stays an `<img>`:
 no autoplay policy to work around, no poster image, and one file instead of two.

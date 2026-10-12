@@ -53,7 +53,7 @@ const button = (container: HTMLElement, label: string) =>
 	[...container.querySelectorAll('main button')].find((candidate) => text(candidate) === label);
 
 const columns = (container: HTMLElement) => [
-	...container.querySelectorAll('main ol.flex.gap-3 > li')
+	...container.querySelectorAll('main li:has(> [role="group"])')
 ];
 
 const field = (column: Element) => column.querySelector('button')!;

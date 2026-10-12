@@ -130,6 +130,27 @@ describe('the clock', () => {
 		expect(stored().responses).toHaveLength(0);
 	});
 
+	it('keeps the typed letters, their marking, the given letters and the clock on a wrong submit', async () => {
+		seed(writingItems([entry]));
+		const { container } = await open();
+		const target = stored().target;
+		advance(secondsPerStep * 1000 + 3000);
+		const clock = text(container.querySelector('main')!).match(/\d\d:\d\d/)![0];
+
+		const boxes = inputsOf(container);
+		for (let i = 1; i < boxes.length; i++) typeInto(boxes[i], otherLetter(target[i]));
+		tap(button(container, 'Versturen')!);
+
+		// This used to reset the whole item: blank boxes, no marking, the letter
+		// the clock had given taken back, and the clock started over.
+		const after = inputsOf(container);
+		expect(after[0].readOnly).toBe(true);
+		expect(after[0].value).toBe(target[0]);
+		expect(after.slice(1).map((box) => box.value)).toEqual(target.slice(1).map(otherLetter));
+		expect(after.slice(1).every((box) => box.getAttribute('aria-invalid') === 'true')).toBe(true);
+		expect(text(container.querySelector('main')!)).toContain(clock);
+	});
+
 	it('does not hand out a hint on a wrong submit - only the clock does', async () => {
 		seed(writingItems([entry]));
 		const { container } = await open();

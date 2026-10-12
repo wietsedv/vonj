@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+/*
+ * A screen that is short rather than narrow: a phone on its side. The level
+ * header shrinks there, or it would take more than half the height.
+ */
+@custom-variant short (@media (max-height: 30rem));
+
 @theme {
 	--color-primary: #e31414;
 	--color-secondary: #0087d2;

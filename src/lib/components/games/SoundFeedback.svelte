@@ -49,7 +49,8 @@
 
 <ItemFeedback {title} {tone} description="De juiste uitspraak is:" {onproceed}>
 	<div class="flex flex-col items-center gap-3">
-		<ol class="flex gap-2">
+		<!-- Wraps onto a second row for a long word, rather than running off the card. -->
+		<ol class="flex flex-wrap justify-center gap-2">
 			{#each sounds as sound, index (index)}
 				<li class="w-14">
 					<SoundField

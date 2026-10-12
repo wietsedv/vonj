@@ -27,6 +27,7 @@
 	import type { RowMarker } from '$lib/components/level/ReorderList.svelte';
 	import Timer from '$lib/components/level/Timer.svelte';
 	import { loadStory } from '$lib/content';
+	import { animationUrl } from '$lib/content/assets';
 	import { LevelRun } from '$lib/game/level.svelte';
 	import { gameRules } from '$lib/game/rules';
 	import {
@@ -47,6 +48,8 @@
 	let run = $state<LevelRun | null>(null);
 	/** Row key to Gronings text, computed from the story once it is loaded. */
 	let index = $state(new Map<string, string>());
+	/** The story's animated illustration, for the level result like every other level. */
+	let animation = $state<string | null>(null);
 	/** `rules.secondsPerStep`, read once the rules are known. Never hardcoded. */
 	let secondsPerStep = $state(0);
 
@@ -57,6 +60,7 @@
 
 		secondsPerStep = rules.secondsPerStep;
 		index = rowIndex(story);
+		animation = animationUrl(story.image);
 		run = new LevelRun({ level, rules, generate: () => sentenceItems(story) });
 	});
 
@@ -139,7 +143,13 @@
 	</div>
 {/snippet}
 
-<LevelShell {category} {section} {run} top={run?.item && !run.answered ? topArea : undefined}>
+<LevelShell
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={run?.item && !run.answered ? topArea : undefined}
+>
 	{#if run?.item && run.answered}
 		<SentenceFeedback
 			item={run.item}

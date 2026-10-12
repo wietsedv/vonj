@@ -41,7 +41,8 @@
 	onMount(() => heading?.focus());
 </script>
 
-<div class="mx-auto max-w-md rounded-2xl bg-white px-6 py-10 text-center shadow-lg">
+<!-- As wide as the cards above it, so the edges of the screen line up. -->
+<div class="rounded-2xl bg-white px-6 py-10 text-center shadow-lg">
 	<h2 bind:this={heading} tabindex="-1" class="text-3xl font-bold outline-none">
 		<span class="inline-flex items-center gap-2">
 			{title}

@@ -41,7 +41,7 @@
 	import { gameRules } from '$lib/game/rules';
 	import { Countdown } from '$lib/game/timer.svelte';
 	import { soundItems, wordIndex } from '$lib/game/words';
-	import { onDestroy, onMount } from 'svelte';
+	import { onDestroy, onMount, untrack } from 'svelte';
 	import { SoundAnswer } from './soundAnswer.svelte';
 	import SoundFeedback from './SoundFeedback.svelte';
 	import { resumeGivenCount } from './soundGame';
@@ -90,6 +90,20 @@
 	let timedOut = $state(false);
 
 	/**
+	 * The item the columns and the clock below belong to. A key rather than
+	 * the item itself, because only a change of item may reset them: the
+	 * effect used to read `run.answered` and the item's responses, so every
+	 * wrong submit re-ran it, cleared the choices and their marking, locked
+	 * the right leading columns as if the clock had given them away, and
+	 * restarted the clock.
+	 */
+	const itemKey = $derived(
+		run && item && answer && secondsPerStep
+			? `${run.items.length}:${run.index}:${item.source}`
+			: null
+	);
+
+	/**
 	 * A fresh item: reset the answer, seeded with whatever the clock already
 	 * gave away on an earlier visit (`resumeGivenCount()`), and start a new
 	 * clock for the sounds still left - 15 seconds per remaining sound. The
@@ -99,55 +113,61 @@
 	 * on its last, unproceeded item looks like.
 	 */
 	$effect(() => {
-		if (!run || !item || !answer || !secondsPerStep || run.answered) {
+		if (!itemKey) {
 			countdown = null;
 			return;
 		}
-		const activeRun = run;
-		const activeItem = item;
-		const activeAnswer = answer;
-
-		const given = resumeGivenCount(activeItem);
-		const locked = activeItem.target.map((_, index) => index < given);
-		activeAnswer.reset(activeItem, locked);
-		timedOut = false;
-
-		const remaining = activeItem.target.length - given;
-		if (remaining <= 0) {
-			countdown = null;
-			return;
-		}
-
-		const clock = new Countdown({
-			secondsPerStep,
-			steps: remaining,
-			onexpire: () => {
-				const index = activeAnswer.locked.findIndex((isLocked) => !isLocked);
-				if (index === -1) return;
-
-				// The clock gives the next sound away, plays it, and locks it in.
-				activeAnswer.reveal(index);
-				activeAnswer.replay(index);
-
-				// Unique to this section (see the file comment above): an expiry
-				// records a response, so running the clock down costs score here.
-				activeRun.respond(activeAnswer.answer());
-
-				if (activeRun.answered) {
-					// The sound just given away was the last one, so the answer is now
-					// complete and the item submits itself. The original records a
-					// further response on top of the expiry's own one for this last
-					// hint, which this reproduces.
-					activeRun.respond(activeAnswer.answer());
-					timedOut = true;
-					activeAnswer.playAsCorrect();
-				}
+		return untrack(() => {
+			if (!run || !item || !answer || run.answered) {
+				countdown = null;
+				return;
 			}
-		});
-		countdown = clock;
-		clock.start();
+			const activeRun = run;
+			const activeItem = item;
+			const activeAnswer = answer;
 
-		return () => clock.destroy();
+			const given = resumeGivenCount(activeItem);
+			const locked = activeItem.target.map((_, index) => index < given);
+			activeAnswer.reset(activeItem, locked);
+			timedOut = false;
+
+			const remaining = activeItem.target.length - given;
+			if (remaining <= 0) {
+				countdown = null;
+				return;
+			}
+
+			const clock = new Countdown({
+				secondsPerStep,
+				steps: remaining,
+				onexpire: () => {
+					const index = activeAnswer.locked.findIndex((isLocked) => !isLocked);
+					if (index === -1) return;
+
+					// The clock gives the next sound away, plays it, and locks it in.
+					activeAnswer.reveal(index);
+					activeAnswer.replay(index);
+
+					// Unique to this section (see the file comment above): an expiry
+					// records a response, so running the clock down costs score here.
+					activeRun.respond(activeAnswer.answer());
+
+					if (activeRun.answered) {
+						// The sound just given away was the last one, so the answer is now
+						// complete and the item submits itself. The original records a
+						// further response on top of the expiry's own one for this last
+						// hint, which this reproduces.
+						activeRun.respond(activeAnswer.answer());
+						timedOut = true;
+						activeAnswer.playAsCorrect();
+					}
+				}
+			});
+			countdown = clock;
+			clock.start();
+
+			return () => clock.destroy();
+		});
 	});
 
 	function submit() {
@@ -158,23 +178,35 @@
 	}
 </script>
 
-<!-- The player sits next to the timer here, per docs/original-app/level-shell.md. -->
+<!--
+  The player sits next to the timer here, per docs/original-app/level-shell.md:
+  side by side at every width and equally tall, so the player is as big as in
+  the untimed game and the columns start as high up as they can.
+-->
 {#snippet top()}
-	<div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-		{#if entry}
+	{#if entry}
+		<div class="grid gap-3 {countdown ? 'grid-cols-2' : ''}">
 			<AudioPlayer src={wordUrl(entry.word)} autoplay />
-		{/if}
-		{#if countdown}
-			<Timer
-				totalSecondsLeft={countdown.totalSecondsLeft}
-				secondsUntilHint={countdown.secondsLeft}
-				timeUp={countdown.timeUp}
-			/>
-		{/if}
-	</div>
+			{#if countdown}
+				<Timer
+					totalSecondsLeft={countdown.totalSecondsLeft}
+					secondsUntilHint={countdown.secondsLeft}
+					timeUp={countdown.timeUp}
+				/>
+			{/if}
+		</div>
+	{/if}
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={entry && !run?.answered ? top : undefined}>
+<!-- Hidden, not removed, behind the feedback card, as in the original. -->
+<LevelShell
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={entry ? top : undefined}
+	hideTop={run?.answered ?? false}
+>
 	{#if run?.answered && item && answer}
 		<SoundFeedback
 			title={timedOut ? 'Jammer!' : 'Dat klopt!'}

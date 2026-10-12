@@ -63,7 +63,7 @@ const button = (container: HTMLElement, label: string) =>
 	[...container.querySelectorAll('main button')].find((candidate) => text(candidate) === label);
 
 const columns = (container: HTMLElement) => [
-	...container.querySelectorAll('main ol.flex.gap-3 > li')
+	...container.querySelectorAll('main li:has(> [role="group"])')
 ];
 
 const field = (column: Element) => column.querySelector('button')!;
@@ -151,6 +151,37 @@ describe('the clock', () => {
 		// One response per expiry, plus one more for the auto-submit itself.
 		expect(stored().responses).toHaveLength(target.length + 1);
 		expect(stored().responses.at(-1)).toEqual(target);
+	});
+
+	it('keeps the choices, their marking and the clock on a wrong manual submit', async () => {
+		seed(soundItems([entry]));
+		const { container } = await open();
+		const target = stored().target;
+		advance(3000);
+		const clock = text(container.querySelector('main > div')!).match(/\d\d:\d\d/)![0];
+
+		// The first column right, every other one wrong.
+		const chosen = columns(container).map((column, index) => {
+			const pick = candidateButtons(column).find((b) =>
+				index === 0 ? text(b) === target[index] : text(b) !== target[index]
+			)!;
+			tap(pick);
+			return text(pick);
+		});
+		tap(button(container, 'Versturen')!);
+
+		// This used to reset the whole item: the choices cleared, no marking,
+		// the right first column locked as if the clock had given it away, and
+		// the clock started over.
+		const after = columns(container);
+		expect(after.map((column) => text(field(column)))).toEqual(chosen);
+		expect(after.map((column) => field(column).getAttribute('aria-label'))).toEqual(
+			chosen.map(
+				(sound, index) => `Klank "${sound}" opnieuw afspelen, ${index === 0 ? 'goed' : 'fout'}`
+			)
+		);
+		expect(candidateButtons(after[0]).every((b) => !b.disabled)).toBe(true);
+		expect(text(container.querySelector('main > div')!)).toContain(clock);
 	});
 
 	it('plays only the word recording on a wrong manual submit, not the chosen sounds', async () => {
