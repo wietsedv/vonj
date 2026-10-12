@@ -15,7 +15,7 @@
 	const colours: Record<DotState, string> = {
 		current: 'bg-secondary text-white ring-2 ring-white',
 		correct: 'bg-accent text-white',
-		wrong: 'bg-primary text-white',
+		wrong: 'bg-wrong text-white',
 		neutral: 'bg-gray-300 text-black'
 	};
 

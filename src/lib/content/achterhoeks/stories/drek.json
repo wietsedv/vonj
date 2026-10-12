@@ -1,0 +1,1893 @@
+{
+	"key": "drek",
+	"audio": "drek",
+	"image": "drek",
+	"fragments": [
+		{
+			"key": "drek-1",
+			"time": [
+				2.8521021536736804,
+				10.395245517915422
+			],
+			"image": "drek-1",
+			"sentences": [
+				{
+					"key": "drek-1-1",
+					"text": "Zee gingen met de klasse naor de Wadden, aover en deur de drek lopen.",
+					"time": [
+						2.8521021536736804,
+						6.625024401705265
+					],
+					"words": [
+						{
+							"key": "drek-1-1-1",
+							"text": "zee",
+							"dutch": "Ze",
+							"sounds": [
+								"s",
+								"i"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "drek-1-1-2",
+							"text": "gingen",
+							"dutch": "gingen",
+							"sounds": [
+								"G!",
+								"i",
+								"ng",
+								"e"
+							],
+							"audio": "gingen"
+						},
+						{
+							"key": "drek-1-1-3",
+							"text": "met",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "drek-1-1-5",
+							"text": "klasse",
+							"dutch": "klas",
+							"sounds": [
+								"k",
+								"l",
+								"a",
+								"s"
+							],
+							"audio": "klasse"
+						},
+						{
+							"key": "drek-1-1-6",
+							"text": "naor",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "drek-1-1-8",
+							"text": "wadden",
+							"dutch": "Waddendijk",
+							"sounds": [
+								"w",
+								"a",
+								"d",
+								"n"
+							],
+							"audio": "wadden"
+						},
+						{
+							"key": "drek-1-1-9",
+							"text": "aover",
+							"dutch": "over",
+							"sounds": [
+								"oa",
+								"v",
+								"e",
+								"r"
+							],
+							"audio": "aover"
+						},
+						{
+							"key": "drek-1-1-10",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "drek-1-1-13",
+							"text": "drek",
+							"dutch": "modder",
+							"sounds": [
+								"d",
+								"r",
+								"e",
+								"k"
+							],
+							"audio": "drek"
+						}
+					]
+				},
+				{
+					"key": "drek-1-2",
+					"text": "In kotte bokse en op blote vuute vlaogen ze aover de diek.",
+					"time": [
+						6.625024401705265,
+						10.395245517915422
+					],
+					"words": [
+						{
+							"key": "drek-1-2-15",
+							"text": "in",
+							"dutch": "In",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-1-2-16",
+							"text": "kotte",
+							"dutch": "korte",
+							"sounds": [
+								"k",
+								"o",
+								"t",
+								"e"
+							],
+							"audio": "kotte"
+						},
+						{
+							"key": "drek-1-2-17",
+							"text": "bokse",
+							"dutch": "broek",
+							"sounds": [
+								"b",
+								"o",
+								"k",
+								"s",
+								"e"
+							],
+							"audio": "bokse"
+						},
+						{
+							"key": "drek-1-2-18",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "drek-1-2-20",
+							"text": "blote",
+							"dutch": "blote",
+							"sounds": [
+								"b",
+								"l",
+								"oo",
+								"t",
+								"e"
+							],
+							"audio": "blote"
+						},
+						{
+							"key": "drek-1-2-21",
+							"text": "vuute",
+							"dutch": "voeten",
+							"sounds": [
+								"v",
+								"uu",
+								"t",
+								"e"
+							],
+							"audio": "vuute"
+						},
+						{
+							"key": "drek-1-2-22",
+							"text": "vlaogen",
+							"dutch": "vlogen",
+							"sounds": [
+								"v",
+								"l",
+								"oa",
+								"G!",
+								"e"
+							],
+							"audio": "vlaogen"
+						},
+						{
+							"key": "drek-1-2-23",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-1-2-24",
+							"text": "aover",
+							"dutch": "over",
+							"sounds": [
+								"oa",
+								"v",
+								"e",
+								"r"
+							],
+							"audio": "aover"
+						},
+						{
+							"key": "drek-1-2-26",
+							"text": "diek",
+							"dutch": "dijk",
+							"sounds": [
+								"d",
+								"i",
+								"k"
+							],
+							"audio": "diek"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-2",
+			"time": [
+				10.86,
+				14.801208227947239
+			],
+			"image": "drek-2",
+			"sentences": [
+				{
+					"key": "drek-2-3",
+					"text": "De leerzen bleven onder an de diek liggn.",
+					"time": [
+						10.86,
+						12.7787700565276
+					],
+					"words": [
+						{
+							"key": "drek-2-3-29",
+							"text": "bleven",
+							"dutch": "bleven",
+							"sounds": [
+								"b",
+								"l",
+								"ee",
+								"v",
+								"e"
+							],
+							"audio": "bleven"
+						},
+						{
+							"key": "drek-2-3-30",
+							"text": "onder",
+							"dutch": "onder",
+							"sounds": [
+								"o",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "onder"
+						},
+						{
+							"key": "drek-2-3-31",
+							"text": "an",
+							"dutch": "aan",
+							"sounds": [
+								"a",
+								"n"
+							],
+							"audio": "an"
+						},
+						{
+							"key": "drek-2-3-33",
+							"text": "diek",
+							"dutch": "dijk",
+							"sounds": [
+								"d",
+								"i",
+								"k"
+							],
+							"audio": "diek"
+						},
+						{
+							"key": "drek-2-3-34",
+							"text": "liggn",
+							"dutch": "liggen",
+							"sounds": [
+								"l",
+								"i",
+								"G!",
+								"n"
+							],
+							"audio": "liggn"
+						}
+					]
+				},
+				{
+					"key": "drek-2-4",
+					"text": "Dee bleven toch maor in de drek stekkn.",
+					"time": [
+						13.1,
+						14.801208227947239
+					],
+					"words": [
+						{
+							"key": "drek-2-4-36",
+							"text": "bleven",
+							"dutch": "bleven",
+							"sounds": [
+								"b",
+								"l",
+								"ee",
+								"v",
+								"e"
+							],
+							"audio": "bleven"
+						},
+						{
+							"key": "drek-2-4-37",
+							"text": "toch",
+							"dutch": "toch",
+							"sounds": [
+								"t",
+								"o",
+								"G!"
+							],
+							"audio": "toch"
+						},
+						{
+							"key": "drek-2-4-38",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "drek-2-4-39",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-2-4-41",
+							"text": "drek",
+							"dutch": "modder",
+							"sounds": [
+								"d",
+								"r",
+								"e",
+								"k"
+							],
+							"audio": "drek"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-3",
+			"time": [
+				15.664675709684074,
+				24.466219318153634
+			],
+			"image": "drek-3",
+			"sentences": [
+				{
+					"key": "drek-3-5",
+					"text": "Eerst was ’t nog gruun, maar veurbi-j ’t wilgenholt werd ’t al vlot zompeg.",
+					"time": [
+						15.664675709684074,
+						19.64160577640786
+					],
+					"words": [
+						{
+							"key": "drek-3-5-44",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "drek-3-5-46",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "drek-3-5-47",
+							"text": "gruun",
+							"dutch": "groen",
+							"sounds": [
+								"G!",
+								"r",
+								"uu",
+								"n"
+							],
+							"audio": "gruun"
+						},
+						{
+							"key": "drek-3-5-51",
+							"text": "wilgenholt",
+							"dutch": "rijshout",
+							"sounds": [
+								"w",
+								"i",
+								"l",
+								"G!",
+								"n",
+								"h",
+								"o",
+								"l",
+								"t"
+							],
+							"audio": "wilgenholt"
+						},
+						{
+							"key": "drek-3-5-52",
+							"text": "werd",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"e",
+								"d"
+							],
+							"audio": "werd"
+						},
+						{
+							"key": "drek-3-5-55",
+							"text": "vlot",
+							"dutch": "snel",
+							"sounds": [
+								"f",
+								"l",
+								"o",
+								"t"
+							],
+							"audio": "vlot"
+						},
+						{
+							"key": "drek-3-5-56",
+							"text": "zompeg",
+							"dutch": "modderig",
+							"sounds": [
+								"s",
+								"o",
+								"m",
+								"p",
+								"e",
+								"G!"
+							],
+							"audio": "zompeg"
+						}
+					]
+				},
+				{
+					"key": "drek-3-6",
+					"text": "Noe stonden zee veur ene grote grieze vlakte, met völle klei en slik.",
+					"time": [
+						20.298279846719236,
+						24.466219318153634
+					],
+					"words": [
+						{
+							"key": "drek-3-6-57",
+							"text": "noe",
+							"dutch": "Nu",
+							"sounds": [
+								"n",
+								"oe"
+							],
+							"audio": "noe"
+						},
+						{
+							"key": "drek-3-6-58",
+							"text": "stonden",
+							"dutch": "stonden",
+							"sounds": [
+								"s",
+								"t",
+								"o",
+								"n"
+							],
+							"audio": "stonden"
+						},
+						{
+							"key": "drek-3-6-59",
+							"text": "zee",
+							"dutch": "ze",
+							"sounds": [
+								"s",
+								"i"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "drek-3-6-61",
+							"text": "ene",
+							"dutch": "één",
+							"sounds": [
+								"ee",
+								"n",
+								"e"
+							],
+							"audio": "ene"
+						},
+						{
+							"key": "drek-3-6-62",
+							"text": "grote",
+							"dutch": "grote",
+							"sounds": [
+								"G!",
+								"r",
+								"oo",
+								"t",
+								"e"
+							],
+							"audio": "grote"
+						},
+						{
+							"key": "drek-3-6-63",
+							"text": "grieze",
+							"dutch": "grijze",
+							"sounds": [
+								"G!",
+								"r",
+								"i",
+								"z",
+								"e"
+							],
+							"audio": "grieze"
+						},
+						{
+							"key": "drek-3-6-64",
+							"text": "vlakte",
+							"dutch": "vlakte",
+							"sounds": [
+								"v",
+								"l",
+								"a",
+								"k",
+								"t",
+								"e"
+							],
+							"audio": "vlakte"
+						},
+						{
+							"key": "drek-3-6-65",
+							"text": "met",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "drek-3-6-67",
+							"text": "klei",
+							"dutch": "klei",
+							"sounds": [
+								"k",
+								"l",
+								"ei"
+							],
+							"audio": "klei"
+						},
+						{
+							"key": "drek-3-6-68",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "drek-3-6-69",
+							"text": "slik",
+							"dutch": "slik",
+							"sounds": [
+								"s",
+								"l",
+								"i",
+								"k"
+							],
+							"audio": "slik"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-4",
+			"time": [
+				25.05,
+				35.15684068728754
+			],
+			"image": "drek-4",
+			"sentences": [
+				{
+					"key": "drek-4-7",
+					"text": "Daor gao’w aoverhen lopen’, zei de meister.",
+					"time": [
+						25.05,
+						27.01720421686023
+					],
+					"words": [
+						{
+							"key": "drek-4-7-70",
+							"text": "daor",
+							"dutch": "Daar",
+							"sounds": [
+								"d",
+								"oa",
+								"r"
+							],
+							"audio": "daor"
+						},
+						{
+							"key": "drek-4-7-72",
+							"text": "aoverhen",
+							"dutch": "overheen",
+							"sounds": [
+								"oa",
+								"v",
+								"e",
+								"r",
+								"i",
+								"n"
+							],
+							"audio": "aoverhen"
+						},
+						{
+							"key": "drek-4-7-74",
+							"text": "zei",
+							"dutch": "zei",
+							"sounds": [
+								"z",
+								"ei"
+							],
+							"audio": "zei"
+						},
+						{
+							"key": "drek-4-7-76",
+							"text": "meister",
+							"dutch": "meester",
+							"sounds": [
+								"m",
+								"ei",
+								"s",
+								"t",
+								"e",
+								"r"
+							],
+							"audio": "meister"
+						}
+					]
+				},
+				{
+					"key": "drek-4-8",
+					"text": "Gin mense had d’r oorne naor, maor hi-j leep al veurop.",
+					"time": [
+						27.7,
+						30.21
+					],
+					"words": [
+						{
+							"key": "drek-4-8-77",
+							"text": "gin",
+							"dutch": null,
+							"sounds": [
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "gin"
+						},
+						{
+							"key": "drek-4-8-81",
+							"text": "oorne",
+							"dutch": "zin",
+							"sounds": [
+								"oo",
+								"r",
+								"n",
+								"e"
+							],
+							"audio": "oorne"
+						},
+						{
+							"key": "drek-4-8-82",
+							"text": "naor",
+							"dutch": "in",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "drek-4-8-83",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "drek-4-8-85",
+							"text": "leep",
+							"dutch": "liep",
+							"sounds": [
+								"l",
+								"i",
+								"p"
+							],
+							"audio": "leep"
+						}
+					]
+				},
+				{
+					"key": "drek-4-9",
+					"text": "Hi-j waarschuwen ok nog, dat zee deur mossen loopn.",
+					"time": [
+						30.79,
+						33.02189008642947
+					],
+					"words": [
+						{
+							"key": "drek-4-9-89",
+							"text": "waarschuwen",
+							"dutch": "waarschuwde",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"s",
+								"G!",
+								"uu",
+								"w",
+								"n"
+							],
+							"audio": "waarschuwen"
+						},
+						{
+							"key": "drek-4-9-91",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "drek-4-9-92",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "drek-4-9-93",
+							"text": "zee",
+							"dutch": "ze",
+							"sounds": [
+								"s",
+								"i"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "drek-4-9-95",
+							"text": "mossen",
+							"dutch": "moesten",
+							"sounds": [
+								"m",
+								"o",
+								"s",
+								"n"
+							],
+							"audio": "mossen"
+						}
+					]
+				},
+				{
+					"key": "drek-4-10",
+					"text": "Anders zaogen ze vaste in de drek.",
+					"time": [
+						33.34,
+						35.15684068728754
+					],
+					"words": [
+						{
+							"key": "drek-4-10-97",
+							"text": "anders",
+							"dutch": "Anders",
+							"sounds": [
+								"a",
+								"n",
+								"d",
+								"e",
+								"r",
+								"s"
+							],
+							"audio": "anders"
+						},
+						{
+							"key": "drek-4-10-98",
+							"text": "zaogen",
+							"dutch": "zogen",
+							"sounds": [
+								"s",
+								"oa",
+								"G!",
+								"e"
+							],
+							"audio": "zaogen"
+						},
+						{
+							"key": "drek-4-10-99",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-4-10-100",
+							"text": "vaste",
+							"dutch": "vast",
+							"sounds": [
+								"v",
+								"a",
+								"s",
+								"t",
+								"e"
+							],
+							"audio": "vaste"
+						},
+						{
+							"key": "drek-4-10-101",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-4-10-103",
+							"text": "drek",
+							"dutch": "modder",
+							"sounds": [
+								"d",
+								"r",
+								"e",
+								"k"
+							],
+							"audio": "drek"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-5",
+			"time": [
+				35.96,
+				40.745492224747224
+			],
+			"image": "drek-5",
+			"sentences": [
+				{
+					"key": "drek-5-11",
+					"text": "De blagen probeerden zich eerst nog schone te hollen.",
+					"time": [
+						35.96,
+						38.15525876988245
+					],
+					"words": [
+						{
+							"key": "drek-5-11-105",
+							"text": "blagen",
+							"dutch": "kinderen",
+							"sounds": [
+								"b",
+								"l",
+								"a",
+								"G!",
+								"n"
+							],
+							"audio": "blagen"
+						},
+						{
+							"key": "drek-5-11-106",
+							"text": "probeerden",
+							"dutch": "probeerden",
+							"sounds": [
+								"p",
+								"r",
+								"o",
+								"b",
+								"ee",
+								"r",
+								"d",
+								"n"
+							],
+							"audio": "probeerden"
+						},
+						{
+							"key": "drek-5-11-107",
+							"text": "zich",
+							"dutch": "zich",
+							"sounds": [
+								"z",
+								"i",
+								"G!"
+							],
+							"audio": "zich"
+						},
+						{
+							"key": "drek-5-11-109",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "drek-5-11-110",
+							"text": "schone",
+							"dutch": "schoon",
+							"sounds": [
+								"s",
+								"G!",
+								"oo",
+								"n",
+								"e"
+							],
+							"audio": "schone"
+						},
+						{
+							"key": "drek-5-11-112",
+							"text": "hollen",
+							"dutch": "houden",
+							"sounds": [
+								"h",
+								"o",
+								"l",
+								"n"
+							],
+							"audio": "hollen"
+						}
+					]
+				},
+				{
+					"key": "drek-5-12",
+					"text": "Smeer poetsen ze vot met euren zaddook.",
+					"time": [
+						38.55821026135964,
+						40.745492224747224
+					],
+					"words": [
+						{
+							"key": "drek-5-12-114",
+							"text": "poetsen",
+							"dutch": "veegden",
+							"sounds": [
+								"p",
+								"oe",
+								"t",
+								"s",
+								"e"
+							],
+							"audio": "poetsen"
+						},
+						{
+							"key": "drek-5-12-115",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-5-12-116",
+							"text": "vot",
+							"dutch": "weg",
+							"sounds": [
+								"v",
+								"o",
+								"t"
+							],
+							"audio": "vot"
+						},
+						{
+							"key": "drek-5-12-117",
+							"text": "met",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "drek-5-12-119",
+							"text": "zaddook",
+							"dutch": "zakdoek",
+							"sounds": [
+								"z",
+								"a",
+								"d",
+								"oo",
+								"k"
+							],
+							"audio": "zaddook"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-6",
+			"time": [
+				41.33,
+				48.66272037016309
+			],
+			"image": "drek-6",
+			"sentences": [
+				{
+					"key": "drek-6-13",
+					"text": "Toon ’t als maor slimmer woddn, leetn ze zich langoet in de drek vallen.",
+					"time": [
+						41.33,
+						44.69887314407168
+					],
+					"words": [
+						{
+							"key": "drek-6-13-120",
+							"text": "toon",
+							"dutch": "Toen",
+							"sounds": [
+								"t",
+								"oe",
+								"n"
+							],
+							"audio": "toon"
+						},
+						{
+							"key": "drek-6-13-122",
+							"text": "als",
+							"dutch": "nog",
+							"sounds": [
+								"a",
+								"l",
+								"s"
+							],
+							"audio": "als"
+						},
+						{
+							"key": "drek-6-13-123",
+							"text": "maor",
+							"dutch": null,
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "drek-6-13-124",
+							"text": "slimmer",
+							"dutch": "erger",
+							"sounds": [
+								"s",
+								"l",
+								"i",
+								"m",
+								"e",
+								"r"
+							],
+							"audio": "slimmer"
+						},
+						{
+							"key": "drek-6-13-125",
+							"text": "woddn",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"o",
+								"d",
+								"n"
+							],
+							"audio": "woddn"
+						},
+						{
+							"key": "drek-6-13-127",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-6-13-128",
+							"text": "zich",
+							"dutch": "zich",
+							"sounds": [
+								"z",
+								"i",
+								"G!"
+							],
+							"audio": "zich"
+						},
+						{
+							"key": "drek-6-13-129",
+							"text": "langoet",
+							"dutch": "languit",
+							"sounds": [
+								"l",
+								"a",
+								"ng",
+								"uu",
+								"t"
+							],
+							"audio": "langoet"
+						},
+						{
+							"key": "drek-6-13-130",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-6-13-132",
+							"text": "drek",
+							"dutch": "modder",
+							"sounds": [
+								"d",
+								"r",
+								"e",
+								"k"
+							],
+							"audio": "drek"
+						},
+						{
+							"key": "drek-6-13-133",
+							"text": "vallen",
+							"dutch": "vallen",
+							"sounds": [
+								"f",
+								"a",
+								"l",
+								"n"
+							],
+							"audio": "vallen"
+						}
+					]
+				},
+				{
+					"key": "drek-6-14",
+					"text": "Ze mossen mekare d’r uut trekken en zagen d’r uut as smeerdeers.",
+					"time": [
+						45.16,
+						48.66272037016309
+					],
+					"words": [
+						{
+							"key": "drek-6-14-134",
+							"text": "ze",
+							"dutch": "Ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-6-14-135",
+							"text": "mossen",
+							"dutch": "moesten",
+							"sounds": [
+								"m",
+								"o",
+								"s",
+								"n"
+							],
+							"audio": "mossen"
+						},
+						{
+							"key": "drek-6-14-136",
+							"text": "mekare",
+							"dutch": "elkaar",
+							"sounds": [
+								"m",
+								"e",
+								"k",
+								"a",
+								"r",
+								"e"
+							],
+							"audio": "mekare"
+						},
+						{
+							"key": "drek-6-14-138",
+							"text": "uut",
+							"dutch": "uit",
+							"sounds": [
+								"uu",
+								"t"
+							],
+							"audio": "uut"
+						},
+						{
+							"key": "drek-6-14-140",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "drek-6-14-141",
+							"text": "zagen",
+							"dutch": "zagen",
+							"sounds": [
+								"z",
+								"a",
+								"G!",
+								"n"
+							],
+							"audio": "zagen"
+						},
+						{
+							"key": "drek-6-14-143",
+							"text": "uut",
+							"dutch": "uit",
+							"sounds": [
+								"uu",
+								"t"
+							],
+							"audio": "uut"
+						},
+						{
+							"key": "drek-6-14-144",
+							"text": "as",
+							"dutch": "als",
+							"sounds": [
+								"a",
+								"s"
+							],
+							"audio": "as"
+						},
+						{
+							"key": "drek-6-14-145",
+							"text": "smeerdeers",
+							"dutch": "vuilakken",
+							"sounds": [
+								"s",
+								"m",
+								"ee",
+								"r",
+								"d",
+								"ee",
+								"r",
+								"s"
+							],
+							"audio": "smeerdeers"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-7",
+			"time": [
+				49.06,
+				58.52513267554627
+			],
+			"image": "drek-7",
+			"sentences": [
+				{
+					"key": "drek-7-15",
+					"text": "’t Water spatten hoge op en ’t duren neet lange of de modder zat ze in de oorne.",
+					"time": [
+						49.06,
+						53.247852745137145
+					],
+					"words": [
+						{
+							"key": "drek-7-15-147",
+							"text": "water",
+							"dutch": "water",
+							"sounds": [
+								"w",
+								"a",
+								"t",
+								"e",
+								"r"
+							],
+							"audio": "water"
+						},
+						{
+							"key": "drek-7-15-149",
+							"text": "hoge",
+							"dutch": "hoog",
+							"sounds": [
+								"h",
+								"oo",
+								"G!",
+								"e"
+							],
+							"audio": "hoge"
+						},
+						{
+							"key": "drek-7-15-151",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "drek-7-15-153",
+							"text": "duren",
+							"dutch": "duurde",
+							"sounds": [
+								"d",
+								"uu",
+								"r",
+								"n"
+							],
+							"audio": "duren"
+						},
+						{
+							"key": "drek-7-15-154",
+							"text": "neet",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"ee",
+								"t"
+							],
+							"audio": "neet"
+						},
+						{
+							"key": "drek-7-15-155",
+							"text": "lange",
+							"dutch": "lang",
+							"sounds": [
+								"l",
+								"a",
+								"ng",
+								"e"
+							],
+							"audio": "lange"
+						},
+						{
+							"key": "drek-7-15-156",
+							"text": "of",
+							"dutch": "of",
+							"sounds": [
+								"o",
+								"f"
+							],
+							"audio": "of"
+						},
+						{
+							"key": "drek-7-15-158",
+							"text": "modder",
+							"dutch": "modder",
+							"sounds": [
+								"m",
+								"o",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "modder"
+						},
+						{
+							"key": "drek-7-15-159",
+							"text": "zat",
+							"dutch": "zat",
+							"sounds": [
+								"s",
+								"a",
+								"t"
+							],
+							"audio": "zat"
+						},
+						{
+							"key": "drek-7-15-160",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-7-15-161",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-7-15-163",
+							"text": "oorne",
+							"dutch": "oren",
+							"sounds": [
+								"oo",
+								"r",
+								"n",
+								"e"
+							],
+							"audio": "oorne"
+						}
+					]
+				},
+				{
+					"key": "drek-7-16",
+					"text": "Ie konden amper meer zeen, dat ’t kinder waren.",
+					"time": [
+						53.73,
+						55.71113635162729
+					],
+					"words": [
+						{
+							"key": "drek-7-16-164",
+							"text": "ie",
+							"dutch": "Je",
+							"sounds": [
+								"i"
+							],
+							"audio": "ie"
+						},
+						{
+							"key": "drek-7-16-165",
+							"text": "konden",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "konden"
+						},
+						{
+							"key": "drek-7-16-166",
+							"text": "amper",
+							"dutch": "amper",
+							"sounds": [
+								"a",
+								"m",
+								"p",
+								"e",
+								"r"
+							],
+							"audio": "amper"
+						},
+						{
+							"key": "drek-7-16-168",
+							"text": "zeen",
+							"dutch": "zien",
+							"sounds": [
+								"z",
+								"ie",
+								"n"
+							],
+							"audio": "zeen"
+						},
+						{
+							"key": "drek-7-16-169",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "drek-7-16-171",
+							"text": "kinder",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"i",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "kinder"
+						},
+						{
+							"key": "drek-7-16-172",
+							"text": "waren",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "waren"
+						}
+					]
+				},
+				{
+					"key": "drek-7-17",
+					"text": "Allene de eugkes, dee glommen van schik.",
+					"time": [
+						56.08,
+						58.52513267554627
+					],
+					"words": [
+						{
+							"key": "drek-7-17-173",
+							"text": "allene",
+							"dutch": "Alleen",
+							"sounds": [
+								"a",
+								"l",
+								"ee",
+								"n",
+								"e"
+							],
+							"audio": "allene"
+						},
+						{
+							"key": "drek-7-17-177",
+							"text": "glommen",
+							"dutch": "glommen",
+							"sounds": [
+								"G!",
+								"l",
+								"o",
+								"m",
+								"e"
+							],
+							"audio": "glommen"
+						},
+						{
+							"key": "drek-7-17-179",
+							"text": "schik",
+							"dutch": "plezier",
+							"sounds": [
+								"s",
+								"G!",
+								"i",
+								"k"
+							],
+							"audio": "schik"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "drek-8",
+			"time": [
+				59.51,
+				67.36495447616052
+			],
+			"image": "drek-8",
+			"sentences": [
+				{
+					"key": "drek-8-18",
+					"text": "Terug bie de diek spuuln ze de vuute af in de waterbak van de schäöpe.",
+					"time": [
+						59.51,
+						62.98
+					],
+					"words": [
+						{
+							"key": "drek-8-18-183",
+							"text": "diek",
+							"dutch": "dijk",
+							"sounds": [
+								"d",
+								"i",
+								"k"
+							],
+							"audio": "diek"
+						},
+						{
+							"key": "drek-8-18-184",
+							"text": "spuuln",
+							"dutch": "spoelden",
+							"sounds": [
+								"s",
+								"p",
+								"uu",
+								"l",
+								"n"
+							],
+							"audio": "spuuln"
+						},
+						{
+							"key": "drek-8-18-185",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "drek-8-18-187",
+							"text": "vuute",
+							"dutch": "voeten",
+							"sounds": [
+								"v",
+								"uu",
+								"t",
+								"e"
+							],
+							"audio": "vuute"
+						},
+						{
+							"key": "drek-8-18-188",
+							"text": "af",
+							"dutch": "af",
+							"sounds": [
+								"a",
+								"f"
+							],
+							"audio": "af"
+						},
+						{
+							"key": "drek-8-18-189",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-8-18-191",
+							"text": "waterbak",
+							"dutch": "waterbak",
+							"sounds": [
+								"w",
+								"a",
+								"t",
+								"e",
+								"b",
+								"a",
+								"k"
+							],
+							"audio": "waterbak"
+						}
+					]
+				},
+				{
+					"key": "drek-8-19",
+					"text": "En gingen disse smeerdeers met schone vuute in de leerze op huus an.",
+					"time": [
+						63.58,
+						67.36495447616052
+					],
+					"words": [
+						{
+							"key": "drek-8-19-195",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "drek-8-19-196",
+							"text": "gingen",
+							"dutch": "gingen",
+							"sounds": [
+								"G!",
+								"i",
+								"ng",
+								"e"
+							],
+							"audio": "gingen"
+						},
+						{
+							"key": "drek-8-19-197",
+							"text": "disse",
+							"dutch": "deze",
+							"sounds": [
+								"d",
+								"i",
+								"s",
+								"e"
+							],
+							"audio": "disse"
+						},
+						{
+							"key": "drek-8-19-198",
+							"text": "smeerdeers",
+							"dutch": "vuilakken",
+							"sounds": [
+								"s",
+								"m",
+								"ee",
+								"r",
+								"d",
+								"ee",
+								"r",
+								"s"
+							],
+							"audio": "smeerdeers"
+						},
+						{
+							"key": "drek-8-19-199",
+							"text": "met",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "drek-8-19-200",
+							"text": "schone",
+							"dutch": "schone",
+							"sounds": [
+								"s",
+								"G!",
+								"oo",
+								"n",
+								"e"
+							],
+							"audio": "schone"
+						},
+						{
+							"key": "drek-8-19-201",
+							"text": "vuute",
+							"dutch": "voeten",
+							"sounds": [
+								"v",
+								"uu",
+								"t",
+								"e"
+							],
+							"audio": "vuute"
+						},
+						{
+							"key": "drek-8-19-202",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "drek-8-19-204",
+							"text": "leerze",
+							"dutch": "laarzen",
+							"sounds": [
+								"l",
+								"ee",
+								"r",
+								"z",
+								"e"
+							],
+							"audio": "leerze"
+						},
+						{
+							"key": "drek-8-19-206",
+							"text": "huus",
+							"dutch": "huis",
+							"sounds": [
+								"h",
+								"uu",
+								"s"
+							],
+							"audio": "huus"
+						},
+						{
+							"key": "drek-8-19-207",
+							"text": "an",
+							"dutch": "aan",
+							"sounds": [
+								"a",
+								"n"
+							],
+							"audio": "an"
+						}
+					]
+				}
+			]
+		}
+	]
+}

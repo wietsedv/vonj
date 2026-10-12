@@ -17,13 +17,17 @@ import type { SoundFieldResult } from '$lib/components/level/SoundField.svelte';
 import { getSound } from '$lib/content';
 import { soundUrl } from '$lib/content/assets';
 import { soundCandidates } from '$lib/game/words';
-import type { Answer, StoredItem } from '$lib/types';
+import type { Answer, Language, StoredItem } from '$lib/types';
 
-/** The recording of one Gronings sound, by its spelling in the content set. */
-export function soundClipUrl(spelling: string): string {
-	const sound = getSound(spelling);
-	if (!sound) throw new Error(`No sound named "${spelling}" in the content set.`);
-	return soundUrl(sound);
+/**
+ * The recording of one sound, by its spelling in the content set of the
+ * language. Null for a sound the original never had a recording for, which
+ * plays as silence: see `Sound.audio`.
+ */
+export function soundClipUrl(language: Language, spelling: string): string | null {
+	const sound = getSound(language, spelling);
+	if (!sound) throw new Error(`No ${language} sound named "${spelling}" in the content set.`);
+	return soundUrl(language, sound);
 }
 
 /** A column has a choice once it is either picked by the pupil or given away by the clock. */
@@ -64,10 +68,13 @@ export function buildColumns(
  * index but the last, which is the word - see the games' `sounding` handling.
  */
 export const answerPlaybackUrls = (
+	language: Language,
 	chosen: readonly (string | null)[],
 	wordAudioUrl: string
-): string[] => [
-	...chosen.filter((sound): sound is string => sound !== null).map(soundClipUrl),
+): (string | null)[] => [
+	...chosen
+		.filter((sound): sound is string => sound !== null)
+		.map((sound) => soundClipUrl(language, sound)),
 	wordAudioUrl
 ];
 

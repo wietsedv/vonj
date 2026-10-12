@@ -14,7 +14,7 @@ remembers stays on the pupil's device.
 
 | Original                                       | Web                                                         |
 | ---------------------------------------------- | ----------------------------------------------------------- |
-| `GET /` presets, listing languages and schools | Gone. One bundled language (Gronings), one implicit school. |
+| `GET /` presets, listing languages and schools | Gone. Two bundled languages, one implicit school each.      |
 | `GET /categories/<schoolId>`                   | Gone. The category, section and level structure is bundled. |
 | `GET /target/<lang>/<story>`                   | Gone. Story content is bundled.                             |
 | `POST /submit` per answered item               | **Gone. There is no teacher-facing reporting.**             |
@@ -58,25 +58,69 @@ Demo mode was triggered by typing the name `demo`, so it loses its trigger along
 with the name field. It needs a new one, or it goes; nothing is implemented for
 it yet.
 
+## Two languages in one app
+
+The original was two separate apps built from two branches of `../vonj-app`:
+`gronings` ("Van Old noar Jong: Grunnegs") and `achterhoeks` ("Van Old naor
+Jong: Achterhooks"). The branches share every line of game code and differ only
+in the dataset and media, the app name, the overview question, the label above
+dialect text ("Grunnegs" / "Achterhooks"), the palette and the app icon.
+Here each language's logo is its flag: the Achterhoeks launcher icon already
+is one, and the Gronings launcher icon is replaced by the provincial flag drawn
+in the Gronings palette (`src/lib/assets/flag-gronings.svg`). The
+web app is one app holding both:
+
+- **A language picker at `/`.** The original had no such screen, so it has no
+  copy of its own: each language is a card with its own app icon, app name and
+  palette. The tab title joins the two app names. The global overview of a
+  language gets a back button to it, with the existing "Terug naar het
+  overzicht" label.
+- **Content per language**, generated into `src/lib/content/<language>/` from
+  each branch with `git archive`, so the original's working tree is never
+  touched. Everything that reads content takes the language first.
+- **UI strings per language** in `src/lib/languages.ts`, quoted from the branch
+  they come from. Gronings keeps "Hoe goed is jouw Gronings?", which this app
+  already used; the original Gronings app said "Hoe goed is jouw Grunnegs?".
+  Achterhoeks uses its branch's "Hoe goed is jouw Achterhooks?".
+- **The palette per language** in `src/app.css`, from each branch's
+  `_variables.scss`. The web app used one `primary` token for both the header
+  and a wrong answer; the Achterhoeks branch makes the header dark green but
+  leaves `$red` alone, so a wrong answer has its own `wrong` token, red in both.
+  The tick on "Dat klopt!" has its own `check` token, because the original's
+  pages hardcode that green in both branches.
+- **Progress per language.** The level key starts with the language, so the two
+  never share a stored level.
+
+### Achterhoeks "oa" has no recording
+
+The Achterhoeks inventory lists the sound "oa", 16 word positions use it, and it
+points at `klanken/audio/oa.mp3` - a file that was never committed to any branch.
+The original therefore played nothing for it. Here too: the sound is generated
+without `audio`, tapping it plays nothing, and an answer played back passes over
+it in silence and goes on with the next sound, as the original's player did
+after logging the error. Nothing is recorded or synthesised in its place.
+
 ## Routes
 
 The original app had no URLs: it was a navigation stack of screens. The web app
 needs addresses, and they are the ids the app already uses everywhere else.
 
-| URL                    | Screen                                   |
-| ---------------------- | ---------------------------------------- |
-| `/`                    | The global overview                      |
-| `/luisteren`           | A category overview                      |
-| `/luisteren/woorden/1` | A level: category, section, level number |
+| URL                             | Screen                                   |
+| ------------------------------- | ---------------------------------------- |
+| `/`                             | The language picker                      |
+| `/gronings`                     | The global overview of a language        |
+| `/gronings/luisteren`           | A category overview                      |
+| `/gronings/luisteren/woorden/1` | A level: category, section, level number |
 
 The last segment is the **level number**, not the story, for the same reason the
 level card says "Level 1": a level never names the story it is played on. The
-number is the position in the section, so `/luisteren/woorden/1` is the level
-stored under `luisteren.woorden.bragel`.
+number is the position in the section, so `/gronings/luisteren/woorden/1` is the
+level stored under `gronings.luisteren.woorden.bragel`.
 
-Anything that is not a real category, a section of that category, or a level
-number the section has, is a 404. The category segment is checked by a route
-matcher, so an unknown top-level path can never be mistaken for a level.
+Anything that is not a real language, a real category, a section of that
+category, or a level number the section has, is a 404. The language and
+category segments are checked by route matchers, so an unknown top-level path
+can never be mistaken for a level.
 
 ## The level shell
 
@@ -221,19 +265,20 @@ unchanged.
 
 ### Keys
 
-| Key                            | Contents                                                                                                                                |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `<category>.<section>.<story>` | One level as JSON: its generated items with every response so far, and its score once finished. For example `luisteren.woorden.bragel`. |
-| `dataVersion`                  | The content version the stored levels were generated against                                                                            |
+| Key                                       | Contents                                                                                                                                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `<language>.<category>.<section>.<story>` | One level as JSON: its generated items with every response so far, and its score once finished. For example `gronings.luisteren.woorden.bragel`. |
+| `dataVersion`                             | The content version the stored levels were generated against                                                                                     |
 
 Nothing else is stored: the app is anonymous, so the original's `auth` key has no
 successor.
 
 The ids in a level key are the Dutch ones this app uses throughout, not the
-English ids of the original data (`luisteren.woorden.bragel`, where the original
-would have written `listen.words.bragel`). They are the same ids as the route
-segments, so a level key can be read straight off the URL. The full set of 44
-level keys is known from the content, which is how a reset or a version bump
+English ids of the original data (`gronings.luisteren.woorden.bragel`, where the
+original would have written `listen.words.bragel`). They are the same ids as the
+route segments, so a level key can be read straight off the URL. Keys written
+before the language prefix existed (`luisteren.woorden.bragel`) are not read any
+more. The full set of 88 level keys, 44 per language, is known from the content, which is how a reset or a version bump
 finds them all without having to prefix or enumerate `localStorage`.
 
 ### Why the items themselves are stored

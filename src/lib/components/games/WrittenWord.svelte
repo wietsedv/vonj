@@ -6,13 +6,16 @@
 	 * docs/original-app/level-shell.md, "Per-item feedback card".
 	 */
 	import LetterBoxes from '$lib/components/level/LetterBoxes.svelte';
+	import { getLanguage } from '$lib/languages';
+	import type { Language } from '$lib/types';
 
 	interface Props {
+		language: Language;
 		/** The correct spelling, one entry per letter. */
 		letters: string[];
 	}
 
-	let { letters }: Props = $props();
+	let { language, letters }: Props = $props();
 </script>
 
-<LetterBoxes {letters} readonly onletter={() => {}} />
+<LetterBoxes {letters} lang={getLanguage(language).lang} readonly onletter={() => {}} />

@@ -32,7 +32,7 @@ const textRows = (count = 4): ReorderRow[] =>
 const imageRows = (count = 3): ReorderRow[] =>
 	story.fragments.slice(0, count).map((fragment) => ({
 		key: fragment.key,
-		image: imageUrl(fragment.image)
+		image: imageUrl('gronings', fragment.image)
 	}));
 
 /** The concatenated `path` data of an icon, so two renders can be compared. */
@@ -104,7 +104,7 @@ const dragTo = (item: Element, clientY: number, pointerId = 1) => {
 };
 
 beforeAll(async () => {
-	story = await loadStory('bragel');
+	story = await loadStory('gronings', 'bragel');
 	await page.viewport(400, 800);
 
 	const checkRender = await render(Check);

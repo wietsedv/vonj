@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+	<!--
+	  The flag of the province of Groningen, square like the Achterhoeks icon, in
+	  the palette of src/app.css: the primary red, the secondary blue and the
+	  accent green. favicon-gronings.png is this file, rendered at 192 px.
+	-->
+	<rect width="192" height="192" fill="#0087d2" />
+	<rect width="96" height="96" fill="#e31414" />
+	<rect x="96" y="96" width="96" height="96" fill="#e31414" />
+	<rect x="64" width="64" height="192" fill="#ffffff" />
+	<rect y="64" width="192" height="64" fill="#ffffff" />
+	<rect x="80" width="32" height="192" fill="#0fb215" />
+	<rect y="80" width="192" height="32" fill="#0fb215" />
+</svg>

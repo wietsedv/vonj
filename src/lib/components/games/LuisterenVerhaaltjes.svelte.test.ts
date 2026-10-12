@@ -40,8 +40,8 @@ import { flushSync } from 'svelte';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('luisteren', 'verhaaltjes')[0];
-const section: Section = getSection('luisteren', 'verhaaltjes')!;
+const level: Level = sectionLevels('gronings', 'luisteren', 'verhaaltjes')[0];
+const section: Section = getSection('gronings', 'luisteren', 'verhaaltjes')!;
 
 let allStories: Story[];
 let story: Story;
@@ -109,14 +109,16 @@ const cards = (container: HTMLElement) => [...container.querySelectorAll('main u
 const cardForStory = (container: HTMLElement, key: string) =>
 	cards(container).find(
 		(card) =>
-			card.querySelector('img')!.getAttribute('src') === imageUrl(storiesByKey.get(key)!.image)
+			card.querySelector('img')!.getAttribute('src') ===
+			imageUrl('gronings', storiesByKey.get(key)!.image)
 	);
 
 /** The card showing the fragment illustration of `key`. */
 const cardForFragment = (container: HTMLElement, key: string) =>
 	cards(container).find(
 		(card) =>
-			card.querySelector('img')!.getAttribute('src') === imageUrl(fragmentsByKey.get(key)!.image)
+			card.querySelector('img')!.getAttribute('src') ===
+			imageUrl('gronings', fragmentsByKey.get(key)!.image)
 	);
 
 const tap = (element: Element | undefined) => flushSync(() => (element as HTMLElement).click());
@@ -139,8 +141,8 @@ let playCalls: HTMLMediaElement[] = [];
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	allStories = await loadStories();
-	story = await loadStory(level.story);
+	allStories = await loadStories('gronings');
+	story = await loadStory('gronings', level.story);
 	fragmentsByKey = fragmentIndex(allStories);
 	storiesByKey = storyIndex(allStories);
 
@@ -258,7 +260,7 @@ describe('a fragment item', () => {
 		expect(text(container)).toContain('Dat klopt!');
 		expect(text(container)).toContain('Het juiste antwoord was:');
 		expect(container.querySelector('main img')!.getAttribute('src')).toBe(
-			animationUrl(fragmentsByKey.get(target)!.image)
+			animationUrl('gronings', fragmentsByKey.get(target)!.image)
 		);
 	});
 });
@@ -273,7 +275,7 @@ describe('the recap', () => {
 		const rows = [...container.querySelectorAll('main ul li')];
 		expect(rows).toHaveLength(story.fragments.length);
 		expect(rows.map((row) => row.querySelector('img')!.getAttribute('src'))).toEqual(
-			target.map((key) => imageUrl(fragmentsByKey.get(key)!.image))
+			target.map((key) => imageUrl('gronings', fragmentsByKey.get(key)!.image))
 		);
 
 		// The given tile has no drag handle and no move buttons.
@@ -317,7 +319,7 @@ describe('the recap', () => {
 		expect(text(container)).toContain('Dat klopt!');
 		expect(text(container)).not.toContain('Het juiste antwoord was:');
 		expect(container.querySelector('main img')!.getAttribute('src')).toBe(
-			animationUrl(story.image)
+			animationUrl('gronings', story.image)
 		);
 	});
 });

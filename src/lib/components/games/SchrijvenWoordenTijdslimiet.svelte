@@ -32,6 +32,7 @@
 	import { loadStory } from '$lib/content';
 	import { animationUrl } from '$lib/content/assets';
 	import { LevelRun } from '$lib/game/level.svelte';
+	import { getLanguage } from '$lib/languages';
 	import { gameRules } from '$lib/game/rules';
 	import { Countdown } from '$lib/game/timer.svelte';
 	import { maskedPrompt, revealedPositions, wordIndex, writtenForm } from '$lib/game/words';
@@ -58,13 +59,13 @@
 	let secondsPerStep = $state(0);
 
 	onMount(async () => {
-		const story = await loadStory(level.story);
+		const story = await loadStory(level.language, level.story);
 		const rules = gameRules(category, section.id);
 		if (!rules?.secondsPerStep) return;
 
 		secondsPerStep = rules.secondsPerStep;
 		words = wordIndex(story);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({ level, rules, generate: () => writingGenerate(story, rules) });
 	});
 
@@ -176,6 +177,7 @@
 		{#if entry}
 			<div class="flex-1">
 				<WritingPrompt
+					language={level.language}
 					prompt={maskedPrompt(entry.sentence, entry.word)}
 					translation={entry.word.dutch}
 				/>
@@ -191,7 +193,14 @@
 	</div>
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={entry && !run?.answered ? top : undefined}>
+<LevelShell
+	language={level.language}
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={entry && !run?.answered ? top : undefined}
+>
 	{#if run?.answered && entry}
 		<ItemFeedback
 			title={timedOut ? 'Jammer!' : 'Dat klopt!'}
@@ -199,11 +208,18 @@
 			description="Het juist geschreven woord is:"
 			onproceed={() => run?.proceed()}
 		>
-			<WrittenWord letters={[...spelling]} />
+			<WrittenWord language={level.language} letters={[...spelling]} />
 		</ItemFeedback>
 	{:else if entry}
 		<div class="flex flex-col items-center gap-6">
-			<LetterBoxes {letters} {locked} {results} {onletter} onsubmit={submit} />
+			<LetterBoxes
+				{letters}
+				lang={getLanguage(level.language).lang}
+				{locked}
+				{results}
+				{onletter}
+				onsubmit={submit}
+			/>
 			{#if filled}
 				<button
 					type="button"

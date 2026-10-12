@@ -11,7 +11,7 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-svelte';
 
-const sound = distractorSounds[0].sound;
+const sound = distractorSounds('gronings')[0].sound;
 
 beforeAll(async () => {
 	await page.viewport(400, 800);

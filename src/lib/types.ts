@@ -2,16 +2,22 @@
 /* Content                                                                    */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * The languages the app teaches, each a complete content set of its own. The id
+ * is the first segment of every URL and of every localStorage key.
+ */
+export type Language = 'gronings' | 'achterhoeks';
+
 /** The four categories, in the order they appear on the global overview. */
 export type Category = 'luisteren' | 'lezen' | 'schrijven' | 'spreken';
 
 /** A start and an end offset in seconds inside a story recording. */
 export type TimeRange = [start: number, end: number];
 
-/** One Gronings word of a sentence, with everything the games need about it. */
+/** One word of a sentence, with everything the games need about it. */
 export interface Word {
 	key: string;
-	/** The Gronings spelling, for example "noar". */
+	/** The spelling in the language being taught, for example "noar". */
 	text: string;
 	/** The Dutch translation, for example "naar". */
 	dutch: string;
@@ -23,7 +29,7 @@ export interface Word {
 
 export interface Sentence {
 	key: string;
-	/** The full Gronings sentence. */
+	/** The full sentence, in the language being taught. */
 	text: string;
 	/** Where the sentence sits in the story recording. */
 	time: TimeRange;
@@ -53,12 +59,16 @@ export interface Story {
 	fragments: Fragment[];
 }
 
-/** One of the roughly 43 sound units Gronings is written with. */
+/** One of the roughly 43 sound units the language is written with. */
 export interface Sound {
 	/** The spelling of the sound, for example "aa" or "ng". */
 	sound: string;
-	/** Name of the recording in the asset set. */
-	audio: string;
+	/**
+	 * Name of the recording in the asset set. Absent for a sound the original
+	 * dataset lists but never had a recording for (Achterhoeks "oa"), which
+	 * plays as silence.
+	 */
+	audio?: string;
 	/** False for sounds that are never offered as a distractor. Defaults to true. */
 	distractor?: boolean;
 }
@@ -85,8 +95,9 @@ export interface CategoryContent {
 
 /** One playable level: a section played on one story. */
 export interface Level {
-	/** "luisteren.woorden.bragel", which is also its localStorage key. */
+	/** "gronings.luisteren.woorden.bragel", which is also its localStorage key. */
 	id: string;
+	language: Language;
 	category: Category;
 	section: string;
 	story: string;

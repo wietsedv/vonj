@@ -25,15 +25,15 @@ let stories: Story[];
 let bragel: Story;
 
 beforeAll(async () => {
-	stories = await loadStories();
-	bragel = await loadStory('bragel');
+	stories = await loadStories('gronings');
+	bragel = await loadStory('gronings', 'bragel');
 });
 
 /** Ten words of the story, in the shape `selectWords()` hands to the games. */
 const words = () => selectWords(bragel, gameRules('luisteren', 'woorden')!.words!);
 
 /** An item with a difficulty forced on it, as `LevelRun` would stamp it. */
-const at = (difficulty: number) => ({ ...soundItems(words())[0], difficulty });
+const at = (difficulty: number) => ({ ...soundItems('gronings', words())[0], difficulty });
 
 /**
  * An item for every word of every story, at one difficulty. `selectWords()`
@@ -41,7 +41,10 @@ const at = (difficulty: number) => ({ ...soundItems(words())[0], difficulty });
  * instead and reads the same on every run.
  */
 const everyItemAt = (difficulty: number) =>
-	soundItems(stories.flatMap((story) => storyWords(story))).map((item) => ({
+	soundItems(
+		'gronings',
+		stories.flatMap((story) => storyWords(story))
+	).map((item) => ({
 		...item,
 		difficulty
 	}));
@@ -49,30 +52,30 @@ const everyItemAt = (difficulty: number) =>
 describe('the items of the sound games', () => {
 	it('plays one item per selected word, in the order given', () => {
 		const drawn = words();
-		const items = soundItems(drawn);
+		const items = soundItems('gronings', drawn);
 		expect(items.map((item) => item.source)).toEqual(drawn.map((entry) => entry.word.key));
 	});
 
 	it('answers an item with the sounds of its word', () => {
 		for (const entry of words()) {
-			const [item] = soundItems([entry]);
+			const [item] = soundItems('gronings', [entry]);
 			expect(item.target).toEqual(entry.word.sounds);
 		}
 	});
 
 	it('starts every item unanswered', () => {
-		for (const item of soundItems(words())) expect(item.responses).toEqual([]);
+		for (const item of soundItems('gronings', words())) expect(item.responses).toEqual([]);
 	});
 
 	it('holds one distractor column per sound of the word', () => {
 		for (const entry of words()) {
-			const [item] = soundItems([entry]);
+			const [item] = soundItems('gronings', [entry]);
 			expect(item.distractors).toHaveLength(entry.word.sounds.length);
 		}
 	});
 
 	it('stores enough distractors for the widest column, and no more', () => {
-		for (const item of soundItems(words())) {
+		for (const item of soundItems('gronings', words())) {
 			for (const column of item.distractors) {
 				expect(column).toHaveLength(MAX_DISTRACTORS);
 			}
@@ -81,7 +84,7 @@ describe('the items of the sound games', () => {
 	});
 
 	it('never stores the right sound of a column as one of its own distractors', () => {
-		for (const item of soundItems(words())) {
+		for (const item of soundItems('gronings', words())) {
 			item.target.forEach((sound, column) => {
 				expect(item.distractors[column]).not.toContain(sound);
 			});
@@ -100,7 +103,7 @@ describe('the candidates of a column', () => {
 	});
 
 	it('offers the target sound of the column exactly once', () => {
-		for (const item of soundItems(words())) {
+		for (const item of soundItems('gronings', words())) {
 			for (const difficulty of [0, 1, 2]) {
 				const scored = { ...item, difficulty };
 				item.target.forEach((sound, column) => {
@@ -112,7 +115,7 @@ describe('the candidates of a column', () => {
 	});
 
 	it('offers nothing twice in a column', () => {
-		for (const item of soundItems(words())) {
+		for (const item of soundItems('gronings', words())) {
 			const scored = { ...item, difficulty: 2 };
 			item.target.forEach((_, column) => {
 				const candidates = soundCandidates(scored, column);
@@ -297,7 +300,7 @@ describe('looking a word up by its key', () => {
 
 	it('finds every word used by a level of the sound game', () => {
 		const byKey = wordIndex(bragel);
-		for (const item of soundItems(words())) {
+		for (const item of soundItems('gronings', words())) {
 			expect(byKey.get(item.source)?.word.sounds).toEqual(item.target);
 		}
 	});

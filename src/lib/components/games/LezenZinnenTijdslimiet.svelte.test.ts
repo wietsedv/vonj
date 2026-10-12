@@ -23,8 +23,8 @@ import { flushSync } from 'svelte';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('lezen', 'zinnen-tijdslimiet')[0];
-const section: Section = getSection('lezen', 'zinnen-tijdslimiet')!;
+const level: Level = sectionLevels('gronings', 'lezen', 'zinnen-tijdslimiet')[0];
+const section: Section = getSection('gronings', 'lezen', 'zinnen-tijdslimiet')!;
 const secondsPerStep = gameRules('lezen', 'zinnen-tijdslimiet')!.secondsPerStep!;
 
 let story: Story;
@@ -70,7 +70,7 @@ function advanceSteps(steps: number) {
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 });
 
 beforeEach(() => {

@@ -25,8 +25,8 @@ let stories: Story[];
 let bragel: Story;
 
 beforeAll(async () => {
-	stories = await loadStories();
-	bragel = await loadStory('bragel');
+	stories = await loadStories('gronings');
+	bragel = await loadStory('gronings', 'bragel');
 });
 
 /** An item with a difficulty forced on it, as `LevelRun` would stamp it. */

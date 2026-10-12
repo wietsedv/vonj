@@ -47,9 +47,9 @@
 		<span class="inline-flex items-center gap-2">
 			{title}
 			{#if tone === 'correct'}
-				<span class="[&>svg]:fill-accent"><Check /></span>
+				<span class="[&>svg]:fill-check"><Check /></span>
 			{:else if tone === 'wrong'}
-				<span class="[&>svg]:fill-primary"><Cross /></span>
+				<span class="[&>svg]:fill-wrong"><Cross /></span>
 			{/if}
 		</span>
 	</h2>

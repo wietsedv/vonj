@@ -2,17 +2,18 @@
 	import { resolve } from '$app/paths';
 	import { sectionLevels } from '$lib/content';
 	import { progress } from '$lib/progress.svelte';
-	import type { Category, Section } from '$lib/types';
+	import type { Category, Language, Section } from '$lib/types';
 	import Score from './Score.svelte';
 
 	interface Props {
+		language: Language;
 		category: Category;
 		section: Section;
 	}
 
-	let { category, section }: Props = $props();
+	let { language, category, section }: Props = $props();
 
-	const levels = $derived(sectionLevels(category, section.id));
+	const levels = $derived(sectionLevels(language, category, section.id));
 </script>
 
 <div class="px-4">
@@ -23,7 +24,8 @@
 	<div class="xs:grid-cols-3 2xs:grid-cols-2 my-6 grid gap-3 sm:grid-cols-4">
 		{#each levels as level (level.id)}
 			<a
-				href={resolve('/[category=category]/[section]/[level]', {
+				href={resolve('/[language=language]/[category=category]/[section]/[level]', {
+					language,
 					category,
 					section: section.id,
 					level: String(level.number)

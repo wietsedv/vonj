@@ -9,6 +9,6 @@ export default defineConfig({
 		// recordings are under Vite's inline threshold, and base64-ing them into
 		// the module that holds every asset URL would ship them on first load and
 		// make them uncacheable.
-		assetsInlineLimit: (path) => (path.includes('/lib/content/assets/') ? false : undefined)
+		assetsInlineLimit: (path) => (/\/lib\/content\/[^/]+\/assets\//.test(path) ? false : undefined)
 	}
 });

@@ -57,21 +57,22 @@
 	let secondsPerStep = $state(0);
 
 	onMount(async () => {
-		const story = await loadStory(level.story);
+		const story = await loadStory(level.language, level.story);
 		const rules = gameRules(category, section.id);
 		if (!rules?.words || !rules.secondsPerStep) return;
 
 		secondsPerStep = rules.secondsPerStep;
 		words = wordIndex(story);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({
 			level,
 			rules,
-			generate: () => soundItems(selectWords(story, rules.words!))
+			generate: () => soundItems(level.language, selectWords(story, rules.words!))
 		});
 		answer = new SoundAnswer({
+			language: level.language,
 			run,
-			wordAudioUrl: () => (entry ? wordUrl(entry.word) : null),
+			wordAudioUrl: () => (entry ? wordUrl(level.language, entry.word) : null),
 			// A wrong manual submit plays only the word recording, never the
 			// pupil's chosen sounds, in this section only. See the file comment.
 			playChosenOnWrongSubmit: false
@@ -186,7 +187,7 @@
 {#snippet top()}
 	{#if entry}
 		<div class="grid gap-3 {countdown ? 'grid-cols-2' : ''}">
-			<AudioPlayer src={wordUrl(entry.word)} autoplay />
+			<AudioPlayer src={wordUrl(level.language, entry.word)} autoplay />
 			{#if countdown}
 				<Timer
 					totalSecondsLeft={countdown.totalSecondsLeft}
@@ -200,6 +201,7 @@
 
 <!-- Hidden, not removed, behind the feedback card, as in the original. -->
 <LevelShell
+	language={level.language}
 	{category}
 	{section}
 	{run}

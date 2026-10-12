@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 
-	import favicon from '$lib/assets/favicon.png';
 	import { progress } from '$lib/progress.svelte';
 	import { onMount } from 'svelte';
 
@@ -11,10 +10,6 @@
 	// server-rendered markup is the one without progress and this fills it in.
 	onMount(() => progress.load());
 </script>
-
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
 
 <!--
   Every page's content lives in a `<main id="inhoud">`, so this one link gets a
@@ -29,9 +24,3 @@
 </a>
 
 {@render children()}
-
-<style>
-	:global(html) {
-		background-color: var(--color-secondary);
-	}
-</style>

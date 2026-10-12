@@ -2,19 +2,29 @@
  * The pupil's progress: which levels have been played, with which items and
  * which score.
  *
- * One localStorage key per level, named after the level ("luisteren.woorden.
- * bragel"), plus `dataVersion` holding the content version the stored levels
- * were generated against. Nothing else is stored: the app is anonymous.
+ * One localStorage key per level, named after the level ("gronings.luisteren.
+ * woorden.bragel"), plus `dataVersion` holding the content version the stored
+ * levels were generated against. Nothing else is stored: the app is anonymous.
+ * Each language keeps its own levels, so switching languages never touches
+ * the progress made in the other one.
  *
  * localStorage does not exist during SSR and prerendering, so the store starts
  * out empty and `load()` fills it in after mount. Read `loaded` before
  * rendering anything that would otherwise flash a wrong value.
  */
 import { browser } from '$app/environment';
-import { allLevels, categoryLevels, sectionLevels } from '$lib/content';
+import { allLevels, categoryLevels, languageLevels, sectionLevels } from '$lib/content';
 import { dataVersion } from '$lib/content/version';
 import * as storage from '$lib/storage';
-import type { Answer, Category, Level, ScopeProgress, StoredItem, StoredLevel } from '$lib/types';
+import type {
+	Answer,
+	Category,
+	Language,
+	Level,
+	ScopeProgress,
+	StoredItem,
+	StoredLevel
+} from '$lib/types';
 
 const VERSION_KEY = 'dataVersion';
 
@@ -138,16 +148,17 @@ class Progress {
 		};
 	}
 
-	section(category: Category, section: string): ScopeProgress {
-		return this.#scope(sectionLevels(category, section));
+	section(language: Language, category: Category, section: string): ScopeProgress {
+		return this.#scope(sectionLevels(language, category, section));
 	}
 
-	category(category: Category): ScopeProgress {
-		return this.#scope(categoryLevels(category));
+	category(language: Language, category: Category): ScopeProgress {
+		return this.#scope(categoryLevels(language, category));
 	}
 
-	everything(): ScopeProgress {
-		return this.#scope(allLevels());
+	/** Everything of one language: what the global overview of that language sums up. */
+	language(language: Language): ScopeProgress {
+		return this.#scope(languageLevels(language));
 	}
 
 	/**
@@ -166,14 +177,20 @@ class Progress {
 		storage.remove(id);
 	}
 
-	resetSection(category: Category, section: string): void {
-		this.#reset(sectionLevels(category, section));
+	resetSection(language: Language, category: Category, section: string): void {
+		this.#reset(sectionLevels(language, category, section));
 	}
 
-	resetCategory(category: Category): void {
-		this.#reset(categoryLevels(category));
+	resetCategory(language: Language, category: Category): void {
+		this.#reset(categoryLevels(language, category));
 	}
 
+	/** The "Alles resetten?" of one language. */
+	resetLanguage(language: Language): void {
+		this.#reset(languageLevels(language));
+	}
+
+	/** Every level of every language. */
 	resetEverything(): void {
 		this.#reset(allLevels());
 	}

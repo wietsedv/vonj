@@ -3,6 +3,7 @@
  */
 import { categories } from '$lib/content';
 import { gameRules, ruledSections } from '$lib/game/rules';
+import { languages } from '$lib/languages';
 import { levelMistakes, levelScore, MAX_SCORE } from '$lib/game/score';
 import type { Category, StoredItem } from '$lib/types';
 import { describe, expect, it } from 'vitest';
@@ -88,10 +89,13 @@ describe('the rules table', () => {
 		expect(gameRules(category as Category, id)?.tolerance).toBe(tolerance);
 	});
 
-	it('covers every section of the content set, and nothing that is not one', () => {
-		const sections = categories.flatMap((category) =>
-			category.sections.map((section) => `${category.id}.${section.id}`)
-		);
-		expect(ruledSections().sort()).toEqual(sections.sort());
-	});
+	it.each(languages.map(({ id }) => id))(
+		'covers every section of %s, and nothing that is not one',
+		(language) => {
+			const sections = categories(language).flatMap((category) =>
+				category.sections.map((section) => `${category.id}.${section.id}`)
+			);
+			expect(ruledSections().sort()).toEqual(sections.sort());
+		}
+	);
 });

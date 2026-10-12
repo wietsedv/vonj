@@ -17,12 +17,15 @@
 	 */
 	import ReorderList from '$lib/components/level/ReorderList.svelte';
 	import type { RowMarker } from '$lib/components/level/ReorderList.svelte';
+	import { getLanguage } from '$lib/languages';
+	import type { Language } from '$lib/types';
 	import { rowsFor } from './sentenceRows';
 
 	interface Props {
+		language: Language;
 		/** The current order, top to bottom, as row keys. */
 		order: string[];
-		/** Row key to Gronings text, from `rowIndex(story)`. */
+		/** Row key to sentence text, from `rowIndex(story)`. */
 		index: Map<string, string>;
 		/** Keys given as a hint (the free head start, or the timer's hints): locked in place. */
 		locked: string[];
@@ -32,7 +35,7 @@
 		onsubmit: () => void;
 	}
 
-	let { order, index, locked, markers, onreorder, onsubmit }: Props = $props();
+	let { language, order, index, locked, markers, onreorder, onsubmit }: Props = $props();
 
 	/** A submit happened and it was wrong: `markers` is only ever populated in that case. */
 	const wrong = $derived(Object.keys(markers).length > 0);
@@ -42,6 +45,7 @@
 	rows={rowsFor(order, index)}
 	{locked}
 	{markers}
+	lang={getLanguage(language).lang}
 	instruction="Gebruik de streepjes om de items naar de juiste volgorde te verslepen."
 	alert={wrong ? wrongAlert : undefined}
 	{onreorder}
@@ -49,7 +53,7 @@
 />
 
 {#snippet wrongAlert()}
-	<p class="text-primary rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
+	<p class="text-wrong rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
 		Nog niet alle onderdelen staan op de juiste plaats
 	</p>
 {/snippet}

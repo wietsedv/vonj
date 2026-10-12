@@ -31,6 +31,8 @@
 		 * woord is:": no input and no focus, just the letters in the same boxes.
 		 */
 		readonly?: boolean;
+		/** The language the word is written in, as a `lang` attribute: "gos" or "act". */
+		lang?: string;
 		/** A box's letter changed by typing, pasting, or a backspace. */
 		onletter: (index: number, letter: string) => void;
 		/**
@@ -46,6 +48,7 @@
 		locked = [],
 		results = [],
 		readonly = false,
+		lang,
 		onletter,
 		onsubmit
 	}: Props = $props();
@@ -62,7 +65,7 @@
 	// box turned into a blue square.
 	const tone: Record<'correct' | 'wrong', string> = {
 		correct: 'border-accent bg-green-50',
-		wrong: 'border-primary bg-red-50'
+		wrong: 'border-wrong bg-red-50'
 	};
 
 	/**
@@ -216,7 +219,7 @@
   Boxes wrap onto extra rows of equal length rather than shrink or scroll the
   page, since a word can run to nineteen letters on a 320px phone.
 -->
-<div bind:clientWidth={available} lang="gos" class="flex w-full flex-col items-center gap-1.5">
+<div bind:clientWidth={available} {lang} class="flex w-full flex-col items-center gap-1.5">
 	{#each lines as line, number (number)}
 		<div class="flex flex-wrap justify-center gap-1.5">
 			{#each line as index (index)}
@@ -266,7 +269,7 @@
 						</span>
 					{:else if result === 'wrong'}
 						<span
-							class="[&>svg]:fill-primary pointer-events-none absolute -top-2 -right-2 rounded-full bg-white p-0.5
+							class="[&>svg]:fill-wrong pointer-events-none absolute -top-2 -right-2 rounded-full bg-white p-0.5
 							shadow [&>svg]:size-3.5"
 						>
 							<Cross />

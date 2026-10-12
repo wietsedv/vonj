@@ -16,8 +16,8 @@ import { flushSync } from 'svelte';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('lezen', 'zinnen')[0];
-const section: Section = getSection('lezen', 'zinnen')!;
+const level: Level = sectionLevels('gronings', 'lezen', 'zinnen')[0];
+const section: Section = getSection('gronings', 'lezen', 'zinnen')!;
 
 let story: Story;
 let index: Map<string, string>;
@@ -77,7 +77,7 @@ function seed(difficulty: number, distractors?: string[]): StoredItem[] {
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 	index = rowIndex(story);
 });
 

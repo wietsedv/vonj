@@ -21,8 +21,8 @@ import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-svelte';
 import { learnIcons, stars } from '../../../tests/icons';
 
-const level: Level = sectionLevels('luisteren', 'woorden')[0];
-const section: Section = getSection('luisteren', 'woorden')!;
+const level: Level = sectionLevels('gronings', 'luisteren', 'woorden')[0];
+const section: Section = getSection('gronings', 'luisteren', 'woorden')!;
 
 const rules: GameRules = {
 	tolerance: 3,
@@ -45,7 +45,8 @@ const runOf = (count = 4) => new LevelRun({ level, rules, generate: () => items(
 const text = (element: Element) => element.textContent!.replace(/\s+/g, ' ').trim();
 
 const shell = async (props: Record<string, unknown>) =>
-	(await render(LevelShell, { category: 'luisteren', section, ...props })).container;
+	(await render(LevelShell, { language: 'gronings', category: 'luisteren', section, ...props }))
+		.container;
 
 const dots = (container: HTMLElement) => [...container.querySelectorAll('ol > li')];
 

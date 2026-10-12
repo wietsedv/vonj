@@ -23,8 +23,8 @@ let stories: Story[];
 let bragel: Story;
 
 beforeAll(async () => {
-	stories = await loadStories();
-	bragel = await loadStory('bragel');
+	stories = await loadStories('gronings');
+	bragel = await loadStory('gronings', 'bragel');
 });
 
 describe('shuffled', () => {
@@ -94,38 +94,42 @@ describe('picture distractors', () => {
 	it('offers the other stories for the whole-story item, and only those', () => {
 		const drawn = storyDistractors(stories, bragel);
 		expect(drawn.map((story) => story.key).sort()).toEqual(
-			storyKeys.filter((key) => key !== 'bragel').sort()
+			storyKeys('gronings')
+				.filter((key) => key !== 'bragel')
+				.sort()
 		);
 	});
 });
 
 describe('sound distractors', () => {
 	it('never offers the sound that is the right answer', () => {
-		for (const sound of sounds) {
+		for (const sound of sounds('gronings')) {
 			for (let i = 0; i < 10; i++) {
-				expect(soundDistractors(sound.sound, 4)).not.toContain(sound.sound);
+				expect(soundDistractors('gronings', sound.sound, 4)).not.toContain(sound.sound);
 			}
 		}
 	});
 
 	it('never offers a sound that is kept out of the inventory', () => {
-		const excluded = sounds.filter((sound) => sound.distractor === false).map((s) => s.sound);
+		const excluded = sounds('gronings')
+			.filter((sound) => sound.distractor === false)
+			.map((s) => s.sound);
 		expect(excluded.length).toBeGreaterThan(0);
 
 		const seen = new Set<string>();
 		for (let i = 0; i < REPEATS; i++) {
-			for (const sound of soundDistractors('aa', 4)) seen.add(sound);
+			for (const sound of soundDistractors('gronings', 'aa', 4)) seen.add(sound);
 		}
 		for (const sound of excluded) expect(seen).not.toContain(sound);
 	});
 
 	it('draws enough for the four candidates a column can show', () => {
-		expect(soundDistractors('aa', 3)).toHaveLength(3);
-		expect(new Set(soundDistractors('aa', 3)).size).toBe(3);
+		expect(soundDistractors('gronings', 'aa', 3)).toHaveLength(3);
+		expect(new Set(soundDistractors('gronings', 'aa', 3)).size).toBe(3);
 	});
 
 	it('has an inventory to draw from at all', () => {
-		expect(distractorSounds.length).toBeGreaterThan(20);
+		expect(distractorSounds('gronings').length).toBeGreaterThan(20);
 	});
 });
 

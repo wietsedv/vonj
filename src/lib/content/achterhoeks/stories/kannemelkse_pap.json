@@ -1,0 +1,1641 @@
+{
+	"key": "kannemelkse_pap",
+	"audio": "kannemelkse_pap",
+	"image": "kannemelkse_pap",
+	"fragments": [
+		{
+			"key": "kannemelkse_pap-1",
+			"time": [
+				3.6,
+				5.81836084207202
+			],
+			"image": "kannemelkse_pap-1",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-1-1",
+					"text": "Mooder mos effen naor de winkel veur ’n bodskap.",
+					"time": [
+						3.6,
+						5.81836084207202
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-1-1-2",
+							"text": "mooder",
+							"dutch": "Mama",
+							"sounds": [
+								"m",
+								"oe",
+								"d",
+								"e"
+							],
+							"audio": "mooder"
+						},
+						{
+							"key": "kannemelkse_pap-1-1-3",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "kannemelkse_pap-1-1-4",
+							"text": "effen",
+							"dutch": "even",
+							"sounds": [
+								"e",
+								"f",
+								"e"
+							],
+							"audio": "effen"
+						},
+						{
+							"key": "kannemelkse_pap-1-1-5",
+							"text": "naor",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "kannemelkse_pap-1-1-7",
+							"text": "winkel",
+							"dutch": "winkel",
+							"sounds": [
+								"w",
+								"i",
+								"ng",
+								"k",
+								"l"
+							],
+							"audio": "winkel"
+						},
+						{
+							"key": "kannemelkse_pap-1-1-10",
+							"text": "bodskap",
+							"dutch": "boodschap",
+							"sounds": [
+								"b",
+								"o",
+								"t",
+								"s",
+								"k",
+								"a",
+								"p"
+							],
+							"audio": "bodskap"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-2",
+			"time": [
+				6.508502093450156,
+				12.78
+			],
+			"image": "kannemelkse_pap-2",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-2-2",
+					"text": "Gijs was mietereg, want hee mos thuusblieven.",
+					"time": [
+						6.508502093450156,
+						9.17
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-2-2-11",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						},
+						{
+							"key": "kannemelkse_pap-2-2-12",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "kannemelkse_pap-2-2-13",
+							"text": "mietereg",
+							"dutch": "nukkig",
+							"sounds": [
+								"m",
+								"i",
+								"t",
+								"e",
+								"r",
+								"e",
+								"G!"
+							],
+							"audio": "mietereg"
+						},
+						{
+							"key": "kannemelkse_pap-2-2-14",
+							"text": "want",
+							"dutch": "want",
+							"sounds": [
+								"w",
+								"a",
+								"n",
+								"t"
+							],
+							"audio": "want"
+						},
+						{
+							"key": "kannemelkse_pap-2-2-15",
+							"text": "hee",
+							"dutch": "hij",
+							"sounds": [
+								"h",
+								"i"
+							],
+							"audio": "hee"
+						},
+						{
+							"key": "kannemelkse_pap-2-2-16",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "kannemelkse_pap-2-2-17",
+							"text": "thuusblieven",
+							"dutch": "thuisblijven",
+							"sounds": [
+								"t",
+								"uu",
+								"s",
+								"b",
+								"l",
+								"ie",
+								"v",
+								"n"
+							],
+							"audio": "thuusblieven"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-2-3",
+					"text": "Mooder belaoven Gijs, dat ze ’n verrassing veur ‘m zol metnemmn.",
+					"time": [
+						9.72,
+						12.78
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-2-3-18",
+							"text": "mooder",
+							"dutch": "Mama",
+							"sounds": [
+								"m",
+								"oe",
+								"d",
+								"e"
+							],
+							"audio": "mooder"
+						},
+						{
+							"key": "kannemelkse_pap-2-3-19",
+							"text": "belaoven",
+							"dutch": "beloofde",
+							"sounds": [
+								"b",
+								"e",
+								"l",
+								"oa",
+								"v",
+								"n"
+							],
+							"audio": "belaoven"
+						},
+						{
+							"key": "kannemelkse_pap-2-3-20",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						},
+						{
+							"key": "kannemelkse_pap-2-3-21",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "kannemelkse_pap-2-3-22",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-2-3-24",
+							"text": "verrassing",
+							"dutch": "verrassing",
+							"sounds": [
+								"v",
+								"e",
+								"r",
+								"a",
+								"s",
+								"i",
+								"ng"
+							],
+							"audio": "verrassing"
+						},
+						{
+							"key": "kannemelkse_pap-2-3-27",
+							"text": "zol",
+							"dutch": "zou",
+							"sounds": [
+								"z",
+								"o",
+								"l"
+							],
+							"audio": "zol"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-3",
+			"time": [
+				13.57,
+				19.146679795034473
+			],
+			"image": "kannemelkse_pap-3",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-3-4",
+					"text": "’t Nösdölleken moch wal met in de kinderkaore.",
+					"time": [
+						13.57,
+						15.96508700093564
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-3-4-31",
+							"text": "moch",
+							"dutch": "mocht",
+							"sounds": [
+								"m",
+								"o",
+								"G!"
+							],
+							"audio": "moch"
+						},
+						{
+							"key": "kannemelkse_pap-3-4-33",
+							"text": "met",
+							"dutch": "mee",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "kannemelkse_pap-3-4-34",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-3-5",
+					"text": "Mooder en ’t nösdölleken gingen naor de winkel.",
+					"time": [
+						17.05,
+						19.146679795034473
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-3-5-37",
+							"text": "mooder",
+							"dutch": "Mama",
+							"sounds": [
+								"m",
+								"oe",
+								"d",
+								"e"
+							],
+							"audio": "mooder"
+						},
+						{
+							"key": "kannemelkse_pap-3-5-38",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kannemelkse_pap-3-5-41",
+							"text": "gingen",
+							"dutch": "gingen",
+							"sounds": [
+								"G!",
+								"i",
+								"ng",
+								"e"
+							],
+							"audio": "gingen"
+						},
+						{
+							"key": "kannemelkse_pap-3-5-42",
+							"text": "naor",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "kannemelkse_pap-3-5-44",
+							"text": "winkel",
+							"dutch": "winkel",
+							"sounds": [
+								"w",
+								"i",
+								"ng",
+								"k",
+								"l"
+							],
+							"audio": "winkel"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-4",
+			"time": [
+				19.791088870326,
+				25.47583894990512
+			],
+			"image": "kannemelkse_pap-4",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-4-6",
+					"text": "Stoete mossen ze hebbn en beschuut veur de eerdbaezen.",
+					"time": [
+						19.791088870326,
+						22.52
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-4-6-45",
+							"text": "stoete",
+							"dutch": "Brood",
+							"sounds": [
+								"s",
+								"t",
+								"oe",
+								"t",
+								"e"
+							],
+							"audio": "stoete"
+						},
+						{
+							"key": "kannemelkse_pap-4-6-46",
+							"text": "mossen",
+							"dutch": "moesten",
+							"sounds": [
+								"m",
+								"o",
+								"s",
+								"n"
+							],
+							"audio": "mossen"
+						},
+						{
+							"key": "kannemelkse_pap-4-6-47",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-4-6-48",
+							"text": "hebbn",
+							"dutch": "hebben",
+							"sounds": [
+								"h",
+								"e",
+								"b",
+								"m"
+							],
+							"audio": "hebbn"
+						},
+						{
+							"key": "kannemelkse_pap-4-6-49",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kannemelkse_pap-4-6-50",
+							"text": "beschuut",
+							"dutch": "beschuit",
+							"sounds": [
+								"b",
+								"e",
+								"s",
+								"G!",
+								"uu",
+								"t"
+							],
+							"audio": "beschuut"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-4-7",
+					"text": "En krentewegge, dat von Gijs altied lekker.",
+					"time": [
+						22.94,
+						25.47583894990512
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-4-7-54",
+							"text": "en",
+							"dutch": "En",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kannemelkse_pap-4-7-55",
+							"text": "krentewegge",
+							"dutch": "krentenbrood",
+							"sounds": [
+								"k",
+								"r",
+								"e",
+								"n",
+								"t",
+								"e",
+								"w",
+								"e",
+								"G!",
+								"e"
+							],
+							"audio": "krentewegge"
+						},
+						{
+							"key": "kannemelkse_pap-4-7-56",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "kannemelkse_pap-4-7-58",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						},
+						{
+							"key": "kannemelkse_pap-4-7-60",
+							"text": "lekker",
+							"dutch": "lekker",
+							"sounds": [
+								"l",
+								"e",
+								"k",
+								"e",
+								"r"
+							],
+							"audio": "lekker"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-5",
+			"time": [
+				26.39,
+				34.18769479637864
+			],
+			"image": "kannemelkse_pap-5",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-5-8",
+					"text": "Wieterop in de winkel kwammn ze bie ’t melkschap, maor eigelek zochen ze naor kannemelkse pap.",
+					"time": [
+						26.39,
+						31.174909338747042
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-5-8-61",
+							"text": "wieterop",
+							"dutch": "Verderop",
+							"sounds": [
+								"w",
+								"i",
+								"t",
+								"e",
+								"r",
+								"o",
+								"p"
+							],
+							"audio": "wieterop"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-62",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-64",
+							"text": "winkel",
+							"dutch": "winkel",
+							"sounds": [
+								"w",
+								"i",
+								"ng",
+								"k",
+								"l"
+							],
+							"audio": "winkel"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-66",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-69",
+							"text": "melkschap",
+							"dutch": "melkschap",
+							"sounds": [
+								"m",
+								"e",
+								"l",
+								"e",
+								"k",
+								"s",
+								"G!",
+								"a",
+								"p"
+							],
+							"audio": "melkschap"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-70",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-71",
+							"text": "eigelek",
+							"dutch": "eigenlijk",
+							"sounds": [
+								"ei",
+								"G!",
+								"e",
+								"l",
+								"e",
+								"k"
+							],
+							"audio": "eigelek"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-72",
+							"text": "zochen",
+							"dutch": "zochten",
+							"sounds": [
+								"s",
+								"o",
+								"G!",
+								"n"
+							],
+							"audio": "zochen"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-73",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-74",
+							"text": "naor",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-75",
+							"text": "kannemelkse",
+							"dutch": "karnemelkse",
+							"sounds": [
+								"k",
+								"a",
+								"n",
+								"e",
+								"m",
+								"e",
+								"l",
+								"e",
+								"k",
+								"s",
+								"e"
+							],
+							"audio": "kannemelkse"
+						},
+						{
+							"key": "kannemelkse_pap-5-8-76",
+							"text": "pap",
+							"dutch": "pap",
+							"sounds": [
+								"p",
+								"a",
+								"p"
+							],
+							"audio": "pap"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-5-9",
+					"text": "Disse maol koch ze gin zuutigheid.",
+					"time": [
+						32.17,
+						34.18769479637864
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-5-9-77",
+							"text": "disse",
+							"dutch": "Deze",
+							"sounds": [
+								"d",
+								"i",
+								"s",
+								"e"
+							],
+							"audio": "disse"
+						},
+						{
+							"key": "kannemelkse_pap-5-9-78",
+							"text": "maol",
+							"dutch": "keer",
+							"sounds": [
+								"m",
+								"oa",
+								"l"
+							],
+							"audio": "maol"
+						},
+						{
+							"key": "kannemelkse_pap-5-9-79",
+							"text": "koch",
+							"dutch": "kocht",
+							"sounds": [
+								"k",
+								"o",
+								"G!"
+							],
+							"audio": "koch"
+						},
+						{
+							"key": "kannemelkse_pap-5-9-80",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-5-9-81",
+							"text": "gin",
+							"dutch": "geen",
+							"sounds": [
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "gin"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-6",
+			"time": [
+				34.83,
+				46.66
+			],
+			"image": "kannemelkse_pap-6",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-6-10",
+					"text": "Toen ze weer thuus waarn en ’t nösdölleken in bedde lei, zei mooder dat ze ’n lekker toetjen veur Gijs had met enommn.",
+					"time": [
+						34.83,
+						40.9
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-6-10-83",
+							"text": "toen",
+							"dutch": "Toen",
+							"sounds": [
+								"t",
+								"oe",
+								"n"
+							],
+							"audio": "toen"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-84",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-86",
+							"text": "thuus",
+							"dutch": "thuis",
+							"sounds": [
+								"t",
+								"uu",
+								"s"
+							],
+							"audio": "thuus"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-87",
+							"text": "waarn",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "waarn"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-88",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-91",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-92",
+							"text": "bedde",
+							"dutch": "bed",
+							"sounds": [
+								"b",
+								"e",
+								"d",
+								"e"
+							],
+							"audio": "bedde"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-93",
+							"text": "lei",
+							"dutch": "lag",
+							"sounds": [
+								"l",
+								"ei"
+							],
+							"audio": "lei"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-94",
+							"text": "zei",
+							"dutch": "zei",
+							"sounds": [
+								"z",
+								"ei"
+							],
+							"audio": "zei"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-95",
+							"text": "mooder",
+							"dutch": "mama",
+							"sounds": [
+								"m",
+								"oe",
+								"d",
+								"e"
+							],
+							"audio": "mooder"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-96",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-97",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-99",
+							"text": "lekker",
+							"dutch": "lekker",
+							"sounds": [
+								"l",
+								"e",
+								"k",
+								"e",
+								"r"
+							],
+							"audio": "lekker"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-100",
+							"text": "toetjen",
+							"dutch": "toetje",
+							"sounds": [
+								"t",
+								"oe",
+								"t",
+								"j",
+								"e"
+							],
+							"audio": "toetjen"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-102",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-104",
+							"text": "met",
+							"dutch": "mee",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "kannemelkse_pap-6-10-105",
+							"text": "enommn",
+							"dutch": "genomen",
+							"sounds": [
+								"n",
+								"o",
+								"m",
+								"n"
+							],
+							"audio": "enommn"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-6-11",
+					"text": "‘Gin zuutigheid?’, vroeg Gijs.",
+					"time": [
+						41.58,
+						43.23177932166912
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-6-11-106",
+							"text": "gin",
+							"dutch": "Geen",
+							"sounds": [
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "gin"
+						},
+						{
+							"key": "kannemelkse_pap-6-11-108",
+							"text": "vroeg",
+							"dutch": "vroeg",
+							"sounds": [
+								"f",
+								"r",
+								"oe",
+								"G!"
+							],
+							"audio": "vroeg"
+						},
+						{
+							"key": "kannemelkse_pap-6-11-109",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-6-12",
+					"text": "‘Nee, dis völle lekkerder en nog good veur oe ok.’",
+					"time": [
+						44.33,
+						46.66
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-6-12-110",
+							"text": "nee",
+							"dutch": "Nee",
+							"sounds": [
+								"n",
+								"ee"
+							],
+							"audio": "nee"
+						},
+						{
+							"key": "kannemelkse_pap-6-12-111",
+							"text": "dis",
+							"dutch": "dit is",
+							"sounds": [
+								"d",
+								"i",
+								"s"
+							],
+							"audio": "dis"
+						},
+						{
+							"key": "kannemelkse_pap-6-12-113",
+							"text": "lekkerder",
+							"dutch": "lekkerder",
+							"sounds": [
+								"l",
+								"e",
+								"k",
+								"e",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "lekkerder"
+						},
+						{
+							"key": "kannemelkse_pap-6-12-114",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kannemelkse_pap-6-12-115",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "kannemelkse_pap-6-12-118",
+							"text": "oe",
+							"dutch": "je",
+							"sounds": [
+								"oe"
+							],
+							"audio": "oe"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-7",
+			"time": [
+				47.78,
+				60.41214001957693
+			],
+			"image": "kannemelkse_pap-7",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-7-13",
+					"text": "Nao ’t warm ettn zettn mooder ’n panne kannemelkse pap op taofel.",
+					"time": [
+						47.78,
+						51.35
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-7-13-120",
+							"text": "nao",
+							"dutch": "Na",
+							"sounds": [
+								"n",
+								"oa"
+							],
+							"audio": "nao"
+						},
+						{
+							"key": "kannemelkse_pap-7-13-122",
+							"text": "warm",
+							"dutch": "warm",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"e",
+								"m"
+							],
+							"audio": "warm"
+						},
+						{
+							"key": "kannemelkse_pap-7-13-125",
+							"text": "mooder",
+							"dutch": "mama",
+							"sounds": [
+								"m",
+								"oe",
+								"d",
+								"e"
+							],
+							"audio": "mooder"
+						},
+						{
+							"key": "kannemelkse_pap-7-13-127",
+							"text": "panne",
+							"dutch": "pan",
+							"sounds": [
+								"p",
+								"a",
+								"n",
+								"e"
+							],
+							"audio": "panne"
+						},
+						{
+							"key": "kannemelkse_pap-7-13-128",
+							"text": "kannemelkse",
+							"dutch": "karnemelkse",
+							"sounds": [
+								"k",
+								"a",
+								"n",
+								"e",
+								"m",
+								"e",
+								"l",
+								"e",
+								"k",
+								"s",
+								"e"
+							],
+							"audio": "kannemelkse"
+						},
+						{
+							"key": "kannemelkse_pap-7-13-129",
+							"text": "pap",
+							"dutch": "pap",
+							"sounds": [
+								"p",
+								"a",
+								"p"
+							],
+							"audio": "pap"
+						},
+						{
+							"key": "kannemelkse_pap-7-13-131",
+							"text": "taofel",
+							"dutch": "tafel",
+							"sounds": [
+								"t",
+								"oa",
+								"f",
+								"l"
+							],
+							"audio": "taofel"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-7-14",
+					"text": "Ze reurn d’r met de soepleppel nog effen goed deurhen, scheppen Gijs zien bord vol, dei d’r ’n kladde stroop bie en vroog:",
+					"time": [
+						52.04,
+						60.41214001957693
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-7-14-132",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-135",
+							"text": "met",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-137",
+							"text": "soepleppel",
+							"dutch": "soeplepel",
+							"sounds": [
+								"s",
+								"oe",
+								"p",
+								"l",
+								"e",
+								"p",
+								"l"
+							],
+							"audio": "soepleppel"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-138",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-139",
+							"text": "effen",
+							"dutch": "even",
+							"sounds": [
+								"e",
+								"f",
+								"e"
+							],
+							"audio": "effen"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-140",
+							"text": "goed",
+							"dutch": "goed",
+							"sounds": [
+								"G!",
+								"oe",
+								"t"
+							],
+							"audio": "goed"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-143",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-144",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"s",
+								"i",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-151",
+							"text": "stroop",
+							"dutch": "stroop",
+							"sounds": [
+								"s",
+								"t",
+								"r",
+								"oo",
+								"p"
+							],
+							"audio": "stroop"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-153",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-155",
+							"text": "noh",
+							"dutch": "nou",
+							"sounds": [
+								"n",
+								"a"
+							],
+							"audio": "noh"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-156",
+							"text": "wat",
+							"dutch": "wat",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						},
+						{
+							"key": "kannemelkse_pap-7-14-158",
+							"text": "oe",
+							"dutch": "je",
+							"sounds": [
+								"oe"
+							],
+							"audio": "oe"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "kannemelkse_pap-8",
+			"time": [
+				61.17,
+				70.6046122497862
+			],
+			"image": "kannemelkse_pap-8",
+			"sentences": [
+				{
+					"key": "kannemelkse_pap-8-15",
+					"text": "Maor dit von Gijs gin verrassing!",
+					"time": [
+						61.17,
+						62.79
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-8-15-160",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "kannemelkse_pap-8-15-163",
+							"text": "gijs",
+							"dutch": "Gijs",
+							"sounds": [
+								"G!",
+								"ei",
+								"s"
+							],
+							"audio": "gijs"
+						},
+						{
+							"key": "kannemelkse_pap-8-15-164",
+							"text": "gin",
+							"dutch": "geen",
+							"sounds": [
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "gin"
+						},
+						{
+							"key": "kannemelkse_pap-8-15-165",
+							"text": "verrassing",
+							"dutch": "verrassing",
+							"sounds": [
+								"v",
+								"e",
+								"r",
+								"a",
+								"s",
+								"i",
+								"ng"
+							],
+							"audio": "verrassing"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-8-16",
+					"text": "Hi-j zei: ‘Dit mot ik neet, d’r zit allemaol kloeten in!’",
+					"time": [
+						63.48,
+						66.42
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-8-16-167",
+							"text": "zei",
+							"dutch": "zei",
+							"sounds": [
+								"z",
+								"ei"
+							],
+							"audio": "zei"
+						},
+						{
+							"key": "kannemelkse_pap-8-16-169",
+							"text": "mot",
+							"dutch": "lust",
+							"sounds": [
+								"m",
+								"o",
+								"t"
+							],
+							"audio": "mot"
+						},
+						{
+							"key": "kannemelkse_pap-8-16-171",
+							"text": "neet",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"ee",
+								"t"
+							],
+							"audio": "neet"
+						},
+						{
+							"key": "kannemelkse_pap-8-16-176",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						}
+					]
+				},
+				{
+					"key": "kannemelkse_pap-8-17",
+					"text": "Weer kek hi-j helleg, maor noe naor zien bord kannemelkse pap.",
+					"time": [
+						67.14,
+						70.6046122497862
+					],
+					"words": [
+						{
+							"key": "kannemelkse_pap-8-17-178",
+							"text": "kek",
+							"dutch": "keek",
+							"sounds": [
+								"k",
+								"e",
+								"k"
+							],
+							"audio": "kek"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-180",
+							"text": "helleg",
+							"dutch": "nukkig",
+							"sounds": [
+								"h",
+								"e",
+								"l",
+								"e",
+								"G!"
+							],
+							"audio": "helleg"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-181",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-182",
+							"text": "noe",
+							"dutch": "nu",
+							"sounds": [
+								"n",
+								"oe"
+							],
+							"audio": "noe"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-183",
+							"text": "naor",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-184",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"s",
+								"i",
+								"n"
+							],
+							"audio": "zien"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-186",
+							"text": "kannemelkse",
+							"dutch": "karnemelkse",
+							"sounds": [
+								"k",
+								"a",
+								"n",
+								"e",
+								"m",
+								"e",
+								"l",
+								"e",
+								"k",
+								"s",
+								"e"
+							],
+							"audio": "kannemelkse"
+						},
+						{
+							"key": "kannemelkse_pap-8-17-187",
+							"text": "pap",
+							"dutch": "pap",
+							"sounds": [
+								"p",
+								"a",
+								"p"
+							],
+							"audio": "pap"
+						}
+					]
+				}
+			]
+		}
+	]
+}

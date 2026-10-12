@@ -17,8 +17,8 @@ import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import { learnIcons, stars } from '../../../tests/icons';
 
-const level: Level = sectionLevels('lezen', 'verhaaltjes')[0];
-const section: Section = getSection('lezen', 'verhaaltjes')!;
+const level: Level = sectionLevels('gronings', 'lezen', 'verhaaltjes')[0];
+const section: Section = getSection('gronings', 'lezen', 'verhaaltjes')!;
 
 let stories: Story[];
 let story: Story;
@@ -40,7 +40,8 @@ const cards = (container: HTMLElement) => [...container.querySelectorAll('main u
 /** The card showing the illustration of `key`. */
 const cardFor = (container: HTMLElement, key: string) =>
 	cards(container).find(
-		(card) => card.querySelector('img')!.getAttribute('src') === imageUrl(byKey.get(key)!.image)
+		(card) =>
+			card.querySelector('img')!.getAttribute('src') === imageUrl('gronings', byKey.get(key)!.image)
 	);
 
 const tap = (card: Element | undefined) => flushSync(() => (card as HTMLElement).click());
@@ -63,8 +64,8 @@ beforeAll(async () => {
 	localStorage.clear();
 	await learnIcons();
 	progress.load();
-	stories = await loadStories();
-	story = await loadStory(level.story);
+	stories = await loadStories('gronings');
+	story = await loadStory('gronings', level.story);
 	byKey = fragmentIndex(stories);
 });
 
@@ -133,7 +134,7 @@ describe('picking a picture', () => {
 		expect(text(container)).toContain('Dat klopt!');
 		expect(text(container)).toContain('Het juiste antwoord was:');
 		expect(container.querySelector('main img')!.getAttribute('src')).toBe(
-			animationUrl(byKey.get(target)!.image)
+			animationUrl('gronings', byKey.get(target)!.image)
 		);
 	});
 

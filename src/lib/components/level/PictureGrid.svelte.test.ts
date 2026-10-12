@@ -17,7 +17,7 @@ let story: Story;
 const options = (count: number) =>
 	story.fragments.slice(0, count).map((fragment) => ({
 		key: fragment.key,
-		image: imageUrl(fragment.image)
+		image: imageUrl('gronings', fragment.image)
 	}));
 
 const grid = async (count: number, wrong: string[] = []) => {
@@ -36,7 +36,7 @@ function channels(colour: string): [number, number, number, number] {
 }
 
 beforeAll(async () => {
-	story = await loadStory('bragel');
+	story = await loadStory('gronings', 'bragel');
 	await page.viewport(400, 800);
 });
 
@@ -106,7 +106,7 @@ describe('a card that was wrong', () => {
 		// Tailwind mixes an opacity modifier in oklab, so the computed value is not
 		// an rgba() string. A canvas converts it back to channels to assert on.
 		const [red, green, blue, alpha] = channels(overlay.backgroundColor);
-		// --color-primary from src/app.css, at half opacity.
+		// --color-wrong from src/app.css, at half opacity.
 		expect(red).toBeCloseTo(227, -1);
 		expect(green).toBeCloseTo(20, -1);
 		expect(blue).toBeCloseTo(20, -1);

@@ -47,7 +47,7 @@
 					<!-- Translucent, so the picture that was picked stays visible underneath. -->
 					<span
 						aria-hidden="true"
-						class="bg-primary/50 absolute inset-0 flex items-center justify-center text-xl text-white"
+						class="bg-wrong/50 absolute inset-0 flex items-center justify-center text-xl text-white"
 					>
 						Helaas!
 					</span>

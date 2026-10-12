@@ -40,12 +40,12 @@
 	let animation = $state<string | null>(null);
 
 	onMount(async () => {
-		const story = await loadStory(level.story);
+		const story = await loadStory(level.language, level.story);
 		const rules = gameRules(category, section.id);
 		if (!rules) return;
 
 		index = rowIndex(story);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({ level, rules, generate: () => sentenceItems(story) });
 	});
 
@@ -83,10 +83,11 @@
 
 <!-- The "Resultaat" card of docs/original-app/games.md, this game's top area. -->
 {#snippet resultCard()}
-	<SentenceResultCard {order} {index} />
+	<SentenceResultCard language={level.language} {order} {index} />
 {/snippet}
 
 <LevelShell
+	language={level.language}
 	{category}
 	{section}
 	{run}
@@ -94,8 +95,21 @@
 	top={run?.item && !run.answered ? resultCard : undefined}
 >
 	{#if run?.item && run.answered}
-		<SentenceFeedback item={run.item} {index} onproceed={() => run?.proceed()} />
+		<SentenceFeedback
+			language={level.language}
+			item={run.item}
+			{index}
+			onproceed={() => run?.proceed()}
+		/>
 	{:else if run?.item}
-		<SentenceBoard {order} {index} {locked} {markers} onreorder={reorder} onsubmit={submit} />
+		<SentenceBoard
+			language={level.language}
+			{order}
+			{index}
+			{locked}
+			{markers}
+			onreorder={reorder}
+			onsubmit={submit}
+		/>
 	{/if}
 </LevelShell>

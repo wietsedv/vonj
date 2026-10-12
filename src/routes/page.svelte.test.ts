@@ -1,5 +1,7 @@
 /**
- * The global overview, in a browser, against real stored progress.
+ * The global overview of Gronings, in a browser, against real stored progress.
+ * Achterhoeks renders through the same page; `ssr.test.ts` holds both to their
+ * own copy.
  *
  * The layout calls `progress.load()` on mount; these tests render the page on
  * its own, so they load once and then drive the store through `save()` and
@@ -13,11 +15,21 @@ import { render } from 'vitest-browser-svelte';
 import { level } from '../tests/fixtures';
 import { learnIcons, stars } from '../tests/icons';
 
-const page = async () => (await render((await import('./+page.svelte')).default)).container;
+const page = async () =>
+	(
+		await render((await import('./[language=language]/+page.svelte')).default, {
+			data: { language: 'gronings' }
+		})
+	).container;
 
 /** The card of one category, which is its link. */
 const card = (container: HTMLElement, id: Category) =>
-	container.querySelector<HTMLAnchorElement>(`a[href="/${id}"]`)!;
+	container.querySelector<HTMLAnchorElement>(`a[href="/gronings/${id}"]`)!;
+
+/** The category cards, leaving out the way back to the language picker. */
+const cardLinks = (container: HTMLElement) => [
+	...container.querySelectorAll<HTMLAnchorElement>('a[href^="/gronings/"]')
+];
 
 const scoreSlot = (element: Element) => element.querySelector('div.flex.justify-center')!;
 
@@ -26,7 +38,7 @@ const text = (element: Element) => element.textContent!.replace(/\s+/g, ' ').tri
 
 /** Finishes every level of a category with the given score. */
 const finish = (id: Category, score: number | ((index: number) => number)) => {
-	categoryLevels(id).forEach((entry, index) => {
+	categoryLevels('gronings', id).forEach((entry, index) => {
 		progress.save(entry.id, level(typeof score === 'number' ? score : score(index)));
 	});
 };
@@ -42,15 +54,14 @@ beforeEach(() => progress.resetEverything());
 describe('the four categories', () => {
 	it('links to one page per category, in overview order', async () => {
 		const container = await page();
-		const links = [...container.querySelectorAll<HTMLAnchorElement>('a[href]')];
-		expect(links.map((link) => new URL(link.href).pathname)).toEqual(
-			categories.map((category) => `/${category.id}`)
+		expect(cardLinks(container).map((link) => new URL(link.href).pathname)).toEqual(
+			categories('gronings').map((category) => `/gronings/${category.id}`)
 		);
 	});
 
 	it('names every category and draws its icon', async () => {
 		const container = await page();
-		for (const category of categories) {
+		for (const category of categories('gronings')) {
 			const link = card(container, category.id);
 			expect(link.querySelector('h2')?.textContent).toBe(category.name);
 			// The category icon, plus whatever the score slot is showing.
@@ -62,16 +73,16 @@ describe('the four categories', () => {
 describe('with nothing played', () => {
 	it('says none of the levels have been played', async () => {
 		const container = await page();
-		for (const category of categories) {
+		for (const category of categories('gronings')) {
 			expect(text(card(container, category.id))).toContain(
-				`0 van de ${categoryLevels(category.id).length} levels gespeeld`
+				`0 van de ${categoryLevels('gronings', category.id).length} levels gespeeld`
 			);
 		}
 	});
 
 	it('shows a play icon rather than stars', async () => {
 		const container = await page();
-		for (const category of categories) {
+		for (const category of categories('gronings')) {
 			expect(stars(scoreSlot(card(container, category.id)))).toBe('play');
 		}
 	});
@@ -79,20 +90,21 @@ describe('with nothing played', () => {
 
 describe('part way through a category', () => {
 	it('counts the finished levels', async () => {
-		progress.save('luisteren.verhaaltjes.bragel', level(6));
-		progress.save('luisteren.verhaaltjes.kopstubber', level(3));
+		progress.save('gronings.luisteren.verhaaltjes.bragel', level(6));
+		progress.save('gronings.luisteren.verhaaltjes.kopstubber', level(3));
 		const container = await page();
 		expect(text(card(container, 'luisteren'))).toContain('2 van de 12 levels gespeeld');
 	});
 
 	it('does not count a level that was started but not finished', async () => {
-		progress.save('luisteren.verhaaltjes.bragel', level(null));
+		progress.save('gronings.luisteren.verhaaltjes.bragel', level(null));
 		const container = await page();
 		expect(text(card(container, 'luisteren'))).toContain('0 van de 12 levels gespeeld');
 	});
 
 	it('still shows a play icon, however good the finished levels were', async () => {
-		for (const entry of categoryLevels('schrijven').slice(0, 7)) progress.save(entry.id, level(6));
+		for (const entry of categoryLevels('gronings', 'schrijven').slice(0, 7))
+			progress.save(entry.id, level(6));
 		const container = await page();
 		expect(text(card(container, 'schrijven'))).toContain('7 van de 8 levels gespeeld');
 		expect(stars(scoreSlot(card(container, 'schrijven')))).toBe('play');
@@ -140,7 +152,7 @@ describe('with a category finished', () => {
 describe('after a reset', () => {
 	it('goes back to counting from zero', async () => {
 		finish('schrijven', 6);
-		progress.resetCategory('schrijven');
+		progress.resetCategory('gronings', 'schrijven');
 		const container = await page();
 		expect(text(card(container, 'schrijven'))).toContain('0 van de 8 levels gespeeld');
 		expect(stars(scoreSlot(card(container, 'schrijven')))).toBe('play');
@@ -150,14 +162,14 @@ describe('after a reset', () => {
 describe('reaching the categories with a keyboard', () => {
 	it('makes every card a real link, in reading order', async () => {
 		const container = await page();
-		const links = [...container.querySelectorAll('a[href]')];
+		const links = cardLinks(container);
 		for (const link of links) {
 			expect(link.tagName).toBe('A');
 			// A real href, so it is focusable and follows on Enter without script.
-			expect(link.getAttribute('href')).toMatch(/^\/[a-z]+$/);
+			expect(link.getAttribute('href')).toMatch(/^\/gronings\/[a-z]+$/);
 			expect(link.hasAttribute('tabindex')).toBe(false);
 		}
-		expect(links).toHaveLength(categories.length);
+		expect(links).toHaveLength(categories('gronings').length);
 	});
 
 	it('focuses a card without a pointer', async () => {

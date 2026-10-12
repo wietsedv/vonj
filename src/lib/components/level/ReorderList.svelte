@@ -49,6 +49,11 @@
 		markers?: Record<string, RowMarker>;
 		/** The "Gebruik de streepjes..." line above the list, or nothing. */
 		instruction?: string | null;
+		/**
+		 * The language of the text rows, which are always sentence chunks in the
+		 * language being taught, as a `lang` attribute: "gos" or "act".
+		 */
+		lang?: string;
 		/** Defaults to "Versturen"; the timed variant may want "Volgende". */
 		submitLabel?: string;
 		/** Whether "Versturen" is enabled. */
@@ -69,6 +74,7 @@
 		locked = [],
 		markers = {},
 		instruction = null,
+		lang,
 		submitLabel = 'Versturen',
 		canSubmit = true,
 		alert,
@@ -376,7 +382,7 @@
 						<span
 							data-marker={marker}
 							class="flex size-7 items-center justify-center rounded-full shadow-md [&_svg]:size-5
-								[&_svg]:fill-white {marker === 'correct' ? 'bg-accent' : 'bg-primary'}"
+								[&_svg]:fill-white {marker === 'correct' ? 'bg-accent' : 'bg-wrong'}"
 						>
 							{#if marker === 'correct'}
 								<Check />
@@ -422,8 +428,8 @@
 							class="aspect-[4/3] w-full max-w-40 rounded-lg object-cover"
 						/>
 					{:else}
-						<!-- A text row is always a Gronings sentence chunk; an image row is a fragment. -->
-						<p lang="gos">{row.text}</p>
+						<!-- A text row is always a sentence chunk; an image row is a fragment. -->
+						<p {lang}>{row.text}</p>
 					{/if}
 				</div>
 

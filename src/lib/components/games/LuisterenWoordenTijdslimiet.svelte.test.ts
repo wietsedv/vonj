@@ -27,8 +27,8 @@ import { flushSync } from 'svelte';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('luisteren', 'woorden-tijdslimiet')[0];
-const section: Section = getSection('luisteren', 'woorden-tijdslimiet')!;
+const level: Level = sectionLevels('gronings', 'luisteren', 'woorden-tijdslimiet')[0];
+const section: Section = getSection('gronings', 'luisteren', 'woorden-tijdslimiet')!;
 const secondsPerStep = gameRules('luisteren', 'woorden-tijdslimiet')!.secondsPerStep!;
 
 let story: Story;
@@ -91,7 +91,7 @@ const advance = (ms: number) => flushSync(() => vi.advanceTimersByTime(ms));
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 
 	const bySpelling = new Map<string, WordInSentence>();
 	for (const candidate of storyWords(story)) {
@@ -113,7 +113,7 @@ afterEach(() => {
 
 describe('opening a level', () => {
 	it('renders the timer beside the audio player', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 
 		const top = container.querySelector('main > div')!;
@@ -124,7 +124,7 @@ describe('opening a level', () => {
 
 describe('the clock', () => {
 	it('reveals, plays and locks the next sound on expiry, and records a response for it', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 
@@ -138,7 +138,7 @@ describe('the clock', () => {
 	});
 
 	it('auto-submits with "Jammer!" once every sound has been given away', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 
@@ -147,14 +147,14 @@ describe('the clock', () => {
 		expect(text(container)).toContain('Jammer!');
 		expect(text(container)).toContain('De juiste uitspraak is:');
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-primary'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-wrong'))).toBe(true);
 		// One response per expiry, plus one more for the auto-submit itself.
 		expect(stored().responses).toHaveLength(target.length + 1);
 		expect(stored().responses.at(-1)).toEqual(target);
 	});
 
 	it('keeps the choices, their marking and the clock on a wrong manual submit', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 		advance(3000);
@@ -185,7 +185,7 @@ describe('the clock', () => {
 	});
 
 	it('plays only the word recording on a wrong manual submit, not the chosen sounds', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 
@@ -214,7 +214,7 @@ describe('the clock', () => {
 	});
 
 	it('stops the clock immediately on a correct manual submit', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 		fillCorrectly(container, target);
@@ -230,7 +230,7 @@ describe('coming back to a level', () => {
 		const target = entry.word.sounds;
 		const alreadyGiven = 1;
 		const partialAnswer = target.map((sound, index) => (index < alreadyGiven ? sound : ''));
-		const items = soundItems([entry]);
+		const items = soundItems('gronings', [entry]);
 		items[0].responses = [partialAnswer];
 		seed(items);
 
@@ -251,7 +251,7 @@ describe('coming back to a level', () => {
 
 describe('tearing down', () => {
 	it('leaves no interval running once the component is destroyed', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { unmount } = await open();
 		expect(vi.getTimerCount()).toBeGreaterThan(0);
 

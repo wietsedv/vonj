@@ -11,7 +11,7 @@
  */
 import { distractorSounds } from '$lib/content';
 import type { WordSelection } from '$lib/game/rules';
-import type { Fragment, Sentence, Story, Word } from '$lib/types';
+import type { Fragment, Language, Sentence, Story, Word } from '$lib/types';
 
 /* -------------------------------------------------------------------------- */
 /* Picking                                                                    */
@@ -64,13 +64,15 @@ export const storyDistractors = (stories: readonly Story[], target: Story): Stor
 /* -------------------------------------------------------------------------- */
 
 /**
- * Wrong sounds for one column, drawn from the Gronings sound inventory. The
- * target sound is excluded, and so are the sounds that are never offered as a
- * distractor.
+ * Wrong sounds for one column, drawn from the sound inventory of the language.
+ * The target sound is excluded, and so are the sounds that are never offered as
+ * a distractor.
  */
-export const soundDistractors = (target: string, count: number): string[] =>
+export const soundDistractors = (language: Language, target: string, count: number): string[] =>
 	pick(
-		distractorSounds.filter((sound) => sound.sound !== target).map((sound) => sound.sound),
+		distractorSounds(language)
+			.filter((sound) => sound.sound !== target)
+			.map((sound) => sound.sound),
 		count
 	);
 
@@ -103,7 +105,7 @@ const fits = (word: Word, selection: WordSelection): boolean => {
 
 /**
  * The words one level of a word game is played on: the words of the story that
- * fit the section's selection, de-duplicated by their Gronings spelling, in
+ * fit the section's selection, de-duplicated by their spelling, in
  * random order, capped at the section's count.
  *
  * De-duplication keeps the first occurrence, so a word is always shown in the

@@ -225,7 +225,7 @@ describe('the per-position result', () => {
 		const { container } = await boxes({ letters: ['a', 'b'], results: ['correct', 'wrong'] });
 		const wrappers = [...container.querySelectorAll('span.relative')];
 		expect(wrappers[0].className).toContain('border-accent');
-		expect(wrappers[1].className).toContain('border-primary');
+		expect(wrappers[1].className).toContain('border-wrong');
 	});
 
 	it('shows a check or a cross, so the result is never colour alone', async () => {
@@ -245,7 +245,7 @@ describe('the per-position result', () => {
 		const { container } = await boxes({ letters: ['a'], results: [null] });
 		const wrapper = container.querySelector('span.relative')!;
 		expect(wrapper.className).not.toContain('border-accent');
-		expect(wrapper.className).not.toContain('border-primary');
+		expect(wrapper.className).not.toContain('border-wrong');
 		expect(wrapper.querySelector('svg')).toBeNull();
 	});
 });

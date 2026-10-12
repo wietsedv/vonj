@@ -1,10 +1,17 @@
 /**
- * Regenerates src/lib/content from the original app's bundled dataset.
+ * Regenerates src/lib/content from the original app's bundled datasets.
  *
- *   node scripts/build-content.mjs [--source ../vonj-app] [--skip-media]
+ *   node scripts/build-content.mjs [--source ../vonj-app] [--only <language>] [--skip-media]
  *
- * The original app is read-only reference material: this script only reads from
- * it. It rewrites src/lib/content/*.json and src/lib/content/assets/** in place.
+ * The original app ships one language per git branch: `gronings` and
+ * `achterhoeks`. Each branch is read straight out of git with `git archive`, so
+ * nothing is checked out and the working tree of the original is never touched;
+ * whichever branch it happens to be on does not matter either. The original app
+ * is read-only reference material: this script only reads from it.
+ *
+ * Every language is written to its own directory, src/lib/content/<language>/,
+ * holding categories.json, sounds.json, stories/*.json and assets/**. `--only`
+ * rebuilds a single language and leaves the others alone.
  *
  * Media conversion needs ffmpeg with libwebp, libwebp_anim and libmp3lame.
  */
@@ -24,12 +31,21 @@ const flag = (name, fallback) => {
 	const i = args.indexOf(`--${name}`);
 	return i === -1 ? fallback : args[i + 1];
 };
-const source = resolve(repo, flag('source', '../vonj-app'));
+const repository = resolve(repo, flag('source', '../vonj-app'));
+const only = flag('only', null);
 const skipMedia = args.includes('--skip-media');
 
-const out = join(repo, 'src/lib/content');
-const assets = join(out, 'assets');
-const gronings = join(source, 'app/assets/static/gronings');
+const contentDir = join(repo, 'src/lib/content');
+
+/**
+ * The languages of the content set, each with the branch of the original app it
+ * is read from. The key is the language id the original's dataset itself uses
+ * (`lang_id`), which is also the first segment of every URL and storage key.
+ */
+const LANGUAGES = {
+	gronings: { branch: 'gronings' },
+	achterhoeks: { branch: 'achterhoeks' }
+};
 
 /** The original's English ids, mapped onto the Dutch ids this app uses. */
 const CATEGORY_IDS = {
@@ -51,16 +67,32 @@ const SECTION_IDS = {
 };
 
 /**
- * Typos in the original's Dutch copy, corrected on the way through. Keyed by the
- * whole original line, so a fix that lands upstream stops being applied here
- * instead of being applied twice, and an unused entry is reported.
+ * Typos in the original's Dutch copy, corrected on the way through, per
+ * language. Keyed by the whole original line, so a fix that lands upstream
+ * stops being applied here instead of being applied twice, and an unused entry
+ * is reported. The Achterhoeks branch already has this one fixed.
  *
  * This is the only place where the app's Dutch differs from the original's; the
- * Gronings content itself is never corrected.
+ * Gronings and Achterhoeks content itself is never corrected.
  */
 const COPY_FIXES = {
-	'Sleep te zinnen in de juiste volgorde om het verhaaltje leesbaar te maken.':
-		'Sleep de zinnen in de juiste volgorde om het verhaaltje leesbaar te maken.'
+	gronings: {
+		'Sleep te zinnen in de juiste volgorde om het verhaaltje leesbaar te maken.':
+			'Sleep de zinnen in de juiste volgorde om het verhaaltje leesbaar te maken.'
+	},
+	achterhoeks: {}
+};
+
+/**
+ * Sounds a dataset lists, and words use, but the branch has no recording for.
+ * The Achterhoeks inventory names "oa" and points at klanken/audio/oa.mp3, a
+ * file that was never committed, so the original played nothing for it. Such a
+ * sound is generated without `audio` and plays as silence here too. Anything
+ * else that is missing is still an error.
+ */
+const MISSING_SOUND_RECORDINGS = {
+	gronings: [],
+	achterhoeks: ['oa']
 };
 
 /** Sounds whose recording filename is not usable as a URL path segment. */
@@ -80,28 +112,57 @@ const fail = (m) => {
 /* -------------------------------------------------------------------------- */
 
 /**
+ * Exports the dataset and the media of one branch into a scratch directory with
+ * `git archive`, which reads the object database only: no checkout, no change
+ * to the original's working tree, index or HEAD.
+ */
+async function exportBranch(language, branch) {
+	if (!existsSync(join(repository, '.git')))
+		fail(`Original app not found at ${repository}\nPass --source <path to vonj-app>.`);
+	const target = join(repo, 'node_modules/.cache/vonj-source', language);
+	await rm(target, { recursive: true, force: true });
+	await mkdir(target, { recursive: true });
+	const archive = join(target, 'source.tar');
+	try {
+		await run(
+			'git',
+			[
+				'-C',
+				repository,
+				'archive',
+				'--format=tar',
+				`--output=${archive}`,
+				branch,
+				'app/lib/offline.ts',
+				`app/assets/static/${language}`
+			],
+			{ maxBuffer: 1 << 26 }
+		);
+	} catch (error) {
+		fail(`Could not read branch "${branch}" of ${repository}:\n${error.stderr ?? error}`);
+	}
+	await run('tar', ['-xf', archive, '-C', target]);
+	await rm(archive, { force: true });
+	return target;
+}
+
+/**
  * offline.ts is a TypeScript module holding one object literal. Stripping the
  * single type annotation makes it valid ESM, which node can import directly.
  */
-async function readOffline() {
+async function readOffline(source) {
 	const file = join(source, 'app/lib/offline.ts');
-	if (!existsSync(file))
-		fail(`Original dataset not found at ${file}\nPass --source <path to vonj-app>.`);
 	const ts = await readFile(file, 'utf8');
 	const js = ts.replace('const root: { [key: string]: object } = {', 'const root = {');
 	if (js === ts) fail('Could not strip the type annotation from offline.ts; its shape changed.');
-	const tmp = join(repo, 'node_modules/.cache/vonj-offline.mjs');
-	await mkdir(dirname(tmp), { recursive: true });
+	const tmp = join(source, 'offline.mjs');
 	await writeFile(tmp, js);
 	const { default: root } = await import(`${tmp}?t=${Date.now()}`);
 	await rm(tmp, { force: true });
 	return root;
 }
 
-/** "~/assets/static/gronings/klanken/audio/aa.mp3" -> absolute path. */
-const sourcePath = (src) => join(source, 'app', src.replace(/^~\//, ''));
-
-/** Fold a Gronings word to an ASCII path segment: "bèr" -> "ber". */
+/** Fold a word to an ASCII path segment: "bèr" -> "ber". */
 function slugify(value) {
 	return value
 		.normalize('NFD')
@@ -131,13 +192,49 @@ function uniqueSlugs(values) {
 /* Content                                                                    */
 /* -------------------------------------------------------------------------- */
 
-function buildCategories(root) {
-	const source = root['/categories/demo'];
-	if (!source) fail('offline.ts has no "/categories/demo" entry.');
+/**
+ * The dataset of one branch: its root object, plus where in it the language's
+ * categories and stories live. Both keys are read from the dataset's own
+ * presets (`GET /` in the original), which list one language with one school,
+ * rather than assumed.
+ */
+async function readLanguage(language) {
+	const source = await exportBranch(language, LANGUAGES[language].branch);
+	const root = await readOffline(source);
+
+	const presets = root['']?.languages;
+	if (presets?.length !== 1 || presets[0].schools?.length !== 1)
+		fail(`${language}: expected the presets to list exactly one language with one school.`);
+	if (presets[0].id !== language)
+		fail(`${language}: the branch's dataset is for "${presets[0].id}".`);
+
+	const categories = root[`/categories/${presets[0].schools[0].id}`];
+	if (!categories) fail(`${language}: offline.ts has no categories for its school.`);
+	if (categories.lang_id !== language)
+		fail(`${language}: the categories are for "${categories.lang_id}".`);
+
+	return {
+		id: language,
+		source,
+		root,
+		categories,
+		target: (key) => {
+			const target = root[`/target/${language}/${key}`];
+			if (!target) fail(`${language}: offline.ts has no story "${key}".`);
+			return target;
+		},
+		/** "~/assets/static/gronings/klanken/audio/aa.mp3" -> absolute path. */
+		path: (src) => join(source, 'app', src.replace(/^~\//, ''))
+	};
+}
+
+function buildCategories(lang) {
+	const source = lang.categories;
+	const fixes = COPY_FIXES[lang.id];
 
 	const applied = new Set();
 	const fix = (line) => {
-		const fixed = COPY_FIXES[line];
+		const fixed = fixes[line];
 		if (!fixed) return line;
 		applied.add(line);
 		return fixed;
@@ -165,7 +262,7 @@ function buildCategories(root) {
 		};
 	});
 
-	for (const line of Object.keys(COPY_FIXES)) {
+	for (const line of Object.keys(fixes)) {
 		if (!applied.has(line)) {
 			console.warn(`  note: copy fix no longer matches anything, drop it:\n    "${line}"`);
 		}
@@ -174,10 +271,9 @@ function buildCategories(root) {
 	return categories;
 }
 
-function buildStories(root, storyKeys, wordSlugs) {
+function buildStories(lang, storyKeys, wordSlugs) {
 	return storyKeys.map((key) => {
-		const target = root[`/target/gronings/${key}`];
-		if (!target) fail(`offline.ts has no story "${key}".`);
+		const target = lang.target(key);
 		return {
 			key,
 			audio: key,
@@ -204,15 +300,22 @@ function buildStories(root, storyKeys, wordSlugs) {
 }
 
 /** The sound inventory, identical in all four stories, so stored once. */
-function buildSounds(root, storyKeys) {
-	const maps = storyKeys.map((key) => root[`/target/gronings/${key}`].phoneme_srcs);
+function buildSounds(lang, storyKeys) {
+	const maps = storyKeys.map((key) => lang.target(key).phoneme_srcs);
 	const reference = JSON.stringify(maps[0]);
 	for (const map of maps.slice(1)) {
-		if (JSON.stringify(map) !== reference) fail('The stories disagree about the sound inventory.');
+		if (JSON.stringify(map) !== reference)
+			fail(`${lang.id}: the stories disagree about the sound inventory.`);
+	}
+	const silent = MISSING_SOUND_RECORDINGS[lang.id];
+	for (const sound of silent) {
+		if (!(sound in maps[0])) fail(`${lang.id}: "${sound}" is not in the inventory any more.`);
+		if (existsSync(lang.path(maps[0][sound])))
+			fail(`${lang.id}: "${sound}" has a recording now; drop it from MISSING_SOUND_RECORDINGS.`);
 	}
 	return Object.keys(maps[0]).map((sound) => ({
 		sound,
-		audio: SOUND_SLUGS[sound] ?? slugify(sound),
+		...(silent.includes(sound) ? {} : { audio: SOUND_SLUGS[sound] ?? slugify(sound) }),
 		// The original never offers G! as a distractor.
 		...(sound === 'G!' ? { distractor: false } : {})
 	}));
@@ -316,7 +419,8 @@ async function pool(tasks, size = 6) {
 	if (tasks.length) process.stdout.write('\n');
 }
 
-async function buildMedia(root, storyKeys, sounds, wordSlugs) {
+async function buildMedia(lang, storyKeys, sounds, wordSlugs) {
+	const assets = join(contentDir, lang.id, 'assets');
 	await rm(assets, { recursive: true, force: true });
 
 	const tasks = [];
@@ -327,24 +431,31 @@ async function buildMedia(root, storyKeys, sounds, wordSlugs) {
 	};
 
 	// Sound recordings.
-	const phonemes = root[`/target/gronings/${storyKeys[0]}`].phoneme_srcs;
+	const phonemes = lang.target(storyKeys[0]).phoneme_srcs;
 	for (const { sound, audio } of sounds) {
-		const input = sourcePath(phonemes[sound]);
+		if (!audio) continue;
+		const input = lang.path(phonemes[sound]);
 		if (need(input))
 			tasks.push(() => padRecording(input, join(assets, 'audio/sounds', `${audio}.mp3`)));
 	}
 
 	// Single-word recordings, one per distinct spelling.
 	for (const [text, slug] of wordSlugs) {
-		const input = join(gronings, 'losse_woorden/audio', `${text}.mp3`);
+		const input = join(
+			lang.source,
+			'app/assets/static',
+			lang.id,
+			'losse_woorden/audio',
+			`${text}.mp3`
+		);
 		if (need(input))
 			tasks.push(() => padRecording(input, join(assets, 'audio/words', `${slug}.mp3`)));
 	}
 
 	// Story recordings and illustrations.
 	for (const key of storyKeys) {
-		const target = root[`/target/gronings/${key}`];
-		const recording = sourcePath(target.src_wav);
+		const target = lang.target(key);
+		const recording = lang.path(target.src_wav);
 		if (need(recording))
 			tasks.push(() => copyInto(recording, join(assets, 'audio/stories', `${key}.mp3`)));
 
@@ -357,8 +468,8 @@ async function buildMedia(root, storyKeys, sounds, wordSlugs) {
 			}))
 		];
 		for (const { name, png, gif } of images) {
-			const stillIn = sourcePath(png);
-			const animIn = sourcePath(gif);
+			const stillIn = lang.path(png);
+			const animIn = lang.path(gif);
 			if (need(stillIn))
 				tasks.push(() => toWebp(stillIn, join(assets, 'images', key, `${name}.webp`)));
 			if (need(animIn))
@@ -366,7 +477,7 @@ async function buildMedia(root, storyKeys, sounds, wordSlugs) {
 		}
 	}
 
-	if (missing.length) fail(`Missing source files:\n  ${missing.join('\n  ')}`);
+	if (missing.length) fail(`${lang.id}: missing source files:\n  ${missing.join('\n  ')}`);
 
 	log(`  converting ${tasks.length} assets`);
 	await pool(tasks);
@@ -374,25 +485,25 @@ async function buildMedia(root, storyKeys, sounds, wordSlugs) {
 
 /* -------------------------------------------------------------------------- */
 
-async function main() {
-	log(`Reading ${join(source, 'app/lib/offline.ts')}`);
-	const root = await readOffline();
+async function buildLanguage(language) {
+	log(`Reading branch "${LANGUAGES[language].branch}" of ${repository}`);
+	const lang = await readLanguage(language);
 
-	const storyKeys = root['/categories/demo'].words;
-	const categories = buildCategories(root);
-	const sounds = buildSounds(root, storyKeys);
+	const storyKeys = lang.categories.words;
+	const categories = buildCategories(lang);
+	const sounds = buildSounds(lang, storyKeys);
 
-	// Every distinct Gronings spelling in the dataset needs one recording.
+	// Every distinct spelling in the dataset needs one recording.
 	const spellings = new Set();
 	for (const key of storyKeys) {
-		for (const fragment of root[`/target/gronings/${key}`].data) {
+		for (const fragment of lang.target(key).data) {
 			for (const sentence of fragment.sentences) {
 				for (const word of sentence.words) spellings.add(word.text);
 			}
 		}
 	}
 	const wordSlugs = uniqueSlugs(spellings);
-	const stories = buildStories(root, storyKeys, wordSlugs);
+	const stories = buildStories(lang, storyKeys, wordSlugs);
 
 	// Sanity checks: every sound used by a word must exist in the inventory.
 	const inventory = new Set(sounds.map((s) => s.sound));
@@ -407,8 +518,10 @@ async function main() {
 		}
 	}
 	if (unknown.size)
-		fail(`Words use sounds that are not in the inventory: ${[...unknown].join(', ')}`);
+		fail(`${language}: words use sounds that are not in the inventory: ${[...unknown].join(', ')}`);
 
+	const out = join(contentDir, language);
+	await rm(join(out, 'stories'), { recursive: true, force: true });
 	await mkdir(join(out, 'stories'), { recursive: true });
 	const write = (file, data) => writeFile(join(out, file), `${JSON.stringify(data, null, '\t')}\n`);
 	await write('categories.json', categories);
@@ -416,16 +529,23 @@ async function main() {
 	for (const story of stories) await write(`stories/${story.key}.json`, story);
 
 	log(
-		`Wrote ${categories.length} categories, ${sounds.length} sounds, ${stories.length} stories ` +
-			`(${wordSlugs.size} distinct words)`
+		`  ${language}: ${categories.length} categories, ${sounds.length} sounds, ` +
+			`${stories.length} stories (${wordSlugs.size} distinct words)`
 	);
 
 	if (skipMedia) {
-		log('Skipping media conversion (--skip-media).');
-		return;
+		log('  skipping media conversion (--skip-media)');
+	} else {
+		log('  converting media');
+		await buildMedia(lang, storyKeys, sounds, wordSlugs);
 	}
-	log('Converting media');
-	await buildMedia(root, storyKeys, sounds, wordSlugs);
+	await rm(lang.source, { recursive: true, force: true });
+}
+
+async function main() {
+	if (only && !(only in LANGUAGES))
+		fail(`Unknown language "${only}". Known: ${Object.keys(LANGUAGES).join(', ')}.`);
+	for (const language of only ? [only] : Object.keys(LANGUAGES)) await buildLanguage(language);
 	log('Done.');
 }
 

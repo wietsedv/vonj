@@ -6,14 +6,44 @@
  */
 @custom-variant short (@media (max-height: 30rem));
 
+/*
+ * The palette. `primary`, `secondary` and `accent` are the colours each
+ * language's branch of the original sets in `app/scss/_variables.scss`, and
+ * differ per language; the values here are Gronings. `primary` is the header
+ * ($primary), `secondary` the page and the current item ($accent), and `accent`
+ * the buttons, the stars and a right answer ($secundary, which is also $green).
+ *
+ * `wrong` and `check` are the same in every language: the original's $red,
+ * which no branch changes, and the green its pages hardcode for the tick on
+ * "Dat klopt!".
+ */
 @theme {
 	--color-primary: #e31414;
 	--color-secondary: #0087d2;
 	--color-accent: #0fb215;
+	--color-wrong: #e31414;
+	--color-check: #0fb215;
 
 	--breakpoint-2xs: 20rem;
 	--breakpoint-xs: 30rem;
 	--breakpoint-sm: 36rem;
+}
+
+/*
+ * Achterhoeks, from the `achterhoeks` branch. `data-palette` scopes it to an
+ * element, which is how the language picker shows both palettes side by side,
+ * and a page of the language marks itself with `data-page` as well so that
+ * `<html>`, and with it the page background, takes the palette too.
+ */
+[data-palette='achterhoeks'],
+:root:has([data-page][data-palette='achterhoeks']) {
+	--color-primary: #185a20;
+	--color-secondary: #bfb393;
+	--color-accent: #75c447;
+}
+
+:root:has([data-page]) {
+	background-color: var(--color-secondary);
 }
 
 /*

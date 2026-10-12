@@ -22,8 +22,8 @@ import { flushSync } from 'svelte';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('schrijven', 'woorden')[0];
-const section: Section = getSection('schrijven', 'woorden')!;
+const level: Level = sectionLevels('gronings', 'schrijven', 'woorden')[0];
+const section: Section = getSection('gronings', 'schrijven', 'woorden')!;
 
 let story: Story;
 let index: Map<string, WordInSentence>;
@@ -76,7 +76,7 @@ const otherLetter = (letter: string) => (letter === 'a' ? 'b' : 'a');
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 	index = wordIndex(story);
 
 	const bySpelling = new Map<string, WordInSentence>();
@@ -142,7 +142,7 @@ describe('submitting an answer', () => {
 		expect(wrappers[0].className).toContain('border-accent');
 		expect(wrappers[1].className).toContain('border-accent');
 		for (let i = 2; i < wrappers.length; i++) {
-			expect(wrappers[i].className).toContain('border-primary');
+			expect(wrappers[i].className).toContain('border-wrong');
 		}
 
 		const boxesAfter = inputsOf(container);
@@ -164,7 +164,7 @@ describe('submitting an answer', () => {
 		expect(text(container)).toContain('Dat klopt!');
 		expect(text(container)).toContain('Het juist geschreven woord is:');
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-accent'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-check'))).toBe(true);
 
 		const readonlyBoxes = inputsOf(container).filter((input) => input.readOnly);
 		expect(readonlyBoxes.map((input) => input.value)).toEqual(target);
@@ -191,7 +191,7 @@ describe('submitting an answer', () => {
 		expect(text(container)).toContain('Jammer!');
 		expect(text(container)).toContain('Het juist geschreven woord is:');
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-primary'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-wrong'))).toBe(true);
 		// The extra mistake: the wrong attempt plus the completing response.
 		expect(stored().responses.length).toBeGreaterThan(1);
 	});
@@ -216,5 +216,40 @@ describe('coming back to a level', () => {
 		// (unsaved) guess is not restored either.
 		expect(boxes[2].readOnly).toBe(false);
 		expect(boxes[2].value).toBe('');
+	});
+});
+
+describe('in Achterhoeks', () => {
+	const achterhoeks: Level = sectionLevels('achterhoeks', 'schrijven', 'woorden')[0];
+	const achterhoeksSection = getSection('achterhoeks', 'schrijven', 'woorden')!;
+
+	async function openAchterhoeks() {
+		const { container } = await render(SchrijvenWoorden, {
+			category: 'schrijven',
+			section: achterhoeksSection,
+			level: achterhoeks
+		});
+		await vi.waitFor(() => expect(inputsOf(container).length).toBeGreaterThan(0));
+		return container;
+	}
+
+	it('labels the sentence "Achterhooks", as the Achterhoeks app does', async () => {
+		const container = await openAchterhoeks();
+		expect(text(container)).toContain('Achterhooks');
+		expect(text(container)).toContain('Nederlands');
+		expect(text(container)).not.toContain('Grunnegs');
+	});
+
+	it('plays on a word of the Achterhoeks story', async () => {
+		await openAchterhoeks();
+		const words = wordIndex(await loadStory('achterhoeks', achterhoeks.story));
+		const source = progress.level(achterhoeks.id)!.items[0].source;
+		expect(words.has(source)).toBe(true);
+	});
+
+	it('marks the sentence and the letter boxes as Achterhoeks', async () => {
+		const container = await openAchterhoeks();
+		expect(container.querySelectorAll('[lang="act"]').length).toBeGreaterThanOrEqual(2);
+		expect(container.querySelector('[lang="gos"]')).toBeNull();
 	});
 });

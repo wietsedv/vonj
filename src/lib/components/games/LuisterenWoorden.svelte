@@ -37,18 +37,22 @@
 	let answer = $state<SoundAnswer | null>(null);
 
 	onMount(async () => {
-		const story = await loadStory(level.story);
+		const story = await loadStory(level.language, level.story);
 		const rules = gameRules(category, section.id);
 		if (!rules?.words) return;
 
 		words = wordIndex(story);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({
 			level,
 			rules,
-			generate: () => soundItems(selectWords(story, rules.words!))
+			generate: () => soundItems(level.language, selectWords(story, rules.words!))
 		});
-		answer = new SoundAnswer({ run, wordAudioUrl: () => (entry ? wordUrl(entry.word) : null) });
+		answer = new SoundAnswer({
+			language: level.language,
+			run,
+			wordAudioUrl: () => (entry ? wordUrl(level.language, entry.word) : null)
+		});
 	});
 
 	onDestroy(() => answer?.destroy());
@@ -75,12 +79,13 @@
 <!-- The audio player of docs/original-app/games.md, this game's top area. No text prompt. -->
 {#snippet player()}
 	{#if entry}
-		<AudioPlayer src={wordUrl(entry.word)} autoplay />
+		<AudioPlayer src={wordUrl(level.language, entry.word)} autoplay />
 	{/if}
 {/snippet}
 
 <!-- Hidden, not removed, behind the feedback card, as in the original. -->
 <LevelShell
+	language={level.language}
 	{category}
 	{section}
 	{run}

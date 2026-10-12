@@ -1,54 +1,33 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Score from '$lib/components/Score.svelte';
-	import { categories } from '$lib/content';
-	import { categoryIcons } from '$lib/icons';
-	import { progress } from '$lib/progress.svelte';
-	import { APP_NAME } from '$lib/title';
+	import { languages } from '$lib/languages';
 </script>
 
+<!--
+  The language picker. The original was one app per language, so there is no
+  screen of its own to copy: each language is shown the way its own app
+  presents itself, with its icon, its name and its palette, and leads to that
+  language's global overview.
+-->
 <svelte:head>
-	<title>{APP_NAME}</title>
+	<title>{languages.map((language) => language.appName).join(' / ')}</title>
+	<link rel="icon" href={languages[0].icon} />
+	<link rel="apple-touch-icon" href={languages[0].icon} />
 </svelte:head>
 
-<main id="inhoud">
-	<div class="bg-primary px-4 pt-18 pb-24 shadow-lg">
-		<div class="mx-auto max-w-md text-center text-white">
-			<h1 class="my-4 text-4xl font-medium">Van Old noar Jong:<br />Grunnegs</h1>
-			<p>Hoe goed is jouw Gronings?</p>
-			<p>Speel alle levels om erachter te komen!</p>
-		</div>
-	</div>
-
-	<div class="mx-auto -mt-20 max-w-md px-4 py-10">
-		<div class="flex w-full flex-col items-center gap-3">
-			{#each categories as category (category.id)}
-				{@const scope = progress.category(category.id)}
-				{@const Icon = categoryIcons[category.id]}
+<main id="inhoud" class="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4 py-10">
+	<ul class="flex flex-col gap-4">
+		{#each languages as language (language.id)}
+			{@const [nameStart, nameEnd] = language.appName.split(': ')}
+			<li data-palette={language.id}>
 				<a
-					href={resolve(`/${category.id}`)}
-					class="flex w-full items-center gap-4 rounded-lg bg-white px-4 py-3 transition hover:bg-gray-100 hover:shadow-xl focus:bg-gray-100 focus:shadow-xl"
+					href={resolve('/[language=language]', { language: language.id })}
+					class="bg-primary flex items-center gap-5 rounded-lg px-5 py-6 text-white shadow-lg transition hover:shadow-xl hover:brightness-110 focus:shadow-xl focus:brightness-110"
 				>
-					<div class="[&>svg]:fill-primary w-10 text-center [&>svg]:inline-block">
-						<Icon />
-					</div>
-
-					<div class="flex-1">
-						<h2 class="text-xl font-medium">{category.name}</h2>
-						<!-- Empty until localStorage has been read, rather than claiming zero. -->
-						<p class="min-h-5 text-sm">
-							{#if progress.loaded}
-								{#if scope.completed < scope.levels}{scope.completed} van de {scope.levels}
-									levels gespeeld
-								{:else}Alle levels gespeeld!
-								{/if}
-							{/if}
-						</p>
-					</div>
-
-					<Score score={progress.loaded ? scope.score : undefined} />
+					<img src={language.icon} alt="" class="size-16 shrink-0 rounded-xl ring-2 ring-white" />
+					<span class="text-2xl font-medium">{nameStart}:<br />{nameEnd}</span>
 				</a>
-			{/each}
-		</div>
-	</div>
+			</li>
+		{/each}
+	</ul>
 </main>

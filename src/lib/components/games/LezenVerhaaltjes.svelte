@@ -6,6 +6,7 @@
 	import { loadStories } from '$lib/content';
 	import { animationUrl, imageUrl } from '$lib/content/assets';
 	import { LevelRun } from '$lib/game/level.svelte';
+	import { getLanguage } from '$lib/languages';
 	import { fragmentIndex, fragmentItems, fragmentText, pictureOptions } from '$lib/game/pictures';
 	import { gameRules } from '$lib/game/rules';
 	import type { Fragment } from '$lib/types';
@@ -24,13 +25,13 @@
 	let animation = $state<string | null>(null);
 
 	onMount(async () => {
-		const stories = await loadStories();
+		const stories = await loadStories(level.language);
 		const story = stories.find((candidate) => candidate.key === level.story);
 		const rules = gameRules(category, section.id);
 		if (!story || !rules) return;
 
 		fragments = fragmentIndex(stories);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({ level, rules, generate: () => fragmentItems(story, stories) });
 	});
 
@@ -43,7 +44,7 @@
 		run && !run.finished && run.item
 			? pictureOptions(run.item).map((key) => ({
 					key,
-					image: imageUrl(fragments.get(key)?.image ?? '')
+					image: imageUrl(level.language, fragments.get(key)?.image ?? '')
 				}))
 			: []
 	);
@@ -63,17 +64,27 @@
 <!-- The story text card of docs/original-app/level-shell.md, this game's top area. -->
 {#snippet sentenceCard()}
 	{#if fragment}
-		<p lang="gos" class="rounded-2xl bg-white px-6 py-5 text-center text-lg shadow-lg">
+		<p
+			lang={getLanguage(level.language).lang}
+			class="rounded-2xl bg-white px-6 py-5 text-center text-lg shadow-lg"
+		>
 			{fragmentText(fragment)}
 		</p>
 	{/if}
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={fragment ? sentenceCard : undefined}>
+<LevelShell
+	language={level.language}
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={fragment ? sentenceCard : undefined}
+>
 	{#if run?.answered && fragment}
 		<ItemFeedback
 			description="Het juiste antwoord was:"
-			image={animationUrl(fragment.image)}
+			image={animationUrl(level.language, fragment.image)}
 			onproceed={() => run?.proceed()}
 		/>
 	{:else if options.length > 0}

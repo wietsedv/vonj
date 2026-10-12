@@ -9,6 +9,7 @@
 import { games } from '$lib/components/games';
 import { categories } from '$lib/content';
 import { ruledSections } from '$lib/game/rules';
+import { languages } from '$lib/languages';
 import { describe, expect, it } from 'vitest';
 
 describe('the game registry', () => {
@@ -16,8 +17,8 @@ describe('the game registry', () => {
 		expect(Object.keys(games).sort()).toEqual(ruledSections().sort());
 	});
 
-	it('has a game for every section of the content set', () => {
-		const sections = categories.flatMap((category) =>
+	it.each(languages.map(({ id }) => id))('has a game for every section of %s', (language) => {
+		const sections = categories(language).flatMap((category) =>
 			category.sections.map((section) => `${category.id}.${section.id}`)
 		);
 		expect(Object.keys(games).sort()).toEqual(sections.sort());

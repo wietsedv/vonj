@@ -5,16 +5,19 @@
 	 * whether the story reads correctly before submitting. Shared by
 	 * `LezenZinnen.svelte` and `LezenZinnenTijdslimiet.svelte`.
 	 */
+	import { getLanguage } from '$lib/languages';
+	import type { Language } from '$lib/types';
 	import { resultText } from './sentenceRows';
 
 	interface Props {
+		language: Language;
 		/** The current order, top to bottom, as row keys. */
 		order: string[];
-		/** Row key to Gronings text, from `rowIndex(story)`. */
+		/** Row key to sentence text, from `rowIndex(story)`. */
 		index: Map<string, string>;
 	}
 
-	let { order, index }: Props = $props();
+	let { language, order, index }: Props = $props();
 </script>
 
 <!--
@@ -24,5 +27,7 @@
 -->
 <div class="rounded-2xl bg-white px-6 py-5 shadow-lg">
 	<p class="text-sm font-semibold tracking-wide text-slate-500 uppercase">Resultaat</p>
-	<p lang="gos" class="mt-2 max-h-36 overflow-y-auto text-lg">{resultText(order, index)}</p>
+	<p lang={getLanguage(language).lang} class="mt-2 max-h-36 overflow-y-auto text-lg">
+		{resultText(order, index)}
+	</p>
 </div>

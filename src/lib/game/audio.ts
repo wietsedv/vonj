@@ -56,7 +56,11 @@ export interface PlayOptions {
 	 * that the clip is ready.
 	 */
 	onReady?: () => void;
-	/** Called once playback has actually started, i.e. after `play()` resolved. */
+	/**
+	 * Called once playback has actually started: when `play()` resolved, or
+	 * when the position is seen moving forward, whichever comes first. See
+	 * `markStarted` for why the promise alone is not enough.
+	 */
 	onStart?: () => void;
 	/**
 	 * Called on every progress tick with how far playback has gone through the
@@ -138,13 +142,28 @@ export function playClip(url: string, options: PlayOptions = {}): PlaybackHandle
 		resolveDone(outcome);
 	}
 
+	/**
+	 * Playback has started. Usually `play()` resolving says so, but WebKit can
+	 * leave that promise pending - and never fire `playing` - when the seek to
+	 * the start of `range` lands while the promise is still pending, while the
+	 * audio itself plays on regardless. Without a second signal the player
+	 * then showed "loading" for the whole clip, so a position seen moving
+	 * forward on an element that is not paused counts as a start too. Either
+	 * signal fires `onStart` once, and never after the playback is done.
+	 */
+	function markStarted() {
+		if (settled || started) return;
+		started = true;
+		onStart?.();
+	}
+
+	/** Where the position stood when the last seek landed, so that moving past it is progress. */
+	let seekedTo = 0;
+
 	function attemptPlay() {
 		if (settled || started) return;
 		audio.play().then(
-			() => {
-				started = true;
-				onStart?.();
-			},
+			markStarted,
 			// Rejected for two very different reasons that are indistinguishable
 			// from here: an autoplay refusal, or `cancel()` having paused the
 			// element while `play()` was still pending. Both are already handled -
@@ -161,10 +180,12 @@ export function playClip(url: string, options: PlayOptions = {}): PlaybackHandle
 
 	function onSeeked() {
 		positioned = true;
+		seekedTo = audio.currentTime;
 	}
 
 	function onTimeUpdate() {
 		if (settled || !positioned) return;
+		if (!audio.paused && audio.currentTime > seekedTo) markStarted();
 		if (range && audio.currentTime >= range[1]) {
 			onProgress?.(1);
 			finish('finished');
@@ -209,14 +230,26 @@ export interface SequenceHandle {
  * sound up while it sounds. Selecting a different sound mid-playback is what
  * "interrupts" the sequence in `docs/original-app/games.md`: call `cancel()`
  * and start a new sequence.
+ *
+ * A null entry is a clip that does not exist - a sound the original never had
+ * a recording for - and is passed over in silence, the way the original's
+ * player logged the error and went on to the next one. `onItem` still fires
+ * for it, so the indices keep lining up.
  */
-export function playSequence(urls: string[], onItem?: (index: number) => void): SequenceHandle {
+export function playSequence(
+	urls: (string | null)[],
+	onItem?: (index: number) => void
+): SequenceHandle {
 	let cancelled = false;
 	let current: PlaybackHandle | null = null;
 
 	async function run(): Promise<PlaybackOutcome> {
 		for (const [index, url] of urls.entries()) {
 			if (cancelled) return 'cancelled';
+			if (url === null) {
+				onItem?.(index);
+				continue;
+			}
 			current = playClip(url, { onStart: () => onItem?.(index) });
 			const outcome = await current.done;
 			if (outcome !== 'finished') return outcome;

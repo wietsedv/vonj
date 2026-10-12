@@ -37,18 +37,22 @@
 	let answer = $state<SoundAnswer | null>(null);
 
 	onMount(async () => {
-		const story = await loadStory(level.story);
+		const story = await loadStory(level.language, level.story);
 		const rules = gameRules(category, section.id);
 		if (!rules?.words) return;
 
 		words = wordIndex(story);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({
 			level,
 			rules,
-			generate: () => soundItems(selectWords(story, rules.words!))
+			generate: () => soundItems(level.language, selectWords(story, rules.words!))
 		});
-		answer = new SoundAnswer({ run, wordAudioUrl: () => (entry ? wordUrl(entry.word) : null) });
+		answer = new SoundAnswer({
+			language: level.language,
+			run,
+			wordAudioUrl: () => (entry ? wordUrl(level.language, entry.word) : null)
+		});
 	});
 
 	onDestroy(() => answer?.destroy());
@@ -82,7 +86,14 @@
 	{/if}
 {/snippet}
 
-<LevelShell {category} {section} {run} {animation} top={entry ? prompt : undefined}>
+<LevelShell
+	language={level.language}
+	{category}
+	{section}
+	{run}
+	{animation}
+	top={entry ? prompt : undefined}
+>
 	{#if run?.answered && item && answer}
 		<SoundFeedback
 			sounds={item.target}

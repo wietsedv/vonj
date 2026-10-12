@@ -4,10 +4,11 @@
 	import ProgressDots from '$lib/components/level/ProgressDots.svelte';
 	import type { LevelRun } from '$lib/game/level.svelte';
 	import { categoryIcons } from '$lib/icons';
-	import type { Category, Section } from '$lib/types';
+	import type { Category, Language, Section } from '$lib/types';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
+		language: Language;
 		category: Category;
 		section: Section;
 		/**
@@ -32,6 +33,7 @@
 	}
 
 	let {
+		language,
 		category,
 		section,
 		run = null,
@@ -54,7 +56,7 @@
 	  size, or it would take more than half of the height before the game.
 	-->
 	<header class="bg-primary short:pt-3 short:pb-7 relative px-4 pt-14 pb-10 shadow-lg">
-		<BackButton {category} label="Terug naar het overzicht" />
+		<BackButton {language} {category} label="Terug naar het overzicht" />
 
 		<div class="mx-auto max-w-md text-center text-balance text-white">
 			<h1
@@ -77,6 +79,7 @@
 			<LevelResult
 				score={run.score ?? 0}
 				{animation}
+				{language}
 				{category}
 				replayable={run.replayable}
 				onreplay={() => run?.restart()}

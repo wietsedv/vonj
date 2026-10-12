@@ -79,7 +79,7 @@
 	let animation = $state<string | null>(null);
 
 	onMount(async () => {
-		const allStories = await loadStories();
+		const allStories = await loadStories(level.language);
 		const found = allStories.find((candidate) => candidate.key === level.story);
 		const rules = gameRules(category, section.id);
 		if (!found || !rules) return;
@@ -87,7 +87,7 @@
 		story = found;
 		fragments = fragmentIndex(allStories);
 		stories = storyIndex(allStories);
-		animation = animationUrl(found.image);
+		animation = animationUrl(level.language, found.image);
 		run = new LevelRun({
 			level,
 			rules,
@@ -107,7 +107,7 @@
 	/* recap items (see the module doc comment above).                      */
 	/* ------------------------------------------------------------------ */
 
-	const audioSrc = $derived(story ? storyUrl(story) : null);
+	const audioSrc = $derived(story ? storyUrl(level.language, story) : null);
 	const audioRange = $derived(
 		kind === 'fragment' && run?.item ? fragments.get(run.item.target[0])?.time : undefined
 	);
@@ -123,7 +123,10 @@
 
 	const options = $derived(
 		run?.item && isPicture
-			? pictureOptions(run.item).map((key) => ({ key, image: imageUrl(imageFor(key) ?? '') }))
+			? pictureOptions(run.item).map((key) => ({
+					key,
+					image: imageUrl(level.language, imageFor(key) ?? '')
+				}))
 			: []
 	);
 
@@ -138,7 +141,7 @@
 	const answerImage = $derived(
 		isPicture && run?.item ? (imageFor(run.item.target[0]) ?? null) : null
 	);
-	const answerAnimation = $derived(answerImage ? animationUrl(answerImage) : null);
+	const answerAnimation = $derived(answerImage ? animationUrl(level.language, answerImage) : null);
 
 	/** A card that was already tapped costs nothing: it is not a new attempt. */
 	function select(key: string) {
@@ -166,7 +169,7 @@
 	});
 
 	const recapRows = $derived(
-		order.map((key) => ({ key, image: imageUrl(fragments.get(key)?.image ?? '') }))
+		order.map((key) => ({ key, image: imageUrl(level.language, fragments.get(key)?.image ?? '') }))
 	);
 
 	/** A submit happened and it was wrong: `markers` is only ever populated in that case. */
@@ -194,6 +197,7 @@
 
 <!-- Hidden, not removed, behind the feedback card, as in the original. -->
 <LevelShell
+	language={level.language}
 	{category}
 	{section}
 	{run}
@@ -227,7 +231,7 @@
 
 <!-- White like the other inline messages: red on a red tint over the blue page was unreadable. -->
 {#snippet recapAlert()}
-	<p class="text-primary rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
+	<p class="text-wrong rounded-xl bg-white px-4 py-3 text-sm font-medium shadow" role="alert">
 		Nog niet alle plaatjes staan op de juiste plaats
 	</p>
 {/snippet}

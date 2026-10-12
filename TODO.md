@@ -286,10 +286,12 @@ problems, both below.
       insertion over in `onbeforeinput` for a plain typed character, before
       either rule can apply. Covered by two tests driven with real key events,
       which fail without the fix.
-- [x] **The favicon was Svelte's logo.** It is the original app's own icon now
-      (`src/lib/assets/favicon.png`, copied from
-      `../vonj-app/App_Resources/Android/.../drawable-xxxhdpi/icon.png`), and
-      with a `<title>` on every route a bookmarked tab says what it is.
+- [x] **The favicon was Svelte's logo.** Each language has its flag now: the
+      Achterhoeks branch's launcher icon (`src/lib/assets/favicon-achterhoeks.png`,
+      copied from `../vonj-app/App_Resources/Android/.../drawable-xxxhdpi/icon.png`),
+      and the Gronings flag drawn in the app's palette
+      (`src/lib/assets/flag-gronings.svg`, rendered to `favicon-gronings.png`).
+      With a `<title>` on every route a bookmarked tab says what it is.
 
 ## Open questions
 

@@ -22,8 +22,8 @@ import { flushSync } from 'svelte';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('luisteren', 'woorden')[0];
-const section: Section = getSection('luisteren', 'woorden')!;
+const level: Level = sectionLevels('gronings', 'luisteren', 'woorden')[0];
+const section: Section = getSection('gronings', 'luisteren', 'woorden')!;
 const rules = gameRules('luisteren', 'woorden')!;
 
 let story: Story;
@@ -78,7 +78,7 @@ function seed(items: StoredItem[], score: number | null = null) {
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 
 	const bySpelling = new Map<string, WordInSentence>();
 	for (const candidate of storyWords(story)) {
@@ -97,7 +97,7 @@ beforeEach(() => {
 
 describe('opening a level', () => {
 	it("shows the audio player on the word's own recording, with no text prompt", async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 
 		expect(container.querySelector('[aria-label*="geluid" i]')).not.toBeNull();
@@ -108,21 +108,21 @@ describe('opening a level', () => {
 	});
 
 	it("loads the word's own recording", async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		await open();
 		// The player attempts autoplay on its own source; nothing to assert on
 		// the network directly, but the entry used is the word this item targets.
-		expect(wordUrl(entry.word)).toContain(entry.word.audio);
+		expect(wordUrl('gronings', entry.word)).toContain(entry.word.audio);
 	});
 
 	it('shows one column per sound of the word', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		expect(columns(container)).toHaveLength(stored().target.length);
 	});
 
 	it('shows "Versturen" only once every column is chosen, and only after something changed', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		expect(button(container, 'Versturen')).toBeUndefined();
 
@@ -139,7 +139,7 @@ describe('candidate counts', () => {
 	it('offers 2, 3 or 4 candidates per column at difficulty 0, 1 and 2, target always included', async () => {
 		for (const difficulty of [0, 1, 2]) {
 			progress.resetEverything();
-			const items = soundItems([entry]).map((item) => ({ ...item, difficulty }));
+			const items = soundItems('gronings', [entry]).map((item) => ({ ...item, difficulty }));
 			seed(items);
 			const { container } = await open();
 
@@ -155,7 +155,7 @@ describe('candidate counts', () => {
 
 describe('submitting an answer', () => {
 	it('shows "Dat klopt!", "De juiste uitspraak is:" and "Nederlands: <translation>" on a right submit', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 		fillCorrectly(container, target);
@@ -165,7 +165,7 @@ describe('submitting an answer', () => {
 		expect(text(container)).toContain('De juiste uitspraak is:');
 		expect(text(container)).toContain(`Nederlands: ${entry.word.dutch}`);
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-accent'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-check'))).toBe(true);
 
 		const feedbackFields = [...container.querySelectorAll('main ol.flex.gap-2 > li button')];
 		expect(feedbackFields).toHaveLength(target.length);
@@ -173,7 +173,7 @@ describe('submitting an answer', () => {
 	});
 
 	it('marks a wrong column red and stays on the columns, not the feedback', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 		const wrongCandidate = (index: number, column: Element) =>
@@ -194,7 +194,7 @@ describe('submitting an answer', () => {
 
 describe('tearing down', () => {
 	it('leaves nothing playing once destroyed', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container, unmount } = await open();
 		const pause = vi.spyOn(HTMLMediaElement.prototype, 'pause');
 

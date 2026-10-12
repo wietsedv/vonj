@@ -4,7 +4,7 @@
  * questions each game family asks of them.
  *
  * Six sections play on single words and share this module:
- * - the sound games, which reconstruct which Gronings sounds a word is made
+ * - the sound games, which reconstruct which sounds a word is made
  *   of: Luisteren > Woorden (with its timed variant) and the three Spreken
  *   sections;
  * - the writing games, which spell a word letter by letter: Schrijven >
@@ -15,7 +15,7 @@
  * "Items", "Adaptive difficulty" and "Timers" under "Shared mechanics".
  */
 import { soundDistractors, storyWords, type WordInSentence } from '$lib/game/generate';
-import type { Sentence, StoredItem, Story, Word } from '$lib/types';
+import type { Language, Sentence, StoredItem, Story, Word } from '$lib/types';
 
 /* -------------------------------------------------------------------------- */
 /* Shared: looking a word up by its item's source key                        */
@@ -43,15 +43,15 @@ export const MAX_DISTRACTORS = 3;
 /**
  * One item per selected word, in the order `selectWords()` gave them. `target`
  * is the word's sounds, one per column; `distractors` holds one candidate
- * list per column, drawn from the whole sound inventory. `difficulty` is a
+ * list per column, drawn from the language's whole sound inventory. `difficulty` is a
  * placeholder that `LevelRun` stamps over, exactly as `fragmentItems` leaves
  * it at 0 in pictures.ts.
  */
-export function soundItems(words: readonly WordInSentence[]): StoredItem[] {
+export function soundItems(language: Language, words: readonly WordInSentence[]): StoredItem[] {
 	return words.map(({ word }) => ({
 		source: word.key,
 		target: word.sounds,
-		distractors: word.sounds.map((sound) => soundDistractors(sound, MAX_DISTRACTORS)),
+		distractors: word.sounds.map((sound) => soundDistractors(language, sound, MAX_DISTRACTORS)),
 		responses: [],
 		difficulty: 0
 	}));

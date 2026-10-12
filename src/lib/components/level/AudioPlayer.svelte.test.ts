@@ -79,7 +79,7 @@ const reaches = (container: HTMLElement, state: PlayerState) =>
  * its label, its disabled button - would be racing the clip to it. A story
  * fragment is a few seconds of the same real audio and settles that.
  */
-const lasting = () => ({ src: storyUrl(story), range: fragmentRange, autoplay: false });
+const lasting = () => ({ src: storyUrl('gronings', story), range: fragmentRange, autoplay: false });
 
 /** The bar's fill, read off its inline `width` style rather than any test-only hook. */
 function fillPercent(container: HTMLElement): number {
@@ -89,9 +89,9 @@ function fillPercent(container: HTMLElement): number {
 
 beforeAll(async () => {
 	await learnIcons();
-	story = await loadStory('bragel');
+	story = await loadStory('gronings', 'bragel');
 	fragmentRange = story.fragments[0].time;
-	soundSrc = soundUrl(getSound('a')!);
+	soundSrc = soundUrl('gronings', getSound('gronings', 'a')!)!;
 });
 
 describe('the four states', () => {

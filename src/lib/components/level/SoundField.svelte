@@ -37,7 +37,7 @@
 	const tone: Record<'neutral' | 'correct' | 'wrong', string> = {
 		neutral: 'border-gray-300 bg-gray-50 text-gray-800',
 		correct: 'border-accent bg-accent text-white',
-		wrong: 'border-primary bg-primary text-white'
+		wrong: 'border-wrong bg-wrong text-white'
 	};
 
 	// The colour and the icon are silent, so the result goes into the name as
@@ -78,7 +78,7 @@
 		</span>
 	{:else if result === 'wrong'}
 		<span
-			class="[&>svg]:fill-primary absolute -top-2 -right-1 rounded-full bg-white p-0.5 shadow [&>svg]:size-4"
+			class="[&>svg]:fill-wrong absolute -top-2 -right-1 rounded-full bg-white p-0.5 shadow [&>svg]:size-4"
 		>
 			<Cross />
 		</span>

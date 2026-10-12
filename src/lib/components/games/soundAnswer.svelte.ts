@@ -14,7 +14,7 @@ import type { SoundColumn } from '$lib/components/level/SoundColumns.svelte';
 import type { SoundFieldResult } from '$lib/components/level/SoundField.svelte';
 import { playClip, playSequence, type PlaybackHandle, type SequenceHandle } from '$lib/game/audio';
 import type { LevelRun } from '$lib/game/level.svelte';
-import type { Answer, StoredItem } from '$lib/types';
+import type { Answer, Language, StoredItem } from '$lib/types';
 import {
 	answerFrom,
 	answerPlaybackUrls,
@@ -25,6 +25,8 @@ import {
 } from './soundGame';
 
 export interface SoundAnswerOptions {
+	/** The language whose sound recordings are played. */
+	language: Language;
 	run: LevelRun;
 	/** The word's own recording, for the end of every playback. Null while it is not yet known. */
 	wordAudioUrl: () => string | null;
@@ -40,6 +42,7 @@ export interface SoundAnswerOptions {
 }
 
 export class SoundAnswer {
+	readonly #language: Language;
 	readonly #run: LevelRun;
 	readonly #wordAudioUrl: () => string | null;
 	readonly #playChosenOnWrongSubmit: boolean;
@@ -56,7 +59,8 @@ export class SoundAnswer {
 	/** Index of the column currently sounding in the answer playback, or null. */
 	soundingIndex = $state<number | null>(null);
 
-	constructor({ run, wordAudioUrl, playChosenOnWrongSubmit = true }: SoundAnswerOptions) {
+	constructor({ language, run, wordAudioUrl, playChosenOnWrongSubmit = true }: SoundAnswerOptions) {
+		this.#language = language;
 		this.#run = run;
 		this.#wordAudioUrl = wordAudioUrl;
 		this.#playChosenOnWrongSubmit = playChosenOnWrongSubmit;
@@ -102,7 +106,7 @@ export class SoundAnswer {
 		this.changed = true;
 		this.incomplete = false;
 		this.soundingIndex = null;
-		this.#playback = playClip(soundClipUrl(sound));
+		this.#playSound(sound);
 	}
 
 	/** Tapping the display field: replays the sound already chosen for that column. */
@@ -111,7 +115,13 @@ export class SoundAnswer {
 		if (!sound) return;
 		this.#playback?.cancel();
 		this.soundingIndex = null;
-		this.#playback = playClip(soundClipUrl(sound));
+		this.#playSound(sound);
+	}
+
+	/** Plays one sound, or nothing for a sound without a recording. */
+	#playSound(sound: string): void {
+		const url = soundClipUrl(this.#language, sound);
+		this.#playback = url === null ? null : playClip(url);
 	}
 
 	/**
@@ -166,7 +176,9 @@ export class SoundAnswer {
 		if (!wordAudioUrl) return;
 
 		const playChosen = correct || this.#playChosenOnWrongSubmit;
-		const urls = playChosen ? answerPlaybackUrls(this.chosen, wordAudioUrl) : [wordAudioUrl];
+		const urls = playChosen
+			? answerPlaybackUrls(this.#language, this.chosen, wordAudioUrl)
+			: [wordAudioUrl];
 		const sequence = playSequence(urls, (index) => {
 			this.soundingIndex = index < urls.length - 1 ? index : null;
 		});

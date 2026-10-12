@@ -32,7 +32,7 @@ let story: Story;
 let fragmentRange: TimeRange;
 
 /** URL of a single short sound recording, real audio from the content set. */
-const soundClip = (spelling: string) => soundUrl(getSound(spelling)!);
+const soundClip = (spelling: string) => soundUrl('gronings', getSound('gronings', spelling)!)!;
 
 /**
  * Dispatches a real, trusted click through Playwright, which is what makes
@@ -63,7 +63,7 @@ async function clickToRun(action: () => void): Promise<void> {
 }
 
 beforeAll(async () => {
-	story = await loadStory('bragel');
+	story = await loadStory('gronings', 'bragel');
 	// A real fragment: a few seconds inside a recording of the whole story,
 	// which runs far longer than that.
 	fragmentRange = story.fragments[0].time;
@@ -76,6 +76,39 @@ describe('playClip', () => {
 			.mockRejectedValue(new DOMException('', 'NotAllowedError'));
 		try {
 			await expect(playClip(soundClip('a')).done).resolves.toBe('blocked');
+		} finally {
+			play.mockRestore();
+		}
+	});
+
+	it('reports the start from the moving position when play() never settles', async () => {
+		// WebKit can leave the play() promise pending, and skip "playing", when
+		// the seek into a range lands while it is pending, and play the audio
+		// regardless. Recreated here in every engine: the real play() runs, the
+		// promise handed back never settles.
+		const realPlay = HTMLMediaElement.prototype.play;
+		const play = vi.spyOn(HTMLMediaElement.prototype, 'play').mockImplementation(function (
+			this: HTMLMediaElement
+		) {
+			realPlay.call(this).catch(() => {});
+			return new Promise<void>(() => {});
+		});
+		const events: string[] = [];
+		let outcome: PlaybackOutcome | undefined;
+		try {
+			await clickToRun(() => {
+				playClip(storyUrl('gronings', story), {
+					range: fragmentRange,
+					onStart: () => events.push('start')
+				}).done.then((result) => {
+					events.push(result);
+					outcome = result;
+				});
+			});
+			await vi.waitFor(() => expect(events).toContain('start'), { timeout: 8000 });
+			expect(outcome).toBeUndefined();
+			await vi.waitFor(() => expect(outcome).toBe('finished'), { timeout: 10000 });
+			expect(events).toEqual(['start', 'finished']);
 		} finally {
 			play.mockRestore();
 		}
@@ -114,7 +147,7 @@ describe('playClip', () => {
 		// about where playback stopped.
 		let playingSince = 0;
 		await clickToRun(() => {
-			playClip(storyUrl(story), {
+			playClip(storyUrl('gronings', story), {
 				range: fragmentRange,
 				onStart: () => (playingSince = performance.now())
 			}).done.then((result) => {
@@ -166,7 +199,7 @@ describe('playClip', () => {
 
 		try {
 			await clickToRun(() => {
-				playClip(storyUrl(story), {
+				playClip(storyUrl('gronings', story), {
 					range: fragmentRange,
 					onProgress: (fraction) => seen.push(fraction)
 				}).done.then((result) => (outcome = result));
@@ -229,7 +262,7 @@ describe('playClip', () => {
 describe('playSequence', () => {
 	it('plays every clip in order, reporting each as it starts, then resolves "finished"', async () => {
 		const word = story.fragments[0].sentences[0].words.find((w) => w.sounds.length >= 2)!;
-		const urls = [...word.sounds.map(soundClip), wordUrl(word)];
+		const urls = [...word.sounds.map(soundClip), wordUrl('gronings', word)];
 		const items: number[] = [];
 		let outcome: PlaybackOutcome | undefined;
 

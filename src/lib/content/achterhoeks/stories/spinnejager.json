@@ -1,0 +1,1603 @@
+{
+	"key": "spinnejager",
+	"audio": "spinnejager",
+	"image": "spinnejager",
+	"fragments": [
+		{
+			"key": "spinnejager-1",
+			"time": [
+				3.7870027804108437,
+				10.824150957643257
+			],
+			"image": "spinnejager-1",
+			"sentences": [
+				{
+					"key": "spinnejager-1-1",
+					"text": "’t leep tegen ’t veurjoor en grootmoo vond dat ze ’t huus schone maakn mos.",
+					"time": [
+						3.7870027804108437,
+						7.721686847496586
+					],
+					"words": [
+						{
+							"key": "spinnejager-1-1-2",
+							"text": "leep",
+							"dutch": "liep",
+							"sounds": [
+								"l",
+								"i",
+								"p"
+							],
+							"audio": "leep"
+						},
+						{
+							"key": "spinnejager-1-1-3",
+							"text": "tegen",
+							"dutch": "tegen",
+							"sounds": [
+								"t",
+								"ee",
+								"G!",
+								"n"
+							],
+							"audio": "tegen"
+						},
+						{
+							"key": "spinnejager-1-1-6",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "spinnejager-1-1-8",
+							"text": "vond",
+							"dutch": "vond",
+							"sounds": [
+								"f",
+								"o",
+								"n"
+							],
+							"audio": "vond"
+						},
+						{
+							"key": "spinnejager-1-1-9",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "spinnejager-1-1-10",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-1-1-12",
+							"text": "huus",
+							"dutch": "huis",
+							"sounds": [
+								"h",
+								"uu",
+								"s"
+							],
+							"audio": "huus"
+						},
+						{
+							"key": "spinnejager-1-1-13",
+							"text": "schone",
+							"dutch": "schoon",
+							"sounds": [
+								"s",
+								"G!",
+								"oo",
+								"n",
+								"e"
+							],
+							"audio": "schone"
+						},
+						{
+							"key": "spinnejager-1-1-15",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-1-2",
+					"text": "Veur de bozem stonnen twee stenen hundjes.",
+					"time": [
+						8.2128021483464,
+						10.824150957643257
+					],
+					"words": [
+						{
+							"key": "spinnejager-1-2-18",
+							"text": "bozem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"oo",
+								"z",
+								"e",
+								"m"
+							],
+							"audio": "bozem"
+						},
+						{
+							"key": "spinnejager-1-2-20",
+							"text": "twee",
+							"dutch": "twee",
+							"sounds": [
+								"t",
+								"w",
+								"ee"
+							],
+							"audio": "twee"
+						},
+						{
+							"key": "spinnejager-1-2-21",
+							"text": "stenen",
+							"dutch": "stenen",
+							"sounds": [
+								"s",
+								"t",
+								"ee",
+								"n"
+							],
+							"audio": "stenen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-2",
+			"time": [
+				11.49,
+				21.938922961629917
+			],
+			"image": "spinnejager-2",
+			"sentences": [
+				{
+					"key": "spinnejager-2-3",
+					"text": "Dee had ze lange elejen van grootva ekregen, maor den was aoverlejen.",
+					"time": [
+						11.49,
+						15.292395600624548
+					],
+					"words": [
+						{
+							"key": "spinnejager-2-3-25",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-2-3-26",
+							"text": "lange",
+							"dutch": "lang",
+							"sounds": [
+								"l",
+								"a",
+								"ng",
+								"e"
+							],
+							"audio": "lange"
+						},
+						{
+							"key": "spinnejager-2-3-27",
+							"text": "elejen",
+							"dutch": "geleden",
+							"sounds": [
+								"e",
+								"l",
+								"ee",
+								"e",
+								"n"
+							],
+							"audio": "elejen"
+						},
+						{
+							"key": "spinnejager-2-3-29",
+							"text": "grootva",
+							"dutch": "grootvader",
+							"sounds": [
+								"G!",
+								"r",
+								"oo",
+								"t",
+								"f",
+								"a"
+							],
+							"audio": "grootva"
+						},
+						{
+							"key": "spinnejager-2-3-30",
+							"text": "ekregen",
+							"dutch": "gekregen",
+							"sounds": [
+								"e",
+								"k",
+								"r",
+								"ee",
+								"ng"
+							],
+							"audio": "ekregen"
+						},
+						{
+							"key": "spinnejager-2-3-31",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "spinnejager-2-3-32",
+							"text": "den",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"e",
+								"n"
+							],
+							"audio": "den"
+						},
+						{
+							"key": "spinnejager-2-3-33",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "spinnejager-2-3-34",
+							"text": "aoverlejen",
+							"dutch": "overleden",
+							"sounds": [
+								"oa",
+								"v",
+								"e",
+								"l",
+								"ee",
+								"j",
+								"e",
+								"n"
+							],
+							"audio": "aoverlejen"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-2-4",
+					"text": "De beeldjes waren ’n leeve herinnering an um.",
+					"time": [
+						15.95,
+						18.14
+					],
+					"words": [
+						{
+							"key": "spinnejager-2-4-36",
+							"text": "beeldjes",
+							"dutch": "beeldjes",
+							"sounds": [
+								"b",
+								"ee",
+								"l",
+								"tj",
+								"e",
+								"s"
+							],
+							"audio": "beeldjes"
+						},
+						{
+							"key": "spinnejager-2-4-37",
+							"text": "waren",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "waren"
+						},
+						{
+							"key": "spinnejager-2-4-39",
+							"text": "leeve",
+							"dutch": "lieve",
+							"sounds": [
+								"l",
+								"ie",
+								"v",
+								"e"
+							],
+							"audio": "leeve"
+						},
+						{
+							"key": "spinnejager-2-4-40",
+							"text": "herinnering",
+							"dutch": "herinnering",
+							"sounds": [
+								"h",
+								"e",
+								"r",
+								"i",
+								"n",
+								"e",
+								"r",
+								"i",
+								"ng"
+							],
+							"audio": "herinnering"
+						},
+						{
+							"key": "spinnejager-2-4-41",
+							"text": "an",
+							"dutch": "aan",
+							"sounds": [
+								"a",
+								"n"
+							],
+							"audio": "an"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-2-5",
+					"text": "Schone maken was niet ’t mooiste wark, maor ’t heuren d’r bie.",
+					"time": [
+						19.18,
+						21.938922961629917
+					],
+					"words": [
+						{
+							"key": "spinnejager-2-5-43",
+							"text": "schone",
+							"dutch": "Schoon",
+							"sounds": [
+								"s",
+								"G!",
+								"oo",
+								"n",
+								"e"
+							],
+							"audio": "schone"
+						},
+						{
+							"key": "spinnejager-2-5-45",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "spinnejager-2-5-46",
+							"text": "niet",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"i",
+								"t"
+							],
+							"audio": "niet"
+						},
+						{
+							"key": "spinnejager-2-5-48",
+							"text": "mooiste",
+							"dutch": "mooiste",
+							"sounds": [
+								"m",
+								"ooi",
+								"s",
+								"t",
+								"e"
+							],
+							"audio": "mooiste"
+						},
+						{
+							"key": "spinnejager-2-5-49",
+							"text": "wark",
+							"dutch": "werk",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"e",
+								"k"
+							],
+							"audio": "wark"
+						},
+						{
+							"key": "spinnejager-2-5-50",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-2-6",
+					"text": "Zee pakken de spinnejager um in ’n hook spinneköppe te jagen.",
+					"time": [
+						22.61,
+						25.57887380960161
+					],
+					"words": [
+						{
+							"key": "spinnejager-2-6-55",
+							"text": "zee",
+							"dutch": "Ze",
+							"sounds": [
+								"s",
+								"i"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "spinnejager-2-6-58",
+							"text": "spinnejager",
+							"dutch": "ragebol",
+							"sounds": [
+								"s",
+								"p",
+								"i",
+								"n",
+								"e",
+								"j",
+								"a",
+								"G!",
+								"e",
+								"r"
+							],
+							"audio": "spinnejager"
+						},
+						{
+							"key": "spinnejager-2-6-60",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "spinnejager-2-6-62",
+							"text": "hook",
+							"dutch": "hoek",
+							"sounds": [
+								"h",
+								"oe",
+								"k"
+							],
+							"audio": "hook"
+						},
+						{
+							"key": "spinnejager-2-6-65",
+							"text": "jagen",
+							"dutch": "jagen",
+							"sounds": [
+								"j",
+								"a",
+								"ng"
+							],
+							"audio": "jagen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-3",
+			"time": [
+				26.12,
+				35.44904636975591
+			],
+			"image": "spinnejager-3",
+			"sentences": [
+				{
+					"key": "spinnejager-3-7",
+					"text": "De speegel hing baoven de bozem en zo lek ‘t net of d’r vier hundjes waarn.",
+					"time": [
+						26.12,
+						30.26
+					],
+					"words": [
+						{
+							"key": "spinnejager-3-7-67",
+							"text": "speegel",
+							"dutch": "spiegel",
+							"sounds": [
+								"s",
+								"p",
+								"ie",
+								"G!",
+								"l"
+							],
+							"audio": "speegel"
+						},
+						{
+							"key": "spinnejager-3-7-68",
+							"text": "hing",
+							"dutch": "hing",
+							"sounds": [
+								"h",
+								"i",
+								"ng"
+							],
+							"audio": "hing"
+						},
+						{
+							"key": "spinnejager-3-7-69",
+							"text": "baoven",
+							"dutch": "boven",
+							"sounds": [
+								"b",
+								"oa",
+								"v",
+								"n"
+							],
+							"audio": "baoven"
+						},
+						{
+							"key": "spinnejager-3-7-71",
+							"text": "bozem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"oo",
+								"z",
+								"e",
+								"m"
+							],
+							"audio": "bozem"
+						},
+						{
+							"key": "spinnejager-3-7-72",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "spinnejager-3-7-73",
+							"text": "zo",
+							"dutch": "zo",
+							"sounds": [
+								"z",
+								"oo"
+							],
+							"audio": "zo"
+						},
+						{
+							"key": "spinnejager-3-7-74",
+							"text": "lek",
+							"dutch": "leek",
+							"sounds": [
+								"l",
+								"e",
+								"k"
+							],
+							"audio": "lek"
+						},
+						{
+							"key": "spinnejager-3-7-76",
+							"text": "net",
+							"dutch": "net",
+							"sounds": [
+								"n",
+								"e",
+								"t"
+							],
+							"audio": "net"
+						},
+						{
+							"key": "spinnejager-3-7-77",
+							"text": "of",
+							"dutch": "of",
+							"sounds": [
+								"o",
+								"f"
+							],
+							"audio": "of"
+						},
+						{
+							"key": "spinnejager-3-7-79",
+							"text": "vier",
+							"dutch": "vier",
+							"sounds": [
+								"v",
+								"ie",
+								"r"
+							],
+							"audio": "vier"
+						},
+						{
+							"key": "spinnejager-3-7-81",
+							"text": "waarn",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "waarn"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-3-8",
+					"text": "Zee was zo drök an ’t poetsen, dat ze kats vergat dat de beeldjes op de bozem stonnen.",
+					"time": [
+						31.08,
+						35.44904636975591
+					],
+					"words": [
+						{
+							"key": "spinnejager-3-8-82",
+							"text": "zee",
+							"dutch": "Ze",
+							"sounds": [
+								"s",
+								"i"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "spinnejager-3-8-83",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "spinnejager-3-8-84",
+							"text": "zo",
+							"dutch": "zo",
+							"sounds": [
+								"z",
+								"oo"
+							],
+							"audio": "zo"
+						},
+						{
+							"key": "spinnejager-3-8-86",
+							"text": "an",
+							"dutch": "aan",
+							"sounds": [
+								"a",
+								"n"
+							],
+							"audio": "an"
+						},
+						{
+							"key": "spinnejager-3-8-88",
+							"text": "poetsen",
+							"dutch": "poetsen",
+							"sounds": [
+								"p",
+								"oe",
+								"t",
+								"s",
+								"e"
+							],
+							"audio": "poetsen"
+						},
+						{
+							"key": "spinnejager-3-8-89",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "spinnejager-3-8-90",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-3-8-91",
+							"text": "kats",
+							"dutch": "helemaal",
+							"sounds": [
+								"k",
+								"a",
+								"t",
+								"s"
+							],
+							"audio": "kats"
+						},
+						{
+							"key": "spinnejager-3-8-92",
+							"text": "vergat",
+							"dutch": "vergat",
+							"sounds": [
+								"f",
+								"e",
+								"G!",
+								"a",
+								"t"
+							],
+							"audio": "vergat"
+						},
+						{
+							"key": "spinnejager-3-8-93",
+							"text": "dat",
+							"dutch": "dat",
+							"sounds": [
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "dat"
+						},
+						{
+							"key": "spinnejager-3-8-95",
+							"text": "beeldjes",
+							"dutch": "beeldjes",
+							"sounds": [
+								"b",
+								"ee",
+								"l",
+								"tj",
+								"e",
+								"s"
+							],
+							"audio": "beeldjes"
+						},
+						{
+							"key": "spinnejager-3-8-98",
+							"text": "bozem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"oo",
+								"z",
+								"e",
+								"m"
+							],
+							"audio": "bozem"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-4",
+			"time": [
+				36.35954397822737,
+				42.286243822917086
+			],
+			"image": "spinnejager-4",
+			"sentences": [
+				{
+					"key": "spinnejager-4-9",
+					"text": "Grootmoo stootn d’r met de zwaaiende spinnejager tegenan en de hundjes vielen in duuzend stukkn op de grond.",
+					"time": [
+						36.35954397822737,
+						42.286243822917086
+					],
+					"words": [
+						{
+							"key": "spinnejager-4-9-103",
+							"text": "met",
+							"dutch": "met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "spinnejager-4-9-106",
+							"text": "spinnejager",
+							"dutch": "ragebol",
+							"sounds": [
+								"s",
+								"p",
+								"i",
+								"n",
+								"e",
+								"j",
+								"a",
+								"G!",
+								"e",
+								"r"
+							],
+							"audio": "spinnejager"
+						},
+						{
+							"key": "spinnejager-4-9-107",
+							"text": "tegenan",
+							"dutch": "tegenaan",
+							"sounds": [
+								"t",
+								"ee",
+								"ng",
+								"a",
+								"n"
+							],
+							"audio": "tegenan"
+						},
+						{
+							"key": "spinnejager-4-9-108",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "spinnejager-4-9-111",
+							"text": "vielen",
+							"dutch": "vielen",
+							"sounds": [
+								"v",
+								"i",
+								"l",
+								"n"
+							],
+							"audio": "vielen"
+						},
+						{
+							"key": "spinnejager-4-9-112",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "spinnejager-4-9-117",
+							"text": "grond",
+							"dutch": "grond",
+							"sounds": [
+								"G!",
+								"r",
+								"o",
+								"n",
+								"t"
+							],
+							"audio": "grond"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-5",
+			"time": [
+				42.88,
+				48.38374283740123
+			],
+			"image": "spinnejager-5",
+			"sentences": [
+				{
+					"key": "spinnejager-5-10",
+					"text": "Zee kreeg träöne in de ogen en zocht naor eur zaddook.",
+					"time": [
+						42.88,
+						46.35
+					],
+					"words": [
+						{
+							"key": "spinnejager-5-10-118",
+							"text": "zee",
+							"dutch": "Ze",
+							"sounds": [
+								"s",
+								"i"
+							],
+							"audio": "zee"
+						},
+						{
+							"key": "spinnejager-5-10-119",
+							"text": "kreeg",
+							"dutch": "kreeg",
+							"sounds": [
+								"k",
+								"r",
+								"i",
+								"G!"
+							],
+							"audio": "kreeg"
+						},
+						{
+							"key": "spinnejager-5-10-121",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "spinnejager-5-10-123",
+							"text": "ogen",
+							"dutch": "ogen",
+							"sounds": [
+								"oo",
+								"G!",
+								"n"
+							],
+							"audio": "ogen"
+						},
+						{
+							"key": "spinnejager-5-10-124",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "spinnejager-5-10-125",
+							"text": "zocht",
+							"dutch": "zocht",
+							"sounds": [
+								"z",
+								"o",
+								"G!"
+							],
+							"audio": "zocht"
+						},
+						{
+							"key": "spinnejager-5-10-126",
+							"text": "naor",
+							"dutch": "naar",
+							"sounds": [
+								"n",
+								"o",
+								"r"
+							],
+							"audio": "naor"
+						},
+						{
+							"key": "spinnejager-5-10-128",
+							"text": "zaddook",
+							"dutch": "zakdoek",
+							"sounds": [
+								"z",
+								"a",
+								"d",
+								"oo",
+								"k"
+							],
+							"audio": "zaddook"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-5-11",
+					"text": "De hele boel was kats kapot.",
+					"time": [
+						46.74,
+						48.38374283740123
+					],
+					"words": [
+						{
+							"key": "spinnejager-5-11-130",
+							"text": "hele",
+							"dutch": "hele",
+							"sounds": [
+								"h",
+								"ee",
+								"l",
+								"e"
+							],
+							"audio": "hele"
+						},
+						{
+							"key": "spinnejager-5-11-132",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "spinnejager-5-11-133",
+							"text": "kats",
+							"dutch": "helemaal",
+							"sounds": [
+								"k",
+								"a",
+								"t",
+								"s"
+							],
+							"audio": "kats"
+						},
+						{
+							"key": "spinnejager-5-11-134",
+							"text": "kapot",
+							"dutch": "kapot",
+							"sounds": [
+								"k",
+								"a",
+								"p",
+								"o",
+								"t"
+							],
+							"audio": "kapot"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-6",
+			"time": [
+				49.36,
+				59.57747201103279
+			],
+			"image": "spinnejager-6",
+			"sentences": [
+				{
+					"key": "spinnejager-6-12",
+					"text": "’n Spinnejager is gin bessem, dus mos ze stoffer en blik gaon halen.",
+					"time": [
+						49.36,
+						53.08
+					],
+					"words": [
+						{
+							"key": "spinnejager-6-12-135",
+							"text": "spinnejager",
+							"dutch": "Een ragebol",
+							"sounds": [
+								"s",
+								"p",
+								"i",
+								"n",
+								"e",
+								"j",
+								"a",
+								"G!",
+								"e",
+								"r"
+							],
+							"audio": "spinnejager"
+						},
+						{
+							"key": "spinnejager-6-12-136",
+							"text": "is",
+							"dutch": "is",
+							"sounds": [
+								"i",
+								"s"
+							],
+							"audio": "is"
+						},
+						{
+							"key": "spinnejager-6-12-137",
+							"text": "gin",
+							"dutch": "geen",
+							"sounds": [
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "gin"
+						},
+						{
+							"key": "spinnejager-6-12-138",
+							"text": "bessem",
+							"dutch": "bezem",
+							"sounds": [
+								"b",
+								"e",
+								"s",
+								"e",
+								"m"
+							],
+							"audio": "bessem"
+						},
+						{
+							"key": "spinnejager-6-12-140",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "spinnejager-6-12-141",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-6-12-142",
+							"text": "stoffer",
+							"dutch": "stoffer",
+							"sounds": [
+								"s",
+								"t",
+								"o",
+								"f",
+								"e",
+								"r"
+							],
+							"audio": "stoffer"
+						},
+						{
+							"key": "spinnejager-6-12-143",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "spinnejager-6-12-144",
+							"text": "blik",
+							"dutch": "blik",
+							"sounds": [
+								"b",
+								"l",
+								"i",
+								"k"
+							],
+							"audio": "blik"
+						},
+						{
+							"key": "spinnejager-6-12-145",
+							"text": "gaon",
+							"dutch": "gaan",
+							"sounds": [
+								"G!",
+								"a",
+								"n"
+							],
+							"audio": "gaon"
+						},
+						{
+							"key": "spinnejager-6-12-146",
+							"text": "halen",
+							"dutch": "halen",
+							"sounds": [
+								"h",
+								"a",
+								"l",
+								"n"
+							],
+							"audio": "halen"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-6-13",
+					"text": "Ok pakken ze ’n natten wasseldook van ’t anrecht.",
+					"time": [
+						53.35,
+						55.84906200581238
+					],
+					"words": [
+						{
+							"key": "spinnejager-6-13-149",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						}
+					]
+				},
+				{
+					"key": "spinnejager-6-14",
+					"text": "Met ’n wasseldook kon ze nog ’t beste alle splinters opgaarn.",
+					"time": [
+						56.49,
+						59.57747201103279
+					],
+					"words": [
+						{
+							"key": "spinnejager-6-14-156",
+							"text": "met",
+							"dutch": "Met",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						},
+						{
+							"key": "spinnejager-6-14-159",
+							"text": "kon",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "kon"
+						},
+						{
+							"key": "spinnejager-6-14-160",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-6-14-161",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "spinnejager-6-14-163",
+							"text": "beste",
+							"dutch": "beste",
+							"sounds": [
+								"b",
+								"e",
+								"s",
+								"t",
+								"e"
+							],
+							"audio": "beste"
+						},
+						{
+							"key": "spinnejager-6-14-164",
+							"text": "alle",
+							"dutch": "alle",
+							"sounds": [
+								"a",
+								"l",
+								"e"
+							],
+							"audio": "alle"
+						},
+						{
+							"key": "spinnejager-6-14-165",
+							"text": "splinters",
+							"dutch": "splinters",
+							"sounds": [
+								"s",
+								"p",
+								"l",
+								"i",
+								"n",
+								"t",
+								"e",
+								"s"
+							],
+							"audio": "splinters"
+						},
+						{
+							"key": "spinnejager-6-14-166",
+							"text": "opgaarn",
+							"dutch": "oprapen",
+							"sounds": [
+								"o",
+								"p",
+								"G!",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "opgaarn"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-7",
+			"time": [
+				60.49,
+				64.21725926209703
+			],
+			"image": "spinnejager-7",
+			"sentences": [
+				{
+					"key": "spinnejager-7-15",
+					"text": "De kleinkinder hadden grootmoo veur eur verjeurdag ’n stenen pogge egeven.",
+					"time": [
+						60.49,
+						64.21725926209703
+					],
+					"words": [
+						{
+							"key": "spinnejager-7-15-168",
+							"text": "kleinkinder",
+							"dutch": "kleinkinderen",
+							"sounds": [
+								"k",
+								"l",
+								"ei",
+								"ng",
+								"k",
+								"i",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "kleinkinder"
+						},
+						{
+							"key": "spinnejager-7-15-169",
+							"text": "hadden",
+							"dutch": "hebben",
+							"sounds": [
+								"h",
+								"a",
+								"d",
+								"n"
+							],
+							"audio": "hadden"
+						},
+						{
+							"key": "spinnejager-7-15-175",
+							"text": "stenen",
+							"dutch": "stenen",
+							"sounds": [
+								"s",
+								"t",
+								"ee",
+								"n"
+							],
+							"audio": "stenen"
+						},
+						{
+							"key": "spinnejager-7-15-176",
+							"text": "pogge",
+							"dutch": "varken",
+							"sounds": [
+								"p",
+								"o",
+								"G!",
+								"e"
+							],
+							"audio": "pogge"
+						},
+						{
+							"key": "spinnejager-7-15-177",
+							"text": "egeven",
+							"dutch": "gegeven",
+							"sounds": [
+								"e",
+								"G!",
+								"ee",
+								"m"
+							],
+							"audio": "egeven"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "spinnejager-8",
+			"time": [
+				64.73,
+				69.48639634685141
+			],
+			"image": "spinnejager-8",
+			"sentences": [
+				{
+					"key": "spinnejager-8-16",
+					"text": "En noe spaort ze veur twee nieje hundjes, zodat ze die weer op de bozem zetten kan.",
+					"time": [
+						64.73,
+						69.48639634685141
+					],
+					"words": [
+						{
+							"key": "spinnejager-8-16-178",
+							"text": "en",
+							"dutch": "En ",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "spinnejager-8-16-179",
+							"text": "noe",
+							"dutch": "nu",
+							"sounds": [
+								"n",
+								"oe"
+							],
+							"audio": "noe"
+						},
+						{
+							"key": "spinnejager-8-16-180",
+							"text": "spaort",
+							"dutch": "spaart",
+							"sounds": [
+								"s",
+								"p",
+								"oa",
+								"r",
+								"t"
+							],
+							"audio": "spaort"
+						},
+						{
+							"key": "spinnejager-8-16-181",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-8-16-183",
+							"text": "twee",
+							"dutch": "twee",
+							"sounds": [
+								"t",
+								"w",
+								"ee"
+							],
+							"audio": "twee"
+						},
+						{
+							"key": "spinnejager-8-16-184",
+							"text": "nieje",
+							"dutch": "nieuwe",
+							"sounds": [
+								"n",
+								"ie",
+								"e"
+							],
+							"audio": "nieje"
+						},
+						{
+							"key": "spinnejager-8-16-186",
+							"text": "zodat",
+							"dutch": "zodat",
+							"sounds": [
+								"s",
+								"o",
+								"d",
+								"a",
+								"t"
+							],
+							"audio": "zodat"
+						},
+						{
+							"key": "spinnejager-8-16-187",
+							"text": "ze",
+							"dutch": "ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "spinnejager-8-16-188",
+							"text": "die",
+							"dutch": "die",
+							"sounds": [
+								"d",
+								"i"
+							],
+							"audio": "die"
+						},
+						{
+							"key": "spinnejager-8-16-192",
+							"text": "bozem",
+							"dutch": "schoorsteenmantel",
+							"sounds": [
+								"b",
+								"oo",
+								"z",
+								"e",
+								"m"
+							],
+							"audio": "bozem"
+						},
+						{
+							"key": "spinnejager-8-16-194",
+							"text": "kan",
+							"dutch": "kan",
+							"sounds": [
+								"k",
+								"a",
+								"n"
+							],
+							"audio": "kan"
+						}
+					]
+				}
+			]
+		}
+	]
+}

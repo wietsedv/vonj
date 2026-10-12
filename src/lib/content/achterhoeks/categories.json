@@ -1,0 +1,178 @@
+[
+	{
+		"id": "luisteren",
+		"name": "Luisteren",
+		"description": "Speel deze levels om erachter te komen hoe goed jij Achterhooks verstaat!",
+		"sections": [
+			{
+				"id": "verhaaltjes",
+				"name": "Verhaaltjes",
+				"description": [
+					"Welk plaatje hoort bij het voorgelezen verhaal?"
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "woorden",
+				"name": "Woorden",
+				"description": [
+					"Hoe klinken deze woorden?",
+					"Kies de juiste klanken uit iedere kolom."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "woorden-tijdslimiet",
+				"name": "Woorden met tijdslimiet",
+				"description": [
+					"Hoe klinken deze woorden?",
+					"Kies zo snel mogelijk de juiste klanken uit iedere kolom."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			}
+		]
+	},
+	{
+		"id": "lezen",
+		"name": "Lezen",
+		"description": "Speel deze levels om erachter te komen of jij Achterhooks kan lezen!",
+		"sections": [
+			{
+				"id": "verhaaltjes",
+				"name": "Verhaaltjes",
+				"description": [
+					"Welk plaatje hoort bij het verhaaltje?"
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "zinnen",
+				"name": "Zinnen",
+				"description": [
+					"Sleep de zinnen in de juiste volgorde om het verhaaltje leesbaar te maken."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "zinnen-tijdslimiet",
+				"name": "Zinnen met tijdslimiet",
+				"description": [
+					"Sleep de zinnen in de juiste volgorde om het verhaaltje leesbaar te maken."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			}
+		]
+	},
+	{
+		"id": "schrijven",
+		"name": "Schrijven",
+		"description": "Speel deze levels om erachter te komen of jij Achterhooks kan schrijven!",
+		"sections": [
+			{
+				"id": "woorden",
+				"name": "Woorden",
+				"description": [
+					"Hoe schrijf je het missende woord in het Achterhooks?"
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "woorden-tijdslimiet",
+				"name": "Woorden met tijdslimiet",
+				"description": [
+					"Hoe schrijf je het missende woord in het Achterhooks?"
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			}
+		]
+	},
+	{
+		"id": "spreken",
+		"name": "Spreken",
+		"description": "Speel deze levels om erachter te komen of jij Achterhooks kan spreken!",
+		"sections": [
+			{
+				"id": "korte-woorden",
+				"name": "Korte woorden",
+				"description": [
+					"Hoe spreek je deze korte woorden uit in het Achterhooks?",
+					"Tik op de klanken van links naar rechts hoe de woorden in het Achterhooks klinken."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "normale-woorden",
+				"name": "Normale woorden",
+				"description": [
+					"Hoe spreek je deze woorden uit in het Achterhooks?",
+					"Tik op de klanken van links naar rechts hoe de woorden in het Achterhooks klinken."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			},
+			{
+				"id": "lange-woorden",
+				"name": "Lange woorden",
+				"description": [
+					"Hoe spreek je deze lange woorden uit in het Achterhooks?",
+					"Tik op de klanken van links naar rechts hoe de woorden in het Achterhooks klinken."
+				],
+				"stories": [
+					"drek",
+					"kannemelkse_pap",
+					"schaatsen",
+					"spinnejager"
+				]
+			}
+		]
+	}
+]

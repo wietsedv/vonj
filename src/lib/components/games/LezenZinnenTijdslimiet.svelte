@@ -54,13 +54,13 @@
 	let secondsPerStep = $state(0);
 
 	onMount(async () => {
-		const story = await loadStory(level.story);
+		const story = await loadStory(level.language, level.story);
 		const rules = gameRules(category, section.id);
 		if (!rules?.secondsPerStep) return;
 
 		secondsPerStep = rules.secondsPerStep;
 		index = rowIndex(story);
-		animation = animationUrl(story.image);
+		animation = animationUrl(level.language, story.image);
 		run = new LevelRun({ level, rules, generate: () => sentenceItems(story) });
 	});
 
@@ -139,11 +139,12 @@
 				timeUp={countdown.timeUp}
 			/>
 		{/if}
-		<SentenceResultCard {order} {index} />
+		<SentenceResultCard language={level.language} {order} {index} />
 	</div>
 {/snippet}
 
 <LevelShell
+	language={level.language}
 	{category}
 	{section}
 	{run}
@@ -152,6 +153,7 @@
 >
 	{#if run?.item && run.answered}
 		<SentenceFeedback
+			language={level.language}
 			item={run.item}
 			{index}
 			title={timedOut ? 'Jammer!' : 'Dat klopt!'}
@@ -159,6 +161,14 @@
 			onproceed={() => run?.proceed()}
 		/>
 	{:else if run?.item}
-		<SentenceBoard {order} {index} {locked} {markers} onreorder={reorder} onsubmit={submit} />
+		<SentenceBoard
+			language={level.language}
+			{order}
+			{index}
+			{locked}
+			{markers}
+			onreorder={reorder}
+			onsubmit={submit}
+		/>
 	{/if}
 </LevelShell>

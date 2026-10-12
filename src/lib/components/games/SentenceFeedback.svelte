@@ -11,22 +11,31 @@
 	 */
 	import ItemFeedback from '$lib/components/level/ItemFeedback.svelte';
 	import { targetText } from '$lib/game/sentences';
-	import type { StoredItem } from '$lib/types';
+	import { getLanguage } from '$lib/languages';
+	import type { Language, StoredItem } from '$lib/types';
 
 	interface Props {
+		language: Language;
 		item: StoredItem;
-		/** Row key to Gronings text, from `rowIndex(story)`. */
+		/** Row key to sentence text, from `rowIndex(story)`. */
 		index: Map<string, string>;
 		title?: string;
 		tone?: 'correct' | 'wrong';
 		onproceed: () => void;
 	}
 
-	let { item, index, title = 'Dat klopt!', tone = 'correct', onproceed }: Props = $props();
+	let {
+		language,
+		item,
+		index,
+		title = 'Dat klopt!',
+		tone = 'correct',
+		onproceed
+	}: Props = $props();
 </script>
 
 <ItemFeedback {title} {tone} description="Het juiste verhaaltje was:" {onproceed}>
 	{#each targetText(item, index) as line, position (position)}
-		<p lang="gos">{line}</p>
+		<p lang={getLanguage(language).lang}>{line}</p>
 	{/each}
 </ItemFeedback>

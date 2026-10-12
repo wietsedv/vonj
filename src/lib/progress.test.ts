@@ -5,7 +5,7 @@
  * The store is a module singleton with a one-shot `load()`, so every test takes
  * a fresh copy of the module with `vi.resetModules()`.
  */
-import { allLevels, categoryLevels, sectionLevels } from '$lib/content';
+import { allLevels, categoryLevels, languageLevels, sectionLevels, storyKeys } from '$lib/content';
 import { dataVersion } from '$lib/content/version';
 import { item, level } from '../tests/fixtures';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -60,8 +60,12 @@ describe('load', () => {
 	it('starts out empty, so the server-rendered markup is never contradicted', async () => {
 		const progress = await fresh();
 		expect(progress.loaded).toBe(false);
-		expect(progress.level('luisteren.woorden.bragel')).toBeNull();
-		expect(progress.category('luisteren')).toEqual({ levels: 12, completed: 0, score: null });
+		expect(progress.level('gronings.luisteren.woorden.bragel')).toBeNull();
+		expect(progress.category('gronings', 'luisteren')).toEqual({
+			levels: 12,
+			completed: 0,
+			score: null
+		});
 	});
 
 	it('is loaded once it has read localStorage', async () => {
@@ -80,44 +84,44 @@ describe('load', () => {
 	});
 
 	it('reads a level stored by an earlier visit', async () => {
-		stored('luisteren.woorden.bragel', 6);
+		stored('gronings.luisteren.woorden.bragel', 6);
 		const progress = await loaded();
-		expect(progress.score('luisteren.woorden.bragel')).toBe(6);
-		expect(progress.level('luisteren.woorden.bragel')?.items).toHaveLength(1);
+		expect(progress.score('gronings.luisteren.woorden.bragel')).toBe(6);
+		expect(progress.level('gronings.luisteren.woorden.bragel')?.items).toHaveLength(1);
 	});
 
 	it('does nothing on a second call', async () => {
 		const progress = await loaded();
-		progress.save('luisteren.woorden.bragel', level(6));
-		fake.values.delete('luisteren.woorden.bragel');
+		progress.save('gronings.luisteren.woorden.bragel', level(6));
+		fake.values.delete('gronings.luisteren.woorden.bragel');
 		progress.load();
 		// Still the in-memory value: the second load() was a no-op.
-		expect(progress.score('luisteren.woorden.bragel')).toBe(6);
+		expect(progress.score('gronings.luisteren.woorden.bragel')).toBe(6);
 	});
 });
 
 describe('content invalidation', () => {
 	it('keeps stored levels when the content version matches', async () => {
-		stored('lezen.zinnen.bragel', 4);
+		stored('gronings.lezen.zinnen.bragel', 4);
 		const progress = await loaded();
-		expect(progress.score('lezen.zinnen.bragel')).toBe(4);
+		expect(progress.score('gronings.lezen.zinnen.bragel')).toBe(4);
 	});
 
 	it('discards every stored level when the version is older', async () => {
-		stored('lezen.zinnen.bragel', 4);
-		stored('spreken.korte-woorden.kopstubber', 2);
+		stored('gronings.lezen.zinnen.bragel', 4);
+		stored('gronings.spreken.korte-woorden.kopstubber', 2);
 		fake.values.set('dataVersion', JSON.stringify(dataVersion - 1));
 
 		const progress = await loaded();
-		expect(progress.score('lezen.zinnen.bragel')).toBeNull();
-		expect(progress.score('spreken.korte-woorden.kopstubber')).toBeNull();
+		expect(progress.score('gronings.lezen.zinnen.bragel')).toBeNull();
+		expect(progress.score('gronings.spreken.korte-woorden.kopstubber')).toBeNull();
 		expect([...fake.values.keys()]).toEqual(['dataVersion']);
 	});
 
 	it('discards every stored level when there is no version at all', async () => {
-		fake.values.set('lezen.zinnen.bragel', JSON.stringify(level(4)));
+		fake.values.set('gronings.lezen.zinnen.bragel', JSON.stringify(level(4)));
 		const progress = await loaded();
-		expect(progress.score('lezen.zinnen.bragel')).toBeNull();
+		expect(progress.score('gronings.lezen.zinnen.bragel')).toBeNull();
 	});
 
 	it('writes the current version after invalidating', async () => {
@@ -127,10 +131,10 @@ describe('content invalidation', () => {
 	});
 
 	it('discards a version that is not a number', async () => {
-		stored('lezen.zinnen.bragel', 4);
+		stored('gronings.lezen.zinnen.bragel', 4);
 		fake.values.set('dataVersion', '"eerste"');
 		const progress = await loaded();
-		expect(progress.score('lezen.zinnen.bragel')).toBeNull();
+		expect(progress.score('gronings.lezen.zinnen.bragel')).toBeNull();
 	});
 
 	it('leaves keys it does not own alone', async () => {
@@ -142,7 +146,7 @@ describe('content invalidation', () => {
 });
 
 describe('a stored level that cannot be replayed counts as unplayed', () => {
-	const id = 'schrijven.woorden.bragel';
+	const id = 'gronings.schrijven.woorden.bragel';
 
 	const rejects = (raw: string) => async () => {
 		fake.values.set('dataVersion', JSON.stringify(dataVersion));
@@ -210,38 +214,38 @@ describe('save', () => {
 	it('remembers a level and writes it through', async () => {
 		const progress = await loaded();
 		const stored = level(5, [item(), item()]);
-		progress.save('spreken.lange-woorden.bragel', stored);
+		progress.save('gronings.spreken.lange-woorden.bragel', stored);
 
-		expect(progress.level('spreken.lange-woorden.bragel')).toEqual(stored);
-		expect(JSON.parse(fake.values.get('spreken.lange-woorden.bragel')!)).toEqual(stored);
+		expect(progress.level('gronings.spreken.lange-woorden.bragel')).toEqual(stored);
+		expect(JSON.parse(fake.values.get('gronings.spreken.lange-woorden.bragel')!)).toEqual(stored);
 	});
 
 	it('keeps the items, not just the score, so a level replays identically', async () => {
 		const progress = await loaded();
 		const items = [item({ source: 'bragel-3', target: ['oa', 'n'], distractors: [['aa'], ['m']] })];
-		progress.save('spreken.lange-woorden.bragel', level(null, items));
-		expect(progress.level('spreken.lange-woorden.bragel')?.items).toEqual(items);
+		progress.save('gronings.spreken.lange-woorden.bragel', level(null, items));
+		expect(progress.level('gronings.spreken.lange-woorden.bragel')?.items).toEqual(items);
 	});
 
 	it('overwrites a level saved earlier', async () => {
 		const progress = await loaded();
-		progress.save('spreken.lange-woorden.bragel', level(null));
-		progress.save('spreken.lange-woorden.bragel', level(3));
-		expect(progress.score('spreken.lange-woorden.bragel')).toBe(3);
+		progress.save('gronings.spreken.lange-woorden.bragel', level(null));
+		progress.save('gronings.spreken.lange-woorden.bragel', level(3));
+		expect(progress.score('gronings.spreken.lange-woorden.bragel')).toBe(3);
 	});
 
 	it('still remembers a level localStorage refused to keep', async () => {
 		const progress = await loaded();
 		fake.throwOnSet = true;
-		expect(() => progress.save('spreken.lange-woorden.bragel', level(6))).not.toThrow();
-		expect(progress.score('spreken.lange-woorden.bragel')).toBe(6);
+		expect(() => progress.save('gronings.spreken.lange-woorden.bragel', level(6))).not.toThrow();
+		expect(progress.score('gronings.spreken.lange-woorden.bragel')).toBe(6);
 	});
 });
 
 describe('a scope of levels', () => {
 	it('counts the levels of a section', async () => {
 		const progress = await loaded();
-		expect(progress.section('luisteren', 'woorden')).toEqual({
+		expect(progress.section('gronings', 'luisteren', 'woorden')).toEqual({
 			levels: 4,
 			completed: 0,
 			score: null
@@ -250,26 +254,26 @@ describe('a scope of levels', () => {
 
 	it('counts finished levels only', async () => {
 		const progress = await loaded();
-		progress.save('luisteren.woorden.bragel', level(6));
-		progress.save('luisteren.woorden.kopstubber', level(null));
-		expect(progress.section('luisteren', 'woorden').completed).toBe(1);
+		progress.save('gronings.luisteren.woorden.bragel', level(6));
+		progress.save('gronings.luisteren.woorden.kopstubber', level(null));
+		expect(progress.section('gronings', 'luisteren', 'woorden').completed).toBe(1);
 	});
 
 	it('shows no score until every level of the scope is finished', async () => {
 		const progress = await loaded();
 		for (const story of ['bragel', 'kopstubber', 'scheuvels']) {
-			progress.save(`luisteren.woorden.${story}`, level(6));
+			progress.save(`gronings.luisteren.woorden.${story}`, level(6));
 		}
-		expect(progress.section('luisteren', 'woorden').score).toBeNull();
+		expect(progress.section('gronings', 'luisteren', 'woorden').score).toBeNull();
 	});
 
 	it('averages the level scores once they are all finished', async () => {
 		const progress = await loaded();
 		const scores = [6, 3, 4, 5];
 		for (const [index, story] of ['bragel', 'kopstubber', 'scheuvels', 'zoepenbrij'].entries()) {
-			progress.save(`luisteren.woorden.${story}`, level(scores[index]));
+			progress.save(`gronings.luisteren.woorden.${story}`, level(scores[index]));
 		}
-		expect(progress.section('luisteren', 'woorden')).toEqual({
+		expect(progress.section('gronings', 'luisteren', 'woorden')).toEqual({
 			levels: 4,
 			completed: 4,
 			score: 4.5
@@ -279,26 +283,48 @@ describe('a scope of levels', () => {
 	it('does not round the average before it becomes stars', async () => {
 		const progress = await loaded();
 		for (const [index, story] of ['bragel', 'kopstubber', 'scheuvels', 'zoepenbrij'].entries()) {
-			progress.save(`luisteren.woorden.${story}`, level([6, 6, 6, 0][index]));
+			progress.save(`gronings.luisteren.woorden.${story}`, level([6, 6, 6, 0][index]));
 		}
-		expect(progress.section('luisteren', 'woorden').score).toBe(4.5);
+		expect(progress.section('gronings', 'luisteren', 'woorden').score).toBe(4.5);
 	});
 
 	it('adds up a whole category across its sections', async () => {
 		const progress = await loaded();
-		for (const level_ of categoryLevels('schrijven')) progress.save(level_.id, level(6));
-		expect(progress.category('schrijven')).toEqual({ levels: 8, completed: 8, score: 6 });
+		for (const level_ of categoryLevels('gronings', 'schrijven'))
+			progress.save(level_.id, level(6));
+		expect(progress.category('gronings', 'schrijven')).toEqual({
+			levels: 8,
+			completed: 8,
+			score: 6
+		});
 	});
 
-	it('adds up everything', async () => {
+	it('adds up everything of one language', async () => {
 		const progress = await loaded();
-		for (const level_ of allLevels()) progress.save(level_.id, level(3));
-		expect(progress.everything()).toEqual({ levels: 44, completed: 44, score: 3 });
+		for (const level_ of languageLevels('gronings')) progress.save(level_.id, level(3));
+		expect(progress.language('gronings')).toEqual({ levels: 44, completed: 44, score: 3 });
+	});
+
+	it('keeps the languages apart', async () => {
+		const progress = await loaded();
+		for (const level_ of languageLevels('achterhoeks')) progress.save(level_.id, level(6));
+		expect(progress.language('achterhoeks')).toEqual({ levels: 44, completed: 44, score: 6 });
+		expect(progress.language('gronings')).toEqual({ levels: 44, completed: 0, score: null });
+		expect(progress.category('gronings', 'lezen').completed).toBe(0);
+		expect(progress.category('achterhoeks', 'lezen').completed).toBe(12);
+	});
+
+	it('reads back the levels of every language', async () => {
+		stored('gronings.lezen.zinnen.bragel', 4);
+		stored(`achterhoeks.lezen.zinnen.${storyKeys('achterhoeks')[0]}`, 5);
+		const progress = await loaded();
+		expect(progress.score('gronings.lezen.zinnen.bragel')).toBe(4);
+		expect(progress.score(`achterhoeks.lezen.zinnen.${storyKeys('achterhoeks')[0]}`)).toBe(5);
 	});
 
 	it('is empty for a section that does not exist', async () => {
 		const progress = await loaded();
-		expect(progress.section('luisteren', 'zinnen')).toEqual({
+		expect(progress.section('gronings', 'luisteren', 'zinnen')).toEqual({
 			levels: 0,
 			completed: 0,
 			score: null
@@ -316,32 +342,40 @@ describe('resetting', () => {
 
 	it('throws away one level, items and all', async () => {
 		const progress = await everythingPlayed();
-		progress.resetLevel('luisteren.woorden.bragel');
-		expect(progress.level('luisteren.woorden.bragel')).toBeNull();
-		expect(fake.values.has('luisteren.woorden.bragel')).toBe(false);
-		expect(progress.score('luisteren.woorden.kopstubber')).toBe(6);
+		progress.resetLevel('gronings.luisteren.woorden.bragel');
+		expect(progress.level('gronings.luisteren.woorden.bragel')).toBeNull();
+		expect(fake.values.has('gronings.luisteren.woorden.bragel')).toBe(false);
+		expect(progress.score('gronings.luisteren.woorden.kopstubber')).toBe(6);
 	});
 
 	it('throws away a section', async () => {
 		const progress = await everythingPlayed();
-		progress.resetSection('luisteren', 'woorden');
-		for (const level_ of sectionLevels('luisteren', 'woorden')) {
+		progress.resetSection('gronings', 'luisteren', 'woorden');
+		for (const level_ of sectionLevels('gronings', 'luisteren', 'woorden')) {
 			expect(progress.level(level_.id)).toBeNull();
 		}
-		expect(progress.section('luisteren', 'verhaaltjes').completed).toBe(4);
+		expect(progress.section('gronings', 'luisteren', 'verhaaltjes').completed).toBe(4);
 	});
 
 	it('throws away a category', async () => {
 		const progress = await everythingPlayed();
-		progress.resetCategory('luisteren');
-		expect(progress.category('luisteren').completed).toBe(0);
-		expect(progress.category('lezen').completed).toBe(12);
+		progress.resetCategory('gronings', 'luisteren');
+		expect(progress.category('gronings', 'luisteren').completed).toBe(0);
+		expect(progress.category('gronings', 'lezen').completed).toBe(12);
+	});
+
+	it('throws away one language and leaves the other alone', async () => {
+		const progress = await everythingPlayed();
+		progress.resetLanguage('gronings');
+		expect(progress.language('gronings').completed).toBe(0);
+		expect(progress.language('achterhoeks').completed).toBe(44);
 	});
 
 	it('throws away everything but the content version', async () => {
 		const progress = await everythingPlayed();
 		progress.resetEverything();
-		expect(progress.everything().completed).toBe(0);
+		expect(progress.language('gronings').completed).toBe(0);
+		expect(progress.language('achterhoeks').completed).toBe(0);
 		expect([...fake.values.keys()]).toEqual(['dataVersion']);
 	});
 

@@ -12,7 +12,7 @@ import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-svelte';
 
 /** Real sound spellings from the content set, never invented ones. */
-const spellings = distractorSounds.map((sound) => sound.sound);
+const spellings = distractorSounds('gronings').map((sound) => sound.sound);
 
 /** One column offering `count` real candidates, the first of which is "correct". */
 function column(candidates: string[], overrides: Partial<SoundColumn> = {}): SoundColumn {
@@ -184,7 +184,7 @@ describe('after a submit', () => {
 		]);
 		const style = getComputedStyle(field(items[0]));
 		const [red, green, blue] = channels(style.backgroundColor);
-		// --color-primary from src/app.css, tinted at low opacity: red dominates.
+		// --color-wrong from src/app.css, tinted at low opacity: red dominates.
 		expect(red).toBeGreaterThan(green);
 		expect(red).toBeGreaterThan(blue);
 		expect(field(items[0]).querySelector('svg')).not.toBeNull();

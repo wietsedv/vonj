@@ -26,8 +26,8 @@ import { flushSync } from 'svelte';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('schrijven', 'woorden-tijdslimiet')[0];
-const section: Section = getSection('schrijven', 'woorden-tijdslimiet')!;
+const level: Level = sectionLevels('gronings', 'schrijven', 'woorden-tijdslimiet')[0];
+const section: Section = getSection('gronings', 'schrijven', 'woorden-tijdslimiet')!;
 const secondsPerStep = gameRules('schrijven', 'woorden-tijdslimiet')!.secondsPerStep!;
 
 let story: Story;
@@ -84,7 +84,7 @@ const advance = (ms: number) => flushSync(() => vi.advanceTimersByTime(ms));
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 
 	const bySpelling = new Map<string, WordInSentence>();
 	for (const entry of storyWords(story)) {
@@ -184,7 +184,7 @@ describe('the clock', () => {
 		expect(text(container)).toContain('Jammer!');
 		expect(text(container)).toContain('Het juist geschreven woord is:');
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-primary'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-wrong'))).toBe(true);
 		// No prior wrong submit in this run, so the completing tap is the only response.
 		expect(stored().responses).toHaveLength(1);
 	});
@@ -199,7 +199,7 @@ describe('the clock', () => {
 
 		expect(text(container)).toContain('Dat klopt!');
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-accent'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-check'))).toBe(true);
 
 		// Nothing left ticking for this item.
 		expect(vi.getTimerCount()).toBe(0);

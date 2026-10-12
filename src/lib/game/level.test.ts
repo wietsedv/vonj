@@ -22,7 +22,7 @@ class FakeStorage {
 
 let fake: FakeStorage;
 
-const level: Level = sectionLevels('luisteren', 'woorden')[0];
+const level: Level = sectionLevels('gronings', 'luisteren', 'woorden')[0];
 
 const rules: GameRules = {
 	tolerance: 3,

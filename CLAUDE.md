@@ -3,9 +3,17 @@
 ## What this repository is
 
 A web rewrite of **Van Old noar Jong: Grunnegs**, a Gronings language game for
-primary school children. The original native app (NativeScript-Vue, iOS and
-Android) is at `../vonj-app` and is read-only reference material: never modify
-it.
+primary school children, and of its Achterhoeks twin **Van Old naor Jong:
+Achterhooks**. The original native app (NativeScript-Vue, iOS and Android) is at
+`../vonj-app` and is read-only reference material: never modify it, and never
+check out another branch in it. It ships one language per branch, `gronings` and
+`achterhoeks`; the build script reads both straight from git.
+
+The web app is one app for both: `/` picks the language, and everything below
+`/gronings` or `/achterhoeks` is that language's copy of the same app. The
+languages differ only in content (text, audio, illustrations), a handful of UI
+strings in `src/lib/languages.ts` and the palette in `src/app.css`. **Game
+mechanics are never customised per language.**
 
 The rewrite is a SvelteKit app with **no backend** and **no identity**: content
 is bundled, all progress lives in the browser's `localStorage`, and the app never
@@ -41,11 +49,13 @@ the docs in the same change.
 
 ## The content set is generated
 
-`src/lib/content/` is **generated output**, not source. `scripts/build-content.mjs`
-reads the original app's dataset and media out of `../vonj-app`, converts them,
-and writes `categories.json`, `sounds.json`, `stories/*.json` and `assets/`.
+`src/lib/content/<language>/` is **generated output**, not source.
+`scripts/build-content.mjs` reads each branch's dataset and media out of
+`../vonj-app` with `git archive`, converts them, and writes `categories.json`,
+`sounds.json`, `stories/*.json` and `assets/` per language. `--only <language>`
+rebuilds one.
 
-- Do not hand-edit anything under `src/lib/content/`, `assets/` included. Change
+- Do not hand-edit anything under `src/lib/content/<language>/`, `assets/` included. Change
   the script and run `node scripts/build-content.mjs`.
 - The script only ever reads from `../vonj-app`.
 - Content is reached through `src/lib/content/index.ts` and
@@ -58,8 +68,8 @@ and writes `categories.json`, `sounds.json`, `stories/*.json` and `assets/`.
 ## Ids
 
 One vocabulary, Dutch, everywhere: in the content data, in the routes and in the
-`localStorage` keys. `luisteren.woorden.bragel` is the level reached at
-`/luisteren/woorden/...`. The original app's English ids (`listen`, `words`) exist
+`localStorage` keys. `gronings.luisteren.woorden.bragel` is the level reached at
+`/gronings/luisteren/woorden/...`. The original app's English ids (`listen`, `words`) exist
 only inside the build script, which translates them.
 
 ## Stack and conventions
@@ -91,9 +101,10 @@ only inside the build script, which translates them.
   quoted verbatim in the docs. Reuse that copy exactly instead of writing new
   Dutch.
 - Code, comments, commit messages and documentation are in English.
-- The content being taught is Gronings. Gronings words, sentences and the
-  spelling of sounds come from the content data and are never invented or
-  corrected.
+- The content being taught is Gronings or Achterhoeks. Its words, sentences and
+  the spelling of sounds come from the content data and are never invented or
+  corrected. Achterhoeks copy comes only from the `achterhoeks` branch; where it
+  has no string, do not translate one.
 
 ## Before finishing a change
 

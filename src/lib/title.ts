@@ -6,14 +6,15 @@
  * that survives a truncated tab.
  */
 
-/** The app's name, as the original app and the global overview spell it. */
-export const APP_NAME = 'Van Old noar Jong: Grunnegs';
+import { getLanguage } from '$lib/languages';
+import type { Language } from '$lib/types';
 
 /**
- * A page title: the given parts, most specific first, with the app's name
- * appended. `pageTitle('Level 2', 'Woorden', 'Luisteren')` becomes
- * "Level 2 - Woorden - Luisteren - Van Old noar Jong: Grunnegs".
+ * A page title: the given parts, most specific first, with the name of the app
+ * in that language appended. `pageTitle('gronings', 'Level 2', 'Woorden',
+ * 'Luisteren')` becomes "Level 2 - Woorden - Luisteren - Van Old noar Jong:
+ * Grunnegs".
  */
-export function pageTitle(...parts: string[]): string {
-	return [...parts, APP_NAME].join(' - ');
+export function pageTitle(language: Language, ...parts: string[]): string {
+	return [...parts, getLanguage(language).appName].join(' - ');
 }

@@ -1,0 +1,1654 @@
+{
+	"key": "schaatsen",
+	"audio": "schaatsen",
+	"image": "schaatsen",
+	"fragments": [
+		{
+			"key": "schaatsen-1",
+			"time": [
+				2.89,
+				11.374879404518909
+			],
+			"image": "schaatsen-1",
+			"sentences": [
+				{
+					"key": "schaatsen-1-1",
+					"text": "De kinder hadden vrij ekregen van schole.",
+					"time": [
+						2.89,
+						4.641688169614144
+					],
+					"words": [
+						{
+							"key": "schaatsen-1-1-2",
+							"text": "kinder",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"i",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "kinder"
+						},
+						{
+							"key": "schaatsen-1-1-3",
+							"text": "hadden",
+							"dutch": "hadden",
+							"sounds": [
+								"h",
+								"a",
+								"d",
+								"n"
+							],
+							"audio": "hadden"
+						},
+						{
+							"key": "schaatsen-1-1-4",
+							"text": "vrij",
+							"dutch": "vrij",
+							"sounds": [
+								"v",
+								"r",
+								"i"
+							],
+							"audio": "vrij"
+						},
+						{
+							"key": "schaatsen-1-1-5",
+							"text": "ekregen",
+							"dutch": "gekregen",
+							"sounds": [
+								"e",
+								"k",
+								"r",
+								"ee",
+								"ng"
+							],
+							"audio": "ekregen"
+						},
+						{
+							"key": "schaatsen-1-1-7",
+							"text": "schole",
+							"dutch": "school",
+							"sounds": [
+								"s",
+								"G!",
+								"o",
+								"l",
+								"e"
+							],
+							"audio": "schole"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-1-2",
+					"text": "Vemeddag waarn d’r schaatswedstrieden op de Slinge.",
+					"time": [
+						5.058695447808073,
+						7.395156960189344
+					],
+					"words": [
+						{
+							"key": "schaatsen-1-2-8",
+							"text": "vemeddag",
+							"dutch": "Vanmiddag",
+							"sounds": [
+								"f",
+								"e",
+								"m",
+								"i",
+								"d",
+								"a",
+								"G!"
+							],
+							"audio": "vemeddag"
+						},
+						{
+							"key": "schaatsen-1-2-9",
+							"text": "waarn",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "waarn"
+						},
+						{
+							"key": "schaatsen-1-2-11",
+							"text": "schaatswedstrieden",
+							"dutch": "schaatswedstrijden",
+							"sounds": [
+								"s",
+								"G!",
+								"a",
+								"t",
+								"s",
+								"w",
+								"e",
+								"s",
+								"t",
+								"r",
+								"ie",
+								"n"
+							],
+							"audio": "schaatswedstrieden"
+						},
+						{
+							"key": "schaatsen-1-2-14",
+							"text": "slinge",
+							"dutch": "Slinge",
+							"sounds": [
+								"s",
+								"l",
+								"i",
+								"ng",
+								"e"
+							],
+							"audio": "slinge"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-1-3",
+					"text": "Um twee uur zol ’t beginnen en iederene mos ziene schaatsen metnemmn.",
+					"time": [
+						7.91,
+						11.374879404518909
+					],
+					"words": [
+						{
+							"key": "schaatsen-1-3-16",
+							"text": "twee",
+							"dutch": "twee",
+							"sounds": [
+								"t",
+								"w",
+								"ee"
+							],
+							"audio": "twee"
+						},
+						{
+							"key": "schaatsen-1-3-17",
+							"text": "uur",
+							"dutch": "uur",
+							"sounds": [
+								"uu",
+								"r"
+							],
+							"audio": "uur"
+						},
+						{
+							"key": "schaatsen-1-3-18",
+							"text": "zol",
+							"dutch": "zou",
+							"sounds": [
+								"z",
+								"o",
+								"l"
+							],
+							"audio": "zol"
+						},
+						{
+							"key": "schaatsen-1-3-20",
+							"text": "beginnen",
+							"dutch": "beginnen",
+							"sounds": [
+								"b",
+								"e",
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "beginnen"
+						},
+						{
+							"key": "schaatsen-1-3-21",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-1-3-22",
+							"text": "iederene",
+							"dutch": "iedereen",
+							"sounds": [
+								"i",
+								"d",
+								"e",
+								"r",
+								"e",
+								"n",
+								"e"
+							],
+							"audio": "iederene"
+						},
+						{
+							"key": "schaatsen-1-3-23",
+							"text": "mos",
+							"dutch": "moest",
+							"sounds": [
+								"m",
+								"o",
+								"s"
+							],
+							"audio": "mos"
+						},
+						{
+							"key": "schaatsen-1-3-24",
+							"text": "ziene",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"i",
+								"n",
+								"e"
+							],
+							"audio": "ziene"
+						},
+						{
+							"key": "schaatsen-1-3-25",
+							"text": "schaatsen",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"G!",
+								"a",
+								"t",
+								"s",
+								"n"
+							],
+							"audio": "schaatsen"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-2",
+			"time": [
+				12.18,
+				22.867949874106507
+			],
+			"image": "schaatsen-2",
+			"sentences": [
+				{
+					"key": "schaatsen-2-4",
+					"text": "Op ’t ies had de dorpskroeg ’n koek en zopie kräömken neer ezet.",
+					"time": [
+						12.18,
+						16.32809398681807
+					],
+					"words": [
+						{
+							"key": "schaatsen-2-4-29",
+							"text": "ies",
+							"dutch": "ijs",
+							"sounds": [
+								"i",
+								"s"
+							],
+							"audio": "ies"
+						},
+						{
+							"key": "schaatsen-2-4-32",
+							"text": "dorpskroeg",
+							"dutch": "dorpscafé",
+							"sounds": [
+								"d",
+								"o",
+								"r",
+								"p",
+								"s",
+								"k",
+								"r",
+								"oe",
+								"G!"
+							],
+							"audio": "dorpskroeg"
+						},
+						{
+							"key": "schaatsen-2-4-34",
+							"text": "koek",
+							"dutch": "koek",
+							"sounds": [
+								"k",
+								"oe",
+								"k"
+							],
+							"audio": "koek"
+						},
+						{
+							"key": "schaatsen-2-4-35",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-2-4-38",
+							"text": "neer",
+							"dutch": "neer",
+							"sounds": [
+								"n",
+								"ee",
+								"r"
+							],
+							"audio": "neer"
+						},
+						{
+							"key": "schaatsen-2-4-39",
+							"text": "ezet",
+							"dutch": "gezet",
+							"sounds": [
+								"e",
+								"z",
+								"e",
+								"t"
+							],
+							"audio": "ezet"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-2-5",
+					"text": "Daor ko’j sjokkelademelk, arfensoep en ’n breudjen wost koopn.",
+					"time": [
+						16.96,
+						20.879447314359403
+					],
+					"words": [
+						{
+							"key": "schaatsen-2-5-40",
+							"text": "daor",
+							"dutch": "Daar",
+							"sounds": [
+								"d",
+								"oa",
+								"r"
+							],
+							"audio": "daor"
+						},
+						{
+							"key": "schaatsen-2-5-43",
+							"text": "arfensoep",
+							"dutch": "erwtensoep",
+							"sounds": [
+								"a",
+								"r",
+								"v",
+								"e",
+								"s",
+								"oe",
+								"p"
+							],
+							"audio": "arfensoep"
+						},
+						{
+							"key": "schaatsen-2-5-44",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-2-5-47",
+							"text": "wost",
+							"dutch": "worst",
+							"sounds": [
+								"w",
+								"o",
+								"s"
+							],
+							"audio": "wost"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-2-6",
+					"text": "En koffie veur de olders natuurlek.",
+					"time": [
+						21.36,
+						22.867949874106507
+					],
+					"words": [
+						{
+							"key": "schaatsen-2-6-49",
+							"text": "en",
+							"dutch": "En",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-2-6-50",
+							"text": "koffie",
+							"dutch": "koffie",
+							"sounds": [
+								"k",
+								"o",
+								"f",
+								"i"
+							],
+							"audio": "koffie"
+						},
+						{
+							"key": "schaatsen-2-6-53",
+							"text": "olders",
+							"dutch": "ouders",
+							"sounds": [
+								"o",
+								"l",
+								"d",
+								"e",
+								"r",
+								"s"
+							],
+							"audio": "olders"
+						},
+						{
+							"key": "schaatsen-2-6-54",
+							"text": "natuurlek",
+							"dutch": "natuurlijk",
+							"sounds": [
+								"n",
+								"e",
+								"t",
+								"uu",
+								"r",
+								"l",
+								"e",
+								"k"
+							],
+							"audio": "natuurlek"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-3",
+			"time": [
+				23.820727550457164,
+				28.56127332608123
+			],
+			"image": "schaatsen-3",
+			"sentences": [
+				{
+					"key": "schaatsen-3-7",
+					"text": "Ton iederene de schaatsen an had, kon de wedstried beginnen.",
+					"time": [
+						23.820727550457164,
+						26.756483920510142
+					],
+					"words": [
+						{
+							"key": "schaatsen-3-7-56",
+							"text": "iederene",
+							"dutch": "iedereen",
+							"sounds": [
+								"i",
+								"d",
+								"e",
+								"r",
+								"e",
+								"n",
+								"e"
+							],
+							"audio": "iederene"
+						},
+						{
+							"key": "schaatsen-3-7-58",
+							"text": "schaatsen",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"G!",
+								"a",
+								"t",
+								"s",
+								"n"
+							],
+							"audio": "schaatsen"
+						},
+						{
+							"key": "schaatsen-3-7-59",
+							"text": "an",
+							"dutch": "aan",
+							"sounds": [
+								"a",
+								"n"
+							],
+							"audio": "an"
+						},
+						{
+							"key": "schaatsen-3-7-61",
+							"text": "kon",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "kon"
+						},
+						{
+							"key": "schaatsen-3-7-63",
+							"text": "wedstried",
+							"dutch": "wedstrijd",
+							"sounds": [
+								"w",
+								"e",
+								"t",
+								"s",
+								"t",
+								"r",
+								"i",
+								"t"
+							],
+							"audio": "wedstried"
+						},
+						{
+							"key": "schaatsen-3-7-64",
+							"text": "beginnen",
+							"dutch": "beginnen",
+							"sounds": [
+								"b",
+								"e",
+								"G!",
+								"i",
+								"n"
+							],
+							"audio": "beginnen"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-3-8",
+					"text": "Maor d’r waarn ok afvallers.",
+					"time": [
+						27.41,
+						28.56127332608123
+					],
+					"words": [
+						{
+							"key": "schaatsen-3-8-65",
+							"text": "maor",
+							"dutch": "Maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "schaatsen-3-8-67",
+							"text": "waarn",
+							"dutch": "waren",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"n"
+							],
+							"audio": "waarn"
+						},
+						{
+							"key": "schaatsen-3-8-69",
+							"text": "afvallers",
+							"dutch": "afvallers",
+							"sounds": [
+								"a",
+								"f",
+								"a",
+								"l",
+								"e",
+								"s"
+							],
+							"audio": "afvallers"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-4",
+			"time": [
+				29.13,
+				34.32
+			],
+			"image": "schaatsen-4",
+			"sentences": [
+				{
+					"key": "schaatsen-4-9",
+					"text": "Ene van de kinder kon niet op tied remmen en knalden kats tegen de brugge.",
+					"time": [
+						29.13,
+						33.096779157104514
+					],
+					"words": [
+						{
+							"key": "schaatsen-4-9-70",
+							"text": "ene",
+							"dutch": "Eén",
+							"sounds": [
+								"ee",
+								"n",
+								"e"
+							],
+							"audio": "ene"
+						},
+						{
+							"key": "schaatsen-4-9-73",
+							"text": "kinder",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"i",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "kinder"
+						},
+						{
+							"key": "schaatsen-4-9-74",
+							"text": "kon",
+							"dutch": "kon",
+							"sounds": [
+								"k",
+								"o",
+								"n"
+							],
+							"audio": "kon"
+						},
+						{
+							"key": "schaatsen-4-9-75",
+							"text": "niet",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"i",
+								"t"
+							],
+							"audio": "niet"
+						},
+						{
+							"key": "schaatsen-4-9-77",
+							"text": "tied",
+							"dutch": "tijd",
+							"sounds": [
+								"t",
+								"i",
+								"t"
+							],
+							"audio": "tied"
+						},
+						{
+							"key": "schaatsen-4-9-78",
+							"text": "remmen",
+							"dutch": "remmen",
+							"sounds": [
+								"r",
+								"e",
+								"m"
+							],
+							"audio": "remmen"
+						},
+						{
+							"key": "schaatsen-4-9-79",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-4-9-80",
+							"text": "knalden",
+							"dutch": "knalde",
+							"sounds": [
+								"k",
+								"n",
+								"a",
+								"l",
+								"d",
+								"n"
+							],
+							"audio": "knalden"
+						},
+						{
+							"key": "schaatsen-4-9-81",
+							"text": "kats",
+							"dutch": "helemaal",
+							"sounds": [
+								"k",
+								"a",
+								"t",
+								"s"
+							],
+							"audio": "kats"
+						},
+						{
+							"key": "schaatsen-4-9-82",
+							"text": "tegen",
+							"dutch": "tegen",
+							"sounds": [
+								"t",
+								"ee",
+								"G!",
+								"n"
+							],
+							"audio": "tegen"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-4-10",
+					"text": "Wat ’n kuukn!",
+					"time": [
+						33.56,
+						34.32
+					],
+					"words": [
+						{
+							"key": "schaatsen-4-10-85",
+							"text": "wat",
+							"dutch": "Wat",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-5",
+			"time": [
+				35.16,
+				41.13765624544324
+			],
+			"image": "schaatsen-5",
+			"sentences": [
+				{
+					"key": "schaatsen-5-11",
+					"text": "’N andern werd helleg umdat zien veter knappen.",
+					"time": [
+						35.16,
+						37.407888811737976
+					],
+					"words": [
+						{
+							"key": "schaatsen-5-11-89",
+							"text": "andern",
+							"dutch": "andere",
+							"sounds": [
+								"a",
+								"n",
+								"d",
+								"e",
+								"r",
+								"n"
+							],
+							"audio": "andern"
+						},
+						{
+							"key": "schaatsen-5-11-90",
+							"text": "werd",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"e",
+								"d"
+							],
+							"audio": "werd"
+						},
+						{
+							"key": "schaatsen-5-11-91",
+							"text": "helleg",
+							"dutch": "boos",
+							"sounds": [
+								"h",
+								"e",
+								"l",
+								"e",
+								"G!"
+							],
+							"audio": "helleg"
+						},
+						{
+							"key": "schaatsen-5-11-93",
+							"text": "zien",
+							"dutch": "zijn",
+							"sounds": [
+								"s",
+								"i",
+								"n"
+							],
+							"audio": "zien"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-5-12",
+					"text": "Den gooien ziene schaatsen op de kante en dei niet meer met.",
+					"time": [
+						38.06,
+						41.13765624544324
+					],
+					"words": [
+						{
+							"key": "schaatsen-5-12-96",
+							"text": "den",
+							"dutch": "Die",
+							"sounds": [
+								"d",
+								"e",
+								"n"
+							],
+							"audio": "den"
+						},
+						{
+							"key": "schaatsen-5-12-97",
+							"text": "gooien",
+							"dutch": "gooide",
+							"sounds": [
+								"G!",
+								"oo",
+								"j",
+								"n"
+							],
+							"audio": "gooien"
+						},
+						{
+							"key": "schaatsen-5-12-98",
+							"text": "ziene",
+							"dutch": "zijn",
+							"sounds": [
+								"z",
+								"i",
+								"n",
+								"e"
+							],
+							"audio": "ziene"
+						},
+						{
+							"key": "schaatsen-5-12-99",
+							"text": "schaatsen",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"G!",
+								"a",
+								"t",
+								"s",
+								"n"
+							],
+							"audio": "schaatsen"
+						},
+						{
+							"key": "schaatsen-5-12-102",
+							"text": "kante",
+							"dutch": "wal",
+							"sounds": [
+								"k",
+								"a",
+								"n",
+								"t",
+								"e"
+							],
+							"audio": "kante"
+						},
+						{
+							"key": "schaatsen-5-12-103",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-5-12-105",
+							"text": "niet",
+							"dutch": "niet",
+							"sounds": [
+								"n",
+								"i",
+								"t"
+							],
+							"audio": "niet"
+						},
+						{
+							"key": "schaatsen-5-12-107",
+							"text": "met",
+							"dutch": "mee",
+							"sounds": [
+								"m",
+								"e",
+								"t"
+							],
+							"audio": "met"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-6",
+			"time": [
+				42.23,
+				48.808434308781635
+			],
+			"image": "schaatsen-6",
+			"sentences": [
+				{
+					"key": "schaatsen-6-13",
+					"text": "Wat van de kinder haddn krantn onder ’t hemp estokkn, um zo de pokkel warm te hollen.",
+					"time": [
+						42.23,
+						46.69031327455586
+					],
+					"words": [
+						{
+							"key": "schaatsen-6-13-108",
+							"text": "wat",
+							"dutch": "Een paar",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						},
+						{
+							"key": "schaatsen-6-13-111",
+							"text": "kinder",
+							"dutch": "kinderen",
+							"sounds": [
+								"k",
+								"i",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "kinder"
+						},
+						{
+							"key": "schaatsen-6-13-114",
+							"text": "onder",
+							"dutch": "onder",
+							"sounds": [
+								"o",
+								"n",
+								"d",
+								"e",
+								"r"
+							],
+							"audio": "onder"
+						},
+						{
+							"key": "schaatsen-6-13-116",
+							"text": "hemp",
+							"dutch": "trui",
+							"sounds": [
+								"h",
+								"e",
+								"m",
+								"p"
+							],
+							"audio": "hemp"
+						},
+						{
+							"key": "schaatsen-6-13-119",
+							"text": "zo",
+							"dutch": "zo",
+							"sounds": [
+								"z",
+								"oo"
+							],
+							"audio": "zo"
+						},
+						{
+							"key": "schaatsen-6-13-121",
+							"text": "pokkel",
+							"dutch": "lichaam",
+							"sounds": [
+								"p",
+								"o",
+								"k",
+								"l"
+							],
+							"audio": "pokkel"
+						},
+						{
+							"key": "schaatsen-6-13-122",
+							"text": "warm",
+							"dutch": "warm",
+							"sounds": [
+								"w",
+								"a",
+								"r",
+								"e",
+								"m"
+							],
+							"audio": "warm"
+						},
+						{
+							"key": "schaatsen-6-13-124",
+							"text": "hollen",
+							"dutch": "houden",
+							"sounds": [
+								"h",
+								"o",
+								"l",
+								"n"
+							],
+							"audio": "hollen"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-6-14",
+					"text": "D’r waaien ‘n kolle boezewind.",
+					"time": [
+						47.10041568930411,
+						48.808434308781635
+					],
+					"words": [
+						{
+							"key": "schaatsen-6-14-126",
+							"text": "waaien",
+							"dutch": "waaide",
+							"sounds": [
+								"w",
+								"a",
+								"j",
+								"n"
+							],
+							"audio": "waaien"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-7",
+			"time": [
+				49.75,
+				57.76102189462492
+			],
+			"image": "schaatsen-7",
+			"sentences": [
+				{
+					"key": "schaatsen-7-15",
+					"text": "Ze dejen allemaole onmundeg hun best, maor Jaap wier kampioen van de schole.",
+					"time": [
+						49.75,
+						54.186580111711415
+					],
+					"words": [
+						{
+							"key": "schaatsen-7-15-130",
+							"text": "ze",
+							"dutch": "Ze",
+							"sounds": [
+								"z",
+								"e"
+							],
+							"audio": "ze"
+						},
+						{
+							"key": "schaatsen-7-15-132",
+							"text": "allemaole",
+							"dutch": "allemaal",
+							"sounds": [
+								"a",
+								"l",
+								"e",
+								"m",
+								"oa",
+								"l",
+								"e"
+							],
+							"audio": "allemaole"
+						},
+						{
+							"key": "schaatsen-7-15-133",
+							"text": "onmundeg",
+							"dutch": "ontzettend",
+							"sounds": [
+								"o",
+								"m",
+								"oe",
+								"n",
+								"d",
+								"e",
+								"G!"
+							],
+							"audio": "onmundeg"
+						},
+						{
+							"key": "schaatsen-7-15-135",
+							"text": "best",
+							"dutch": "best",
+							"sounds": [
+								"b",
+								"e",
+								"s",
+								"t"
+							],
+							"audio": "best"
+						},
+						{
+							"key": "schaatsen-7-15-136",
+							"text": "maor",
+							"dutch": "maar",
+							"sounds": [
+								"m",
+								"o",
+								"r"
+							],
+							"audio": "maor"
+						},
+						{
+							"key": "schaatsen-7-15-137",
+							"text": "jaap",
+							"dutch": "Jaap",
+							"sounds": [
+								"j",
+								"a",
+								"p"
+							],
+							"audio": "jaap"
+						},
+						{
+							"key": "schaatsen-7-15-138",
+							"text": "wier",
+							"dutch": "werd",
+							"sounds": [
+								"w",
+								"i",
+								"r"
+							],
+							"audio": "wier"
+						},
+						{
+							"key": "schaatsen-7-15-139",
+							"text": "kampioen",
+							"dutch": "kampioen",
+							"sounds": [
+								"k",
+								"a",
+								"m",
+								"p",
+								"i",
+								"oe",
+								"n"
+							],
+							"audio": "kampioen"
+						},
+						{
+							"key": "schaatsen-7-15-142",
+							"text": "schole",
+							"dutch": "school",
+							"sounds": [
+								"s",
+								"G!",
+								"o",
+								"l",
+								"e"
+							],
+							"audio": "schole"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-7-16",
+					"text": "De priesuutrieking was in de kroeg, midden in ’t darp.",
+					"time": [
+						54.84,
+						57.76102189462492
+					],
+					"words": [
+						{
+							"key": "schaatsen-7-16-144",
+							"text": "priesuutrieking",
+							"dutch": "prijsuitreiking",
+							"sounds": [
+								"p",
+								"r",
+								"i",
+								"s",
+								"uu",
+								"t",
+								"r",
+								"ei",
+								"k",
+								"i",
+								"ng"
+							],
+							"audio": "priesuutrieking"
+						},
+						{
+							"key": "schaatsen-7-16-145",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "schaatsen-7-16-146",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "schaatsen-7-16-148",
+							"text": "kroeg",
+							"dutch": "kroeg",
+							"sounds": [
+								"k",
+								"r",
+								"oe",
+								"G!"
+							],
+							"audio": "kroeg"
+						},
+						{
+							"key": "schaatsen-7-16-149",
+							"text": "midden",
+							"dutch": "midden",
+							"sounds": [
+								"m",
+								"i",
+								"d",
+								"n"
+							],
+							"audio": "midden"
+						},
+						{
+							"key": "schaatsen-7-16-150",
+							"text": "in",
+							"dutch": "in",
+							"sounds": [
+								"i",
+								"n"
+							],
+							"audio": "in"
+						},
+						{
+							"key": "schaatsen-7-16-152",
+							"text": "darp",
+							"dutch": "dorp",
+							"sounds": [
+								"d",
+								"a",
+								"r",
+								"e",
+								"p"
+							],
+							"audio": "darp"
+						}
+					]
+				}
+			]
+		},
+		{
+			"key": "schaatsen-8",
+			"time": [
+				58.31060195789359,
+				71.12051545345832
+			],
+			"image": "schaatsen-8",
+			"sentences": [
+				{
+					"key": "schaatsen-8-17",
+					"text": "Wat was ’t jungsken greuts en blij, veural toen hij opa zag",
+					"time": [
+						58.31060195789359,
+						61.72555363523337
+					],
+					"words": [
+						{
+							"key": "schaatsen-8-17-153",
+							"text": "wat",
+							"dutch": "Wat",
+							"sounds": [
+								"w",
+								"a",
+								"t"
+							],
+							"audio": "wat"
+						},
+						{
+							"key": "schaatsen-8-17-154",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "schaatsen-8-17-158",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-8-17-159",
+							"text": "blij",
+							"dutch": "blij",
+							"sounds": [
+								"b",
+								"l",
+								"i"
+							],
+							"audio": "blij"
+						},
+						{
+							"key": "schaatsen-8-17-160",
+							"text": "veural",
+							"dutch": "vooral",
+							"sounds": [
+								"f",
+								"e",
+								"r",
+								"a",
+								"l"
+							],
+							"audio": "veural"
+						},
+						{
+							"key": "schaatsen-8-17-161",
+							"text": "toen",
+							"dutch": "toen",
+							"sounds": [
+								"t",
+								"oe",
+								"n"
+							],
+							"audio": "toen"
+						},
+						{
+							"key": "schaatsen-8-17-163",
+							"text": "opa",
+							"dutch": "opa",
+							"sounds": [
+								"oo",
+								"p",
+								"a"
+							],
+							"audio": "opa"
+						},
+						{
+							"key": "schaatsen-8-17-164",
+							"text": "zag",
+							"dutch": "zag",
+							"sounds": [
+								"z",
+								"a",
+								"G!"
+							],
+							"audio": "zag"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-8-18",
+					"text": "Den was helemaole op de bromfietse uut Durkum ekommn, dwars deur boezewind en jachsnee.",
+					"time": [
+						62.33,
+						67.67295283030964
+					],
+					"words": [
+						{
+							"key": "schaatsen-8-18-165",
+							"text": "den",
+							"dutch": "Die",
+							"sounds": [
+								"d",
+								"e",
+								"n"
+							],
+							"audio": "den"
+						},
+						{
+							"key": "schaatsen-8-18-166",
+							"text": "was",
+							"dutch": "was",
+							"sounds": [
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "was"
+						},
+						{
+							"key": "schaatsen-8-18-167",
+							"text": "helemaole",
+							"dutch": "helemaal",
+							"sounds": [
+								"h",
+								"i",
+								"l",
+								"e",
+								"m",
+								"oa",
+								"l",
+								"e"
+							],
+							"audio": "helemaole"
+						},
+						{
+							"key": "schaatsen-8-18-170",
+							"text": "bromfietse",
+							"dutch": "bromfiets",
+							"sounds": [
+								"b",
+								"r",
+								"o",
+								"m",
+								"f",
+								"i",
+								"t",
+								"s"
+							],
+							"audio": "bromfietse"
+						},
+						{
+							"key": "schaatsen-8-18-171",
+							"text": "uut",
+							"dutch": "uit",
+							"sounds": [
+								"uu",
+								"t"
+							],
+							"audio": "uut"
+						},
+						{
+							"key": "schaatsen-8-18-173",
+							"text": "ekommn",
+							"dutch": "gekomen",
+							"sounds": [
+								"e",
+								"k",
+								"o",
+								"m"
+							],
+							"audio": "ekommn"
+						},
+						{
+							"key": "schaatsen-8-18-174",
+							"text": "dwars",
+							"dutch": "dwars",
+							"sounds": [
+								"d",
+								"w",
+								"a",
+								"s"
+							],
+							"audio": "dwars"
+						},
+						{
+							"key": "schaatsen-8-18-177",
+							"text": "en",
+							"dutch": "en",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-8-18-178",
+							"text": "jachsnee",
+							"dutch": "sneeuwbuien",
+							"sounds": [
+								"j",
+								"a",
+								"G!",
+								"s",
+								"n",
+								"ee"
+							],
+							"audio": "jachsnee"
+						}
+					]
+				},
+				{
+					"key": "schaatsen-8-19",
+					"text": "En van um kreeg Jaap ok nog ’n paar nieje schaatsen.",
+					"time": [
+						68.37,
+						71.12051545345832
+					],
+					"words": [
+						{
+							"key": "schaatsen-8-19-179",
+							"text": "en",
+							"dutch": "En",
+							"sounds": [
+								"e",
+								"n"
+							],
+							"audio": "en"
+						},
+						{
+							"key": "schaatsen-8-19-182",
+							"text": "kreeg",
+							"dutch": "kreeg",
+							"sounds": [
+								"k",
+								"r",
+								"i",
+								"G!"
+							],
+							"audio": "kreeg"
+						},
+						{
+							"key": "schaatsen-8-19-183",
+							"text": "jaap",
+							"dutch": "Jaap",
+							"sounds": [
+								"j",
+								"a",
+								"p"
+							],
+							"audio": "jaap"
+						},
+						{
+							"key": "schaatsen-8-19-185",
+							"text": "nog",
+							"dutch": "nog",
+							"sounds": [
+								"n",
+								"o",
+								"G!"
+							],
+							"audio": "nog"
+						},
+						{
+							"key": "schaatsen-8-19-187",
+							"text": "paar",
+							"dutch": "paar",
+							"sounds": [
+								"p",
+								"a",
+								"r"
+							],
+							"audio": "paar"
+						},
+						{
+							"key": "schaatsen-8-19-188",
+							"text": "nieje",
+							"dutch": "nieuwe",
+							"sounds": [
+								"n",
+								"ie",
+								"e"
+							],
+							"audio": "nieje"
+						},
+						{
+							"key": "schaatsen-8-19-189",
+							"text": "schaatsen",
+							"dutch": "schaatsen",
+							"sounds": [
+								"s",
+								"G!",
+								"a",
+								"t",
+								"s",
+								"n"
+							],
+							"audio": "schaatsen"
+						}
+					]
+				}
+			]
+		}
+	]
+}

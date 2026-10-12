@@ -189,8 +189,11 @@ The palette lives in `src/app.css` as Tailwind theme tokens:
 | `--color-secondary` | `#0087d2` | Page background                      |
 | `--color-accent`    | `#0fb215` | Stars, confirmation, primary actions |
 
-These come from the original app, and so does the favicon
-(`src/lib/assets/favicon.png`, its Android launcher icon). White text on
+These come from the original app; they are the Gronings values, and
+Achterhoeks overrides the first three under `[data-palette='achterhoeks']`.
+Each language's logo is its flag: Achterhoeks uses its branch's Android
+launcher icon, and the Gronings flag is drawn in the palette above
+(`src/lib/assets/flag-gronings.svg`, rendered to `favicon-gronings.png`). White text on
 `secondary` (3.89:1) and on `accent` (2.84:1) is below the WCAG AA minimum for
 body text, which is why contrast is still open in the accessibility list.
 

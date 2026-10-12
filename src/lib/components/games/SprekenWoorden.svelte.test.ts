@@ -23,8 +23,8 @@ import { flushSync } from 'svelte';
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 
-const level: Level = sectionLevels('spreken', 'normale-woorden')[0];
-const section: Section = getSection('spreken', 'normale-woorden')!;
+const level: Level = sectionLevels('gronings', 'spreken', 'normale-woorden')[0];
+const section: Section = getSection('gronings', 'spreken', 'normale-woorden')!;
 const rules = gameRules('spreken', 'normale-woorden')!;
 
 let story: Story;
@@ -85,7 +85,7 @@ function seed(items: StoredItem[], score: number | null = null) {
 beforeAll(async () => {
 	localStorage.clear();
 	progress.load();
-	story = await loadStory(level.story);
+	story = await loadStory('gronings', level.story);
 
 	const bySpelling = new Map<string, WordInSentence>();
 	for (const candidate of storyWords(story)) {
@@ -104,7 +104,7 @@ beforeEach(() => {
 
 describe('opening a level', () => {
 	it('shows "Nederlands" and the Dutch word, with no audio player', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 
 		expect(text(container)).toContain('Nederlands');
@@ -113,13 +113,13 @@ describe('opening a level', () => {
 	});
 
 	it('shows one column per sound of the word', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		expect(columns(container)).toHaveLength(stored().target.length);
 	});
 
 	it('shows "Versturen" only once every column is chosen, and only after something changed', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		expect(button(container, 'Versturen')).toBeUndefined();
 
@@ -138,7 +138,7 @@ describe('candidate counts', () => {
 	it('offers 2, 3 or 4 candidates per column at difficulty 0, 1 and 2, target always included', async () => {
 		for (const difficulty of [0, 1, 2]) {
 			progress.resetEverything();
-			const items = soundItems([entry]).map((item) => ({ ...item, difficulty }));
+			const items = soundItems('gronings', [entry]).map((item) => ({ ...item, difficulty }));
 			seed(items);
 			const { container } = await open();
 
@@ -154,7 +154,7 @@ describe('candidate counts', () => {
 
 describe('submitting an answer', () => {
 	it('marks every column correct on a right submit and shows the feedback card', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 		fillCorrectly(container, target);
@@ -163,7 +163,7 @@ describe('submitting an answer', () => {
 		expect(text(container)).toContain('Dat klopt!');
 		expect(text(container)).toContain('De juiste uitspraak is:');
 		const titleSpans = [...container.querySelectorAll('h2 span')];
-		expect(titleSpans.some((span) => span.className.includes('fill-accent'))).toBe(true);
+		expect(titleSpans.some((span) => span.className.includes('fill-check'))).toBe(true);
 
 		// The sounds on the feedback card are tappable fields, one per sound.
 		const feedbackFields = [...container.querySelectorAll('main ol.flex.gap-2 > li button')];
@@ -173,7 +173,7 @@ describe('submitting an answer', () => {
 	});
 
 	it('marks a wrong column red and stays on the columns, not the feedback', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container } = await open();
 		const target = stored().target;
 		const wrongCandidate = (index: number, column: Element) =>
@@ -194,7 +194,7 @@ describe('submitting an answer', () => {
 
 describe('tearing down', () => {
 	it('leaves nothing playing once destroyed', async () => {
-		seed(soundItems([entry]));
+		seed(soundItems('gronings', [entry]));
 		const { container, unmount } = await open();
 		const pause = vi.spyOn(HTMLMediaElement.prototype, 'pause');
 
@@ -204,5 +204,52 @@ describe('tearing down', () => {
 		await unmount();
 		expect(pause).toHaveBeenCalled();
 		pause.mockRestore();
+	});
+});
+
+describe('in Achterhoeks', () => {
+	const achterhoeks: Level = sectionLevels('achterhoeks', 'spreken', 'normale-woorden')[0];
+	const achterhoeksSection = getSection('achterhoeks', 'spreken', 'normale-woorden')!;
+
+	/** An Achterhoeks word that uses "oa", the one sound the original has no recording of. */
+	async function wordWithOa(): Promise<WordInSentence> {
+		for (const key of [
+			achterhoeks.story,
+			...sectionLevels('achterhoeks', 'spreken', 'normale-woorden').map((l) => l.story)
+		]) {
+			const found = storyWords(await loadStory('achterhoeks', key)).find(
+				(candidate) => candidate.word.sounds.includes('oa') && candidate.word.dutch
+			);
+			if (found) return found;
+		}
+		throw new Error('No Achterhoeks word uses "oa".');
+	}
+
+	it('plays an answer with a sound that has no recording, in silence, and marks it', async () => {
+		const word = await wordWithOa();
+		progress.save(achterhoeks.id, { items: soundItems('achterhoeks', [word]), score: null });
+		const { container } = await render(SprekenWoorden, {
+			category: 'spreken',
+			section: achterhoeksSection,
+			level: achterhoeks
+		});
+		await vi.waitFor(() => expect(columns(container).length).toBeGreaterThan(0));
+
+		// Tapping "oa" and the other candidates must not throw, and nor may the
+		// playback of the whole answer after "Versturen".
+		fillCorrectly(container, word.word.sounds);
+		tap(button(container, 'Versturen')!);
+		await vi.waitFor(() => expect(text(container)).toContain('Dat klopt!'));
+		expect(progress.level(achterhoeks.id)!.items[0].responses).toEqual([word.word.sounds]);
+	});
+
+	it('goes back to the Achterhoeks category overview', async () => {
+		const { container } = await render(SprekenWoorden, {
+			category: 'spreken',
+			section: achterhoeksSection,
+			level: achterhoeks
+		});
+		const back = container.querySelector('a[aria-label="Terug naar het overzicht"]')!;
+		expect(back.getAttribute('href')).toBe('/achterhoeks/spreken');
 	});
 });

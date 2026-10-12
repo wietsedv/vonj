@@ -1,5 +1,5 @@
 /**
- * The category overview, in a browser: the section list, the level cards, their
+ * The category overview of Gronings, in a browser: the section list, the level cards, their
  * scores, and how the whole thing lays out on a small phone.
  */
 import { categoryLevels, getCategory, sectionLevels } from '$lib/content';
@@ -14,13 +14,14 @@ import { learnIcons, stars } from '../tests/icons';
 const STORY_NAMES = ['bragel', 'kopstubber', 'scheuvels', 'zoepenbrij'];
 
 const pages = {
-	luisteren: () => import('./(categories)/luisteren/+page.svelte'),
-	lezen: () => import('./(categories)/lezen/+page.svelte'),
-	schrijven: () => import('./(categories)/schrijven/+page.svelte'),
-	spreken: () => import('./(categories)/spreken/+page.svelte')
+	luisteren: () => import('./[language=language]/(categories)/luisteren/+page.svelte'),
+	lezen: () => import('./[language=language]/(categories)/lezen/+page.svelte'),
+	schrijven: () => import('./[language=language]/(categories)/schrijven/+page.svelte'),
+	spreken: () => import('./[language=language]/(categories)/spreken/+page.svelte')
 } satisfies Record<Category, () => Promise<unknown>>;
 
-const open = async (id: Category) => (await render((await pages[id]()).default)).container;
+const open = async (id: Category) =>
+	(await render((await pages[id]()).default, { data: { language: 'gronings' } })).container;
 
 const text = (element: Element) => element.textContent!.replace(/\s+/g, ' ').trim();
 const cards = (container: HTMLElement) => [...container.querySelectorAll('.grid > a')];
@@ -40,7 +41,7 @@ beforeEach(async () => {
 });
 
 describe.each(CATEGORIES)('the %s overview', (id) => {
-	const content = getCategory(id)!;
+	const content = getCategory('gronings', id)!;
 
 	it('shows the category name and description', async () => {
 		const container = await open(id);
@@ -59,9 +60,11 @@ describe.each(CATEGORIES)('the %s overview', (id) => {
 
 	it('shows one card per level, labelled Level 1 to Level 4', async () => {
 		const container = await open(id);
-		expect(cards(container)).toHaveLength(categoryLevels(id).length);
+		expect(cards(container)).toHaveLength(categoryLevels('gronings', id).length);
 		for (const section of content.sections) {
-			const labels = sectionLevels(id, section.id).map((entry) => `Level ${entry.number}`);
+			const labels = sectionLevels('gronings', id, section.id).map(
+				(entry) => `Level ${entry.number}`
+			);
 			expect(labels).toEqual(['Level 1', 'Level 2', 'Level 3', 'Level 4']);
 		}
 		for (const card of cards(container)) {
@@ -74,7 +77,7 @@ describe.each(CATEGORIES)('the %s overview', (id) => {
 		const back = container.querySelector('.bg-primary a')!;
 
 		expect(back.getAttribute('aria-label')).toBe('Terug naar het overzicht');
-		expect(back.getAttribute('href')).toBe('/');
+		expect(back.getAttribute('href')).toBe('/gronings');
 		// Round, and clear of the title rather than on top of it.
 		const box = back.getBoundingClientRect();
 		expect(box.width).toBe(box.height);
@@ -92,7 +95,7 @@ describe.each(CATEGORIES)('the %s overview', (id) => {
 	});
 
 	it('shows the score of a level that has been played', async () => {
-		const levels = categoryLevels(id);
+		const levels = categoryLevels('gronings', id);
 		progress.save(levels[0].id, level(6));
 		progress.save(levels[1].id, level(3));
 
@@ -104,7 +107,7 @@ describe.each(CATEGORIES)('the %s overview', (id) => {
 	});
 
 	it('shows a play icon on a level that was started but not finished', async () => {
-		const levels = categoryLevels(id);
+		const levels = categoryLevels('gronings', id);
 		progress.save(levels[0].id, level(null));
 		const container = await open(id);
 		expect(stars(scoreSlot(cards(container)[0]))).toBe('play');
