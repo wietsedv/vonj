@@ -12,6 +12,7 @@ import type { Language } from '$lib/types';
 import { render } from 'svelte/server';
 import { describe, expect, it } from 'vitest';
 import { load } from './[language=language]/[category=category]/[section]/[level]/+page';
+import Page from './[language=language]/[category=category]/[section]/[level]/+page.svelte';
 import { match } from '../params/category';
 import { match as matchLanguage } from '../params/language';
 
@@ -42,8 +43,6 @@ async function refused(
 const rendered = async (language: Language, category: string, section: string, level: string) => {
 	const data = { language, ...(await open(language, category, section, level)) };
 	const props = { data, params: { language, category, section, level } };
-	const { default: Page } =
-		await import('./[language=language]/[category=category]/[section]/[level]/+page.svelte');
 	return render(Page, { props });
 };
 

@@ -18,6 +18,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # WebKit runs on macOS rather than alongside the other two engines. Linux
+  # WebKit plays media through GStreamer, which on a headless runner crashes
+  # the page process at random once an <audio> starts playing - with or without
+  # a sound device - and takes the rest of the suite down with it. Safari, what
+  # the iPads in a classroom run, plays through Apple's own media stack, which
+  # is also what WebKit uses on macOS, so this is the run that tests it.
+  test-webkit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npx playwright install webkit
+      - run: npx vitest run --project "client (webkit)"
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -30,12 +50,12 @@ jobs:
 
       - run: npm ci
 
-      # The browser test project runs the suite in all three engines.
-      - run: npx playwright install --with-deps chromium firefox webkit
+      # Chromium and Firefox here; WebKit has its own job above.
+      - run: npx playwright install --with-deps chromium firefox
 
       - run: npm run check
       - run: npm run lint
-      - run: npm test
+      - run: npx vitest run --project server --project "client (chromium)" --project "client (firefox)"
 
       - name: Configure Pages
         id: pages
@@ -53,7 +73,7 @@ jobs:
           path: build
 
   deploy:
-    needs: build
+    needs: [build, test-webkit]
     runs-on: ubuntu-latest
     environment:
       name: github-pages

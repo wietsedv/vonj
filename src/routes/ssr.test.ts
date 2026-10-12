@@ -8,6 +8,13 @@
  * Every screen below the language picker is rendered once per language, with
  * that language's copy.
  */
+import Picker from './+page.svelte';
+import LanguageLayout from './[language=language]/+layout.svelte';
+import Home from './[language=language]/+page.svelte';
+import Lezen from './[language=language]/(categories)/lezen/+page.svelte';
+import Luisteren from './[language=language]/(categories)/luisteren/+page.svelte';
+import Schrijven from './[language=language]/(categories)/schrijven/+page.svelte';
+import Spreken from './[language=language]/(categories)/spreken/+page.svelte';
 import { categories, categoryLevels, getCategory, sectionLevels, storyKeys } from '$lib/content';
 import { getLanguage, languages } from '$lib/languages';
 import type { Category, Language } from '$lib/types';
@@ -22,23 +29,19 @@ const PROGRESS_COPY = /van de \d+ levels gespeeld|Alle levels gespeeld/;
 // handed in directly, so their prop types are loosened to match.
 type Page = Component<{ data: { language: Language } }>;
 
-const pages: Record<Category | 'home', () => Promise<Page>> = {
-	home: async () => (await import('./[language=language]/+page.svelte')).default as Page,
-	luisteren: async () =>
-		(await import('./[language=language]/(categories)/luisteren/+page.svelte')).default as Page,
-	lezen: async () =>
-		(await import('./[language=language]/(categories)/lezen/+page.svelte')).default as Page,
-	schrijven: async () =>
-		(await import('./[language=language]/(categories)/schrijven/+page.svelte')).default as Page,
-	spreken: async () =>
-		(await import('./[language=language]/(categories)/spreken/+page.svelte')).default as Page
-};
+const pages = {
+	home: Home,
+	luisteren: Luisteren,
+	lezen: Lezen,
+	schrijven: Schrijven,
+	spreken: Spreken
+} as Record<Category | 'home', Page>;
 
 const rendered = async (page: Category | 'home', language: Language) =>
-	render(await pages[page](), { props: { data: { language } } });
+	render(pages[page], { props: { data: { language } } });
 
 describe('the language picker', () => {
-	const picker = async () => render((await import('./+page.svelte')).default);
+	const picker = async () => render(Picker);
 
 	it('offers every language, by the name of its own app', async () => {
 		const { body } = await picker();
@@ -77,7 +80,7 @@ describe.each(languages.map(({ id }) => id))('in %s', (language) => {
 
 	describe('the language layout', () => {
 		const layout = async () =>
-			render((await import('./[language=language]/+layout.svelte')).default, {
+			render(LanguageLayout, {
 				props: {
 					data: { language },
 					children: createRawSnippet(() => ({ render: () => '<p>inhoud</p>' }))
